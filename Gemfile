@@ -85,6 +85,9 @@ group :development do
   # Use Spring. Read more: https://github.com/rails/spring
   gem 'spring', '~> 2.1.0'
   gem 'spring-watcher-listen', '~> 2.0.1'
+
+  # Guard automates various tasks by running custom rules whenever file or directories are modified.
+  gem 'guard-rspec', '~> 4.7.3'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
