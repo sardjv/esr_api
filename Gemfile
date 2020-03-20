@@ -56,6 +56,9 @@ gem 'font-awesome-rails', '~> 4.7'
 group :development, :test do
   # Call 'byebug' anywhere in your code to drop into a debugger console
   gem 'byebug', platform: :mri
+
+  # RSpec - behaviour driven development.
+  gem 'rspec-rails', '~> 4.0.0.rc1'
 end
 
 group :test do

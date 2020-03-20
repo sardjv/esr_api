@@ -6,7 +6,7 @@ RUN mkdir /app
 WORKDIR /app
 
 COPY Gemfile Gemfile.lock ./
-RUN bundle install --binstubs
+RUN bundle install
 
 COPY . .
 
