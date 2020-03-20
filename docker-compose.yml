@@ -19,21 +19,36 @@ services:
       - 'postgres'
       - 'redis'
     build: .
+    # Do bundle install (if bundle check indicates it's needed) here rather than Dockerfile
+    # so that we can cache its result in bundle_cache.
+    command: sh -c "(bundle check || bundle install) && bundle exec rails s"
     ports:
       - '3000:3000'
     volumes:
       - '.:/app'
+      # We cache the bundle so that we don't have to re-download every gem on any change to the Gemfile.
+      - box:/bundle
+    environment:
+      - BUNDLE_PATH=/bundle/vendor
     env_file:
       - '.env'
+
+  box:
+    image: busybox
+    volumes:
+      - '.:/box'
 
   sidekiq:
     depends_on:
       - 'postgres'
       - 'redis'
     build: .
-    command: sidekiq -C config/sidekiq.yml.erb
+    command: bundle exec sidekiq -C config/sidekiq.yml.erb
     volumes:
       - '.:/app'
+      - box:/bundle
+    environment:
+      - BUNDLE_PATH=/bundle/vendor
     env_file:
       - '.env'
 
@@ -50,5 +65,6 @@ services:
   #     - '.env'
 
 volumes:
+  box:
   redis:
   postgres:
