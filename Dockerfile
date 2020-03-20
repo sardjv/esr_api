@@ -5,9 +5,7 @@ RUN apk update && apk add build-base nodejs postgresql-dev
 RUN mkdir /app
 WORKDIR /app
 
-COPY Gemfile Gemfile.lock ./
-RUN bundle install
-
+ENV BUNDLE_PATH /box
 COPY . .
 
 CMD puma -C config/puma.rb
