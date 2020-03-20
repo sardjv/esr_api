@@ -57,8 +57,11 @@ group :development, :test do
   # Call 'byebug' anywhere in your code to drop into a debugger console
   gem 'byebug', platform: :mri
 
-  # RSpec - behaviour driven development.
+  # RSpec is a specification library for behaviour driven development.
   gem 'rspec-rails', '~> 4.0.0.rc1'
+
+  # Fixtures replacement with a straightforward definition syntax.
+  gem 'factory_bot'
 end
 
 group :test do
