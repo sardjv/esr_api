@@ -11,6 +11,10 @@ services:
   redis:
     image: 'redis:5.0.8-alpine'
     command: redis-server --requirepass yourpassword
+    sysctls:
+      # This removes 'WARNING: /proc/sys/net/core/somaxconn is set to the lower value of 128'
+      # Explanation of what this setting does: https://groups.google.com/d/msg/redis-db/ftmlTjEPv98/HwkJguxTCwAJ
+      net.core.somaxconn: '511'
     volumes:
       - 'redis:/data'
 
