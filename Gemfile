@@ -62,6 +62,9 @@ group :development, :test do
 
   # Fixtures replacement with a straightforward definition syntax.
   gem 'factory_bot'
+
+  # A Ruby static code analyzer and formatter, based on the community Ruby style guide.
+  gem 'rubocop', '~> 0.80.1'
 end
 
 group :test do
