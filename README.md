@@ -13,5 +13,5 @@ docker-compose run app bundle exec guard
 To access a 'byebug' debugging point, run with:
 
 ```
-docker-compose run --service-ports website
+docker-compose run --service-ports app
 ```
