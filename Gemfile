@@ -96,6 +96,9 @@ group :development do
 
   # Guard automates various tasks by running custom rules whenever file or directories are modified.
   gem 'guard-rspec', '~> 4.7.3'
+
+  # Automatically check Ruby code style with RuboCop when files are modified.
+  gem 'guard-rubocop', '~> 1.3.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
