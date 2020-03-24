@@ -63,7 +63,8 @@ group :development, :test do
   # Fixtures replacement with a straightforward definition syntax.
   gem 'factory_bot'
 
-  # A Ruby static code analyzer and formatter, based on the community Ruby style guide.
+  # A Ruby static code analyzer and formatter, based on the community Ruby style
+  # guide.
   gem 'rubocop', '~> 0.80.1'
 end
 
@@ -89,12 +90,13 @@ group :development do
   gem 'spring', '~> 2.1.0'
   gem 'spring-watcher-listen', '~> 2.0.1'
 
-  # This branch fixes an error caused by pry 0.13. When https://github.com/guard/guard/pull/955 is merged,
-  # remove this line and use guard-rspec to pull in latest guard. Can also remove git from the dockerfile
-  # once this is done.
+  # This branch fixes an error caused by pry 0.13. When https://github.com/guard/guard/pull/955
+  # is merged, remove this line and use guard-rspec to pull in latest guard. Can
+  # also remove git from the dockerfile once this is done.
   gem 'guard', '~> 2.16.1', git: 'https://github.com/caseyprovost/guard'
 
-  # Guard automates various tasks by running custom rules whenever file or directories are modified.
+  # Guard automates various tasks by running custom rules whenever file or
+  # directories are modified.
   gem 'guard-rspec', '~> 4.7.3'
 
   # Automatically check Ruby code style with RuboCop when files are modified.
