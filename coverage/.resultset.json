@@ -495,8 +495,28 @@
           1,
           null
         ]
+      },
+      "/app/spec/models/person_record_spec.rb": {
+        "lines": [
+          1,
+          2,
+          null
+        ]
+      },
+      "/app/app/models/person_record.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/app/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
       }
     },
-    "timestamp": 1585068036
+    "timestamp": 1585071786
   }
 }
