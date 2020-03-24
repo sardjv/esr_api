@@ -1,5 +1,5 @@
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.7
 
   Exclude:
     - 'db/**/*'
@@ -33,3 +33,12 @@ Style/ClassAndModuleChildren:
 
 Style/MixinUsage:
   Enabled: false
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
