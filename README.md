@@ -1,4 +1,4 @@
-# README
+# ESR_API: a Ruby on Rails API for the NHS ESR System
 
 ## ETL and Kiba
 
