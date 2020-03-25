@@ -58,7 +58,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
 
   # RSpec is a specification library for behaviour driven development.
-  gem 'rspec-rails', '~> 4.0.0.rc1'
+  gem 'rspec-rails', '~> 4.0.0'
 
   # Fixtures replacement with a straightforward definition syntax.
   gem 'factory_bot'
