@@ -53,6 +53,10 @@ gem 'font-awesome-rails', '~> 4.7'
 # Use Bootsnap to improve startup times
 # gem 'bootsnap', '>= 1.1.0', require: false
 
+# Data processing & ETL framework for Ruby.
+# https://github.com/thbar/kiba
+gem 'kiba', '~> 3.0.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in your code to drop into a debugger console
   gem 'byebug', platform: :mri
