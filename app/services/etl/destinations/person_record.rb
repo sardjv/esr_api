@@ -7,7 +7,7 @@ class ETL::Destinations::PersonRecord
 
   def write(row)
     timestamps = { 'created_at' => Time.current, 'updated_at' => Time.current }
-    @rows_for_insert << row.slice('PersonID').merge(timestamps)
+    @rows_for_insert << row.merge(timestamps)
   end
 
   def close
