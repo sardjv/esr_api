@@ -23,3 +23,6 @@
 
 # Ignore test coverage data.
 /coverage
+
+# Ignore rbenv local ruby version, since we're dockerised this doesn't matter.
+.ruby-version
