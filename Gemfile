@@ -65,7 +65,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 4.0.0'
 
   # Fixtures replacement with a straightforward definition syntax.
-  gem 'factory_bot'
+  gem 'factory_bot', '~> 5.1.2'
 
   # A Ruby static code analyzer and formatter, based on the community Ruby style
   # guide.
