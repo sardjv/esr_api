@@ -8,7 +8,12 @@ module ETL
       Kiba.parse do
         # Read the data.
         # source SomeSource, source_config...
-        source Kiba::Common::Sources::CSV, filename: filename
+        source Kiba::Common::Sources::CSV,
+               filename: filename,
+               csv_options: {
+                 headers: false,
+                 col_sep: '~'
+               }
 
         # Transform it.
         # transform SomeTransform, transform_config...
