@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   # Sidekiq dashboard.
   Sidekiq::Web.use Rack::Auth::Basic do |username, password|
-    username == ENV['SIDEKIQ_DASHBOARD_USERNAME'] && password == ENV['SIDEKIQ_DASHBOARD_PASSWORD']
+    username == ENV['SIDEKIQ_DASHBOARD_USERNAME'] &&
+      password == ENV['SIDEKIQ_DASHBOARD_PASSWORD']
   end
   mount Sidekiq::Web => '/sidekiq'
 end

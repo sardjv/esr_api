@@ -1,5 +1,6 @@
-describe ImportJob, type: :job do
-  subject(:job) { ImportJob.perform_later(filename: file_fixture('person_record.dsv').to_path) }
+describe DailyImportJob, type: :job do
+  let(:filename) { file_fixture('person_record.dsv').to_path }
+  subject(:job) { DailyImportJob.perform_later(filename: filename) }
 
   it 'queues the job' do
     expect { job }

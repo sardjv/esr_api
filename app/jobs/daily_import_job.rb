@@ -1,4 +1,4 @@
-class ImportJob < ApplicationJob
+class DailyImportJob < ApplicationJob
   queue_as :default
 
   def perform(filename:)
