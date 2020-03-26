@@ -33,9 +33,11 @@ services:
       - 'postgres'
       - 'redis'
     build: .
-    # Do bundle install (if bundle check indicates it's needed) here rather than Dockerfile
-    # so that we can cache its result in bundle_cache.
-    command: sh -c "(bundle check || bundle install) && bundle exec rails s"
+    # 1) Remove any existing server process in case of dirty shutdown, with -f in case the file doesn't exist.
+    # 2) if `bundle check` indicates it's needed, `bundle install` here rather than in Dockerfile,
+    #    so that we can cache its result in the bundle_cache container.
+    # 3) Start server.
+    command: sh -c "rm -f /app/tmp/pids/server.pid && (bundle check || bundle install) && bundle exec rails s"
     ports:
       - '3000:3000'
     volumes:
