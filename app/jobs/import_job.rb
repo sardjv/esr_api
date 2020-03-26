@@ -1,8 +1,8 @@
-module ETL::ImportJob
-  module_function
+class ImportJob < ApplicationJob
+  queue_as :default
 
-  def setup(filename:)
-    Kiba.parse do
+  def perform(filename:)
+    job = Kiba.parse do
       # Read the data.
       source ETL::Sources::TildeSeparatedValues, filename: filename
 
@@ -12,5 +12,7 @@ module ETL::ImportJob
       # Write it to the destination.
       destination ETL::Destinations::PersonRecord
     end
+
+    Kiba.run(job)
   end
 end
