@@ -5,5 +5,6 @@ describe ETL::ImportJob do
     )
     Kiba.run(job)
     expect(PersonRecord.count).to eq(1)
+    expect(PersonRecord.first.PersonID).to eq('481801')
   end
 end
