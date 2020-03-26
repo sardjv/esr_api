@@ -1,32 +1,20 @@
+require 'kiba-common/sources/csv'
+
 module ETL
   module ImportJob
     module_function
 
-    def setup(config)
+    def setup(filename:)
       Kiba.parse do
-        # # called only once per run
-        # pre_process do
-        #   ...
-        # end
-
-        # # responsible for reading the data
+        # Read the data.
         # source SomeSource, source_config...
+        source Kiba::Common::Sources::CSV, filename: filename
 
-        # # then transforming it
+        # Transform it.
         # transform SomeTransform, transform_config...
-        # transform SomeOtherTransform, transform_config...
 
-        # # alternate block form
-        # transform do |row|
-        #   # return row, modified
-        # end
-
+        # Write it to the destination.
         # destination SomeDestination, destination_config...
-
-        # # a final block which will be called only if the pipeline succeeded
-        # post_process do
-        #   ...
-        # end
       end
     end
   end

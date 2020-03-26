@@ -57,6 +57,10 @@ gem 'font-awesome-rails', '~> 4.7'
 # https://github.com/thbar/kiba
 gem 'kiba', '~> 3.0.0'
 
+# Kiba companion gem for commonly-used helpers.
+# https://github.com/thbar/kiba-common
+gem 'kiba-common', '~> 1.0.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in your code to drop into a debugger console
   gem 'byebug', platform: :mri
