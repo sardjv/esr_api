@@ -1,5 +1,11 @@
 # ESR_API: a Ruby on Rails API for the NHS ESR System
 
+To get started, you need Docker on your machine. Clone the project and run:
+
+```
+docker-compose up
+```
+
 ## ETL and Kiba
 
 This project uses the [Kiba](https://github.com/thbar/kiba) gem for scalable and maintainable data processing.
