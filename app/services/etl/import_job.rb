@@ -7,7 +7,6 @@ module ETL
     def setup(filename:)
       Kiba.parse do
         # Read the data.
-        # source SomeSource, source_config...
         source Kiba::Common::Sources::CSV,
                filename: filename,
                csv_options: {
