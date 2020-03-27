@@ -13,7 +13,7 @@ This project uses the [Kiba](https://github.com/thbar/kiba) gem for scalable and
 [This talk](https://www.youtube.com/watch?v=fxVtbog7pIQ) contains a short, clear explanation of how Kiba works.
 
 ### Tips
-- Don't insert rows one by one - use bulk insert with [Sequel](https://github.com/jeremyevans/sequel).
+- Don't insert rows one by one - use bulk insert.
 - Skip activerecord validations because they are too slow, find other ways to validate data.
 - Fail fast; raise an exception and stop on failure rather than trying to carry on and creating bad data.
 
