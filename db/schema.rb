@@ -12,10 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_03_24_173833) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "person_records", force: :cascade do |t|
+  create_table "person_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "PersonID"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
