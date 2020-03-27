@@ -61,6 +61,9 @@ gem 'kiba', '~> 3.0.0'
 # https://github.com/thbar/kiba-common
 gem 'kiba-common', '~> 1.0.0'
 
+# Generate Swagger docs from RSpec tests.
+gem 'rswag', '~> 2.2.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in your code to drop into a debugger console
   gem 'byebug', platform: :mri
