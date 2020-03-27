@@ -17,8 +17,9 @@ gem 'rack-timeout', '~> 0.6'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.10'
 
-# Use PostgreSQL as the database for Active Record
-gem 'pg', '~> 1.2.3'
+# Use MySQL as the database for Active Record.
+# https://github.com/brianmario/mysql2
+gem 'mysql2', '~> 0.5.3'
 
 # Use Redis Rails to set up a Redis backed Cache and / or Session
 gem 'redis', '~> 4.1.3'

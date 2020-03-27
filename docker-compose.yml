@@ -1,12 +1,15 @@
 version: '3.7'
 
 services:
-  postgres:
-    image: 'postgres:12.2-alpine'
+  mysql:
+    image: 'mysql:5.7.29'
+    restart: always
     volumes:
-      - 'postgres:/var/lib/postgresql/data'
+      - 'mysql:/var/lib/mysql'
     env_file:
       - '.env'
+    ports:
+      - "3307:3306"
 
   redis:
     image: 'redis:5.0.8-alpine'
@@ -30,7 +33,7 @@ services:
 
   app:
     depends_on:
-      - 'postgres'
+      - 'mysql'
       - 'redis'
     build: .
     # 1) Remove any existing server process in case of dirty shutdown, with -f in case the file doesn't exist.
@@ -57,7 +60,7 @@ services:
 
   sidekiq:
     depends_on:
-      - 'postgres'
+      - 'mysql'
       - 'redis'
     build: .
     command: bundle exec sidekiq -C config/sidekiq.yml.erb
@@ -84,4 +87,4 @@ services:
 volumes:
   bundle_cache:
   redis:
-  postgres:
+  mysql:
