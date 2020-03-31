@@ -31,7 +31,7 @@ services:
     command: sh -c "echo never > /sys/kernel/mm/transparent_hugepage/enabled"
     privileged: true
 
-  app:
+  api:
     depends_on:
       - 'mysql'
       - 'redis'
