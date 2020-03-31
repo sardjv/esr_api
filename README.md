@@ -6,6 +6,16 @@ To get started, you need Docker on your machine. Clone the project and run:
 docker-compose up
 ```
 
+## Documentation
+
+The API documentation can be viewed at [/api_docs](http://localhost:3000/api_docs).
+
+The Swagger docs are generated from the RSpec tests in `spec/controllers/api` To rebuild the swagger docs:
+
+```
+docker-compose run api bundle exec rails rswag
+```
+
 ## ETL and Kiba
 
 This project uses the [Kiba](https://github.com/thbar/kiba) gem for scalable and maintainable data processing.
