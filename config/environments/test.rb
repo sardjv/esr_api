@@ -47,4 +47,7 @@ Rails.application.configure do
 
   # Show less verbose log output than in development
   config.log_level = :warn
+
+  # Generate docs in the test environment.
+  config.swagger_dry_run = false
 end
