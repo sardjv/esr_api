@@ -1,6 +1,6 @@
 require 'swagger_helper'
 
-describe Api::V1::PersonRecordResource, type: :request, swagger_doc: 'v1/swagger.json' do
+describe 'Api::V1::PersonRecordResource', type: :request, swagger_doc: 'v1/swagger.json' do
   let(:person_record) { create(:person_record) }
   let(:response_data) { JSON.parse(response.body)['data'] }
 
@@ -17,8 +17,8 @@ describe Api::V1::PersonRecordResource, type: :request, swagger_doc: 'v1/swagger
         # let('X-API-TOKEN') { normal_user.authentication_token }
         # let('X-API-EMAIL') { normal_user.email }
 
-        response '200', 'OK: Showing person record' do
-          schema '$ref' => '#/definitions/person_record_response'
+        response '200', 'successful' do
+          # schema '$ref' => '#/definitions/person_record_response'
 
           describe 'attributes match database values' do
             run_test! do
