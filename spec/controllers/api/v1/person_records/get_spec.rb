@@ -28,7 +28,6 @@ describe Api::V1::PersonRecordResource, type: :request, swagger_doc: 'v1/swagger
             end
           end
         end
-
       end
     end
   end
