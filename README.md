@@ -8,6 +8,14 @@ docker-compose up
 
 It can then be accessed at [http://localhost:4000/](http://localhost:4000/)
 
+On the first run you need to create and migrate the database:
+
+```
+docker-compose run api bundle exec rails db:create
+docker-compose run api bundle exec rails db:migrate RAILS_ENV=development
+docker-compose run api bundle exec rails db:migrate RAILS_ENV=test
+```
+
 ## Documentation
 
 The API documentation can be viewed at [/api_docs](http://localhost:4000/api_docs).
@@ -53,4 +61,17 @@ To access a 'byebug' debugging point, run with:
 
 ```
 docker-compose run --service-ports app
+```
+
+## Database
+
+To access the database console:
+
+```
+docker-compose exec mysql bash
+mysql -u root -p
+(enter root password)
+show databases;
+use esr_api_development;
+SELECT * FROM person_records;
 ```
