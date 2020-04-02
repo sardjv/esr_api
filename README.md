@@ -6,9 +6,11 @@ To get started, you need Docker on your machine. Clone the project and run:
 docker-compose up
 ```
 
+It can then be accessed at [http://localhost:4000/](http://localhost:4000/)
+
 ## Documentation
 
-The API documentation can be viewed at [/api_docs](http://localhost:3000/api_docs).
+The API documentation can be viewed at [/api_docs](http://localhost:4000/api_docs).
 
 The Swagger docs are generated from the RSpec tests in `spec/controllers/api` To rebuild the swagger docs:
 
