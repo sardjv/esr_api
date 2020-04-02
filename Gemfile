@@ -91,6 +91,11 @@ group :test do
   # gem 'chromedriver-helper'
 
   gem 'simplecov', '~> 0.18.5'
+
+  # Strategies for cleaning databases in Ruby. Can be used to ensure a clean state for testing.
+  # https://github.com/DatabaseCleaner/database_cleaner
+  gem 'database_cleaner-active_record', '~> 1.8.0'
+  gem 'database_cleaner-redis', '~> 1.8.0'
 end
 
 group :development do
