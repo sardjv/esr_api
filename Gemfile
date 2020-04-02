@@ -68,6 +68,9 @@ gem 'rswag', '~> 2.2.0'
 # A resource-focused Rails library for developing JSON:API compliant servers.
 gem 'jsonapi-resources', '~> 0.10.2'
 
+# Rack Middleware to bypass Cross-Origin Resource Sharing (CORS) protection for trusted endpoints.
+gem 'rack-cors', '~> 1.1.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in your code to drop into a debugger console
   gem 'byebug', platform: :mri

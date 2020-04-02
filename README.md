@@ -34,7 +34,7 @@ This project uses the [Kiba](https://github.com/thbar/kiba) gem for scalable and
 To run Rubocop, and listen for file changes:
 
 ```
-docker-compose run app bundle exec guard
+docker-compose run api bundle exec guard
 ```
 
 Just press enter to run the whole test suite straight away.
