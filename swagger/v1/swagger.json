@@ -25,7 +25,43 @@
         ],
         "responses": {
           "200": {
-            "description": "successful"
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/person_record_response"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/person_records": {
+      "get": {
+        "summary": "person records",
+        "tags": [
+          "PersonRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/person_records_response"
+            }
           }
         }
       }
