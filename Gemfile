@@ -83,7 +83,7 @@ group :development, :test do
 
   # A Ruby static code analyzer and formatter, based on the community Ruby style
   # guide.
-  gem 'rubocop-rails', '~> 2.5.0'
+  gem 'rubocop-rails', '~> 2.5.1'
 end
 
 group :test do
