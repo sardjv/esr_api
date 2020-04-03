@@ -63,7 +63,7 @@ services:
       - 'mysql'
       - 'redis'
     build: .
-    command: bundle exec sidekiq -C config/sidekiq.yml.erb
+    command: sh -c "(bundle check || bundle install) && bundle exec sidekiq -C config/sidekiq.yml.erb"
     volumes:
       - '.:/app'
       - bundle_cache:/bundle
