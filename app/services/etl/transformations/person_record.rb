@@ -1,6 +1,6 @@
 class ETL::Transformations::PersonRecord
   def process(row)
-    Hash[PersonRecord::HEADERS.zip(row)].slice('PersonID')
+    Hash[PersonRecord::HEADERS.zip(row)].slice(*PersonRecord::HEADERS)
   end
 
   PersonRecord::HEADERS = [
