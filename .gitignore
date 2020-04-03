@@ -19,7 +19,6 @@
 
 /vendor/bundle
 /public/assets/*
-.env
 
 # Ignore test coverage data.
 /coverage
