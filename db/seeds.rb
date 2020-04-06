@@ -1,9 +1,2 @@
-# This file should contain all the record creation needed to seed the database
-# with its default values.
-# The data can then be loaded with the rails db:seed command
-# (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'LoTR' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# Import some test data for demonstration purposes.
+DailyImportJob.perform_later(filename: 'spec/fixtures/files/person_record.dsv')
