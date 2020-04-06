@@ -63,7 +63,7 @@ gem 'kiba', '~> 3.0.0'
 gem 'kiba-common', '~> 1.0.0'
 
 # Generate Swagger docs from RSpec tests.
-gem 'rswag', '~> 2.2.0'
+gem 'rswag', '~> 2.3.0'
 
 # A resource-focused Rails library for developing JSON:API compliant servers.
 gem 'jsonapi-resources', '~> 0.10.2'
