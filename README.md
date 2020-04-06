@@ -16,6 +16,12 @@ docker-compose run api bundle exec rails db:migrate RAILS_ENV=development
 docker-compose run api bundle exec rails db:migrate RAILS_ENV=test
 ```
 
+To generate seed data for demonstration purposes:
+
+```
+docker-compose run api bundle exec rails db:seed
+```
+
 ## Documentation
 
 The API documentation can be viewed at [/api_docs](http://localhost:4000/api_docs).

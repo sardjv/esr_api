@@ -1,9 +1,10 @@
 class ETL::Transformations::PersonRecord
   def process(row)
-    Hash[PersonRecord::HEADERS.zip(row)].slice('PersonID')
+    Hash[ETL::Transformations::PersonRecord::HEADERS.zip(row)]
   end
+end
 
-  PersonRecord::HEADERS = [
+ETL::Transformations::PersonRecord::HEADERS = [
     'Record Type',
     'PersonID',
     'Effective StartDate',
@@ -41,4 +42,3 @@ class ETL::Transformations::PersonRecord
     'Disability Flag',
     'Ins_Upd_TimeStamp'
   ].freeze
-end

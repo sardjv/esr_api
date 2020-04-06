@@ -11,6 +11,6 @@ class ETL::Destinations::PersonRecord
   end
 
   def close
-    PersonRecord.insert_all!(@rows_for_insert)
+    ::PersonRecord.insert_all!(@rows_for_insert)
   end
 end
