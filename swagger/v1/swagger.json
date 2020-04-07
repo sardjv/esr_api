@@ -33,6 +33,66 @@
         }
       }
     },
+    "/api/v1/absence_records": {
+      "get": {
+        "summary": "absence records",
+        "tags": [
+          "AbsenceRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "type": "string",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/absence_records_response"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/person_records/{id}": {
+      "get": {
+        "summary": "person record",
+        "tags": [
+          "PersonRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/person_record_response"
+            }
+          }
+        }
+      }
+    },
     "/api/v1/person_records": {
       "get": {
         "summary": "person records",
@@ -61,33 +121,6 @@
             "description": "successful",
             "schema": {
               "$ref": "#/definitions/person_records_response"
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/person_records/{id}": {
-      "get": {
-        "summary": "person record",
-        "tags": [
-          "PersonRecord"
-        ],
-        "produces": [
-          "application/vnd.api+json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful",
-            "schema": {
-              "$ref": "#/definitions/person_record_response"
             }
           }
         }
