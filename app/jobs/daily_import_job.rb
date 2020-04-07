@@ -6,8 +6,11 @@ class DailyImportJob < ApplicationJob
       # Read the data.
       source ETL::Sources::TildeSeparatedValues, filename: filename
 
-      # Transform it as needed.
-      transform ETL::Transformations::PersonRecord
+      # Transform rows to hashes with headers.
+      transform ETL::Transformations::AddHeaders
+
+      # Convert strings to dates.
+      transform ETL::Transformations::StringToDate
 
       # Write it to the destination.
       destination ETL::Destinations::PersonRecord
