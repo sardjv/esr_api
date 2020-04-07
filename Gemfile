@@ -25,7 +25,7 @@ gem 'mysql2', '~> 0.5.3'
 gem 'redis', '~> 4.1.3'
 
 # Use Sidekiq as a background job processor through Active Job
-gem 'sidekiq', '~> 6.0.5'
+gem 'sidekiq', '~> 6.0.6'
 
 # Use Clockwork for recurring background tasks without needing cron
 # gem 'clockwork', '~> 2.0'
