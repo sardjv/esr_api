@@ -54,4 +54,10 @@ class ETL::Headers::PersonRecord
       'Last UpdateDate'
     ].freeze
   end
+
+  def self.timestamp_headers
+    [
+      'Ins_Upd_TimeStamp'
+    ].freeze
+  end
 end

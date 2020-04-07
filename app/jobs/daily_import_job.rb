@@ -13,7 +13,7 @@ class DailyImportJob < ApplicationJob
       transform ETL::Transformations::StringToDate
 
       # Write it to the destination.
-      destination ETL::Destinations::PersonRecord
+      destination ETL::Destinations::ActiveRecord
     end
 
     Kiba.run(job)
