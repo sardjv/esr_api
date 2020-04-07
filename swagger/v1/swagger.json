@@ -73,143 +73,178 @@
       "properties": {
         "Record Type": {
           "type": "string",
-          "example": "PRA"
+          "example": "PRA",
+          "x-nullable": true
         },
         "PersonID": {
           "type": "string",
-          "example": "481801"
+          "example": "481801",
+          "x-nullable": true
         },
         "Effective StartDate": {
-          "type": "string",
-          "example": "20170501"
+          "type": "date",
+          "example": "20170501",
+          "x-nullable": true
         },
         "Effective EndDate": {
-          "type": "string",
-          "example": null
+          "type": "date",
+          "example": null,
+          "x-nullable": true
         },
         "Employee Number": {
           "type": "string",
-          "example": "10259801"
+          "example": "10259801",
+          "x-nullable": true
         },
         "Title": {
           "type": "string",
-          "example": "Mr."
+          "example": "Mr.",
+          "x-nullable": true
         },
         "LastName": {
           "type": "string",
-          "example": "sname"
+          "example": "sname",
+          "x-nullable": true
         },
         "FirstName": {
           "type": "string",
-          "example": "fname"
+          "example": "fname",
+          "x-nullable": true
         },
         "MiddleNames": {
           "type": "string",
-          "example": "fname"
+          "example": "fname",
+          "x-nullable": true
         },
         "MaidenName": {
           "type": "string",
-          "example": "sname"
+          "example": "sname",
+          "x-nullable": true
         },
         "Previous LastName": {
           "type": "string",
-          "example": "sname"
+          "example": "sname",
+          "x-nullable": true
         },
         "Gender": {
           "type": "string",
-          "example": "Female"
+          "example": "Female",
+          "x-nullable": true
         },
         "Date of Birth": {
-          "type": "string",
-          "example": "19860801"
+          "type": "date",
+          "example": "19860801",
+          "x-nullable": true
         },
         "NationalInsurance Number": {
           "type": "string",
-          "example": "AB012201B"
+          "example": "AB012201B",
+          "x-nullable": true
         },
         "NHS UniqueID": {
           "type": "string",
-          "example": "289601"
+          "example": "289601",
+          "x-nullable": true
         },
         "HireDate": {
-          "type": "string",
-          "example": "20040601"
+          "type": "date",
+          "example": "20040601",
+          "x-nullable": true
         },
         "ActualTermination Date": {
-          "type": "string",
-          "example": null
+          "type": "date",
+          "example": null,
+          "x-nullable": true
         },
         "Termination Reason": {
           "type": "string",
-          "example": null
+          "example": null,
+          "x-nullable": true
         },
         "Employee StatusFlag": {
           "type": "string",
-          "example": "E"
+          "example": "E",
+          "x-nullable": true
         },
         "WTR Opt Out": {
           "type": "string",
-          "example": null
+          "example": null,
+          "x-nullable": true
         },
         "WTR Opt Out Date": {
-          "type": "string",
-          "example": null
+          "type": "date",
+          "example": null,
+          "x-nullable": true
         },
         "Ethnic Origin": {
           "type": "string",
-          "example": "British"
+          "example": "British",
+          "x-nullable": true
         },
         "Country of Birth": {
           "type": "string",
-          "example": "United Kingdom"
+          "example": "United Kingdom",
+          "x-nullable": true
         },
         "Previous Employer": {
           "type": "string",
-          "example": "OXLEAS NHS TRUST"
+          "example": "OXLEAS NHS TRUST",
+          "x-nullable": true
         },
         "Previous EmployerType": {
           "type": "string",
-          "example": "Unknown"
+          "example": "Unknown",
+          "x-nullable": true
         },
         "CSD 3 Months": {
-          "type": "string",
-          "example": "20030701"
+          "type": "date",
+          "example": "20030701",
+          "x-nullable": true
         },
         "CSD 12 Months": {
-          "type": "string",
-          "example": "20040401"
+          "type": "date",
+          "example": "20040401",
+          "x-nullable": true
         },
         "NHS CRS UUID": {
           "type": "string",
-          "example": null
+          "example": null,
+          "x-nullable": true
         },
         "System Person Type": {
           "type": "string",
-          "example": "EMP"
+          "example": "EMP",
+          "x-nullable": true
         },
         "User Person Type": {
           "type": "string",
-          "example": "Employee.Ex-Applicant"
+          "example": "Employee.Ex-Applicant",
+          "x-nullable": true
         },
         "Office e-mail address": {
           "type": "string",
-          "example": "john.smith@example.com"
+          "example": "john.smith@example.com",
+          "x-nullable": true
         },
         "NHS StartDate": {
-          "type": "string",
-          "example": "20030701"
+          "type": "date",
+          "example": "20030701",
+          "x-nullable": true
         },
         "Last UpdateDate": {
-          "type": "string",
-          "example": "20170501"
+          "type": "date",
+          "example": "20170501",
+          "x-nullable": true
         },
         "Disability Flag": {
           "type": "string",
-          "example": "N"
+          "example": "N",
+          "x-nullable": true
         },
         "Ins_Upd_TimeStamp": {
           "type": "string",
-          "example": null
+          "example": null,
+          "x-nullable": true
         }
       }
     },
@@ -257,7 +292,7 @@
             },
             "next": {
               "type": "string",
-              "example": "https://esr.sardjv.co.uk/api/v1/person_records?page=3&per_page=5"
+              "example": "https://esr.sardjv.co.uk/api/v1/person_records?page=2&per_page=5"
             },
             "last": {
               "type": "string",

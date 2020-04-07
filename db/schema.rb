@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_03_160333) do
+ActiveRecord::Schema.define(version: 2020_04_07_111233) do
 
   create_table "person_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "PersonID"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "Record Type"
-    t.string "Effective StartDate"
-    t.string "Effective EndDate"
+    t.date "Effective StartDate"
+    t.date "Effective EndDate"
     t.string "Employee Number"
     t.string "Title"
     t.string "LastName"
@@ -28,29 +28,29 @@ ActiveRecord::Schema.define(version: 2020_04_03_160333) do
     t.string "PreferredName"
     t.string "Previous LastName"
     t.string "Gender"
-    t.string "Date of Birth"
+    t.date "Date of Birth"
     t.string "NationalInsurance Number"
     t.string "NHS UniqueID"
-    t.string "HireDate"
-    t.string "ActualTermination Date"
+    t.date "HireDate"
+    t.date "ActualTermination Date"
     t.string "Termination Reason"
     t.string "Employee StatusFlag"
     t.string "WTR Opt Out"
-    t.string "WTR Opt Out Date"
+    t.date "WTR Opt Out Date"
     t.string "Ethnic Origin"
     t.string "Country of Birth"
     t.string "Previous Employer"
     t.string "Previous EmployerType"
-    t.string "CSD 3 Months"
-    t.string "CSD 12 Months"
+    t.date "CSD 3 Months"
+    t.date "CSD 12 Months"
     t.string "NHS CRS UUID"
     t.string "System Person Type"
     t.string "User Person Type"
     t.string "Office e-mail address"
-    t.string "NHS StartDate"
-    t.string "Last UpdateDate"
+    t.date "NHS StartDate"
+    t.date "Last UpdateDate"
     t.string "Disability Flag"
-    t.string "Ins_Upd_TimeStamp"
+    t.timestamp "Ins_Upd_TimeStamp"
   end
 
 end
