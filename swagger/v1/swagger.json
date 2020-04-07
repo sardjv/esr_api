@@ -78,22 +78,22 @@
         },
         "PersonID": {
           "type": "string",
-          "example": "481801",
+          "example": "A48180",
           "x-nullable": true
         },
         "Effective StartDate": {
           "type": "date",
-          "example": "20170501",
+          "example": "2017-05-01",
           "x-nullable": true
         },
         "Effective EndDate": {
           "type": "date",
-          "example": null,
+          "example": "2020-05-01",
           "x-nullable": true
         },
         "Employee Number": {
           "type": "string",
-          "example": "10259801",
+          "example": "102598012",
           "x-nullable": true
         },
         "Title": {
@@ -133,7 +133,7 @@
         },
         "Date of Birth": {
           "type": "date",
-          "example": "19860801",
+          "example": "1986-08-01",
           "x-nullable": true
         },
         "NationalInsurance Number": {
@@ -148,12 +148,12 @@
         },
         "HireDate": {
           "type": "date",
-          "example": "20040601",
+          "example": "2004-06-01",
           "x-nullable": true
         },
         "ActualTermination Date": {
           "type": "date",
-          "example": null,
+          "example": "2020-05-01",
           "x-nullable": true
         },
         "Termination Reason": {
@@ -173,7 +173,7 @@
         },
         "WTR Opt Out Date": {
           "type": "date",
-          "example": null,
+          "example": "2020-05-01",
           "x-nullable": true
         },
         "Ethnic Origin": {
@@ -198,12 +198,12 @@
         },
         "CSD 3 Months": {
           "type": "date",
-          "example": "20030701",
+          "example": "2003-07-01",
           "x-nullable": true
         },
         "CSD 12 Months": {
           "type": "date",
-          "example": "20040401",
+          "example": "2004-04-01",
           "x-nullable": true
         },
         "NHS CRS UUID": {
@@ -228,12 +228,12 @@
         },
         "NHS StartDate": {
           "type": "date",
-          "example": "20030701",
+          "example": "2003-07-01",
           "x-nullable": true
         },
         "Last UpdateDate": {
           "type": "date",
-          "example": "20170501",
+          "example": "2017-05-01",
           "x-nullable": true
         },
         "Disability Flag": {
