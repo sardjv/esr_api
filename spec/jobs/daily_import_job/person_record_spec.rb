@@ -22,10 +22,10 @@ end
 
 PersonRecord::EXPECTATIONS = {
   'Record Type' => 'PRA',
-  'PersonID' => '481801',
+  'PersonID' => 'A48180',
   'Effective StartDate' => Date.new(2017, 5, 1),
   'Effective EndDate' => nil,
-  'Employee Number' => '10259801',
+  'Employee Number' => '102598012',
   'Title' => 'Mr.',
   'LastName' => 'sname',
   'FirstName' => 'fname',
