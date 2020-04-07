@@ -22,6 +22,19 @@ To generate seed data for demonstration purposes:
 docker-compose run api bundle exec rails db:seed
 ```
 
+## Deployment without Docker
+
+If you can run [Docker](https://en.wikipedia.org/wiki/Docker_(software)), that is the quickest way to get started. If Docker install is not possible, the Dockerfile, docker-compose.yml and Gemfile files included in the repository can be used as a guide for dependencies.
+
+Core dependencies:
+
+- Ruby 2.7 [https://github.com/ruby/ruby](https://github.com/ruby/ruby)
+- Rails 6.0.2.1 [https://github.com/rails/rails](https://github.com/rails/rails)
+- Redis 5.0.8 [https://redis.io/](https://redis.io/)
+- Sidekiq 6.0.6 [https://github.com/mperham/sidekiq](https://github.com/mperham/sidekiq)
+- MySQL 8.0.19 is the current database, but adaptors can potentially be added for other databases.
+- Multiple supporting gems as listed in the Gemfile, Bundler (included in Ruby) should take care of installing these.
+
 ## Documentation
 
 The API documentation can be viewed at [/api_docs](http://localhost:4000/api_docs).
