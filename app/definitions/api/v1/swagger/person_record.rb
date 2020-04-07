@@ -38,7 +38,7 @@ class Api::V1::Swagger::PersonRecord
           'NHS StartDate' => { type: 'date', example: '2003-07-01', 'x-nullable': true },
           'Last UpdateDate' => { type: 'date', example: '2017-05-01', 'x-nullable': true },
           'Disability Flag' => { type: 'string', example: 'N', 'x-nullable': true },
-          'Ins_Upd_TimeStamp' => { type: 'string', example: nil, 'x-nullable': true }
+          'Ins_Upd_TimeStamp' => { type: 'string', example: '2020-04-07T14:53:54.000Z', 'x-nullable': true }
         }
       },
       person_records_response: {

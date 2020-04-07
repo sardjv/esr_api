@@ -243,7 +243,7 @@
         },
         "Ins_Upd_TimeStamp": {
           "type": "string",
-          "example": null,
+          "example": "2020-04-07T14:53:54.000Z",
           "x-nullable": true
         }
       }

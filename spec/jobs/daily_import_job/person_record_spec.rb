@@ -55,5 +55,5 @@ PersonRecord::EXPECTATIONS = {
   'NHS StartDate' => Date.new(2003, 7, 1),
   'Last UpdateDate' => Date.new(2017, 5, 1),
   'Disability Flag' => 'N',
-  'Ins_Upd_TimeStamp' => nil
+  'Ins_Upd_TimeStamp' => Time.new(2020, 4, 7, 14, 53, 54)
 }.freeze
