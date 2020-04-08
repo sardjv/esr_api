@@ -1,5 +1,4 @@
 class ETL::Headers::AbsenceRecord
-
   def self.all
     [
       'Record Type',

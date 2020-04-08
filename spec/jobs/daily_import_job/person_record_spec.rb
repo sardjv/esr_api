@@ -14,46 +14,8 @@ describe DailyImportJob, type: :job do
     pr = PersonRecord.first
 
     # Expect values in the database to match input from person_record.dsv.
-    PersonRecord::EXPECTATIONS.each do |key, value|
+    ImportExpectations.person_record.each do |key, value|
       expect(pr.send(key)).to eq(value)
     end
   end
 end
-
-PersonRecord::EXPECTATIONS = {
-  'Record Type' => 'PRA',
-  'PersonID' => 'A48180',
-  'Effective StartDate' => Date.new(2017, 5, 1),
-  'Effective EndDate' => Date.new(2020, 5, 1),
-  'Employee Number' => '102598012',
-  'Title' => 'Mr.',
-  'LastName' => 'sname',
-  'FirstName' => 'fname',
-  'MiddleNames' => 'fname',
-  'MaidenName' => 'sname',
-  'Previous LastName' => 'sname',
-  'Gender' => 'Female',
-  'Date of Birth' => Date.new(1986, 8, 1),
-  'NationalInsurance Number' => 'AB012201B',
-  'NHS UniqueID' => '289601',
-  'HireDate' => Date.new(2004, 6, 1),
-  'ActualTermination Date' => Date.new(2020, 5, 1),
-  'Termination Reason' => nil,
-  'Employee StatusFlag' => 'E',
-  'WTR Opt Out' => nil,
-  'WTR Opt Out Date' => Date.new(2020, 5, 1),
-  'Ethnic Origin' => 'British',
-  'Country of Birth' => 'United Kingdom',
-  'Previous Employer' => 'OXLEAS NHS TRUST',
-  'Previous EmployerType' => 'Unknown',
-  'CSD 3 Months' => Date.new(2003, 7, 1),
-  'CSD 12 Months' => Date.new(2004, 4, 1),
-  'NHS CRS UUID' => nil,
-  'System Person Type' => 'EMP',
-  'User Person Type' => 'Employee.Ex-Applicant',
-  'Office e-mail address' => 'john.smith@example.com',
-  'NHS StartDate' => Date.new(2003, 7, 1),
-  'Last UpdateDate' => Date.new(2017, 5, 1),
-  'Disability Flag' => 'N',
-  'Ins_Upd_TimeStamp' => Time.new(2020, 4, 7, 14, 53, 54)
-}.freeze
