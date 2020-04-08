@@ -44,15 +44,15 @@
         ],
         "parameters": [
           {
-            "name": "page",
+            "name": "page[size]",
             "in": "query",
-            "type": "string",
+            "type": "integer",
             "required": false
           },
           {
-            "name": "per_page",
+            "name": "page[number]",
             "in": "query",
-            "type": "string",
+            "type": "integer",
             "required": false
           }
         ],
@@ -104,15 +104,15 @@
         ],
         "parameters": [
           {
-            "name": "page",
+            "name": "page[size]",
             "in": "query",
-            "type": "string",
+            "type": "integer",
             "required": false
           },
           {
-            "name": "per_page",
+            "name": "page[number]",
             "in": "query",
-            "type": "string",
+            "type": "integer",
             "required": false
           }
         ],
@@ -344,19 +344,19 @@
           "properties": {
             "first": {
               "type": "string",
-              "example": "https://esr.sardjv.co.uk/api/v1/absence_records?page=1&per_page=5"
+              "example": "https://esr.sardjv.co.uk/api/v1/absence_records?page[number]=1&page[size]=5"
             },
             "prev": {
               "type": "string",
-              "example": "https://esr.sardjv.co.uk/api/v1/absence_records?page=1&per_page=5"
+              "example": "https://esr.sardjv.co.uk/api/v1/absence_records?page[number]=1&page[size]=5"
             },
             "next": {
               "type": "string",
-              "example": "https://esr.sardjv.co.uk/api/v1/absence_records?page=2&per_page=5"
+              "example": "https://esr.sardjv.co.uk/api/v1/absence_records?page[number]=2&page[size]=5"
             },
             "last": {
               "type": "string",
-              "example": "https://esr.sardjv.co.uk/api/v1/absence_records?page=5&per_page=5"
+              "example": "https://esr.sardjv.co.uk/api/v1/absence_records?page[number]=5&page[size]=5"
             }
           }
         }
@@ -608,19 +608,19 @@
           "properties": {
             "first": {
               "type": "string",
-              "example": "https://esr.sardjv.co.uk/api/v1/person_records?page=1&per_page=5"
+              "example": "https://esr.sardjv.co.uk/api/v1/person_records?page[number]=1&page[size]=5"
             },
             "prev": {
               "type": "string",
-              "example": "https://esr.sardjv.co.uk/api/v1/person_records?page=1&per_page=5"
+              "example": "https://esr.sardjv.co.uk/api/v1/person_records?page[number]=1&page[size]=5"
             },
             "next": {
               "type": "string",
-              "example": "https://esr.sardjv.co.uk/api/v1/person_records?page=2&per_page=5"
+              "example": "https://esr.sardjv.co.uk/api/v1/person_records?page[number]=2&page[size]=5"
             },
             "last": {
               "type": "string",
-              "example": "https://esr.sardjv.co.uk/api/v1/person_records?page=5&per_page=5"
+              "example": "https://esr.sardjv.co.uk/api/v1/person_records?page[number]=5&page[size]=5"
             }
           }
         }

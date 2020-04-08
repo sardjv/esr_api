@@ -64,10 +64,10 @@ class Api::V1::Swagger::PersonRecord
           links: {
             type: 'object',
             properties: {
-              first: { type: 'string', example: 'https://esr.sardjv.co.uk/api/v1/person_records?page=1&per_page=5' },
-              prev: { type: 'string', example: 'https://esr.sardjv.co.uk/api/v1/person_records?page=1&per_page=5' },
-              next: { type: 'string', example: 'https://esr.sardjv.co.uk/api/v1/person_records?page=2&per_page=5' },
-              last: { type: 'string', example: 'https://esr.sardjv.co.uk/api/v1/person_records?page=5&per_page=5' }
+              first: { type: 'string', example: 'https://esr.sardjv.co.uk/api/v1/person_records?page[number]=1&page[size]=5' },
+              prev: { type: 'string', example: 'https://esr.sardjv.co.uk/api/v1/person_records?page[number]=1&page[size]=5' },
+              next: { type: 'string', example: 'https://esr.sardjv.co.uk/api/v1/person_records?page[number]=2&page[size]=5' },
+              last: { type: 'string', example: 'https://esr.sardjv.co.uk/api/v1/person_records?page[number]=5&page[size]=5' }
             }
           }
         }
