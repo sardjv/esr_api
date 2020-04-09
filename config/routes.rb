@@ -2,8 +2,8 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   # Swagger documentation.
-  mount Rswag::Api::Engine => 'api_docs'
   mount Rswag::Ui::Engine => '/'
+  mount Rswag::Api::Engine => 'api_docs'
 
   namespace :api do
     namespace :v1 do
