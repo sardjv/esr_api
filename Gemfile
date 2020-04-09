@@ -14,9 +14,6 @@ gem 'puma', '~> 4.3.3'
 # Use Rack Timeout. Read more: https://github.com/heroku/rack-timeout
 gem 'rack-timeout', '~> 0.6'
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.10'
-
 # Use MySQL as the database for Active Record.
 # https://github.com/brianmario/mysql2
 gem 'mysql2', '~> 0.5.3'
@@ -29,30 +26,6 @@ gem 'sidekiq', '~> 6.0.6'
 
 # Use Clockwork for recurring background tasks without needing cron
 # gem 'clockwork', '~> 2.0'
-
-# Use Kaminari for pagination
-# gem 'kaminari', '~> 1.0'
-
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 6.0'
-
-# Use Uglifier as the compressor for JavaScript assets
-gem 'uglifier', '~> 4.2.0'
-
-# Use jQuery as the JavaScript library
-gem 'jquery-rails', '~> 4.3.5'
-
-# Use Turbolinks. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5.2.0'
-
-# Use Bootstrap SASS for Bootstrap support
-gem 'bootstrap-sass', '~> 3.4.1'
-
-# Use Font Awesome Rails for Font Awesome icons
-gem 'font-awesome-rails', '~> 4.7'
-
-# Use Bootsnap to improve startup times
-# gem 'bootsnap', '>= 1.1.0', require: false
 
 # Data processing & ETL framework for Ruby.
 # https://github.com/thbar/kiba
@@ -87,12 +60,6 @@ group :development, :test do
 end
 
 group :test do
-  # Adds support for Capybara system testing and selenium driver
-  # gem 'capybara', '>= 2.15', '< 4.0'
-  # gem 'selenium-webdriver'
-  # Easy installation and use of chromedriver to run system tests with Chrome
-  # gem 'chromedriver-helper'
-
   gem 'simplecov', '~> 0.18.5'
 
   # Strategies for cleaning databases in Ruby. Can be used to ensure a clean state for testing.
@@ -104,16 +71,6 @@ end
 group :development do
   # Enable a debug toolbar to help profile your application
   gem 'rack-mini-profiler', '~> 2.0.1'
-
-  # Access an IRB console on exception pages or by using <%= console %>
-  # gem 'web-console', '~> 3.3.0'
-
-  # Get notified of file changes. Read more: https://github.com/guard/listen
-  # gem 'listen', '>= 3.0.5', '< 3.2'
-
-  # Use Spring. Read more: https://github.com/rails/spring
-  gem 'spring', '~> 2.1.0'
-  gem 'spring-watcher-listen', '~> 2.0.1'
 
   # This branch fixes an error caused by pry 0.13. When https://github.com/guard/guard/pull/955
   # is merged, remove this line and use guard-rspec to pull in latest guard. Can
