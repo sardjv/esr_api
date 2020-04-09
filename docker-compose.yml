@@ -1,11 +1,11 @@
 version: '3.7'
 
 services:
-  mysql:
+  db:
     image: 'mysql:8.0.19'
     restart: always
     volumes:
-      - 'mysql:/var/lib/mysql'
+      - 'db:/var/lib/mysql'
     env_file:
       - '.env'
     ports:
@@ -33,7 +33,7 @@ services:
 
   api:
     depends_on:
-      - 'mysql'
+      - 'db'
       - 'redis'
     build: .
     # 1) Remove any existing server process in case of dirty shutdown, with -f in case the file doesn't exist.
@@ -60,7 +60,7 @@ services:
 
   sidekiq:
     depends_on:
-      - 'mysql'
+      - 'db'
       - 'redis'
     build: .
     command: sh -c "(bundle check || bundle install) && bundle exec sidekiq -C config/sidekiq.yml.erb"
@@ -75,4 +75,4 @@ services:
 volumes:
   bundle_cache:
   redis:
-  mysql:
+  db:
