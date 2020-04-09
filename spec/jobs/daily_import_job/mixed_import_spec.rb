@@ -13,9 +13,11 @@ describe DailyImportJob, type: :job do
     it 'sets attributes correctly' do
       expect(AbsenceRecord.count).to eq(2)
       expect(PersonRecord.count).to eq(2)
+      expect(PositionRecord.count).to eq(2)
 
       absence_record = AbsenceRecord.first
       person_record = PersonRecord.first
+      position_record = PositionRecord.first
 
       # Expect values in the database to match input from mixed_record.dsv.
       ImportExpectations.absence_record.each do |key, value|
@@ -23,6 +25,9 @@ describe DailyImportJob, type: :job do
       end
       ImportExpectations.person_record.each do |key, value|
         expect(person_record.send(key)).to eq(value)
+      end
+      ImportExpectations.position_record.each do |key, value|
+        expect(position_record.send(key)).to eq(value)
       end
 
       # Adds timestamps.

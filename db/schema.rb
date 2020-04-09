@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_07_160333) do
+ActiveRecord::Schema.define(version: 2020_04_09_131233) do
 
   create_table "absence_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "Record Type"
@@ -91,6 +91,32 @@ ActiveRecord::Schema.define(version: 2020_04_07_160333) do
     t.date "Last UpdateDate"
     t.string "Disability Flag"
     t.timestamp "Ins_Upd_TimeStamp"
+  end
+
+  create_table "position_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+    t.string "Record Type"
+    t.string "PositionID"
+    t.date "Effective FromDate"
+    t.date "Effective ToDate"
+    t.string "Position Number"
+    t.string "Position Name"
+    t.string "Budgeted FTE"
+    t.string "Subjective Code"
+    t.string "Job StaffGroup"
+    t.string "Job Role"
+    t.string "Occupation Code"
+    t.string "Payscale"
+    t.string "Grade Step"
+    t.string "ISA Regulated Post"
+    t.string "Organisation ID"
+    t.string "Hiring Status"
+    t.string "Position Type"
+    t.string "Workplace OrgCode"
+    t.timestamp "Last UpdateDate"
+    t.string "Subjective CodeDescription"
+    t.timestamp "Ins_Upd_TimeStamp"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

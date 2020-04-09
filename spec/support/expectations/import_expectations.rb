@@ -78,4 +78,30 @@ module ImportExpectations
       'Ins_Upd_TimeStamp' => Time.new(2020, 4, 7, 14, 53, 54)
     }.freeze
   end
+
+  def self.position_record
+    {
+      'Record Type' => 'POA',
+      'PositionID' => '5204401',
+      'Effective FromDate' => Date.new(2019, 4, 22),
+      'Effective ToDate' => nil,
+      'Position Number' => '9235001',
+      'Position Name' => '9235001|Core Trainee|001|',
+      'Budgeted FTE' => '3.53',
+      'Subjective Code' => '2772101',
+      'Job StaffGroup' => 'Medical and Dental',
+      'Job Role' => 'Specialty Registrar',
+      'Occupation Code' => '001',
+      'Payscale' => 'MN31',
+      'Grade Step' => 'MN31|0',
+      'ISA Regulated Post' => 'Not Applicable',
+      'Organisation ID' => '52001',
+      'Hiring Status' => 'Active',
+      'Position Type' => 'NONE',
+      'Workplace OrgCode' => nil,
+      'Last UpdateDate' => Time.new(2019, 10, 3, 12, 17, 1),
+      'Subjective CodeDescription' => 'RT Doctor',
+      'Ins_Upd_TimeStamp' => nil
+    }.freeze
+  end
 end

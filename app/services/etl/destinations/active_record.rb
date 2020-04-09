@@ -13,8 +13,9 @@ class ETL::Destinations::ActiveRecord
   def close
     @rows_for_insert.group_by { |row| row['Record Type'] }.each do |key, rows|
       case key
-      when 'PRA' then ::PersonRecord.insert_all!(rows)
       when 'ABA' then ::AbsenceRecord.insert_all!(rows)
+      when 'PRA' then ::PersonRecord.insert_all!(rows)
+      when 'POA' then ::PositionRecord.insert_all!(rows)
       end
     end
   end
