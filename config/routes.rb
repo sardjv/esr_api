@@ -1,7 +1,9 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  root 'pages#home'
+  # Swagger documentation.
+  mount Rswag::Api::Engine => 'api_docs'
+  mount Rswag::Ui::Engine => '/'
 
   namespace :api do
     namespace :v1 do
@@ -16,8 +18,4 @@ Rails.application.routes.draw do
       password == ENV['SIDEKIQ_DASHBOARD_PASSWORD']
   end
   mount Sidekiq::Web => '/sidekiq'
-
-  # Swagger documentation.
-  mount Rswag::Api::Engine => 'api_docs'
-  mount Rswag::Ui::Engine => 'api_docs'
 end
