@@ -32,9 +32,10 @@ gem 'kiba', '~> 3.0.0'
 # https://github.com/thbar/kiba-common
 gem 'kiba-common', '~> 1.0.0'
 
-# Generate Swagger docs from RSpec tests.
+# Serve Swagger documentation generated from RSpec tests.
 # https://github.com/rswag/rswag
-gem 'rswag', '~> 2.3.0'
+gem 'rswag-api', '~> 2.3.1'
+gem 'rswag-ui', '~> 2.3.1'
 
 # A resource-focused Rails library for developing JSON:API compliant servers.
 # https://github.com/cerebris/jsonapi-resources
@@ -52,6 +53,24 @@ group :development, :test do
   # Call 'byebug' anywhere in your code to drop into a debugger console.
   # https://github.com/deivid-rodriguez/byebug
   gem 'byebug', '~> 11.1.1', platform: :mri
+
+  # Generate Swagger docs from RSpec tests.
+  # https://github.com/rswag/rswag
+  gem 'rswag-specs', '~> 2.3.1'
+end
+
+group :development do
+  # Automates various tasks by running custom rules when files are changed.
+  # https://github.com/guard/guard-rspec
+  gem 'guard-rspec', '~> 4.7.3'
+
+  # Automatically check Ruby code style with RuboCop when files are modified.
+  # https://github.com/yujinakayama/guard-rubocop
+  gem 'guard-rubocop', '~> 1.3.0'
+
+  # A static code analyzer and formatter, based on the community style guide.
+  # https://github.com/rubocop-hq/rubocop-rails
+  gem 'rubocop-rails', '~> 2.5.1'
 end
 
 group :test do
@@ -71,18 +90,4 @@ group :test do
   # https://github.com/DatabaseCleaner/database_cleaner
   gem 'database_cleaner-active_record', '~> 1.8.0'
   gem 'database_cleaner-redis', '~> 1.8.0'
-end
-
-group :development do
-  # Automates various tasks by running custom rules when files are changed.
-  # https://github.com/guard/guard-rspec
-  gem 'guard-rspec', '~> 4.7.3'
-
-  # Automatically check Ruby code style with RuboCop when files are modified.
-  # https://github.com/yujinakayama/guard-rubocop
-  gem 'guard-rubocop', '~> 1.3.0'
-
-  # A static code analyzer and formatter, based on the community style guide.
-  # https://github.com/rubocop-hq/rubocop-rails
-  gem 'rubocop-rails', '~> 2.5.1'
 end
