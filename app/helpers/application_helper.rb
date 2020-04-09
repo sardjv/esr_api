@@ -10,22 +10,4 @@ module ApplicationHelper
   def heading(page_heading)
     content_for(:heading) { page_heading }
   end
-
-  def humanize_boolean(input)
-    input ||= ''
-    case input.to_s.downcase
-    when 't', 'true'
-      'Yes'
-    else
-      'No'
-    end
-  end
-
-  def css_for_boolean(input)
-    if input
-      'success'
-    else
-      'danger'
-    end
-  end
 end
