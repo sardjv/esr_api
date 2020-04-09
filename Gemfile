@@ -44,11 +44,17 @@ gem 'jsonapi-resources', '~> 0.10.2'
 # https://github.com/cyu/rack-cors
 gem 'rack-cors', '~> 1.1.1'
 
+# Bundle zoneinfo files which are not included in Windows.
+# https://github.com/tzinfo/tzinfo-data
+gem 'tzinfo-data', '~> 1.2019.3'
+
 group :development, :test do
   # Call 'byebug' anywhere in your code to drop into a debugger console.
   # https://github.com/deivid-rodriguez/byebug
   gem 'byebug', '~> 11.1.1', platform: :mri
+end
 
+group :test do
   # RSpec is a specification library for behaviour driven development.
   # https://github.com/rspec/rspec
   gem 'rspec-rails', '~> 4.0.0'
@@ -57,12 +63,6 @@ group :development, :test do
   # https://github.com/thoughtbot/factory_bot
   gem 'factory_bot', '~> 5.1.2'
 
-  # A static code analyzer and formatter, based on the community style guide.
-  # https://github.com/rubocop-hq/rubocop-rails
-  gem 'rubocop-rails', '~> 2.5.1'
-end
-
-group :test do
   # Generate code coverage documentation.
   # https://github.com/colszowka/simplecov
   gem 'simplecov', '~> 0.18.5'
@@ -81,8 +81,8 @@ group :development do
   # Automatically check Ruby code style with RuboCop when files are modified.
   # https://github.com/yujinakayama/guard-rubocop
   gem 'guard-rubocop', '~> 1.3.0'
-end
 
-# Bundle zoneinfo files which are not included in Windows.
-# https://github.com/tzinfo/tzinfo-data
-gem 'tzinfo-data', '~> 1.2019.3'
+  # A static code analyzer and formatter, based on the community style guide.
+  # https://github.com/rubocop-hq/rubocop-rails
+  gem 'rubocop-rails', '~> 2.5.1'
+end
