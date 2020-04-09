@@ -82,13 +82,13 @@ module ImportExpectations
   def self.position_record
     {
       'Record Type' => 'POA',
-      'PositionID' => '5204401',
+      'PositionID' => 'ABC4401',
       'Effective FromDate' => Date.new(2019, 4, 22),
       'Effective ToDate' => nil,
-      'Position Number' => '9235001',
-      'Position Name' => '9235001|Core Trainee|001|',
+      'Position Number' => 'ABC5001',
+      'Position Name' => 'ABC5001|Core Trainee|001|',
       'Budgeted FTE' => '3.53',
-      'Subjective Code' => '2772101',
+      'Subjective Code' => 'ABC2101',
       'Job StaffGroup' => 'Medical and Dental',
       'Job Role' => 'Specialty Registrar',
       'Occupation Code' => '001',
