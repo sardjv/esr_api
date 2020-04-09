@@ -1,15 +1,24 @@
 version: '3.7'
 
 services:
+  # db:
+  #   image: 'mysql:8.0.19'
+  #   restart: always
+  #   volumes:
+  #     - 'db:/var/lib/mysql'
+  #   env_file:
+  #     - '.env'
+  #   ports:
+  #     - '3307:3306'
+
   db:
-    image: 'mysql:8.0.19'
-    restart: always
+    image: microsoft/mssql-server-linux:2017-latest
     volumes:
-      - 'db:/var/lib/mysql'
+      - 'db:/var/lib/sql_server'
     env_file:
       - '.env'
     ports:
-      - "3307:3306"
+      - '3307:1433'
 
   redis:
     image: 'redis:5.0.8-alpine'
