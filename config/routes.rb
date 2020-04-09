@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       jsonapi_resources :absence_records
       jsonapi_resources :person_records
+      jsonapi_resources :position_records
     end
   end
 

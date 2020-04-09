@@ -125,6 +125,66 @@
           }
         }
       }
+    },
+    "/api/v1/position_records/{id}": {
+      "get": {
+        "summary": "position record",
+        "tags": [
+          "PositionRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/position_record_response"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/position_records": {
+      "get": {
+        "summary": "position records",
+        "tags": [
+          "PositionRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "page[size]",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "page[number]",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/position_records_response"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -651,6 +711,200 @@
             },
             "attributes": {
               "$ref": "#/definitions/person_record_attributes"
+            }
+          }
+        }
+      }
+    },
+    "position_record_attributes": {
+      "type": "object",
+      "properties": {
+        "Record Type": {
+          "type": "string",
+          "example": "POA",
+          "x-nullable": true
+        },
+        "PositionID": {
+          "type": "string",
+          "example": "5204401",
+          "x-nullable": true
+        },
+        "Effective FromDate": {
+          "type": "date",
+          "example": "2019-04-22",
+          "x-nullable": true
+        },
+        "Effective ToDate": {
+          "type": "date",
+          "example": null,
+          "x-nullable": true
+        },
+        "Position Number": {
+          "type": "string",
+          "example": "9235001",
+          "x-nullable": true
+        },
+        "Position Name": {
+          "type": "string",
+          "example": "9235001|Core Trainee|001|",
+          "x-nullable": true
+        },
+        "Budgeted FTE": {
+          "type": "string",
+          "example": "3.53",
+          "x-nullable": true
+        },
+        "Subjective Code": {
+          "type": "string",
+          "example": "2772101",
+          "x-nullable": true
+        },
+        "Job StaffGroup": {
+          "type": "string",
+          "example": "Medical and Dental",
+          "x-nullable": true
+        },
+        "Job Role": {
+          "type": "string",
+          "example": "Specialty Registrar",
+          "x-nullable": true
+        },
+        "Occupation Code": {
+          "type": "string",
+          "example": "001",
+          "x-nullable": true
+        },
+        "Payscale": {
+          "type": "string",
+          "example": "MN31",
+          "x-nullable": true
+        },
+        "Grade Step": {
+          "type": "string",
+          "example": "MN31|0",
+          "x-nullable": true
+        },
+        "ISA Regulated Post": {
+          "type": "string",
+          "example": "Not Applicable",
+          "x-nullable": true
+        },
+        "Organisation ID": {
+          "type": "string",
+          "example": "52001",
+          "x-nullable": true
+        },
+        "Hiring Status": {
+          "type": "string",
+          "example": "Active",
+          "x-nullable": true
+        },
+        "Position Type": {
+          "type": "string",
+          "example": "NONE",
+          "x-nullable": true
+        },
+        "Workplace OrgCode": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Last UpdateDate": {
+          "type": "date-time",
+          "example": "2019-10-03T12:17:01.000Z",
+          "x-nullable": true
+        },
+        "Subjective CodeDescription": {
+          "type": "string",
+          "example": "RT Doctor",
+          "x-nullable": true
+        },
+        "Ins_Upd_TimeStamp": {
+          "type": "date-time",
+          "example": null,
+          "x-nullable": true
+        }
+      }
+    },
+    "position_records_response": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "0"
+              },
+              "type": {
+                "type": "string",
+                "example": "position_records"
+              },
+              "link": {
+                "type": "object",
+                "properties": {
+                  "self": {
+                    "type": "string",
+                    "example": "https://esr.sardjv.co.uk/api/v1/position_records/0"
+                  }
+                }
+              },
+              "attributes": {
+                "$ref": "#/definitions/position_record_attributes"
+              }
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "first": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/position_records?page[number]=1&page[size]=5"
+            },
+            "prev": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/position_records?page[number]=1&page[size]=5"
+            },
+            "next": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/position_records?page[number]=2&page[size]=5"
+            },
+            "last": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/position_records?page[number]=5&page[size]=5"
+            }
+          }
+        }
+      }
+    },
+    "position_record_response": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "example": "0"
+            },
+            "type": {
+              "type": "string",
+              "example": "position_records"
+            },
+            "link": {
+              "type": "object",
+              "properties": {
+                "self": {
+                  "type": "string",
+                  "example": "https://esr_api.sardjv.co.uk/api/v1/position_records/0"
+                }
+              }
+            },
+            "attributes": {
+              "$ref": "#/definitions/position_record_attributes"
             }
           }
         }
