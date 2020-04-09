@@ -726,7 +726,7 @@
         },
         "PositionID": {
           "type": "string",
-          "example": "5204401",
+          "example": "ABC4401",
           "x-nullable": true
         },
         "Effective FromDate": {
@@ -741,12 +741,12 @@
         },
         "Position Number": {
           "type": "string",
-          "example": "9235001",
+          "example": "ABC5001",
           "x-nullable": true
         },
         "Position Name": {
           "type": "string",
-          "example": "9235001|Core Trainee|001|",
+          "example": "ABC5001|Core Trainee|001|",
           "x-nullable": true
         },
         "Budgeted FTE": {
@@ -756,7 +756,7 @@
         },
         "Subjective Code": {
           "type": "string",
-          "example": "2772101",
+          "example": "ABC2101",
           "x-nullable": true
         },
         "Job StaffGroup": {
