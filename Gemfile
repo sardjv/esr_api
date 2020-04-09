@@ -1,26 +1,28 @@
 source 'https://rubygems.org'
 
-# Looking to use the Edge version? gem 'rails', github: 'rails/rails'
+# Create database-backed web applications using the MVC pattern.
+# https://github.com/rails/rails
 gem 'rails', '~> 6.0.2.1'
 
-# Use Puma as the app server
+# A Ruby/Rack web server built for concurrency.
+# https://github.com/puma/puma
 gem 'puma', '~> 4.3.3'
 
-# Use Rack Timeout. Read more: https://github.com/heroku/rack-timeout
+# Abort requests that are taking too long.
+# https://github.com/sharpstone/rack-timeout
 gem 'rack-timeout', '~> 0.6'
 
 # Use MySQL as the database for Active Record.
 # https://github.com/brianmario/mysql2
 gem 'mysql2', '~> 0.5.3'
 
-# Use Redis Rails to set up a Redis backed Cache and / or Session
+# A very fast key-value store to hold jobs until they are run.
+# https://github.com/redis-store/redis-rails
 gem 'redis', '~> 4.1.3'
 
-# Use Sidekiq as a background job processor through Active Job
+# Simple, efficient background processing for Ruby.
+# https://github.com/mperham/sidekiq
 gem 'sidekiq', '~> 6.0.6'
-
-# Use Clockwork for recurring background tasks without needing cron
-# gem 'clockwork', '~> 2.0'
 
 # Data processing & ETL framework for Ruby.
 # https://github.com/thbar/kiba
@@ -31,54 +33,56 @@ gem 'kiba', '~> 3.0.0'
 gem 'kiba-common', '~> 1.0.0'
 
 # Generate Swagger docs from RSpec tests.
+# https://github.com/rswag/rswag
 gem 'rswag', '~> 2.3.0'
 
 # A resource-focused Rails library for developing JSON:API compliant servers.
+# https://github.com/cerebris/jsonapi-resources
 gem 'jsonapi-resources', '~> 0.10.2'
 
-# Rack Middleware to bypass Cross-Origin Resource Sharing (CORS) protection for trusted endpoints.
+# Bypass Cross-Origin Resource Sharing (CORS) protection for trusted endpoints.
+# https://github.com/cyu/rack-cors
 gem 'rack-cors', '~> 1.1.1'
 
 group :development, :test do
-  # Call 'byebug' anywhere in your code to drop into a debugger console
-  gem 'byebug', platform: :mri
+  # Call 'byebug' anywhere in your code to drop into a debugger console.
+  # https://github.com/deivid-rodriguez/byebug
+  gem 'byebug', '~> 11.1.1', platform: :mri
 
   # RSpec is a specification library for behaviour driven development.
+  # https://github.com/rspec/rspec
   gem 'rspec-rails', '~> 4.0.0'
 
   # Fixtures replacement with a straightforward definition syntax.
+  # https://github.com/thoughtbot/factory_bot
   gem 'factory_bot', '~> 5.1.2'
 
-  # A Ruby static code analyzer and formatter, based on the community Ruby style
-  # guide.
+  # A static code analyzer and formatter, based on the community style guide.
+  # https://github.com/rubocop-hq/rubocop-rails
   gem 'rubocop-rails', '~> 2.5.1'
 end
 
 group :test do
+  # Generate code coverage documentation.
+  # https://github.com/colszowka/simplecov
   gem 'simplecov', '~> 0.18.5'
 
-  # Strategies for cleaning databases in Ruby. Can be used to ensure a clean state for testing.
+  # Strategies for cleaning databases between tests.
   # https://github.com/DatabaseCleaner/database_cleaner
   gem 'database_cleaner-active_record', '~> 1.8.0'
   gem 'database_cleaner-redis', '~> 1.8.0'
 end
 
 group :development do
-  # Enable a debug toolbar to help profile your application
-  gem 'rack-mini-profiler', '~> 2.0.1'
-
-  # This branch fixes an error caused by pry 0.13. When https://github.com/guard/guard/pull/955
-  # is merged, remove this line and use guard-rspec to pull in latest guard. Can
-  # also remove git from the dockerfile once this is done.
-  gem 'guard', '~> 2.16.1', git: 'https://github.com/caseyprovost/guard'
-
-  # Guard automates various tasks by running custom rules whenever file or
-  # directories are modified.
+  # Automates various tasks by running custom rules when files are changed.
+  # https://github.com/guard/guard-rspec
   gem 'guard-rspec', '~> 4.7.3'
 
   # Automatically check Ruby code style with RuboCop when files are modified.
+  # https://github.com/yujinakayama/guard-rubocop
   gem 'guard-rubocop', '~> 1.3.0'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data'
+# Bundle zoneinfo files which are not included in Windows.
+# https://github.com/tzinfo/tzinfo-data
+gem 'tzinfo-data', '~> 1.2019.3'
