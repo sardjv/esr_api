@@ -1,6 +1,12 @@
 # ESR_API: a Ruby on Rails API for the NHS ESR System
 
-To get started, you need Docker on your machine. Clone the project and run:
+## .env file
+
+To get started, you need a `.env` file with secrets. For testing there is a `.env.example` file included in the repo that you can use, just remove the `.example` from the filename. Make sure to change all these secrets before running in production!
+
+## Booting up
+
+If you have Docker on your machine, run:
 
 ```
 docker-compose up
