@@ -90,7 +90,13 @@ docker-compose run --service-ports app
 
 ## Database
 
-To access the database console:
+To change database between MySQL and SQL Server:
+
+1) Uncomment the relevant section in docker-compose.yml
+2) Uncomment the relevant config in database.yml
+3) Uncomment the relevant gem(s) in the Gemfile.
+
+To access the MySQL database console:
 
 ```
 docker-compose exec mysql bash

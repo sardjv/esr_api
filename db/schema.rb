@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_04_09_131233) do
 
-  create_table "absence_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+  create_table "absence_records", force: :cascade do |t|
     t.string "Record Type"
     t.string "PersonID"
     t.string "Absence AttendanceID"
@@ -42,17 +42,17 @@ ActiveRecord::Schema.define(version: 2020_04_09_131233) do
     t.string "Notifyable Disease"
     t.date "Returntowork discussiondate"
     t.date "OccupationalHealth referralDate"
-    t.timestamp "Last UpdateDate"
+    t.datetime "Last UpdateDate"
     t.string "Surgery Related"
     t.string "DH Monitoring"
     t.string "Sickness Reason"
     t.string "3rdParty SystemReference"
-    t.timestamp "Ins_Upd_TimeStamp"
+    t.datetime "Ins_Upd_TimeStamp"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "person_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+  create_table "person_records", force: :cascade do |t|
     t.string "PersonID"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -90,10 +90,10 @@ ActiveRecord::Schema.define(version: 2020_04_09_131233) do
     t.date "NHS StartDate"
     t.date "Last UpdateDate"
     t.string "Disability Flag"
-    t.timestamp "Ins_Upd_TimeStamp"
+    t.datetime "Ins_Upd_TimeStamp"
   end
 
-  create_table "position_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+  create_table "position_records", force: :cascade do |t|
     t.string "Record Type"
     t.string "PositionID"
     t.date "Effective FromDate"
@@ -112,9 +112,9 @@ ActiveRecord::Schema.define(version: 2020_04_09_131233) do
     t.string "Hiring Status"
     t.string "Position Type"
     t.string "Workplace OrgCode"
-    t.timestamp "Last UpdateDate"
+    t.datetime "Last UpdateDate"
     t.string "Subjective CodeDescription"
-    t.timestamp "Ins_Upd_TimeStamp"
+    t.datetime "Ins_Upd_TimeStamp"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
