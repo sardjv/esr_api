@@ -43,7 +43,7 @@ Core dependencies:
 
 ## Documentation
 
-The API documentation can be viewed at [/api_docs](http://localhost:4000/api_docs).
+The API documentation can be viewed at [http://localhost:4000/](http://localhost:4000/).
 
 The Swagger docs are generated from the RSpec tests in `spec/controllers/api` To rebuild the swagger docs:
 
