@@ -34,8 +34,7 @@ module ImportExpectations
       'Surgery Related' => nil,
       'DH Monitoring' => nil,
       'Sickness Reason' => nil,
-      '3rdParty SystemReference' => '726999',
-      'Ins_Upd_TimeStamp' => Time.new(2020, 4, 7, 14, 53, 54)
+      '3rdParty SystemReference' => '726999'
     }.freeze
   end
 
