@@ -54,8 +54,6 @@ ActiveRecord::Schema.define(version: 2020_04_09_131233) do
 
   create_table "person_records", force: :cascade do |t|
     t.string "PersonID"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.string "Record Type"
     t.date "Effective StartDate"
     t.date "Effective EndDate"
@@ -91,6 +89,8 @@ ActiveRecord::Schema.define(version: 2020_04_09_131233) do
     t.date "Last UpdateDate"
     t.string "Disability Flag"
     t.datetime "Ins_Upd_TimeStamp"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "position_records", force: :cascade do |t|
