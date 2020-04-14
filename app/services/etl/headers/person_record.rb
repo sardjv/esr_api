@@ -2,32 +2,32 @@ class ETL::Headers::PersonRecord
   def self.all
     [
       'Record Type',
-      'PersonID',
-      'Effective StartDate',
-      'Effective EndDate',
+      'Person ID',
+      'Effective Start Date',
+      'Effective End Date',
       'Employee Number',
       'Title',
-      'LastName',
-      'FirstName',
-      'MiddleNames',
-      'MaidenName',
-      'PreferredName',
-      'Previous LastName',
+      'Last Name',
+      'First Name',
+      'Middle Names',
+      'Maiden Name',
+      'Preferred Name',
+      'Previous Last Name',
       'Gender',
       'Date of Birth',
-      'NationalInsurance Number',
-      'NHS UniqueID',
-      'HireDate',
-      'ActualTermination Date',
+      'National Insurance Number',
+      'NHS Unique ID',
+      'Hire Date',
+      'Actual Termination Date',
       'Termination Reason',
-      'Employee StatusFlag',
+      'Employee Status Flag',
       'WTR Opt Out',
       'WTR Opt Out Date',
       'Ethnic Origin',
       'not_used',
       'Country of Birth',
       'Previous Employer',
-      'Previous EmployerType',
+      'Previous Employer Type',
       'CSD 3 Months',
       'CSD 12 Months',
       'NHS CRS UUID',
@@ -36,10 +36,10 @@ class ETL::Headers::PersonRecord
       'not_used',
       'System Person Type',
       'User Person Type',
-      'Office e-mail address',
-      'NHS StartDate',
+      'Office E-mail Address',
+      'NHS Start Date',
       'not_used',
-      'Last UpdateDate',
+      'Last Update Date',
       'Disability Flag',
       'not_used',
       'not_used',
@@ -50,23 +50,21 @@ class ETL::Headers::PersonRecord
 
   def self.date_headers
     [
-      'Effective StartDate',
-      'Effective EndDate',
+      'Effective Start Date',
+      'Effective End Date',
       'Date of Birth',
-      'HireDate',
-      'ActualTermination Date',
+      'Hire Date',
+      'Actual Termination Date',
       'WTR Opt Out Date',
       'CSD 3 Months',
       'CSD 12 Months',
-      'NHS StartDate',
-      'Last UpdateDate'
+      'NHS Start Date',
+      'Last Update Date'
     ].freeze
   end
 
   def self.timestamp_headers
-    [
-      'Ins_Upd_TimeStamp'
-    ].freeze
+    [].freeze
   end
 
   def self.non_blank_headers

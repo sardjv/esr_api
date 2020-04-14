@@ -1,5 +1,3 @@
 FactoryBot.define do
-  factory :position_record do
-    PositionID { '1234ABCD' }
-  end
+  factory :position_record
 end
