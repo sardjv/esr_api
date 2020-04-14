@@ -196,12 +196,12 @@
           "example": "ABA",
           "x-nullable": true
         },
-        "PersonID": {
+        "Person ID": {
           "type": "string",
           "example": "A48180",
           "x-nullable": true
         },
-        "Absence AttendanceID": {
+        "Absence Attendance ID": {
           "type": "string",
           "example": "112119701A",
           "x-nullable": true
@@ -226,52 +226,52 @@
           "example": "2019-1-2",
           "x-nullable": true
         },
-        "Projected StartDate": {
+        "Projected Start Date": {
           "type": "date",
           "example": "2018-12-6",
           "x-nullable": true
         },
-        "Projected StartTime": {
+        "Projected Start Time": {
           "type": "string",
           "example": null,
           "x-nullable": true
         },
-        "Projected EndDate": {
+        "Projected End Date": {
           "type": "date",
           "example": "2018-12-6",
           "x-nullable": true
         },
-        "Projected EndTime": {
+        "Projected End Time": {
           "type": "string",
           "example": null,
           "x-nullable": true
         },
-        "Actual StartDate": {
+        "Actual Start Date": {
           "type": "date",
           "example": "2018-12-6",
           "x-nullable": true
         },
-        "Actual StartTime": {
+        "Actual Start Time": {
           "type": "string",
           "example": null,
           "x-nullable": true
         },
-        "Actual EndDate": {
+        "Actual End Date": {
           "type": "date",
           "example": "2018-12-6",
           "x-nullable": true
         },
-        "Actual EndTime": {
+        "Actual End Time": {
           "type": "string",
           "example": null,
           "x-nullable": true
         },
-        "Sickness StartDate": {
+        "Sickness Start Date": {
           "type": "date",
           "example": "2018-12-6",
           "x-nullable": true
         },
-        "Sickness DateEnd": {
+        "Sickness Date End": {
           "type": "date",
           "example": "2018-12-6",
           "x-nullable": true
@@ -316,7 +316,7 @@
           "example": null,
           "x-nullable": true
         },
-        "Violence AggressionRelated": {
+        "Violence Aggression Related": {
           "type": "string",
           "example": null,
           "x-nullable": true
@@ -326,17 +326,17 @@
           "example": null,
           "x-nullable": true
         },
-        "Returntowork discussiondate": {
+        "Return To Work Discussion Date": {
           "type": "date",
           "example": "2018-12-6",
           "x-nullable": true
         },
-        "OccupationalHealth referralDate": {
+        "Occupational Health Referral Date": {
           "type": "date",
           "example": "2018-12-6",
           "x-nullable": true
         },
-        "Last UpdateDate": {
+        "Last Update Date": {
           "type": "date-time",
           "example": "2020-04-07T14:53:54.000Z",
           "x-nullable": true
@@ -356,7 +356,7 @@
           "example": null,
           "x-nullable": true
         },
-        "3rdParty SystemReference": {
+        "3rd Party System Reference": {
           "type": "string",
           "example": "726999",
           "x-nullable": true
@@ -460,17 +460,17 @@
           "example": "PRA",
           "x-nullable": true
         },
-        "PersonID": {
+        "Person ID": {
           "type": "string",
           "example": "A48180",
           "x-nullable": true
         },
-        "Effective StartDate": {
+        "Effective Start Date": {
           "type": "date",
           "example": "2017-05-01",
           "x-nullable": true
         },
-        "Effective EndDate": {
+        "Effective End Date": {
           "type": "date",
           "example": "2020-05-01",
           "x-nullable": true
@@ -485,27 +485,27 @@
           "example": "Mr.",
           "x-nullable": true
         },
-        "LastName": {
+        "Last Name": {
           "type": "string",
           "example": "sname",
           "x-nullable": true
         },
-        "FirstName": {
+        "First Name": {
           "type": "string",
           "example": "fname",
           "x-nullable": true
         },
-        "MiddleNames": {
+        "Middle Names": {
           "type": "string",
           "example": "fname",
           "x-nullable": true
         },
-        "MaidenName": {
+        "Maiden Name": {
           "type": "string",
           "example": "sname",
           "x-nullable": true
         },
-        "Previous LastName": {
+        "Previous Last Name": {
           "type": "string",
           "example": "sname",
           "x-nullable": true
@@ -520,22 +520,22 @@
           "example": "1986-08-01",
           "x-nullable": true
         },
-        "NationalInsurance Number": {
+        "National Insurance Number": {
           "type": "string",
           "example": "AB012201B",
           "x-nullable": true
         },
-        "NHS UniqueID": {
+        "NHS Unique ID": {
           "type": "string",
           "example": "289601",
           "x-nullable": true
         },
-        "HireDate": {
+        "Hire Date": {
           "type": "date",
           "example": "2004-06-01",
           "x-nullable": true
         },
-        "ActualTermination Date": {
+        "Actual Termination Date": {
           "type": "date",
           "example": "2020-05-01",
           "x-nullable": true
@@ -545,7 +545,7 @@
           "example": null,
           "x-nullable": true
         },
-        "Employee StatusFlag": {
+        "Employee Status Flag": {
           "type": "string",
           "example": "E",
           "x-nullable": true
@@ -575,7 +575,7 @@
           "example": "OXLEAS NHS TRUST",
           "x-nullable": true
         },
-        "Previous EmployerType": {
+        "Previous Employer Type": {
           "type": "string",
           "example": "Unknown",
           "x-nullable": true
@@ -605,17 +605,17 @@
           "example": "Employee.Ex-Applicant",
           "x-nullable": true
         },
-        "Office e-mail address": {
+        "Office E-mail Address": {
           "type": "string",
           "example": "john.smith@example.com",
           "x-nullable": true
         },
-        "NHS StartDate": {
+        "NHS Start Date": {
           "type": "date",
           "example": "2003-07-01",
           "x-nullable": true
         },
-        "Last UpdateDate": {
+        "Last Update Date": {
           "type": "date",
           "example": "2017-05-01",
           "x-nullable": true
@@ -724,17 +724,17 @@
           "example": "POA",
           "x-nullable": true
         },
-        "PositionID": {
+        "Position ID": {
           "type": "string",
           "example": "ABC4401",
           "x-nullable": true
         },
-        "Effective FromDate": {
+        "Effective From Date": {
           "type": "date",
           "example": "2019-04-22",
           "x-nullable": true
         },
-        "Effective ToDate": {
+        "Effective To Date": {
           "type": "date",
           "example": null,
           "x-nullable": true
@@ -759,7 +759,7 @@
           "example": "ABC2101",
           "x-nullable": true
         },
-        "Job StaffGroup": {
+        "Job Staff Group": {
           "type": "string",
           "example": "Medical and Dental",
           "x-nullable": true
@@ -804,17 +804,17 @@
           "example": "NONE",
           "x-nullable": true
         },
-        "Workplace OrgCode": {
+        "Workplace Org Code": {
           "type": "string",
           "example": null,
           "x-nullable": true
         },
-        "Last UpdateDate": {
+        "Last Update Date": {
           "type": "date-time",
           "example": "2019-10-03T12:17:01.000Z",
           "x-nullable": true
         },
-        "Subjective CodeDescription": {
+        "Subjective Code Description": {
           "type": "string",
           "example": "RT Doctor",
           "x-nullable": true

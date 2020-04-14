@@ -2,14 +2,14 @@ class ETL::Headers::PositionRecord
   def self.all
     [
       'Record Type',
-      'PositionID',
-      'Effective FromDate',
-      'Effective ToDate',
+      'Position ID',
+      'Effective From Date',
+      'Effective To Date',
       'Position Number',
       'Position Name',
       'Budgeted FTE',
       'Subjective Code',
-      'Job StaffGroup',
+      'Job Staff Group',
       'Job Role',
       'Occupation Code',
       'Payscale',
@@ -22,23 +22,22 @@ class ETL::Headers::PositionRecord
       'not_used',
       'not_used',
       'not_used',
-      'Workplace OrgCode',
-      'Last UpdateDate',
-      'Subjective CodeDescription'
+      'Workplace Org Code',
+      'Last Update Date',
+      'Subjective Code Description'
     ].freeze
   end
 
   def self.date_headers
     [
-      'Effective FromDate',
-      'Effective ToDate'
+      'Effective From Date',
+      'Effective To Date'
     ].freeze
   end
 
   def self.timestamp_headers
     [
-      'Last UpdateDate',
-      'Ins_Upd_TimeStamp'
+      'Last Update Date'
     ].freeze
   end
 
