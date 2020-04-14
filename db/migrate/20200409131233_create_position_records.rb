@@ -21,7 +21,6 @@ class CreatePositionRecords < ActiveRecord::Migration[6.0]
       t.string 'Workplace OrgCode'
       t.timestamp 'Last UpdateDate'
       t.string 'Subjective CodeDescription'
-      t.timestamp 'Ins_Upd_TimeStamp'
 
       t.timestamps
     end
