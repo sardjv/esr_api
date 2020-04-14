@@ -3,5 +3,5 @@ class Api::V1::PositionRecordResource < JSONAPI::Resource
 
   model_name 'PositionRecord'
 
-  attributes *ETL::Headers::PositionRecord.all
+  attributes *ETL::Headers::PositionRecord.non_blank_headers
 end

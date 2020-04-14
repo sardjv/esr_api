@@ -24,19 +24,27 @@ class ETL::Headers::PersonRecord
       'WTR Opt Out',
       'WTR Opt Out Date',
       'Ethnic Origin',
+      'not_used',
       'Country of Birth',
       'Previous Employer',
       'Previous EmployerType',
       'CSD 3 Months',
       'CSD 12 Months',
       'NHS CRS UUID',
+      'not_used',
+      'not_used',
+      'not_used',
       'System Person Type',
       'User Person Type',
       'Office e-mail address',
       'NHS StartDate',
+      'not_used',
       'Last UpdateDate',
       'Disability Flag',
-      'Ins_Upd_TimeStamp'
+      'not_used',
+      'not_used',
+      'not_used',
+      'not_used'
     ].freeze
   end
 
@@ -59,5 +67,9 @@ class ETL::Headers::PersonRecord
     [
       'Ins_Upd_TimeStamp'
     ].freeze
+  end
+
+  def self.non_blank_headers
+    all - ['not_used']
   end
 end
