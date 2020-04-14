@@ -36,7 +36,6 @@ class CreatePersonRecords < ActiveRecord::Migration[6.0]
       t.date 'NHS StartDate'
       t.date 'Last UpdateDate'
       t.string 'Disability Flag'
-      t.timestamp 'Ins_Upd_TimeStamp'
 
       t.timestamps
     end

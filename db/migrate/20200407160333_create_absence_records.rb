@@ -35,7 +35,6 @@ class CreateAbsenceRecords < ActiveRecord::Migration[6.0]
       t.string 'DH Monitoring'
       t.string 'Sickness Reason'
       t.string '3rdParty SystemReference'
-      t.timestamp 'Ins_Upd_TimeStamp'
 
       t.timestamps
     end

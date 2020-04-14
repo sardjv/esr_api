@@ -18,10 +18,13 @@ class ETL::Headers::PositionRecord
       'Organisation ID',
       'Hiring Status',
       'Position Type',
+      'not_used',
+      'not_used',
+      'not_used',
+      'not_used',
       'Workplace OrgCode',
       'Last UpdateDate',
-      'Subjective CodeDescription',
-      'Ins_Upd_TimeStamp'
+      'Subjective CodeDescription'
     ].freeze
   end
 

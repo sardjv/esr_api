@@ -99,8 +99,7 @@ module ImportExpectations
       'Position Type' => 'NONE',
       'Workplace OrgCode' => nil,
       'Last UpdateDate' => Time.new(2019, 10, 3, 12, 17, 1),
-      'Subjective CodeDescription' => 'RT Doctor',
-      'Ins_Upd_TimeStamp' => nil
+      'Subjective CodeDescription' => 'RT Doctor'
     }.freeze
   end
 end
