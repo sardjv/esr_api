@@ -1,6 +1,15 @@
 version: '3.7'
 
 services:
+  # PostgresSQL option.
+  # db:
+  #   image: 'postgres:12.2-alpine'
+  #   volumes:
+  #     - 'postgres:/var/lib/postgresql/data'
+  #   env_file:
+  #     - '.env'
+
+  # MySQL option.
   # db:
   #   image: 'mysql:8.0.19'
   #   restart: always
@@ -11,6 +20,7 @@ services:
   #   ports:
   #     - '3307:3306'
 
+  # SQL Server option.
   db:
     image: microsoft/mssql-server-linux:2017-latest
     volumes:
