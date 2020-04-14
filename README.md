@@ -90,11 +90,14 @@ docker-compose run --service-ports app
 
 ## Database
 
-To change database between MySQL and SQL Server:
+To change database between MySQL, PostgreSQL and SQL Server:
 
-1) Uncomment the relevant section in docker-compose.yml
-2) Uncomment the relevant config in database.yml
-3) Uncomment the relevant gem(s) in the Gemfile.
+1) Uncomment the relevent line in Dockerfile
+2) Uncomment the relevant section in docker-compose.yml
+3) Uncomment the relevant config in database.yml
+4) Uncomment the relevant gem(s) in the Gemfile.
+
+## Accessing the database console
 
 To access the MySQL database console:
 
