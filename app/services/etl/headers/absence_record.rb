@@ -35,7 +35,13 @@ class ETL::Headers::AbsenceRecord
       'DH Monitoring',
       'Sickness Reason',
       '3rdParty SystemReference',
-      'Ins_Upd_TimeStamp'
+      'not_used',
+      'not_used',
+      'not_used',
+      'not_used',
+      'not_used',
+      'not_used',
+      'not_used'
     ].freeze
   end
 
