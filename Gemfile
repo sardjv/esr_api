@@ -13,6 +13,7 @@ gem 'puma', '~> 4.3.3'
 gem 'rack-timeout', '~> 0.6'
 
 # Use PostgreSQL as the database for Active Record.
+# https://github.com/ged/ruby-pg
 # gem 'pg', '~> 1.2.3'
 
 # Use MySQL as the database for Active Record.

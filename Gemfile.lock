@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails-sqlserver/activerecord-sqlserver-adapter
-  revision: dd698f133594b1954f67aec7ddf0192e89c1d232
+  revision: 5185b3cd6c5089589fc74335604f16bc8d78ebcc
   branch: 6-0-dev
   specs:
     activerecord-sqlserver-adapter (6.0.0)

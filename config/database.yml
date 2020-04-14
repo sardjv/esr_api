@@ -1,7 +1,13 @@
 ---
 
 # PostgreSQL option.
-# Just remove the <<: *default lines, no config needed.
+# default: &default
+#   adapter: postgresql
+#   encoding: unicode
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   username: <%= ENV['POSTGRES_USERNAME'] %>
+#   password: <%= ENV['POSTGRES_PASSWORD'] %>
+#   host:  <%= ENV['DB_HOST'] %>
 
 # MySQL option.
 # default: &default
