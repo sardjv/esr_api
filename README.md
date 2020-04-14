@@ -38,7 +38,7 @@ Core dependencies:
 - Rails 6.0.2.1 [https://github.com/rails/rails](https://github.com/rails/rails)
 - Redis 5.0.8 [https://redis.io/](https://redis.io/)
 - Sidekiq 6.0.6 [https://github.com/mperham/sidekiq](https://github.com/mperham/sidekiq)
-- MySQL 8.0.19 is the current database, but adaptors can potentially be added for other databases.
+- PostgreSQL 12.2, MySQL 8.0.19 or SQL Server 2017
 - Multiple supporting gems as listed in the Gemfile, Bundler (included in Ruby) should take care of installing these.
 
 ## Documentation
