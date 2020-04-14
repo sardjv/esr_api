@@ -38,4 +38,8 @@ class ETL::Headers::PositionRecord
       'Ins_Upd_TimeStamp'
     ].freeze
   end
+
+  def self.non_blank_headers
+    all - ['not_used']
+  end
 end

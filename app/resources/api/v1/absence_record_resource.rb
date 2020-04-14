@@ -3,5 +3,5 @@ class Api::V1::AbsenceRecordResource < JSONAPI::Resource
 
   model_name 'AbsenceRecord'
 
-  attributes *ETL::Headers::AbsenceRecord.all
+  attributes *ETL::Headers::AbsenceRecord.non_blank_headers
 end

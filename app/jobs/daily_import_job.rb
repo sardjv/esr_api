@@ -6,13 +6,10 @@ class DailyImportJob < ApplicationJob
       # Read the data.
       source ETL::Sources::TildeSeparatedValues, filename: filename
 
-      # Add headers.
+      # Transform pipeline.
       transform ETL::Transformations::AddHeaders
-
-      # Transform strings to dates.
+      transform ETL::Transformations::SkipBlanks
       transform ETL::Transformations::StringToDate
-
-      # Transform strings to timestamps.
       transform ETL::Transformations::StringToTimestamp
 
       # Write it to the destination.
