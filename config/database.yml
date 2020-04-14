@@ -1,6 +1,9 @@
 ---
 
-# MySQL
+# PostgreSQL option.
+# Just remove the <<: *default lines, no config needed.
+
+# MySQL option.
 # default: &default
 #   adapter: mysql2
 #   encoding: utf8mb4
@@ -13,7 +16,7 @@
 #   host: <%= ENV['DB_HOST'] %>
 #   socket: /var/run/mysqld/mysqlx.sock
 
-# SQL Server
+# SQL Server option.
 default: &default
   adapter: sqlserver
   pool: 5

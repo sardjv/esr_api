@@ -12,6 +12,9 @@ gem 'puma', '~> 4.3.3'
 # https://github.com/sharpstone/rack-timeout
 gem 'rack-timeout', '~> 0.6'
 
+# Use PostgreSQL as the database for Active Record.
+# gem 'pg', '~> 1.2.3'
+
 # Use MySQL as the database for Active Record.
 # https://github.com/brianmario/mysql2
 # gem 'mysql2', '~> 0.5.3'
