@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_15_155533) do
+ActiveRecord::Schema.define(version: 2020_04_15_161633) do
 
   create_table "absence_records", force: :cascade do |t|
     t.string "Record Type"
@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 2020_04_15_155533) do
     t.string "Subjective Code Description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["Position ID", "Effective From Date", "Effective To Date"], name: "index_position_records_on_Position ID_and_Effective From Date_and_Effective To Date", unique: true
   end
 
 end

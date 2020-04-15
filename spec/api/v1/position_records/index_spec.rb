@@ -26,8 +26,9 @@ describe 'Api::V1::PositionRecordResource', type: :request, swagger_doc: 'v1/swa
           describe 'attributes match database values' do
             run_test! do
               expect(response_data.count).to eq(2)
+              database_record = PositionRecord.find(response_data.first['id'])
               response_data.first['attributes'].each do |key, value|
-                expect(position_record.send(key).to_s).to eq(value.to_s)
+                expect(database_record.send(key).to_s).to eq(value.to_s)
               end
             end
           end

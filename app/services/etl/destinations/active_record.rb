@@ -31,6 +31,11 @@ class ETL::Destinations::ActiveRecord
         'Effective End Date' => row['Effective End Date']
       )
     when 'POA'
+      ::PositionRecord.find_by(
+        'Position ID' => row['Position ID'],
+        'Effective From Date' => row['Effective From Date'],
+        'Effective To Date' => row['Effective To Date']
+      )
     end
   end
 end
