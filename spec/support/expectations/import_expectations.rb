@@ -35,7 +35,7 @@ module ImportExpectations
       'DH Monitoring' => nil,
       'Sickness Reason' => nil,
       '3rd Party System Reference' => '726999'
-    }.freeze
+    }
   end
 
   def self.person_record
@@ -74,7 +74,13 @@ module ImportExpectations
       'NHS Start Date' => Date.new(2003, 7, 1),
       'Last Update Date' => Date.new(2017, 5, 1),
       'Disability Flag' => 'N'
-    }.freeze
+    }
+  end
+
+  def self.person_record_updated
+    p = person_record
+    p['Office E-mail Address'] = 'john.smith.new.email@example.com'
+    p
   end
 
   def self.position_record
@@ -99,6 +105,6 @@ module ImportExpectations
       'Workplace Org Code' => nil,
       'Last Update Date' => Time.new(2019, 10, 3, 12, 17, 1),
       'Subjective Code Description' => 'RT Doctor'
-    }.freeze
+    }
   end
 end
