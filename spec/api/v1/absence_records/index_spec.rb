@@ -3,7 +3,6 @@ require 'swagger_helper'
 describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swagger.json' do
   let!(:absence_record) { create(:absence_record) }
   let!(:absence_record2) { create(:absence_record) }
-
   let(:response_data) { JSON.parse(response.body)['data'] }
 
   path '/api/v1/absence_records' do
@@ -27,8 +26,9 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
           describe 'attributes match database values' do
             run_test! do
               expect(response_data.count).to eq(2)
+              database_record = AbsenceRecord.find(response_data.first['id'])
               response_data.first['attributes'].each do |key, value|
-                expect(absence_record.send(key)).to eq(value)
+                expect(database_record.send(key).to_s).to eq(value.to_s)
               end
             end
           end

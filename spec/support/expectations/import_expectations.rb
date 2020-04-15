@@ -38,6 +38,12 @@ module ImportExpectations
     }
   end
 
+  def self.absence_record_updated
+    r = absence_record
+    r['Absence Reason'] = 'Annual leave'
+    r
+  end
+
   def self.person_record
     {
       'Record Type' => 'PRA',
@@ -78,9 +84,9 @@ module ImportExpectations
   end
 
   def self.person_record_updated
-    p = person_record
-    p['Office E-mail Address'] = 'john.smith.new.email@example.com'
-    p
+    r = person_record
+    r['Office E-mail Address'] = 'john.smith.new.email@example.com'
+    r
   end
 
   def self.position_record
@@ -106,5 +112,11 @@ module ImportExpectations
       'Last Update Date' => Time.new(2019, 10, 3, 12, 17, 1),
       'Subjective Code Description' => 'RT Doctor'
     }
+  end
+
+  def self.position_record_updated
+    r = position_record
+    r['Position Name'] = 'ABC5001|Core Staff|001|'
+    r
   end
 end
