@@ -26,8 +26,9 @@ describe 'Api::V1::PersonRecordResource', type: :request, swagger_doc: 'v1/swagg
           describe 'attributes match database values' do
             run_test! do
               expect(response_data.count).to eq(2)
+              database_record = PersonRecord.find(response_data.first['id'])
               response_data.first['attributes'].each do |key, value|
-                expect(person_record.send(key)).to eq(value)
+                expect(database_record.send(key).to_s).to eq(value.to_s)
               end
             end
           end
