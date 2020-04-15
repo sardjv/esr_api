@@ -4,7 +4,6 @@ class Api::V1::Swagger::PersonRecord
       person_record_attributes: {
         type: 'object',
         properties: {
-          'Record Type' => { type: 'string', example: 'PRA', 'x-nullable': true },
           'Person ID' => { type: 'string', example: 'A48180', 'x-nullable': true },
           'Effective Start Date' => { type: 'date', example: '2017-05-01', 'x-nullable': true },
           'Effective End Date' => { type: 'date', example: '2020-05-01', 'x-nullable': true },

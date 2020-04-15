@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 2020_04_15_161633) do
 
   create_table "absence_records", force: :cascade do |t|
-    t.string "Record Type"
     t.string "Person ID"
     t.string "Absence Attendance ID"
     t.string "Absence Type"
@@ -53,7 +52,6 @@ ActiveRecord::Schema.define(version: 2020_04_15_161633) do
   end
 
   create_table "person_records", force: :cascade do |t|
-    t.string "Record Type"
     t.string "Person ID"
     t.date "Effective Start Date"
     t.date "Effective End Date"
@@ -94,7 +92,6 @@ ActiveRecord::Schema.define(version: 2020_04_15_161633) do
   end
 
   create_table "position_records", force: :cascade do |t|
-    t.string "Record Type"
     t.string "Position ID"
     t.date "Effective From Date"
     t.date "Effective To Date"

@@ -70,4 +70,8 @@ class ETL::Headers::PersonRecord
   def self.non_blank_headers
     all - ['not_used']
   end
+
+  def self.api_headers
+    non_blank_headers - ['Record Type']
+  end
 end

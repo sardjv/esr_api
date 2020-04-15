@@ -1,7 +1,6 @@
 module ImportExpectations
   def self.absence_record
     {
-      'Record Type' => 'ABA',
       'Person ID' => 'A48180',
       'Absence Attendance ID' => '112119701A',
       'Absence Type' => 'Special Increasing Bal',
@@ -46,7 +45,6 @@ module ImportExpectations
 
   def self.person_record
     {
-      'Record Type' => 'PRA',
       'Person ID' => 'A48180',
       'Effective Start Date' => Date.new(2017, 5, 1),
       'Effective End Date' => Date.new(2020, 5, 1),
@@ -91,7 +89,6 @@ module ImportExpectations
 
   def self.position_record
     {
-      'Record Type' => 'POA',
       'Position ID' => 'ABC4401',
       'Effective From Date' => Date.new(2019, 4, 22),
       'Effective To Date' => nil,

@@ -1,8 +1,10 @@
 describe DailyImportJob, type: :job do
   let(:add_filename) { file_fixture('add_person_record.dsv').to_path }
   let(:update_filename) { file_fixture('update_person_record.dsv').to_path }
+  let(:delete_filename) { file_fixture('delete_person_record.dsv').to_path }
   let(:add_job) { DailyImportJob.perform_later(filename: add_filename) }
   let(:update_job) { DailyImportJob.perform_later(filename: update_filename) }
+  let(:delete_job) { DailyImportJob.perform_later(filename: delete_filename) }
 
   it 'queues the jobs' do
     expect { add_job }
@@ -45,6 +47,12 @@ describe DailyImportJob, type: :job do
       ImportExpectations.person_record_updated.each do |key, value|
         expect(pr.send(key)).to eq(value)
       end
+    end
+
+    it 'deletes it' do
+      perform_enqueued_jobs { delete_job }
+
+      expect(PersonRecord.count).to eq(0)
     end
   end
 end

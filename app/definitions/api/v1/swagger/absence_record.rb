@@ -4,7 +4,6 @@ class Api::V1::Swagger::AbsenceRecord
       absence_record_attributes: {
         type: 'object',
         properties: {
-          'Record Type' => { type: 'string', example: 'ABA', 'x-nullable': true },
           'Person ID' => { type: 'string', example: 'A48180', 'x-nullable': true },
           'Absence Attendance ID' => { type: 'string', example: '112119701A', 'x-nullable': true },
           'Absence Type' => { type: 'string', example: 'Special Increasing Bal', 'x-nullable': true },

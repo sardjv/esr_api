@@ -4,7 +4,6 @@ class Api::V1::Swagger::PositionRecord
       position_record_attributes: {
         type: 'object',
         properties: {
-          'Record Type' => { type: 'string', example: 'POA', 'x-nullable': true },
           'Position ID' => { type: 'string', example: 'ABC4401', 'x-nullable': true },
           'Effective From Date' => { type: 'date', example: '2019-04-22', 'x-nullable': true },
           'Effective To Date' => { type: 'date', example: nil, 'x-nullable': true },

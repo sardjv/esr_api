@@ -1,7 +1,6 @@
 class CreatePositionRecords < ActiveRecord::Migration[6.0]
   def change
     create_table :position_records do |t|
-      t.string 'Record Type'
       t.string 'Position ID'
       t.date 'Effective From Date'
       t.date 'Effective To Date'
