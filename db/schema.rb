@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_15_114933) do
+ActiveRecord::Schema.define(version: 2020_04_15_155533) do
 
   create_table "absence_records", force: :cascade do |t|
     t.string "Record Type"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_04_15_114933) do
     t.string "3rd Party System Reference"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["Absence Attendance ID"], name: "index_absence_records_on_Absence Attendance ID", unique: true
   end
 
   create_table "person_records", force: :cascade do |t|

@@ -20,13 +20,17 @@ class ETL::Destinations::ActiveRecord
 
   def existing_record(row)
     case row['Record Type']
+    when 'ABA'
+      ::AbsenceRecord.find_by(
+        'Absence Attendance ID' => row['Absence Attendance ID']
+      )
     when 'PRA'
       ::PersonRecord.find_by(
         'Person ID' => row['Person ID'],
         'Effective Start Date' => row['Effective Start Date'],
         'Effective End Date' => row['Effective End Date']
       )
-    else false
+    when 'POA'
     end
   end
 end

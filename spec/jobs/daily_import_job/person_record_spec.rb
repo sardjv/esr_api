@@ -41,7 +41,7 @@ describe DailyImportJob, type: :job do
       expect(pr.created_at).to be_within(2.seconds).of(Time.current - 1.week)
       expect(pr.updated_at).to be_within(2.seconds).of(Time.current)
 
-      # Expect values in the database to match input from add_person_record.dsv.
+      # Expect values in the database to match input from update_person_record.dsv.
       ImportExpectations.person_record_updated.each do |key, value|
         expect(pr.send(key)).to eq(value)
       end

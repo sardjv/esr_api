@@ -27,7 +27,7 @@ describe 'Api::V1::PositionRecordResource', type: :request, swagger_doc: 'v1/swa
             run_test! do
               expect(response_data.count).to eq(2)
               response_data.first['attributes'].each do |key, value|
-                expect(position_record.send(key)).to eq(value)
+                expect(position_record.send(key).to_s).to eq(value.to_s)
               end
             end
           end

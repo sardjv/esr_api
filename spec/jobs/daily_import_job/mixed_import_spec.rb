@@ -20,7 +20,7 @@ describe DailyImportJob, type: :job do
       position_record = PositionRecord.first
 
       # Expect values in the database to match input from mixed_record.dsv.
-      ImportExpectations.absence_record.each do |key, value|
+      ImportExpectations.absence_record_updated.each do |key, value|
         expect(absence_record.send(key)).to eq(value)
       end
       ImportExpectations.person_record_updated.each do |key, value|
