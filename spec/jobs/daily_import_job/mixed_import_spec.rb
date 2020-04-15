@@ -11,9 +11,9 @@ describe DailyImportJob, type: :job do
     before { perform_enqueued_jobs { job } }
 
     it 'sets attributes correctly' do
-      expect(AbsenceRecord.count).to eq(2)
-      expect(PersonRecord.count).to eq(2)
-      expect(PositionRecord.count).to eq(2)
+      expect(AbsenceRecord.count).to eq(1)
+      expect(PersonRecord.count).to eq(1)
+      expect(PositionRecord.count).to eq(1)
 
       absence_record = AbsenceRecord.first
       person_record = PersonRecord.first
@@ -23,7 +23,7 @@ describe DailyImportJob, type: :job do
       ImportExpectations.absence_record.each do |key, value|
         expect(absence_record.send(key)).to eq(value)
       end
-      ImportExpectations.person_record.each do |key, value|
+      ImportExpectations.person_record_updated.each do |key, value|
         expect(person_record.send(key)).to eq(value)
       end
       ImportExpectations.position_record.each do |key, value|
@@ -31,7 +31,7 @@ describe DailyImportJob, type: :job do
       end
 
       # Adds timestamps.
-      [AbsenceRecord, PersonRecord].each do |klass|
+      [AbsenceRecord, PersonRecord, PositionRecord].each do |klass|
         klass.all.each do |record|
           expect(record.created_at).not_to eq(nil)
           expect(record.updated_at).not_to eq(nil)
