@@ -31,6 +31,7 @@ class Api::V1::Swagger::Core
   def self.definitions
     [
       Api::V1::Swagger::AbsenceRecord.definitions,
+      Api::V1::Swagger::LocationRecord.definitions,
       Api::V1::Swagger::PersonRecord.definitions,
       Api::V1::Swagger::PositionRecord.definitions
     ]
