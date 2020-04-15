@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_09_131233) do
+ActiveRecord::Schema.define(version: 2020_04_15_114933) do
 
   create_table "absence_records", force: :cascade do |t|
     t.string "Record Type"
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 2020_04_09_131233) do
   end
 
   create_table "person_records", force: :cascade do |t|
-    t.string "Person ID"
     t.string "Record Type"
+    t.string "Person ID"
     t.date "Effective Start Date"
     t.date "Effective End Date"
     t.string "Employee Number"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 2020_04_09_131233) do
     t.string "Disability Flag"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["Person ID", "Effective Start Date", "Effective End Date"], name: "index_person_records_on_Person ID_and_Effective Start Date_and_Effective End Date", unique: true
   end
 
   create_table "position_records", force: :cascade do |t|
