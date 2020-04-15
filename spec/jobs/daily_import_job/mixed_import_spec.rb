@@ -26,7 +26,7 @@ describe DailyImportJob, type: :job do
       ImportExpectations.person_record_updated.each do |key, value|
         expect(person_record.send(key)).to eq(value)
       end
-      ImportExpectations.position_record.each do |key, value|
+      ImportExpectations.position_record_updated.each do |key, value|
         expect(position_record.send(key)).to eq(value)
       end
 
