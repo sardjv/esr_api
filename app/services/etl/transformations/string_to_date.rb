@@ -14,8 +14,9 @@ class ETL::Transformations::StringToDate
   def date_headers(type)
     case type
     when 'ABA', 'ABD' then ETL::Headers::AbsenceRecord.date_headers
-    when 'PRA', 'PRD' then ETL::Headers::PersonRecord.date_headers
+    when 'LCA', 'LCD' then ETL::Headers::LocationRecord.date_headers
     when 'POA', 'POD' then ETL::Headers::PositionRecord.date_headers
+    when 'PRA', 'PRD' then ETL::Headers::PersonRecord.date_headers
     end
   end
 end

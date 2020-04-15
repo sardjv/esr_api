@@ -16,6 +16,7 @@ class ETL::Destinations::ActiveRecord
   def create(row)
     case row['Record Type']
     when 'ABA' then ::AbsenceRecord.insert_all!([row.except('Record Type')])
+    when 'LCA' then ::LocationRecord.insert_all!([row.except('Record Type')])
     when 'PRA' then ::PersonRecord.insert_all!([row.except('Record Type')])
     when 'POA' then ::PositionRecord.insert_all!([row.except('Record Type')])
     end
@@ -24,8 +25,9 @@ class ETL::Destinations::ActiveRecord
   def delete?(row)
     %w[
       ABD
-      PRD
+      LCD
       POD
+      PRD
     ].include?(row['Record Type'])
   end
 
@@ -35,17 +37,21 @@ class ETL::Destinations::ActiveRecord
       ::AbsenceRecord.find_by(
         'Absence Attendance ID' => row['Absence Attendance ID']
       )
-    when 'PRA', 'PRD'
-      ::PersonRecord.find_by(
-        'Person ID' => row['Person ID'],
-        'Effective Start Date' => row['Effective Start Date'],
-        'Effective End Date' => row['Effective End Date']
+    when 'LCA', 'LCD'
+      ::LocationRecord.find_by(
+        'Location ID' => row['Location ID']
       )
     when 'POA', 'POD'
       ::PositionRecord.find_by(
         'Position ID' => row['Position ID'],
         'Effective From Date' => row['Effective From Date'],
         'Effective To Date' => row['Effective To Date']
+      )
+    when 'PRA', 'PRD'
+      ::PersonRecord.find_by(
+        'Person ID' => row['Person ID'],
+        'Effective Start Date' => row['Effective Start Date'],
+        'Effective End Date' => row['Effective End Date']
       )
     end
   end

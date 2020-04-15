@@ -14,8 +14,9 @@ class ETL::Transformations::StringToTimestamp
   def timestamp_headers(type)
     case type
     when 'ABA', 'ABD' then ETL::Headers::AbsenceRecord.timestamp_headers
-    when 'PRA', 'PRD' then ETL::Headers::PersonRecord.timestamp_headers
+    when 'LCA', 'LCD' then ETL::Headers::LocationRecord.timestamp_headers
     when 'POA', 'POD' then ETL::Headers::PositionRecord.timestamp_headers
+    when 'PRA', 'PRD' then ETL::Headers::PersonRecord.timestamp_headers
     end
   end
 end
