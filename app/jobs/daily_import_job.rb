@@ -8,9 +8,9 @@ class DailyImportJob < ApplicationJob
 
       # Transform pipeline.
       transform ETL::Transformations::AddHeaders
-      transform ETL::Transformations::SkipBlanks
       transform ETL::Transformations::StringToDate
       transform ETL::Transformations::StringToTimestamp
+      transform ETL::Transformations::SkipBlanks
 
       # Write it to the destination.
       destination ETL::Destinations::ActiveRecord

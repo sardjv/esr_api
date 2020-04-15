@@ -7,9 +7,9 @@ class ETL::Transformations::AddHeaders
 
   def headers(type)
     case type
-    when 'ABA' then ETL::Headers::AbsenceRecord.all
-    when 'PRA' then ETL::Headers::PersonRecord.all
-    when 'POA' then ETL::Headers::PositionRecord.all
+    when 'ABA', 'ABD' then ETL::Headers::AbsenceRecord.all
+    when 'PRA', 'PRD' then ETL::Headers::PersonRecord.all
+    when 'POA', 'POD' then ETL::Headers::PositionRecord.all
     end
   end
 end

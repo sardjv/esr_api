@@ -191,11 +191,6 @@
     "absence_record_attributes": {
       "type": "object",
       "properties": {
-        "Record Type": {
-          "type": "string",
-          "example": "ABA",
-          "x-nullable": true
-        },
         "Person ID": {
           "type": "string",
           "example": "A48180",
@@ -455,11 +450,6 @@
     "person_record_attributes": {
       "type": "object",
       "properties": {
-        "Record Type": {
-          "type": "string",
-          "example": "PRA",
-          "x-nullable": true
-        },
         "Person ID": {
           "type": "string",
           "example": "A48180",
@@ -719,11 +709,6 @@
     "position_record_attributes": {
       "type": "object",
       "properties": {
-        "Record Type": {
-          "type": "string",
-          "example": "POA",
-          "x-nullable": true
-        },
         "Position ID": {
           "type": "string",
           "example": "ABC4401",
