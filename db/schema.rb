@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_15_161633) do
+ActiveRecord::Schema.define(version: 2020_04_15_190548) do
 
   create_table "absence_records", force: :cascade do |t|
     t.string "Person ID"
@@ -49,6 +49,34 @@ ActiveRecord::Schema.define(version: 2020_04_15_161633) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["Absence Attendance ID"], name: "index_absence_records_on_Absence Attendance ID", unique: true
+  end
+
+  create_table "location_records", force: :cascade do |t|
+    t.string "Record Type"
+    t.string "Location ID"
+    t.string "Location Code"
+    t.string "Location Description"
+    t.date "Inactive Date"
+    t.string "Assignment Address 1st line"
+    t.string "Assignment Address 2nd line"
+    t.string "Assignment Address 3rd line"
+    t.string "Town"
+    t.string "County"
+    t.string "Postcode"
+    t.string "Country"
+    t.string "Telephone"
+    t.string "Fax"
+    t.string "Payslip Delivery Point"
+    t.string "Site Code"
+    t.string "Welsh Location Translation"
+    t.string "Welsh Address Line 1"
+    t.string "Welsh Address Line 2"
+    t.string "Welsh Address Line 3"
+    t.string "Welsh Town Translation"
+    t.datetime "Last Update Date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["Location ID"], name: "index_location_records_on_Location ID", unique: true
   end
 
   create_table "person_records", force: :cascade do |t|
