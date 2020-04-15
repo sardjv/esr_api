@@ -2,7 +2,6 @@ class ETL::Destinations::ActiveRecord
 
   def write(row)
     if (record = existing_record(row))
-      row = row.merge({ 'updated_at' => Time.current })
       record.update(row)
     else
       row = row.merge({ 'created_at' => Time.current, 'updated_at' => Time.current })
