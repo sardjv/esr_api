@@ -20,7 +20,7 @@ describe DailyImportJob, type: :job do
     pr = LocationRecord.first
 
     # Expect values in the database to match input from add_location_record.dsv.
-    ImportExpectations.location_record.each do |key, value|
+    Expectations::LocationRecord.added.each do |key, value|
       expect(pr.send(key)).to eq(value)
     end
   end
@@ -44,7 +44,7 @@ describe DailyImportJob, type: :job do
       expect(pr.updated_at).to be_within(2.seconds).of(Time.current)
 
       # Expect values in the database to match input from update_location_record.dsv.
-      ImportExpectations.location_record_updated.each do |key, value|
+      Expectations::LocationRecord.updated.each do |key, value|
         expect(pr.send(key)).to eq(value)
       end
     end
