@@ -12,16 +12,16 @@ describe DailyImportJob, type: :job do
       expect(LocationRecord.count).to eq(1)
 
       # Expect values in the database to match input from mixed_record.dsv.
-      ImportExpectations.absence_record_updated.each do |key, value|
+      Expectations::AbsenceRecord.updated.each do |key, value|
         expect(AbsenceRecord.first.send(key)).to eq(value)
       end
-      ImportExpectations.person_record_updated.each do |key, value|
+      Expectations::PersonRecord.updated.each do |key, value|
         expect(PersonRecord.first.send(key)).to eq(value)
       end
-      ImportExpectations.position_record_updated.each do |key, value|
+      Expectations::PositionRecord.updated.each do |key, value|
         expect(PositionRecord.first.send(key)).to eq(value)
       end
-      ImportExpectations.location_record_updated.each do |key, value|
+      Expectations::LocationRecord.updated.each do |key, value|
         expect(LocationRecord.first.send(key)).to eq(value)
       end
 
