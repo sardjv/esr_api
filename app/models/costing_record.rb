@@ -1,2 +1,2 @@
-class AbsenceRecord < ApplicationRecord
+class CostingRecord < ApplicationRecord
 end

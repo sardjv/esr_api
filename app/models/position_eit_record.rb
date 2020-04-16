@@ -1,2 +1,2 @@
-class AbsenceRecord < ApplicationRecord
+class PositionEITRecord < ApplicationRecord
 end
