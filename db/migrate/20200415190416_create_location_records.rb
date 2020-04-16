@@ -26,6 +26,8 @@ class CreateLocationRecords < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+
+    add_index :location_records, ['Location ID'], unique: true
   end
 end
 

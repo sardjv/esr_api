@@ -37,5 +37,7 @@ class CreateAbsenceRecords < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+
+    add_index :absence_records, ['Absence Attendance ID'], unique: true
   end
 end
