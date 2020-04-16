@@ -1,7 +1,6 @@
-class CreateSITRecords < ActiveRecord::Migration[6.0]
+class CreateSitRecords < ActiveRecord::Migration[6.0]
   def change
     create_table :sit_records do |t|
-      t.string 'Record Type'
       t.string 'Person ID'
       t.string 'Special Information ID'
       t.date 'Effective Start Date'

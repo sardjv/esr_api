@@ -1,7 +1,6 @@
 class CreateCompetencyRecords < ActiveRecord::Migration[6.0]
   def change
     create_table :competency_records do |t|
-      t.string 'Record Type'
       t.string 'Person ID'
       t.string 'Competency Element ID'
       t.string 'Competency Type'
@@ -21,7 +20,6 @@ class CreateCompetencyRecords < ActiveRecord::Migration[6.0]
       t.string 'Position ID'
       t.string 'Proficiency High Level ID'
       t.string 'Essential Flag'
-      t.string 'Record Type'
       t.timestamp 'Last Update Date'
 
       t.timestamps

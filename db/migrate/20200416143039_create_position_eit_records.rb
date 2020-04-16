@@ -1,7 +1,6 @@
-class CreatePositionEITRecords < ActiveRecord::Migration[6.0]
+class CreatePositionEitRecords < ActiveRecord::Migration[6.0]
   def change
     create_table :position_eit_records do |t|
-      t.string 'Record Type'
       t.string 'Position ID'
       t.string 'Position Extra Information ID'
       t.string 'Information Type'

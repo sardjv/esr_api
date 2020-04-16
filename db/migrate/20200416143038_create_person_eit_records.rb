@@ -1,7 +1,6 @@
-class CreatePersonEITRecords < ActiveRecord::Migration[6.0]
+class CreatePersonEitRecords < ActiveRecord::Migration[6.0]
   def change
     create_table :person_eit_records do |t|
-      t.string 'Record Type'
       t.string 'Person ID'
       t.string 'Person Extra Information ID'
       t.string 'Information Type'
