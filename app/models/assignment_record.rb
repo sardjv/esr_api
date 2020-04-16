@@ -1,2 +1,2 @@
-class AbsenceRecord < ApplicationRecord
+class AssignmentRecord < ApplicationRecord
 end
