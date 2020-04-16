@@ -1,7 +1,6 @@
 class CreateOrganisationRecords < ActiveRecord::Migration[6.0]
   def change
     create_table :organisation_records do |t|
-      t.string 'Record Type'
       t.string 'Organisation ID'
       t.string 'Organisation Name'
       t.string 'Organisation Type'

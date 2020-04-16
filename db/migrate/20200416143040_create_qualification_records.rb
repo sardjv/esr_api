@@ -1,7 +1,6 @@
 class CreateQualificationRecords < ActiveRecord::Migration[6.0]
   def change
     create_table :qualification_records do |t|
-      t.string 'Record Type'
       t.string 'Person ID'
       t.string 'Qualification ID'
       t.string 'Qualification Type'

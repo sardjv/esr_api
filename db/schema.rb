@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_15_190416) do
+ActiveRecord::Schema.define(version: 2020_04_16_143042) do
 
   create_table "absence_records", force: :cascade do |t|
     t.string "Person ID"
@@ -51,6 +51,148 @@ ActiveRecord::Schema.define(version: 2020_04_15_190416) do
     t.index ["Absence Attendance ID"], name: "index_absence_records_on_Absence Attendance ID", unique: true
   end
 
+  create_table "assignment_records", force: :cascade do |t|
+    t.string "Person ID"
+    t.string "Assignment ID"
+    t.date "Effective Start Date"
+    t.date "Effective End Date"
+    t.date "Earliest Assignment Start Date"
+    t.string "Assignment Type"
+    t.string "Assignment Number"
+    t.string "System Assignment Status"
+    t.string "User Assignment Status"
+    t.string "Employee Status Flag"
+    t.string "Payroll Name"
+    t.string "Payroll Period Type"
+    t.string "Assignment Location ID"
+    t.string "Supervisor Flag"
+    t.string "Supervisor Person ID"
+    t.string "Supervisor Assignment ID"
+    t.string "Supervisor Assignment Number"
+    t.string "Department Manager Person ID"
+    t.string "Employee Category"
+    t.string "Assignment Category"
+    t.string "Primary Assignment"
+    t.string "Normal Hours / Sessions"
+    t.string "Frequency"
+    t.string "Grade Contract Hours"
+    t.string "FTE"
+    t.string "Flexible Working Pattern"
+    t.string "Organisation ID"
+    t.string "Position ID"
+    t.string "Position Name"
+    t.string "Grade"
+    t.string "Grade Step"
+    t.date "Start Date in Grade"
+    t.string "Annual Salary Value"
+    t.string "Job Name"
+    t.string "People Group"
+    t.string "T&A Flag"
+    t.string "Assignment Night Worker Attribute"
+    t.date "Projected Hire Date"
+    t.string "Vacancy ID"
+    t.date "Contract End Date"
+    t.date "Increment Date"
+    t.string "Maximum Part Time Flag"
+    t.string "AFC Flag"
+    t.datetime "Last Update Date"
+    t.date "Last Working Day"
+    t.string "e-KSF Spinal Point"
+    t.string "Manager Flag"
+    t.date "Assignment End Date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["Assignment ID", "Effective Start Date", "Effective End Date"], name: "index_assignment_records_on_Assignment ID_and_Effective Start Date_and_Effective End Date", unique: true
+  end
+
+  create_table "competency_records", force: :cascade do |t|
+    t.string "Person ID"
+    t.string "Competency Element ID"
+    t.string "Competency Type"
+    t.string "Competency Status"
+    t.string "Competency Name"
+    t.date "Date From"
+    t.date "Date To"
+    t.string "Proficiency Level"
+    t.string "VPD Code"
+    t.date "Certification Date"
+    t.string "Certification Method"
+    t.date "Next Certification Date"
+    t.string "Competence ID"
+    t.string "Business Group ID"
+    t.string "Job ID"
+    t.string "Organisation ID"
+    t.string "Position ID"
+    t.string "Proficiency High Level ID"
+    t.string "Essential Flag"
+    t.datetime "Last Update Date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["Competency Element ID"], name: "index_competency_records_on_Competency Element ID", unique: true
+  end
+
+  create_table "costing_records", force: :cascade do |t|
+    t.string "Person ID"
+    t.string "Assignment ID"
+    t.string "Costing Allocation ID"
+    t.string "Effective Start Date"
+    t.string "Effective End Date"
+    t.string "Entity Code"
+    t.string "Charitable Indicator"
+    t.string "Cost Centre"
+    t.string "Subjective"
+    t.string "Analysis 1"
+    t.string "Analysis 2"
+    t.string "Element Number"
+    t.string "Spare Segment"
+    t.string "Percentage Split"
+    t.datetime "Last Update Date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["Costing Allocation ID"], name: "index_costing_records_on_Costing Allocation ID", unique: true
+  end
+
+  create_table "disability_records", force: :cascade do |t|
+    t.string "Person ID"
+    t.string "Disability ID"
+    t.string "Category"
+    t.string "Status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["Disability ID"], name: "index_disability_records_on_Disability ID", unique: true
+  end
+
+  create_table "element_records", force: :cascade do |t|
+    t.string "Person ID"
+    t.string "Element Entry ID"
+    t.date "Effective Start Date"
+    t.date "Effective End Date"
+    t.string "Element Entry Type"
+    t.string "Assignment ID"
+    t.string "Element Type ID"
+    t.string "Element Type Name"
+    t.date "Earned Date"
+    t.string "Entry Value 1"
+    t.string "Entry Value 2"
+    t.string "Entry Value 3"
+    t.string "Entry Value 4"
+    t.string "Entry Value 5"
+    t.string "Entry Value 6"
+    t.string "Entry Value 7"
+    t.string "Entry Value 8"
+    t.string "Entry Value 9"
+    t.string "Entry Value 10"
+    t.string "Entry Value 11"
+    t.string "Entry Value 12"
+    t.string "Entry Value 13"
+    t.string "Entry Value 14"
+    t.string "Entry Value 15"
+    t.datetime "Last Update Date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["Element Entry ID"], name: "index_element_records_on_Element Entry ID", unique: true
+  end
+
   create_table "location_records", force: :cascade do |t|
     t.string "Record Type"
     t.string "Location ID"
@@ -77,6 +219,88 @@ ActiveRecord::Schema.define(version: 2020_04_15_190416) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["Location ID"], name: "index_location_records_on_Location ID", unique: true
+  end
+
+  create_table "organisation_records", force: :cascade do |t|
+    t.string "Organisation ID"
+    t.string "Organisation Name"
+    t.string "Organisation Type"
+    t.date "Effective From Date"
+    t.date "Effective To Date"
+    t.string "Hierarchy Version ID"
+    t.date "Hierarchy Version Date From"
+    t.date "Hierarchy Version Date To"
+    t.string "Default Cost Centre"
+    t.string "Parent Organisation ID"
+    t.string "NACS Code"
+    t.string "Location ID"
+    t.datetime "Last Update Date"
+    t.string "Cost Centre Description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["Organisation ID"], name: "index_organisation_records_on_Organisation ID", unique: true
+  end
+
+  create_table "person_eit_records", force: :cascade do |t|
+    t.string "Person ID"
+    t.string "Person Extra Information ID"
+    t.string "Information Type"
+    t.string "PEI_INFORMATION_CATEGORY"
+    t.string "PEI_INFORMATION1"
+    t.string "PEI_INFORMATION2"
+    t.string "PEI_INFORMATION3"
+    t.string "PEI_INFORMATION4"
+    t.string "PEI_INFORMATION5"
+    t.string "PEI_INFORMATION6"
+    t.string "PEI_INFORMATION7"
+    t.string "PEI_INFORMATION8"
+    t.string "PEI_INFORMATION9"
+    t.string "PEI_INFORMATION10"
+    t.string "PEI_INFORMATION11"
+    t.string "PEI_INFORMATION12"
+    t.string "PEI_INFORMATION13"
+    t.string "PEI_INFORMATION14"
+    t.string "PEI_INFORMATION15"
+    t.string "PEI_INFORMATION16"
+    t.string "PEI_INFORMATION17"
+    t.string "PEI_INFORMATION18"
+    t.string "PEI_INFORMATION19"
+    t.string "PEI_INFORMATION20"
+    t.string "PEI_INFORMATION21"
+    t.string "PEI_INFORMATION22"
+    t.string "PEI_INFORMATION23"
+    t.string "PEI_INFORMATION24"
+    t.string "PEI_INFORMATION25"
+    t.string "PEI_INFORMATION26"
+    t.string "PEI_INFORMATION27"
+    t.string "PEI_INFORMATION28"
+    t.string "PEI_INFORMATION29"
+    t.string "PEI_INFORMATION30"
+    t.string "ATTRIBUTE_CATEGORY"
+    t.string "PEI_ATTRIBUTE1"
+    t.string "PEI_ATTRIBUTE2"
+    t.string "PEI_ATTRIBUTE3"
+    t.string "PEI_ATTRIBUTE4"
+    t.string "PEI_ATTRIBUTE5"
+    t.string "PEI_ATTRIBUTE6"
+    t.string "PEI_ATTRIBUTE7"
+    t.string "PEI_ATTRIBUTE8"
+    t.string "PEI_ATTRIBUTE9"
+    t.string "PEI_ATTRIBUTE10"
+    t.string "PEI_ATTRIBUTE11"
+    t.string "PEI_ATTRIBUTE12"
+    t.string "PEI_ATTRIBUTE13"
+    t.string "PEI_ATTRIBUTE14"
+    t.string "PEI_ATTRIBUTE15"
+    t.string "PEI_ATTRIBUTE16"
+    t.string "PEI_ATTRIBUTE17"
+    t.string "PEI_ATTRIBUTE18"
+    t.string "PEI_ATTRIBUTE19"
+    t.string "PEI_ATTRIBUTE20"
+    t.datetime "Last Update Date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["Person Extra Information ID"], name: "index_person_eit_records_on_Person Extra Information ID", unique: true
   end
 
   create_table "person_records", force: :cascade do |t|
@@ -119,6 +343,68 @@ ActiveRecord::Schema.define(version: 2020_04_15_190416) do
     t.index ["Person ID", "Effective Start Date", "Effective End Date"], name: "index_person_records_on_Person ID_and_Effective Start Date_and_Effective End Date", unique: true
   end
 
+  create_table "position_eit_records", force: :cascade do |t|
+    t.string "Position ID"
+    t.string "Position Extra Information ID"
+    t.string "Information Type"
+    t.string "POEI_INFORMATION_CATEGORY"
+    t.string "POEI_INFORMATION1"
+    t.string "POEI_INFORMATION2"
+    t.string "POEI_INFORMATION3"
+    t.string "POEI_INFORMATION4"
+    t.string "POEI_INFORMATION5"
+    t.string "POEI_INFORMATION6"
+    t.string "POEI_INFORMATION7"
+    t.string "POEI_INFORMATION8"
+    t.string "POEI_INFORMATION9"
+    t.string "POEI_INFORMATION10"
+    t.string "POEI_INFORMATION11"
+    t.string "POEI_INFORMATION12"
+    t.string "POEI_INFORMATION13"
+    t.string "POEI_INFORMATION14"
+    t.string "POEI_INFORMATION15"
+    t.string "POEI_INFORMATION16"
+    t.string "POEI_INFORMATION17"
+    t.string "POEI_INFORMATION18"
+    t.string "POEI_INFORMATION19"
+    t.string "POEI_INFORMATION20"
+    t.string "POEI_INFORMATION21"
+    t.string "POEI_INFORMATION22"
+    t.string "POEI_INFORMATION23"
+    t.string "POEI_INFORMATION24"
+    t.string "POEI_INFORMATION25"
+    t.string "POEI_INFORMATION26"
+    t.string "POEI_INFORMATION27"
+    t.string "POEI_INFORMATION28"
+    t.string "POEI_INFORMATION29"
+    t.string "POEI_INFORMATION30"
+    t.string "ATTRIBUTE_CATEGORY"
+    t.string "POEI_ATTRIBUTE1"
+    t.string "POEI_ATTRIBUTE2"
+    t.string "POEI_ATTRIBUTE3"
+    t.string "POEI_ATTRIBUTE4"
+    t.string "POEI_ATTRIBUTE5"
+    t.string "POEI_ATTRIBUTE6"
+    t.string "POEI_ATTRIBUTE7"
+    t.string "POEI_ATTRIBUTE8"
+    t.string "POEI_ATTRIBUTE9"
+    t.string "POEI_ATTRIBUTE10"
+    t.string "POEI_ATTRIBUTE11"
+    t.string "POEI_ATTRIBUTE12"
+    t.string "POEI_ATTRIBUTE13"
+    t.string "POEI_ATTRIBUTE14"
+    t.string "POEI_ATTRIBUTE15"
+    t.string "POEI_ATTRIBUTE16"
+    t.string "POEI_ATTRIBUTE17"
+    t.string "POEI_ATTRIBUTE18"
+    t.string "POEI_ATTRIBUTE19"
+    t.string "POEI_ATTRIBUTE20"
+    t.datetime "Last Update Date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["Position Extra Information ID"], name: "index_position_eit_records_on_Position Extra Information ID", unique: true
+  end
+
   create_table "position_records", force: :cascade do |t|
     t.string "Position ID"
     t.date "Effective From Date"
@@ -142,6 +428,122 @@ ActiveRecord::Schema.define(version: 2020_04_15_190416) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["Position ID", "Effective From Date", "Effective To Date"], name: "index_position_records_on_Position ID_and_Effective From Date_and_Effective To Date", unique: true
+  end
+
+  create_table "qualification_records", force: :cascade do |t|
+    t.string "Person ID"
+    t.string "Qualification ID"
+    t.string "Qualification Type"
+    t.string "Title"
+    t.string "Status"
+    t.string "Grade"
+    t.date "Awarded Date"
+    t.date "Start Date"
+    t.date "End Date"
+    t.string "Establishment"
+    t.string "Country"
+    t.datetime "Last Update Date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["Qualification ID"], name: "index_qualification_records_on_Qualification ID", unique: true
+  end
+
+  create_table "sit_records", force: :cascade do |t|
+    t.string "Person ID"
+    t.string "Special Information ID"
+    t.date "Effective Start Date"
+    t.date "Effective End Date"
+    t.string "Information Type"
+    t.string "SEGMENT1"
+    t.string "SEGMENT2"
+    t.string "SEGMENT3"
+    t.string "SEGMENT4"
+    t.string "SEGMENT5"
+    t.string "SEGMENT6"
+    t.string "SEGMENT7"
+    t.string "SEGMENT8"
+    t.string "SEGMENT9"
+    t.string "SEGMENT10"
+    t.string "SEGMENT11"
+    t.string "SEGMENT12"
+    t.string "SEGMENT13"
+    t.string "SEGMENT14"
+    t.string "SEGMENT15"
+    t.string "SEGMENT16"
+    t.string "SEGMENT17"
+    t.string "SEGMENT18"
+    t.string "SEGMENT19"
+    t.string "SEGMENT20"
+    t.string "SEGMENT21"
+    t.string "SEGMENT22"
+    t.string "SEGMENT23"
+    t.string "SEGMENT24"
+    t.string "SEGMENT25"
+    t.string "SEGMENT26"
+    t.string "SEGMENT27"
+    t.string "SEGMENT28"
+    t.string "SEGMENT29"
+    t.string "SEGMENT30"
+    t.string "ATTRIBUTE_CATEGORY"
+    t.string "ATTRIBUTE1"
+    t.string "ATTRIBUTE2"
+    t.string "ATTRIBUTE3"
+    t.string "ATTRIBUTE4"
+    t.string "ATTRIBUTE5"
+    t.string "ATTRIBUTE6"
+    t.string "ATTRIBUTE7"
+    t.string "ATTRIBUTE8"
+    t.string "ATTRIBUTE9"
+    t.string "ATTRIBUTE10"
+    t.string "ATTRIBUTE11"
+    t.string "ATTRIBUTE12"
+    t.string "ATTRIBUTE13"
+    t.string "ATTRIBUTE14"
+    t.string "ATTRIBUTE15"
+    t.string "ATTRIBUTE16"
+    t.string "ATTRIBUTE17"
+    t.string "ATTRIBUTE18"
+    t.string "ATTRIBUTE19"
+    t.string "ATTRIBUTE20"
+    t.datetime "Last Update Date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["Special Information ID"], name: "index_sit_records_on_Special Information ID", unique: true
+  end
+
+  create_table "training_absence_records", force: :cascade do |t|
+    t.string "Person ID"
+    t.string "Absence Attendance ID"
+    t.string "Absence Type"
+    t.string "Absence Reason"
+    t.string "Status"
+    t.date "Notification Date"
+    t.date "Projected Start Date"
+    t.string "Projected Start Time"
+    t.date "Projected End Date"
+    t.string "Projected End Time"
+    t.date "Actual Start Date"
+    t.string "Actual Start Time"
+    t.date "Actual End Date"
+    t.string "Actual End Time"
+    t.date "Sickness Start Date"
+    t.date "Sickness End Date"
+    t.string "Absence Duration Days"
+    t.string "Absence Duration Hours"
+    t.string "Absence Units"
+    t.string "Hours Lost"
+    t.string "Sessions Lost"
+    t.string "Work Related"
+    t.string "Third Party"
+    t.string "Disability Related"
+    t.string "Violence & Aggression Related"
+    t.string "Notifiable Disease"
+    t.date "Return To Work Discussion Date"
+    t.date "Occupational Health Referral Date"
+    t.string "Last Update Date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["Absence Attendance ID"], name: "index_training_absence_records_on_Absence Attendance ID", unique: true
   end
 
 end
