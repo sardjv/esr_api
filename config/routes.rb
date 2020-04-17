@@ -8,9 +8,20 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       jsonapi_resources :absence_records
+      jsonapi_resources :assignment_record
+      jsonapi_resources :competency_record
+      jsonapi_resources :costing_record
+      jsonapi_resources :disability_record
+      jsonapi_resources :element_record
       jsonapi_resources :location_records
+      jsonapi_resources :organisation_record
+      jsonapi_resources :person_eit_record
       jsonapi_resources :person_records
+      jsonapi_resources :position_eit_record
       jsonapi_resources :position_records
+      jsonapi_resources :qualification_record
+      jsonapi_resources :sit_record
+      jsonapi_resources :training_absence_record
     end
   end
 
