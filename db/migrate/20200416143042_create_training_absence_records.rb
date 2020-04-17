@@ -29,7 +29,7 @@ class CreateTrainingAbsenceRecords < ActiveRecord::Migration[6.0]
       t.string 'Notifiable Disease'
       t.date 'Return To Work Discussion Date'
       t.date 'Occupational Health Referral Date'
-      t.string 'Last Update Date'
+      t.timestamp 'Last Update Date'
 
       t.timestamps
     end
