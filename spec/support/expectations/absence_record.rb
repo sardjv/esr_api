@@ -27,7 +27,7 @@ module Expectations
         'Third Party' => nil,
         'Disability Related' => nil,
         'Violence Aggression Related' => nil,
-        'Notifyable Disease' => nil,
+        'Notifiable Disease' => nil,
         'Return To Work Discussion Date' => Date.new(2018, 12, 6),
         'Occupational Health Referral Date' => Date.new(2018, 12, 6),
         'Last Update Date' => Time.new(2020, 4, 7, 14, 53, 54),
