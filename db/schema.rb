@@ -542,7 +542,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_143042) do
     t.string "Notifiable Disease"
     t.date "Return To Work Discussion Date"
     t.date "Occupational Health Referral Date"
-    t.string "Last Update Date"
+    t.datetime "Last Update Date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["Absence Attendance ID"], name: "index_training_absence_records_on_Absence Attendance ID", unique: true

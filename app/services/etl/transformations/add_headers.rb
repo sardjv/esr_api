@@ -27,9 +27,11 @@ class ETL::Transformations::AddHeaders
   end
 
   def check_row_length(row)
-    headers_count = headers(row[0]).count
+    headers_count = headers(row[0]).try(:count) || 0
     if headers_count != row.count
       raise "Wrong number of columns for #{row[0]} row, expected #{headers_count}, got #{row.count}"
+    elsif row.count == 0
+      raise "Empty row"
     end
   end
 end
