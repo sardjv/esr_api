@@ -31,9 +31,20 @@ class Api::V1::Swagger::Core
   def self.definitions
     [
       Api::V1::Swagger::AbsenceRecord.definitions,
+      Api::V1::Swagger::AssignmentRecord.definitions,
+      Api::V1::Swagger::CompetencyRecord.definitions,
+      Api::V1::Swagger::CostingRecord.definitions,
+      Api::V1::Swagger::DisabilityRecord.definitions,
+      Api::V1::Swagger::ElementRecord.definitions,
       Api::V1::Swagger::LocationRecord.definitions,
+      Api::V1::Swagger::OrganisationRecord.definitions,
+      Api::V1::Swagger::PersonEITRecord.definitions,
       Api::V1::Swagger::PersonRecord.definitions,
-      Api::V1::Swagger::PositionRecord.definitions
+      Api::V1::Swagger::PositionEITRecord.definitions,
+      Api::V1::Swagger::PositionRecord.definitions,
+      Api::V1::Swagger::QualificationRecord.definitions,
+      Api::V1::Swagger::SITRecord.definitions,
+      Api::V1::Swagger::TrainingAbsenceRecord.definitions
     ]
   end
 end
