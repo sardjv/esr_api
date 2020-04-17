@@ -64,7 +64,7 @@ module Expectations
 
     def self.updated
       r = added
-      r['Information Type'] = 'NHS CHECKLIST'
+      r['Information Type'] = 'NHS_CHECKLIST'
       r
     end
   end
