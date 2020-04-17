@@ -4,7 +4,20 @@ class Api::V1::Swagger::CostingRecord
       costing_record_attributes: {
         type: 'object',
         properties: {
-
+          'Person ID' => { type: 'string', example: '1234567', 'x-nullable': true },
+          'Assignment ID' => { type: 'string', example: '937490', 'x-nullable': true },
+          'Costing Allocation ID' => { type: 'string', example: '5507703', 'x-nullable': true },
+          'Effective Start Date' => { type: 'date', example: '2011-03-08', 'x-nullable': true },
+          'Effective End Date' => { type: 'date', example: '4712-12-31', 'x-nullable': true },
+          'Entity Code' => { type: 'string', example: 'ABC', 'x-nullable': true },
+          'Charitable Indicator' => { type: 'string', example: nil, 'x-nullable': true },
+          'Cost Centre' => { type: 'string', example: nil, 'x-nullable': true },
+          'Subjective' => { type: 'string', example: '0702K161', 'x-nullable': true },
+          'Analysis 1' => { type: 'string', example: nil, 'x-nullable': true },
+          'Analysis 2' => { type: 'string', example: nil, 'x-nullable': true },
+          'Element Number' => { type: 'string', example: nil, 'x-nullable': true },
+          'Spare Segment' => { type: 'string', example: nil, 'x-nullable': true },
+          'Percentage Split' => { type: 'string', example: '1', 'x-nullable': true }
         }
       },
       costing_records_response: {

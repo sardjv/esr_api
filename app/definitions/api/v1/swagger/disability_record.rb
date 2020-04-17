@@ -4,7 +4,10 @@ class Api::V1::Swagger::DisabilityRecord
       disability_record_attributes: {
         type: 'object',
         properties: {
-
+          'Person ID' => { type: 'string', example: '1234567', 'x-nullable': true },
+          'Disability ID' => { type: 'string', example: '654321', 'x-nullable': true },
+          'Category' => { type: 'string', example: 'LOV', 'x-nullable': true },
+          'Status' => { type: 'string', example: 'A', 'x-nullable': true }
         }
       },
       disability_records_response: {

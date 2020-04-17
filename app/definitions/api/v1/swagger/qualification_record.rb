@@ -4,7 +4,18 @@ class Api::V1::Swagger::QualificationRecord
       qualification_record_attributes: {
         type: 'object',
         properties: {
-
+          'Person ID' => { type: 'string', example: '1234567', 'x-nullable': true },
+          'Qualification ID' => { type: 'string', example: '4698382', 'x-nullable': true },
+          'Qualification Type' => { type: 'string', example: 'Bachelors Degree', 'x-nullable': true },
+          'Title' => { type: 'string', example: 'Occupational Therapy', 'x-nullable': true },
+          'Status' => { type: 'string', example: 'ATTAIN', 'x-nullable': true },
+          'Grade' => { type: 'string', example: '02:01', 'x-nullable': true },
+          'Awarded Date' => { type: 'date', example: '2010-07-07', 'x-nullable': true },
+          'Start Date' => { type: 'string', example: nil, 'x-nullable': true },
+          'End Date' => { type: 'string', example: nil, 'x-nullable': true },
+          'Establishment' => { type: 'string', example: 'City University', 'x-nullable': true },
+          'Country' => { type: 'string', example: 'UK', 'x-nullable': true },
+          'Last Update Date' => { type: 'date-time', example: '2010-10-18T14:24:15.000Z', 'x-nullable': true }
         }
       },
       qualification_records_response: {

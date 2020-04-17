@@ -4,7 +4,20 @@ class Api::V1::Swagger::OrganisationRecord
       organisation_record_attributes: {
         type: 'object',
         properties: {
-
+          'Organisation ID' => { type: 'string', example: '1234567', 'x-nullable': true },
+          'Organisation Name' => { type: 'string', example: '070 6 Domestic (BRO)', 'x-nullable': true },
+          'Organisation Type' => { type: 'string', example: 'NHS_TM', 'x-nullable': true },
+          'Effective From Date' => { type: 'date', example: '1951-01-01', 'x-nullable': true },
+          'Effective To Date' => { type: 'string', example: nil, 'x-nullable': true },
+          'Hierarchy Version ID' => { type: 'string', example: nil, 'x-nullable': true },
+          'Hierarchy Version Date From' => { type: 'string', example: nil, 'x-nullable': true },
+          'Hierarchy Version Date To' => { type: 'string', example: nil, 'x-nullable': true },
+          'Default Cost Centre' => { type: 'string', example: '070E642', 'x-nullable': true },
+          'Parent Organisation ID' => { type: 'string', example: '548444', 'x-nullable': true },
+          'NACS Code' => { type: 'string', example: nil, 'x-nullable': true },
+          'Location ID' => { type: 'string', example: '96804', 'x-nullable': true },
+          'Last Update Date' => { type: 'date-time', example: '2006-10-19T23:36:01.000Z', 'x-nullable': true },
+          'Cost Centre Description' => { type: 'string', example: '070E642', 'x-nullable': true }
         }
       },
       organisation_records_response: {
