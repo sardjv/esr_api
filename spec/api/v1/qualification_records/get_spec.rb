@@ -23,7 +23,7 @@ describe 'Api::V1::QualificationRecordResource', type: :request, swagger_doc: 'v
           describe 'attributes match database values' do
             run_test! do
               response_data['attributes'].each do |key, value|
-                expect(qualification_record.send(key)).to eq(value)
+                expect(qualification_record.send(key).to_s).to eq(value.to_s)
               end
             end
           end
