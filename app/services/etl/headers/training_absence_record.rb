@@ -27,7 +27,7 @@ class ETL::Headers::TrainingAbsenceRecord
       'Third Party',
       'Disability Related',
       'Violence & Aggression Related',
-      'Notifyable Disease',
+      'Notifiable Disease',
       'Return To Work Discussion Date',
       'Occupational Health Referral Date',
       'Last Update Date'

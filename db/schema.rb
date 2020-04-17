@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_143042) do
     t.string "Third Party"
     t.string "Disability Related"
     t.string "Violence Aggression Related"
-    t.string "Notifyable Disease"
+    t.string "Notifiable Disease"
     t.date "Return To Work Discussion Date"
     t.date "Occupational Health Referral Date"
     t.datetime "Last Update Date"

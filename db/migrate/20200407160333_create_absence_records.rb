@@ -26,7 +26,7 @@ class CreateAbsenceRecords < ActiveRecord::Migration[6.0]
       t.string 'Third Party'
       t.string 'Disability Related'
       t.string 'Violence Aggression Related'
-      t.string 'Notifyable Disease'
+      t.string 'Notifiable Disease'
       t.date 'Return To Work Discussion Date'
       t.date 'Occupational Health Referral Date'
       t.timestamp 'Last Update Date'

@@ -376,7 +376,7 @@
           "example": null,
           "x-nullable": true
         },
-        "Notifyable Disease": {
+        "Notifiable Disease": {
           "type": "string",
           "example": null,
           "x-nullable": true

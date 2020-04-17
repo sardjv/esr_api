@@ -29,7 +29,7 @@ class Api::V1::Swagger::AbsenceRecord
           'Third Party' => { type: 'string', example: nil, 'x-nullable': true },
           'Disability Related' => { type: 'string', example: nil, 'x-nullable': true },
           'Violence Aggression Related' => { type: 'string', example: nil, 'x-nullable': true },
-          'Notifyable Disease' => { type: 'string', example: nil, 'x-nullable': true },
+          'Notifiable Disease' => { type: 'string', example: nil, 'x-nullable': true },
           'Return To Work Discussion Date' => { type: 'date', example: '2018-12-6', 'x-nullable': true },
           'Occupational Health Referral Date' => { type: 'date', example: '2018-12-6', 'x-nullable': true },
           'Last Update Date' => { type: 'date-time', example: '2020-04-07T14:53:54.000Z', 'x-nullable': true },
