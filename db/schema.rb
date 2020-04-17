@@ -123,8 +123,10 @@ ActiveRecord::Schema.define(version: 2020_04_16_143042) do
     t.string "Job ID"
     t.string "Organisation ID"
     t.string "Position ID"
+    t.string "Proficiency Level ID"
     t.string "Proficiency High Level ID"
     t.string "Essential Flag"
+    t.string "Records Type"
     t.datetime "Last Update Date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

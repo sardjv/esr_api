@@ -19,9 +19,10 @@ class ETL::Headers::CompetencyRecord
       'Job ID',
       'Organisation ID',
       'Position ID',
+      'Proficiency Level ID',
       'Proficiency High Level ID',
       'Essential Flag',
-      'Record Type',
+      'Records Type',
       'Last Update Date'
     ].freeze
   end

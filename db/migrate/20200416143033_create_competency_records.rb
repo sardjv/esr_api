@@ -18,8 +18,10 @@ class CreateCompetencyRecords < ActiveRecord::Migration[6.0]
       t.string 'Job ID'
       t.string 'Organisation ID'
       t.string 'Position ID'
+      t.string 'Proficiency Level ID'
       t.string 'Proficiency High Level ID'
       t.string 'Essential Flag'
+      t.string 'Records Type'
       t.timestamp 'Last Update Date'
 
       t.timestamps
