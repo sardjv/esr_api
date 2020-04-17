@@ -4,7 +4,28 @@ class Api::V1::Swagger::CompetencyRecord
       competency_record_attributes: {
         type: 'object',
         properties: {
-
+          'Person ID' => { type: 'string', example: '1234567', 'x-nullable': true },
+          'Competency Element ID' => { type: 'string', example: '10005280', 'x-nullable': true },
+          'Competency Type' => { type: 'string', example: 'PERSONAL', 'x-nullable': true },
+          'Competency Status' => { type: 'string', example: 'ACHIEVED', 'x-nullable': true },
+          'Competency Name' => { type: 'string', example: 'NHS|KSF|Health, Safety and Security C3|Core', 'x-nullable': true },
+          'Date From' => { type: 'date', example: '2009-10-27', 'x-nullable': true },
+          'Date To' => { type: 'date', example: '2013-07-06', 'x-nullable': true },
+          'Proficiency Level' => { type: 'string', example: '1 - Level 1', 'x-nullable': true },
+          'VPD Code' => { type: 'string', example: '123', 'x-nullable': true },
+          'Certification Date' => { type: 'string', example: nil, 'x-nullable': true },
+          'Certification Method' => { type: 'string', example: nil, 'x-nullable': true },
+          'Next Certification Date' => { type: 'string', example: nil, 'x-nullable': true },
+          'Competence ID' => { type: 'string', example: nil, 'x-nullable': true },
+          'Business Group ID' => { type: 'string', example: nil, 'x-nullable': true },
+          'Job ID' => { type: 'string', example: nil, 'x-nullable': true },
+          'Organisation ID' => { type: 'string', example: nil, 'x-nullable': true },
+          'Position ID' => { type: 'string', example: nil, 'x-nullable': true },
+          'Proficiency Level ID' => { type: 'string', example: nil, 'x-nullable': true },
+          'Proficiency High Level ID' => { type: 'string', example: nil, 'x-nullable': true },
+          'Essential Flag' => { type: 'string', example: nil, 'x-nullable': true },
+          'Records Type' => { type: 'string', example: nil, 'x-nullable': true },
+          'Last Update Date' => { type: 'date-time', example: '2009-11-01T07:03:36.000Z', 'x-nullable': true }
         }
       },
       competency_records_response: {
