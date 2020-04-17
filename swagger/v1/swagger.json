@@ -66,6 +66,306 @@
         }
       }
     },
+    "/api/v1/assignment_records/{id}": {
+      "get": {
+        "summary": "assignment record",
+        "tags": [
+          "AssignmentRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/assignment_record_response"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/assignment_records": {
+      "get": {
+        "summary": "assignment records",
+        "tags": [
+          "AssignmentRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "page[size]",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "page[number]",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/assignment_records_response"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/competency_records/{id}": {
+      "get": {
+        "summary": "competency record",
+        "tags": [
+          "CompetencyRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/competency_record_response"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/competency_records": {
+      "get": {
+        "summary": "competency records",
+        "tags": [
+          "CompetencyRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "page[size]",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "page[number]",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/competency_records_response"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/costing_records/{id}": {
+      "get": {
+        "summary": "costing record",
+        "tags": [
+          "CostingRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/costing_record_response"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/costing_records": {
+      "get": {
+        "summary": "costing records",
+        "tags": [
+          "CostingRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "page[size]",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "page[number]",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/costing_records_response"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/disability_records/{id}": {
+      "get": {
+        "summary": "disability record",
+        "tags": [
+          "DisabilityRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/disability_record_response"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/disability_records": {
+      "get": {
+        "summary": "disability records",
+        "tags": [
+          "DisabilityRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "page[size]",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "page[number]",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/disability_records_response"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/element_records/{id}": {
+      "get": {
+        "summary": "element record",
+        "tags": [
+          "ElementRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/element_record_response"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/element_records": {
+      "get": {
+        "summary": "element records",
+        "tags": [
+          "ElementRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "page[size]",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "page[number]",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/element_records_response"
+            }
+          }
+        }
+      }
+    },
     "/api/v1/location_records/{id}": {
       "get": {
         "summary": "person record",
@@ -121,6 +421,126 @@
             "description": "successful",
             "schema": {
               "$ref": "#/definitions/location_records_response"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/organisation_records/{id}": {
+      "get": {
+        "summary": "organisation record",
+        "tags": [
+          "OrganisationRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/organisation_record_response"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/organisation_records": {
+      "get": {
+        "summary": "organisation records",
+        "tags": [
+          "OrganisationRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "page[size]",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "page[number]",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/organisation_records_response"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/person_eit_records/{id}": {
+      "get": {
+        "summary": "person_eit record",
+        "tags": [
+          "PersonEITRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/person_eit_record_response"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/person_eit_records": {
+      "get": {
+        "summary": "person_eit records",
+        "tags": [
+          "PersonEITRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "page[size]",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "page[number]",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/person_eit_records_response"
             }
           }
         }
@@ -186,6 +606,66 @@
         }
       }
     },
+    "/api/v1/position_eit_records/{id}": {
+      "get": {
+        "summary": "position_eit record",
+        "tags": [
+          "PositionEITRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/position_eit_record_response"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/position_eit_records": {
+      "get": {
+        "summary": "position_eit records",
+        "tags": [
+          "PositionEITRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "page[size]",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "page[number]",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/position_eit_records_response"
+            }
+          }
+        }
+      }
+    },
     "/api/v1/position_records/{id}": {
       "get": {
         "summary": "position record",
@@ -241,6 +721,186 @@
             "description": "successful",
             "schema": {
               "$ref": "#/definitions/position_records_response"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/qualification_records/{id}": {
+      "get": {
+        "summary": "qualification record",
+        "tags": [
+          "QualificationRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/qualification_record_response"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/qualification_records": {
+      "get": {
+        "summary": "qualification records",
+        "tags": [
+          "QualificationRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "page[size]",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "page[number]",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/qualification_records_response"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/sit_records/{id}": {
+      "get": {
+        "summary": "sit record",
+        "tags": [
+          "SITRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/sit_record_response"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/sit_records": {
+      "get": {
+        "summary": "sit records",
+        "tags": [
+          "SITRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "page[size]",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "page[number]",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/sit_records_response"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/training_absence_records/{id}": {
+      "get": {
+        "summary": "training_absence record",
+        "tags": [
+          "TrainingAbsenceRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/training_absence_record_response"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/training_absence_records": {
+      "get": {
+        "summary": "training_absence records",
+        "tags": [
+          "TrainingAbsenceRecord"
+        ],
+        "produces": [
+          "application/vnd.api+json"
+        ],
+        "parameters": [
+          {
+            "name": "page[size]",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          },
+          {
+            "name": "page[number]",
+            "in": "query",
+            "type": "integer",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "schema": {
+              "$ref": "#/definitions/training_absence_records_response"
             }
           }
         }
@@ -507,6 +1167,1016 @@
         }
       }
     },
+    "assignment_record_attributes": {
+      "type": "object",
+      "properties": {
+        "Person ID": {
+          "type": "string",
+          "example": "1234567",
+          "x-nullable": true
+        },
+        "Assignment ID": {
+          "type": "string",
+          "example": "936458",
+          "x-nullable": true
+        },
+        "Effective Start Date": {
+          "type": "date",
+          "example": "2011-06-01",
+          "x-nullable": true
+        },
+        "Effective End Date": {
+          "type": "date",
+          "example": "4712-12-31",
+          "x-nullable": true
+        },
+        "Earliest Assignment Start Date": {
+          "type": "date",
+          "example": "2006-07-27",
+          "x-nullable": true
+        },
+        "Assignment Type": {
+          "type": "string",
+          "example": "E",
+          "x-nullable": true
+        },
+        "Assignment Number": {
+          "type": "string",
+          "example": "10602402",
+          "x-nullable": true
+        },
+        "System Assignment Status": {
+          "type": "string",
+          "example": "ACTIVE_ASSIGN",
+          "x-nullable": true
+        },
+        "User Assignment Status": {
+          "type": "string",
+          "example": "Active Assignment",
+          "x-nullable": true
+        },
+        "Employee Status Flag": {
+          "type": "string",
+          "example": "X",
+          "x-nullable": true
+        },
+        "Payroll Name": {
+          "type": "string",
+          "example": "123 Monthly",
+          "x-nullable": true
+        },
+        "Payroll Period Type": {
+          "type": "string",
+          "example": "Calendar",
+          "x-nullable": true
+        },
+        "Assignment Location ID": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Supervisor Flag": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Supervisor Person ID": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Supervisor Assignment ID": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Supervisor Assignment Number": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Department Manager Person ID": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Employee Category": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Assignment Category": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Primary Assignment": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Normal Hours / Sessions": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Frequency": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Grade Contract Hours": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "FTE": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Flexible Working Pattern": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Organisation ID": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Position ID": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Position Name": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Grade": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Grade Step": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Start Date in Grade": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Annual Salary Value": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Job Name": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "People Group": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "T&A Flag": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Assignment Night Worker Attribute": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Projected Hire Date": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Vacancy ID": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Contract End Date": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Increment Date": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Maximum Part Time Flag": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "AFC Flag": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Last Update Date": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Last Working Day": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "e-KSF Spinal Point": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Manager Flag": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Assignment End Date": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        }
+      }
+    },
+    "assignment_records_response": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "0"
+              },
+              "type": {
+                "type": "string",
+                "example": "assignment_records"
+              },
+              "link": {
+                "type": "object",
+                "properties": {
+                  "self": {
+                    "type": "string",
+                    "example": "https://esr.sardjv.co.uk/api/v1/assignment_records/0"
+                  }
+                }
+              },
+              "attributes": {
+                "$ref": "#/definitions/assignment_record_attributes"
+              }
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "first": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/assignment_records?page[number]=1&page[size]=5"
+            },
+            "prev": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/assignment_records?page[number]=1&page[size]=5"
+            },
+            "next": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/assignment_records?page[number]=2&page[size]=5"
+            },
+            "last": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/assignment_records?page[number]=5&page[size]=5"
+            }
+          }
+        }
+      }
+    },
+    "assignment_record_response": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "example": "0"
+            },
+            "type": {
+              "type": "string",
+              "example": "assignment_records"
+            },
+            "link": {
+              "type": "object",
+              "properties": {
+                "self": {
+                  "type": "string",
+                  "example": "https://esr_api.sardjv.co.uk/api/v1/assignment_records/0"
+                }
+              }
+            },
+            "attributes": {
+              "$ref": "#/definitions/assignment_record_attributes"
+            }
+          }
+        }
+      }
+    },
+    "competency_record_attributes": {
+      "type": "object",
+      "properties": {
+        "Person ID": {
+          "type": "string",
+          "example": "1234567",
+          "x-nullable": true
+        },
+        "Competency Element ID": {
+          "type": "string",
+          "example": "10005280",
+          "x-nullable": true
+        },
+        "Competency Type": {
+          "type": "string",
+          "example": "PERSONAL",
+          "x-nullable": true
+        },
+        "Competency Status": {
+          "type": "string",
+          "example": "ACHIEVED",
+          "x-nullable": true
+        },
+        "Competency Name": {
+          "type": "string",
+          "example": "NHS|KSF|Health, Safety and Security C3|Core",
+          "x-nullable": true
+        },
+        "Date From": {
+          "type": "date",
+          "example": "2009-10-27",
+          "x-nullable": true
+        },
+        "Date To": {
+          "type": "date",
+          "example": "2013-07-06",
+          "x-nullable": true
+        },
+        "Proficiency Level": {
+          "type": "string",
+          "example": "1 - Level 1",
+          "x-nullable": true
+        },
+        "VPD Code": {
+          "type": "string",
+          "example": "123",
+          "x-nullable": true
+        },
+        "Certification Date": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Certification Method": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Next Certification Date": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Competence ID": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Business Group ID": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Job ID": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Organisation ID": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Position ID": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Proficiency Level ID": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Proficiency High Level ID": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Essential Flag": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Records Type": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Last Update Date": {
+          "type": "date-time",
+          "example": "2009-11-01T07:03:36.000Z",
+          "x-nullable": true
+        }
+      }
+    },
+    "competency_records_response": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "0"
+              },
+              "type": {
+                "type": "string",
+                "example": "competency_records"
+              },
+              "link": {
+                "type": "object",
+                "properties": {
+                  "self": {
+                    "type": "string",
+                    "example": "https://esr.sardjv.co.uk/api/v1/competency_records/0"
+                  }
+                }
+              },
+              "attributes": {
+                "$ref": "#/definitions/competency_record_attributes"
+              }
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "first": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/competency_records?page[number]=1&page[size]=5"
+            },
+            "prev": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/competency_records?page[number]=1&page[size]=5"
+            },
+            "next": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/competency_records?page[number]=2&page[size]=5"
+            },
+            "last": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/competency_records?page[number]=5&page[size]=5"
+            }
+          }
+        }
+      }
+    },
+    "competency_record_response": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "example": "0"
+            },
+            "type": {
+              "type": "string",
+              "example": "competency_records"
+            },
+            "link": {
+              "type": "object",
+              "properties": {
+                "self": {
+                  "type": "string",
+                  "example": "https://esr_api.sardjv.co.uk/api/v1/competency_records/0"
+                }
+              }
+            },
+            "attributes": {
+              "$ref": "#/definitions/competency_record_attributes"
+            }
+          }
+        }
+      }
+    },
+    "costing_record_attributes": {
+      "type": "object",
+      "properties": {
+        "Person ID": {
+          "type": "string",
+          "example": "1234567",
+          "x-nullable": true
+        },
+        "Assignment ID": {
+          "type": "string",
+          "example": "937490",
+          "x-nullable": true
+        },
+        "Costing Allocation ID": {
+          "type": "string",
+          "example": "5507703",
+          "x-nullable": true
+        },
+        "Effective Start Date": {
+          "type": "date",
+          "example": "2011-03-08",
+          "x-nullable": true
+        },
+        "Effective End Date": {
+          "type": "date",
+          "example": "4712-12-31",
+          "x-nullable": true
+        },
+        "Entity Code": {
+          "type": "string",
+          "example": "ABC",
+          "x-nullable": true
+        },
+        "Charitable Indicator": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Cost Centre": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Subjective": {
+          "type": "string",
+          "example": "0702K161",
+          "x-nullable": true
+        },
+        "Analysis 1": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Analysis 2": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Element Number": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Spare Segment": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Percentage Split": {
+          "type": "string",
+          "example": "1",
+          "x-nullable": true
+        }
+      }
+    },
+    "costing_records_response": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "0"
+              },
+              "type": {
+                "type": "string",
+                "example": "costing_records"
+              },
+              "link": {
+                "type": "object",
+                "properties": {
+                  "self": {
+                    "type": "string",
+                    "example": "https://esr.sardjv.co.uk/api/v1/costing_records/0"
+                  }
+                }
+              },
+              "attributes": {
+                "$ref": "#/definitions/costing_record_attributes"
+              }
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "first": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/costing_records?page[number]=1&page[size]=5"
+            },
+            "prev": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/costing_records?page[number]=1&page[size]=5"
+            },
+            "next": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/costing_records?page[number]=2&page[size]=5"
+            },
+            "last": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/costing_records?page[number]=5&page[size]=5"
+            }
+          }
+        }
+      }
+    },
+    "costing_record_response": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "example": "0"
+            },
+            "type": {
+              "type": "string",
+              "example": "costing_records"
+            },
+            "link": {
+              "type": "object",
+              "properties": {
+                "self": {
+                  "type": "string",
+                  "example": "https://esr_api.sardjv.co.uk/api/v1/costing_records/0"
+                }
+              }
+            },
+            "attributes": {
+              "$ref": "#/definitions/costing_record_attributes"
+            }
+          }
+        }
+      }
+    },
+    "disability_record_attributes": {
+      "type": "object",
+      "properties": {
+        "Person ID": {
+          "type": "string",
+          "example": "1234567",
+          "x-nullable": true
+        },
+        "Disability ID": {
+          "type": "string",
+          "example": "654321",
+          "x-nullable": true
+        },
+        "Category": {
+          "type": "string",
+          "example": "LOV",
+          "x-nullable": true
+        },
+        "Status": {
+          "type": "string",
+          "example": "A",
+          "x-nullable": true
+        }
+      }
+    },
+    "disability_records_response": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "0"
+              },
+              "type": {
+                "type": "string",
+                "example": "disability_records"
+              },
+              "link": {
+                "type": "object",
+                "properties": {
+                  "self": {
+                    "type": "string",
+                    "example": "https://esr.sardjv.co.uk/api/v1/disability_records/0"
+                  }
+                }
+              },
+              "attributes": {
+                "$ref": "#/definitions/disability_record_attributes"
+              }
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "first": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/disability_records?page[number]=1&page[size]=5"
+            },
+            "prev": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/disability_records?page[number]=1&page[size]=5"
+            },
+            "next": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/disability_records?page[number]=2&page[size]=5"
+            },
+            "last": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/disability_records?page[number]=5&page[size]=5"
+            }
+          }
+        }
+      }
+    },
+    "disability_record_response": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "example": "0"
+            },
+            "type": {
+              "type": "string",
+              "example": "disability_records"
+            },
+            "link": {
+              "type": "object",
+              "properties": {
+                "self": {
+                  "type": "string",
+                  "example": "https://esr_api.sardjv.co.uk/api/v1/disability_records/0"
+                }
+              }
+            },
+            "attributes": {
+              "$ref": "#/definitions/disability_record_attributes"
+            }
+          }
+        }
+      }
+    },
+    "element_record_attributes": {
+      "type": "object",
+      "properties": {
+        "Person ID": {
+          "type": "string",
+          "example": "1234567",
+          "x-nullable": true
+        },
+        "Element Entry ID": {
+          "type": "string",
+          "example": "7105629",
+          "x-nullable": true
+        },
+        "Effective Start Date": {
+          "type": "date",
+          "example": "2011-12-12",
+          "x-nullable": true
+        },
+        "Effective End Date": {
+          "type": "date",
+          "example": "2011-12-12",
+          "x-nullable": true
+        },
+        "Element Entry Type": {
+          "type": "string",
+          "example": "E",
+          "x-nullable": true
+        },
+        "Assignment ID": {
+          "type": "string",
+          "example": "123456",
+          "x-nullable": true
+        },
+        "Element Type ID": {
+          "type": "string",
+          "example": "4321",
+          "x-nullable": true
+        },
+        "Element Type Name": {
+          "type": "string",
+          "example": "AfC Annual Leave Accrual 1NHS",
+          "x-nullable": true
+        },
+        "Earned Date": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Entry Value 1": {
+          "type": "string",
+          "example": "203",
+          "x-nullable": true
+        },
+        "Entry Value 2": {
+          "type": "string",
+          "example": "203",
+          "x-nullable": true
+        },
+        "Entry Value 3": {
+          "type": "string",
+          "example": "203",
+          "x-nullable": true
+        },
+        "Entry Value 4": {
+          "type": "string",
+          "example": "203",
+          "x-nullable": true
+        },
+        "Entry Value 5": {
+          "type": "string",
+          "example": "203",
+          "x-nullable": true
+        },
+        "Entry Value 6": {
+          "type": "string",
+          "example": "218",
+          "x-nullable": true
+        },
+        "Entry Value 7": {
+          "type": "string",
+          "example": "218",
+          "x-nullable": true
+        },
+        "Entry Value 8": {
+          "type": "string",
+          "example": " 218",
+          "x-nullable": true
+        },
+        "Entry Value 9": {
+          "type": "string",
+          "example": "218",
+          "x-nullable": true
+        },
+        "Entry Value 10": {
+          "type": "string",
+          "example": "218",
+          "x-nullable": true
+        },
+        "Entry Value 11": {
+          "type": "string",
+          "example": "248",
+          "x-nullable": true
+        },
+        "Entry Value 12": {
+          "type": "string",
+          "example": "248",
+          "x-nullable": true
+        },
+        "Entry Value 13": {
+          "type": "string",
+          "example": "248",
+          "x-nullable": true
+        },
+        "Entry Value 14": {
+          "type": "string",
+          "example": "248",
+          "x-nullable": true
+        },
+        "Entry Value 15": {
+          "type": "string",
+          "example": "248",
+          "x-nullable": true
+        },
+        "Last Update Date": {
+          "type": "date-time",
+          "example": "2005-10-22T06:34:28.000Z",
+          "x-nullable": true
+        }
+      }
+    },
+    "element_records_response": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "0"
+              },
+              "type": {
+                "type": "string",
+                "example": "element_records"
+              },
+              "link": {
+                "type": "object",
+                "properties": {
+                  "self": {
+                    "type": "string",
+                    "example": "https://esr.sardjv.co.uk/api/v1/element_records/0"
+                  }
+                }
+              },
+              "attributes": {
+                "$ref": "#/definitions/element_record_attributes"
+              }
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "first": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/element_records?page[number]=1&page[size]=5"
+            },
+            "prev": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/element_records?page[number]=1&page[size]=5"
+            },
+            "next": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/element_records?page[number]=2&page[size]=5"
+            },
+            "last": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/element_records?page[number]=5&page[size]=5"
+            }
+          }
+        }
+      }
+    },
+    "element_record_response": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "example": "0"
+            },
+            "type": {
+              "type": "string",
+              "example": "element_records"
+            },
+            "link": {
+              "type": "object",
+              "properties": {
+                "self": {
+                  "type": "string",
+                  "example": "https://esr_api.sardjv.co.uk/api/v1/element_records/0"
+                }
+              }
+            },
+            "attributes": {
+              "$ref": "#/definitions/element_record_attributes"
+            }
+          }
+        }
+      }
+    },
     "location_record_attributes": {
       "type": "object",
       "properties": {
@@ -696,6 +2366,534 @@
             },
             "attributes": {
               "$ref": "#/definitions/location_record_attributes"
+            }
+          }
+        }
+      }
+    },
+    "organisation_record_attributes": {
+      "type": "object",
+      "properties": {
+        "Organisation ID": {
+          "type": "string",
+          "example": "1234567",
+          "x-nullable": true
+        },
+        "Organisation Name": {
+          "type": "string",
+          "example": "070 6 Domestic (BRO)",
+          "x-nullable": true
+        },
+        "Organisation Type": {
+          "type": "string",
+          "example": "NHS_TM",
+          "x-nullable": true
+        },
+        "Effective From Date": {
+          "type": "date",
+          "example": "1951-01-01",
+          "x-nullable": true
+        },
+        "Effective To Date": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Hierarchy Version ID": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Hierarchy Version Date From": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Hierarchy Version Date To": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Default Cost Centre": {
+          "type": "string",
+          "example": "070E642",
+          "x-nullable": true
+        },
+        "Parent Organisation ID": {
+          "type": "string",
+          "example": "548444",
+          "x-nullable": true
+        },
+        "NACS Code": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Location ID": {
+          "type": "string",
+          "example": "96804",
+          "x-nullable": true
+        },
+        "Last Update Date": {
+          "type": "date-time",
+          "example": "2006-10-19T23:36:01.000Z",
+          "x-nullable": true
+        },
+        "Cost Centre Description": {
+          "type": "string",
+          "example": "070E642",
+          "x-nullable": true
+        }
+      }
+    },
+    "organisation_records_response": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "0"
+              },
+              "type": {
+                "type": "string",
+                "example": "organisation_records"
+              },
+              "link": {
+                "type": "object",
+                "properties": {
+                  "self": {
+                    "type": "string",
+                    "example": "https://esr.sardjv.co.uk/api/v1/organisation_records/0"
+                  }
+                }
+              },
+              "attributes": {
+                "$ref": "#/definitions/organisation_record_attributes"
+              }
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "first": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/organisation_records?page[number]=1&page[size]=5"
+            },
+            "prev": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/organisation_records?page[number]=1&page[size]=5"
+            },
+            "next": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/organisation_records?page[number]=2&page[size]=5"
+            },
+            "last": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/organisation_records?page[number]=5&page[size]=5"
+            }
+          }
+        }
+      }
+    },
+    "organisation_record_response": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "example": "0"
+            },
+            "type": {
+              "type": "string",
+              "example": "organisation_records"
+            },
+            "link": {
+              "type": "object",
+              "properties": {
+                "self": {
+                  "type": "string",
+                  "example": "https://esr_api.sardjv.co.uk/api/v1/organisation_records/0"
+                }
+              }
+            },
+            "attributes": {
+              "$ref": "#/definitions/organisation_record_attributes"
+            }
+          }
+        }
+      }
+    },
+    "person_eit_record_attributes": {
+      "type": "object",
+      "properties": {
+        "Person ID": {
+          "type": "string",
+          "example": "1234567",
+          "x-nullable": true
+        },
+        "Person Extra Information ID": {
+          "type": "string",
+          "example": "957384",
+          "x-nullable": true
+        },
+        "Information Type": {
+          "type": "string",
+          "example": " NHS Regs and Memships",
+          "x-nullable": true
+        },
+        "PEI_INFORMATION_CATEGORY": {
+          "type": "string",
+          "example": "NHS Regs and Memships",
+          "x-nullable": true
+        },
+        "PEI_INFORMATION1": {
+          "type": "string",
+          "example": "Nursing and Midwifery Council",
+          "x-nullable": true
+        },
+        "PEI_INFORMATION2": {
+          "type": "string",
+          "example": " 94I0864E",
+          "x-nullable": true
+        },
+        "PEI_INFORMATION3": {
+          "type": "string",
+          "example": " 31/08/2012 00:00:00",
+          "x-nullable": true
+        },
+        "PEI_INFORMATION4": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_INFORMATION5": {
+          "type": "string",
+          "example": " 31/08/2013 00:00:00",
+          "x-nullable": true
+        },
+        "PEI_INFORMATION6": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_INFORMATION7": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_INFORMATION8": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_INFORMATION9": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_INFORMATION10": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_INFORMATION11": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_INFORMATION12": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_INFORMATION13": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_INFORMATION14": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_INFORMATION15": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_INFORMATION16": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_INFORMATION17": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_INFORMATION18": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_INFORMATION19": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_INFORMATION20": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_INFORMATION21": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_INFORMATION22": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_INFORMATION23": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_INFORMATION24": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_INFORMATION25": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_INFORMATION26": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_INFORMATION27": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_INFORMATION28": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_INFORMATION29": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_INFORMATION30": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "ATTRIBUTE_CATEGORY": {
+          "type": "string",
+          "example": " Nursing and Midwifery Council",
+          "x-nullable": true
+        },
+        "PEI_ATTRIBUTE1": {
+          "type": "string",
+          "example": " Sub-Part 1 RNLD (Learning Disabilities)",
+          "x-nullable": true
+        },
+        "PEI_ATTRIBUTE2": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_ATTRIBUTE3": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_ATTRIBUTE4": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_ATTRIBUTE5": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_ATTRIBUTE6": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_ATTRIBUTE7": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_ATTRIBUTE8": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_ATTRIBUTE9": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_ATTRIBUTE10": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_ATTRIBUTE11": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_ATTRIBUTE12": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_ATTRIBUTE13": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_ATTRIBUTE14": {
+          "type": "string",
+          "example": "No",
+          "x-nullable": true
+        },
+        "PEI_ATTRIBUTE15": {
+          "type": "string",
+          "example": "No",
+          "x-nullable": true
+        },
+        "PEI_ATTRIBUTE16": {
+          "type": "string",
+          "example": "No",
+          "x-nullable": true
+        },
+        "PEI_ATTRIBUTE17": {
+          "type": "string",
+          "example": "No",
+          "x-nullable": true
+        },
+        "PEI_ATTRIBUTE18": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_ATTRIBUTE19": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "PEI_ATTRIBUTE20": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Last Update Date": {
+          "type": "date-time",
+          "example": "2011-07-19T23:20:41.000Z",
+          "x-nullable": true
+        }
+      }
+    },
+    "person_eit_records_response": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "0"
+              },
+              "type": {
+                "type": "string",
+                "example": "person_eit_records"
+              },
+              "link": {
+                "type": "object",
+                "properties": {
+                  "self": {
+                    "type": "string",
+                    "example": "https://esr.sardjv.co.uk/api/v1/person_eit_records/0"
+                  }
+                }
+              },
+              "attributes": {
+                "$ref": "#/definitions/person_eit_record_attributes"
+              }
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "first": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/person_eit_records?page[number]=1&page[size]=5"
+            },
+            "prev": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/person_eit_records?page[number]=1&page[size]=5"
+            },
+            "next": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/person_eit_records?page[number]=2&page[size]=5"
+            },
+            "last": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/person_eit_records?page[number]=5&page[size]=5"
+            }
+          }
+        }
+      }
+    },
+    "person_eit_record_response": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "example": "0"
+            },
+            "type": {
+              "type": "string",
+              "example": "person_eit_records"
+            },
+            "link": {
+              "type": "object",
+              "properties": {
+                "self": {
+                  "type": "string",
+                  "example": "https://esr_api.sardjv.co.uk/api/v1/person_eit_records/0"
+                }
+              }
+            },
+            "attributes": {
+              "$ref": "#/definitions/person_eit_record_attributes"
             }
           }
         }
@@ -960,6 +3158,375 @@
         }
       }
     },
+    "position_eit_record_attributes": {
+      "type": "object",
+      "properties": {
+        "Position ID": {
+          "type": "string",
+          "example": "5992270",
+          "x-nullable": true
+        },
+        "Position Extra Information ID": {
+          "type": "string",
+          "example": "9456120",
+          "x-nullable": true
+        },
+        "Information Type": {
+          "type": "string",
+          "example": "NHS Med and Dental Post Detail",
+          "x-nullable": true
+        },
+        "POEI_INFORMATION_CATEGORY": {
+          "type": "string",
+          "example": "NHS Med and Dental Post Detail",
+          "x-nullable": true
+        },
+        "POEI_INFORMATION1": {
+          "type": "string",
+          "example": "NHS/N075/040/STRH/001",
+          "x-nullable": true
+        },
+        "POEI_INFORMATION2": {
+          "type": "string",
+          "example": "1A",
+          "x-nullable": true
+        },
+        "POEI_INFORMATION3": {
+          "type": "string",
+          "example": "Full Shift",
+          "x-nullable": true
+        },
+        "POEI_INFORMATION4": {
+          "type": "string",
+          "example": "Prospective Cover",
+          "x-nullable": true
+        },
+        "POEI_INFORMATION5": {
+          "type": "string",
+          "example": "Continuous Hours Duty",
+          "x-nullable": true
+        },
+        "POEI_INFORMATION6": {
+          "type": "string",
+          "example": "NHS",
+          "x-nullable": true
+        },
+        "POEI_INFORMATION7": {
+          "type": "string",
+          "example": "L",
+          "x-nullable": true
+        },
+        "POEI_INFORMATION8": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_INFORMATION9": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_INFORMATION10": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_INFORMATION11": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_INFORMATION12": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_INFORMATION13": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_INFORMATION14": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_INFORMATION15": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_INFORMATION16": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_INFORMATION17": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_INFORMATION18": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_INFORMATION19": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_INFORMATION20": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_INFORMATION21": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_INFORMATION22": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_INFORMATION23": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_INFORMATION24": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_INFORMATION25": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_INFORMATION26": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_INFORMATION27": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_INFORMATION28": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_INFORMATION29": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_INFORMATION30": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "ATTRIBUTE_CATEGORY": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_ATTRIBUTE1": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_ATTRIBUTE2": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_ATTRIBUTE3": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_ATTRIBUTE4": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_ATTRIBUTE5": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_ATTRIBUTE6": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_ATTRIBUTE7": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_ATTRIBUTE8": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_ATTRIBUTE9": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_ATTRIBUTE10": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_ATTRIBUTE11": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_ATTRIBUTE12": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_ATTRIBUTE13": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_ATTRIBUTE14": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_ATTRIBUTE15": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_ATTRIBUTE16": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_ATTRIBUTE17": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_ATTRIBUTE18": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_ATTRIBUTE19": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "POEI_ATTRIBUTE20": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Last Update Date": {
+          "type": "date-time",
+          "example": "2013-05-14T10:07:11.000Z",
+          "x-nullable": true
+        }
+      }
+    },
+    "position_eit_records_response": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "0"
+              },
+              "type": {
+                "type": "string",
+                "example": "position_eit_records"
+              },
+              "link": {
+                "type": "object",
+                "properties": {
+                  "self": {
+                    "type": "string",
+                    "example": "https://esr.sardjv.co.uk/api/v1/position_eit_records/0"
+                  }
+                }
+              },
+              "attributes": {
+                "$ref": "#/definitions/position_eit_record_attributes"
+              }
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "first": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/position_eit_records?page[number]=1&page[size]=5"
+            },
+            "prev": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/position_eit_records?page[number]=1&page[size]=5"
+            },
+            "next": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/position_eit_records?page[number]=2&page[size]=5"
+            },
+            "last": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/position_eit_records?page[number]=5&page[size]=5"
+            }
+          }
+        }
+      }
+    },
+    "position_eit_record_response": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "example": "0"
+            },
+            "type": {
+              "type": "string",
+              "example": "position_eit_records"
+            },
+            "link": {
+              "type": "object",
+              "properties": {
+                "self": {
+                  "type": "string",
+                  "example": "https://esr_api.sardjv.co.uk/api/v1/position_eit_records/0"
+                }
+              }
+            },
+            "attributes": {
+              "$ref": "#/definitions/position_eit_record_attributes"
+            }
+          }
+        }
+      }
+    },
     "position_record_attributes": {
       "type": "object",
       "properties": {
@@ -1144,6 +3711,763 @@
             },
             "attributes": {
               "$ref": "#/definitions/position_record_attributes"
+            }
+          }
+        }
+      }
+    },
+    "qualification_record_attributes": {
+      "type": "object",
+      "properties": {
+        "Person ID": {
+          "type": "string",
+          "example": "1234567",
+          "x-nullable": true
+        },
+        "Qualification ID": {
+          "type": "string",
+          "example": "4698382",
+          "x-nullable": true
+        },
+        "Qualification Type": {
+          "type": "string",
+          "example": "Bachelors Degree",
+          "x-nullable": true
+        },
+        "Title": {
+          "type": "string",
+          "example": "Occupational Therapy",
+          "x-nullable": true
+        },
+        "Status": {
+          "type": "string",
+          "example": "ATTAIN",
+          "x-nullable": true
+        },
+        "Grade": {
+          "type": "string",
+          "example": "02:01",
+          "x-nullable": true
+        },
+        "Awarded Date": {
+          "type": "date",
+          "example": "2010-07-07",
+          "x-nullable": true
+        },
+        "Start Date": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "End Date": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Establishment": {
+          "type": "string",
+          "example": "City University",
+          "x-nullable": true
+        },
+        "Country": {
+          "type": "string",
+          "example": "UK",
+          "x-nullable": true
+        },
+        "Last Update Date": {
+          "type": "date-time",
+          "example": "2010-10-18T14:24:15.000Z",
+          "x-nullable": true
+        }
+      }
+    },
+    "qualification_records_response": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "0"
+              },
+              "type": {
+                "type": "string",
+                "example": "qualification_records"
+              },
+              "link": {
+                "type": "object",
+                "properties": {
+                  "self": {
+                    "type": "string",
+                    "example": "https://esr.sardjv.co.uk/api/v1/qualification_records/0"
+                  }
+                }
+              },
+              "attributes": {
+                "$ref": "#/definitions/qualification_record_attributes"
+              }
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "first": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/qualification_records?page[number]=1&page[size]=5"
+            },
+            "prev": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/qualification_records?page[number]=1&page[size]=5"
+            },
+            "next": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/qualification_records?page[number]=2&page[size]=5"
+            },
+            "last": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/qualification_records?page[number]=5&page[size]=5"
+            }
+          }
+        }
+      }
+    },
+    "qualification_record_response": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "example": "0"
+            },
+            "type": {
+              "type": "string",
+              "example": "qualification_records"
+            },
+            "link": {
+              "type": "object",
+              "properties": {
+                "self": {
+                  "type": "string",
+                  "example": "https://esr_api.sardjv.co.uk/api/v1/qualification_records/0"
+                }
+              }
+            },
+            "attributes": {
+              "$ref": "#/definitions/qualification_record_attributes"
+            }
+          }
+        }
+      }
+    },
+    "sit_record_attributes": {
+      "type": "object",
+      "properties": {
+        "Person ID": {
+          "type": "string",
+          "example": "1234567",
+          "x-nullable": true
+        },
+        "Special Information ID": {
+          "type": "string",
+          "example": "2075698",
+          "x-nullable": true
+        },
+        "Effective Start Date": {
+          "type": "date",
+          "example": "2009-04-20",
+          "x-nullable": true
+        },
+        "Effective End Date": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Information Type": {
+          "type": "string",
+          "example": "NHS_REC_CHECKLIST",
+          "x-nullable": true
+        },
+        "SEGMENT1": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT2": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT3": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT4": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT5": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT6": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT7": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT8": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT9": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT10": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT11": {
+          "type": "string",
+          "example": "22/04/2009 00:00",
+          "x-nullable": true
+        },
+        "SEGMENT12": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT13": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT14": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT15": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT16": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT17": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT18": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT19": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT20": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT21": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT22": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT23": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT24": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT25": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT26": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT27": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT28": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT29": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "SEGMENT30": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "ATTRIBUTE_CATEGORY": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "ATTRIBUTE1": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "ATTRIBUTE2": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "ATTRIBUTE3": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "ATTRIBUTE4": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "ATTRIBUTE5": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "ATTRIBUTE6": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "ATTRIBUTE7": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "ATTRIBUTE8": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "ATTRIBUTE9": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "ATTRIBUTE10": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "ATTRIBUTE11": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "ATTRIBUTE12": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "ATTRIBUTE13": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "ATTRIBUTE14": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "ATTRIBUTE15": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "ATTRIBUTE16": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "ATTRIBUTE17": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "ATTRIBUTE18": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "ATTRIBUTE19": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "ATTRIBUTE20": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Last Update Date": {
+          "type": "date-time",
+          "example": "2009-04-27T11:55:02.000Z",
+          "x-nullable": true
+        }
+      }
+    },
+    "sit_records_response": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "0"
+              },
+              "type": {
+                "type": "string",
+                "example": "sit_records"
+              },
+              "link": {
+                "type": "object",
+                "properties": {
+                  "self": {
+                    "type": "string",
+                    "example": "https://esr.sardjv.co.uk/api/v1/sit_records/0"
+                  }
+                }
+              },
+              "attributes": {
+                "$ref": "#/definitions/sit_record_attributes"
+              }
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "first": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/sit_records?page[number]=1&page[size]=5"
+            },
+            "prev": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/sit_records?page[number]=1&page[size]=5"
+            },
+            "next": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/sit_records?page[number]=2&page[size]=5"
+            },
+            "last": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/sit_records?page[number]=5&page[size]=5"
+            }
+          }
+        }
+      }
+    },
+    "sit_record_response": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "example": "0"
+            },
+            "type": {
+              "type": "string",
+              "example": "sit_records"
+            },
+            "link": {
+              "type": "object",
+              "properties": {
+                "self": {
+                  "type": "string",
+                  "example": "https://esr_api.sardjv.co.uk/api/v1/sit_records/0"
+                }
+              }
+            },
+            "attributes": {
+              "$ref": "#/definitions/sit_record_attributes"
+            }
+          }
+        }
+      }
+    },
+    "training_absence_record_attributes": {
+      "type": "object",
+      "properties": {
+        "Person ID": {
+          "type": "string",
+          "example": "1234567",
+          "x-nullable": true
+        },
+        "Absence Attendance ID": {
+          "type": "string",
+          "example": "43247770",
+          "x-nullable": true
+        },
+        "Absence Type": {
+          "type": "string",
+          "example": "MEL - Module 4 - Safeguarding Family - ALL CLINICAL STAFF",
+          "x-nullable": true
+        },
+        "Absence Reason": {
+          "type": "string",
+          "example": "Training Leave",
+          "x-nullable": true
+        },
+        "Status": {
+          "type": "string",
+          "example": "Withdrawn",
+          "x-nullable": true
+        },
+        "Notification Date": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Projected Start Date": {
+          "type": "date",
+          "example": "2013-09-18",
+          "x-nullable": true
+        },
+        "Projected Start Time": {
+          "type": "string",
+          "example": "09:15",
+          "x-nullable": true
+        },
+        "Projected End Date": {
+          "type": "date",
+          "example": "2013-09-18",
+          "x-nullable": true
+        },
+        "Projected End Time": {
+          "type": "string",
+          "example": "15:00",
+          "x-nullable": true
+        },
+        "Actual Start Date": {
+          "type": "date",
+          "example": "2013-09-18",
+          "x-nullable": true
+        },
+        "Actual Start Time": {
+          "type": "string",
+          "example": "09:15",
+          "x-nullable": true
+        },
+        "Actual End Date": {
+          "type": "date",
+          "example": "2013-09-18",
+          "x-nullable": true
+        },
+        "Actual End Time": {
+          "type": "string",
+          "example": "15:00",
+          "x-nullable": true
+        },
+        "Sickness Start Date": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Sickness End Date": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Absence Duration Days": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Absence Duration Hours": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Absence Units": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Hours Lost": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Sessions Lost": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Work Related": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Third Party": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Disability Related": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Violence & Aggression Related": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Notifiable Disease": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Return To Work Discussion Date": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Occupational Health Referral Date": {
+          "type": "string",
+          "example": null,
+          "x-nullable": true
+        },
+        "Last Update Date": {
+          "type": "date-time",
+          "example": "2013-07-25T10:00:52.000Z",
+          "x-nullable": true
+        }
+      }
+    },
+    "training_absence_records_response": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "example": "0"
+              },
+              "type": {
+                "type": "string",
+                "example": "training_absence_records"
+              },
+              "link": {
+                "type": "object",
+                "properties": {
+                  "self": {
+                    "type": "string",
+                    "example": "https://esr.sardjv.co.uk/api/v1/training_absence_records/0"
+                  }
+                }
+              },
+              "attributes": {
+                "$ref": "#/definitions/training_absence_record_attributes"
+              }
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "first": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/training_absence_records?page[number]=1&page[size]=5"
+            },
+            "prev": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/training_absence_records?page[number]=1&page[size]=5"
+            },
+            "next": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/training_absence_records?page[number]=2&page[size]=5"
+            },
+            "last": {
+              "type": "string",
+              "example": "https://esr.sardjv.co.uk/api/v1/training_absence_records?page[number]=5&page[size]=5"
+            }
+          }
+        }
+      }
+    },
+    "training_absence_record_response": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "example": "0"
+            },
+            "type": {
+              "type": "string",
+              "example": "training_absence_records"
+            },
+            "link": {
+              "type": "object",
+              "properties": {
+                "self": {
+                  "type": "string",
+                  "example": "https://esr_api.sardjv.co.uk/api/v1/training_absence_records/0"
+                }
+              }
+            },
+            "attributes": {
+              "$ref": "#/definitions/training_absence_record_attributes"
             }
           }
         }
