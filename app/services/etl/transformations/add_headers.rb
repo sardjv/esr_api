@@ -1,5 +1,6 @@
 class ETL::Transformations::AddHeaders
   def process(row)
+    check_row_length(row)
     Hash[headers(row[0]).zip(row)]
   end
 
@@ -22,6 +23,13 @@ class ETL::Transformations::AddHeaders
     when 'QLA', 'QLD' then ETL::Headers::QualificationRecord.all
     when 'STA', 'STD' then ETL::Headers::SITRecord.all
     when 'TRA', 'TRD' then ETL::Headers::TrainingAbsenceRecord.all
+    end
+  end
+
+  def check_row_length(row)
+    headers_count = headers(row[0]).count
+    if headers_count != row.count
+      raise "Wrong number of columns for #{row[0]} row, expected #{headers_count}, got #{row.count}"
     end
   end
 end
