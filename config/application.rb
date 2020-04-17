@@ -66,13 +66,3 @@ module EsrApi
     end
   end
 end
-
-# Show in-line form errors.
-ActionView::Base.field_error_proc = proc do |html_tag, instance|
-  if /\<label/.match?(html_tag)
-    html_tag
-  else
-    errors = Array(instance.error_message).join(',')
-    %(#{html_tag}<p class="validation-error"> #{errors}</p>)
-  end
-end
