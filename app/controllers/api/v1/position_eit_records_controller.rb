@@ -1,2 +1,2 @@
-class Api::V1::PositionEITRecordsController < Api::V1::ApiResourceController
+class Api::V1::PositionEitRecordsController < Api::V1::ApiResourceController
 end

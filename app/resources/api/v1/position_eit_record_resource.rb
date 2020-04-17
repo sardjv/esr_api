@@ -1,4 +1,4 @@
-class Api::V1::PositionEITRecordResource < JSONAPI::Resource
+class Api::V1::PositionEitRecordResource < JSONAPI::Resource
   immutable # Remove POST and PUT endpoints.
 
   model_name 'PositionEITRecord'

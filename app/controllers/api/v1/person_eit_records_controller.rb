@@ -1,2 +1,2 @@
-class Api::V1::PersonEITRecordsController < Api::V1::ApiResourceController
+class Api::V1::PersonEitRecordsController < Api::V1::ApiResourceController
 end
