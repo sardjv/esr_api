@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :absence_record do
+  factory :assignment_record do
     id { Faker::Number.unique.number }
     send('Assignment ID') { Faker::Number.unique.number }
     send('Effective From Date') { Faker::Date.backward }
