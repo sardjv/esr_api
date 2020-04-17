@@ -90,7 +90,7 @@ class ETL::Destinations::ActiveRecord
         'Location ID' => row['Location ID']
       )
     when 'ORA', 'ORD'
-      ::LocationRecord.find_by(
+      ::OrganisationRecord.find_by(
         'Organisation ID' => row['Organisation ID']
       )
     when 'PIA', 'PID'
