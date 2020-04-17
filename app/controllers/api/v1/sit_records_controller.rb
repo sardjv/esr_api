@@ -1,2 +1,2 @@
-class Api::V1::SITRecordsController < Api::V1::ApiResourceController
+class Api::V1::SitRecordsController < Api::V1::ApiResourceController
 end
