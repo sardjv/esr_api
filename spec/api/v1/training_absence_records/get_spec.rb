@@ -23,7 +23,7 @@ describe 'Api::V1::TrainingAbsenceRecordResource', type: :request, swagger_doc: 
           describe 'attributes match database values' do
             run_test! do
               response_data['attributes'].each do |key, value|
-                expect(training_absence_record.send(key)).to eq(value)
+                expect(training_absence_record.send(key).to_s).to eq(value.to_s)
               end
             end
           end

@@ -23,7 +23,7 @@ describe 'Api::V1::ElementRecordResource', type: :request, swagger_doc: 'v1/swag
           describe 'attributes match database values' do
             run_test! do
               response_data['attributes'].each do |key, value|
-                expect(element_record.send(key)).to eq(value)
+                expect(element_record.send(key).to_s).to eq(value.to_s)
               end
             end
           end
