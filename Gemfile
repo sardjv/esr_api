@@ -65,6 +65,14 @@ gem 'rack-cors', '~> 1.1.1'
 # https://github.com/tzinfo/tzinfo-data
 gem 'tzinfo-data', '~> 1.2019.3'
 
+# OmniAuth is a flexible authentication system utilizing Rack middleware.
+# https://github.com/auth0/omniauth-auth0
+gem 'omniauth-auth0', '~> 2.3.1'
+
+# Provides CSRF protection on OmniAuth request endpoint on Rails application.
+# https://github.com/cookpad/omniauth-rails_csrf_protection
+gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
+
 group :development, :test do
   # Call 'byebug' anywhere in your code to drop into a debugger console.
   # https://github.com/deivid-rodriguez/byebug
