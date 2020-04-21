@@ -68,7 +68,7 @@ gem 'tzinfo-data', '~> 1.2019.3'
 group :development, :test do
   # Call 'byebug' anywhere in your code to drop into a debugger console.
   # https://github.com/deivid-rodriguez/byebug
-  gem 'byebug', '~> 11.1.1', platform: :mri
+  gem 'byebug', '~> 11.1.2', platform: :mri
 
   # Generate Swagger docs from RSpec tests.
   # https://github.com/rswag/rswag
