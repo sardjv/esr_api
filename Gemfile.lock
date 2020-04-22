@@ -1,12 +1,3 @@
-GIT
-  remote: https://github.com/rails-sqlserver/activerecord-sqlserver-adapter
-  revision: 61e6833bd3b176c5ce934ea14f28b54d0aa05844
-  branch: 6-0-dev
-  specs:
-    activerecord-sqlserver-adapter (6.0.0)
-      activerecord (~> 6.0.0)
-      tiny_tds
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -137,6 +128,7 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.0)
+    mysql2 (0.5.3)
     nenv (0.3.0)
     nio4r (2.5.2)
     nokogiri (1.10.9)
@@ -256,7 +248,6 @@ GEM
       sprockets (>= 3.0.0)
     thor (1.0.1)
     thread_safe (0.3.6)
-    tiny_tds (2.1.3.pre)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
     tzinfo-data (1.2019.3)
@@ -271,7 +262,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-sqlserver-adapter!
   byebug (~> 11.1.2)
   database_cleaner-active_record (~> 1.8.0)
   database_cleaner-redis (~> 1.8.0)
@@ -282,6 +272,7 @@ DEPENDENCIES
   jsonapi-resources (~> 0.10.2)
   kiba (~> 3.0.0)
   kiba-common (~> 1.0.0)
+  mysql2 (~> 0.5.3)
   puma (~> 4.3.3)
   rack-cors (~> 1.1.1)
   rack-timeout (~> 0.6)
@@ -294,7 +285,6 @@ DEPENDENCIES
   rubocop-rails (~> 2.5.1)
   sidekiq (~> 6.0.7)
   simplecov (~> 0.18.5)
-  tiny_tds (~> 2.1.3.pre.pre)
   tzinfo-data (~> 1.2019.3)
 
 BUNDLED WITH

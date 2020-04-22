@@ -18,19 +18,19 @@ gem 'rack-timeout', '~> 0.6'
 
 # Use MySQL as the database for Active Record.
 # https://github.com/brianmario/mysql2
-# gem 'mysql2', '~> 0.5.3'
+gem 'mysql2', '~> 0.5.3'
 
 # FreeTDS bindings for Ruby, required for SQL Server.
 # https://github.com/rails-sqlserver/tiny_tds
 # Ruby 2.6/2.7 compatibility under development, bump the version when merged:
 # https://github.com/rails-sqlserver/tiny_tds/pull/462
-gem 'tiny_tds', '~> 2.1.3-pre'
+# gem 'tiny_tds', '~> 2.1.3-pre'
 
 # Use SQL Server as the database for Active Record.
 # https://github.com/rails-sqlserver/activerecord-sqlserver-adapter
 # Rails 6 compatibility is under development, remove the branch reference when merged:
 # https://github.com/rails-sqlserver/activerecord-sqlserver-adapter/pull/690
-gem 'activerecord-sqlserver-adapter', git: 'https://github.com/rails-sqlserver/activerecord-sqlserver-adapter', branch: '6-0-dev'
+# gem 'activerecord-sqlserver-adapter', git: 'https://github.com/rails-sqlserver/activerecord-sqlserver-adapter', branch: '6-0-dev'
 
 # A very fast key-value store to hold jobs until they are run.
 # https://github.com/redis-store/redis-rails
