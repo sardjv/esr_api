@@ -53,7 +53,7 @@ class CreateAssignmentRecords < ActiveRecord::Migration[6.0]
       t.timestamps
     end
 
-    add_index :assignment_records, ['Assignment ID', 'Effective Start Date', 'Effective End Date'], unique: true
+    add_index :assignment_records, ['Assignment ID', 'Effective Start Date', 'Effective End Date'], unique: true, name: 'index_assignment_effective_start_and_end_date'
   end
 end
 

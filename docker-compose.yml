@@ -10,25 +10,25 @@ services:
   #     - '.env'
 
   # MySQL option.
-  # db:
-  #   image: 'mysql:8.0.19'
-  #   restart: always
-  #   volumes:
-  #     - 'db:/var/lib/mysql'
-  #   env_file:
-  #     - '.env'
-  #   ports:
-  #     - '3307:3306'
-
-  # SQL Server option.
   db:
-    image: microsoft/mssql-server-linux:2017-latest
+    image: 'mysql:8.0.19'
+    restart: always
     volumes:
-      - 'db:/var/lib/sql_server'
+      - 'db:/var/lib/mysql'
     env_file:
       - '.env'
     ports:
-      - '3307:1433'
+      - '3307:3306'
+
+  # SQL Server option.
+  # db:
+  #   image: microsoft/mssql-server-linux:2017-latest
+  #   volumes:
+  #     - 'db:/var/lib/sql_server'
+  #   env_file:
+  #     - '.env'
+  #   ports:
+  #     - '3307:1433'
 
   redis:
     image: 'redis:5.0.8-alpine'
