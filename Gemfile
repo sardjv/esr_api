@@ -63,7 +63,7 @@ gem 'rack-cors', '~> 1.1.1'
 
 # Bundle zoneinfo files which are not included in Windows.
 # https://github.com/tzinfo/tzinfo-data
-gem 'tzinfo-data', '~> 1.2019.3'
+gem 'tzinfo-data', '~> 1.2020.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in your code to drop into a debugger console.
