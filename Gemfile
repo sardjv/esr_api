@@ -96,7 +96,7 @@ group :test do
 
   # Fixtures replacement with a straightforward definition syntax.
   # https://github.com/thoughtbot/factory_bot
-  gem 'factory_bot', '~> 5.1.2'
+  gem 'factory_bot', '~> 5.2.0'
 
   # Generate code coverage documentation.
   # https://github.com/colszowka/simplecov
