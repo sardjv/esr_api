@@ -39,6 +39,6 @@ class CreatePersonRecords < ActiveRecord::Migration[6.0]
       t.timestamps
     end
 
-    add_index :person_records, ['Person ID', 'Effective Start Date', 'Effective End Date'], unique: true
+    add_index :person_records, ['Person ID', 'Effective Start Date', 'Effective End Date'], unique: true, name: 'index_person_records_effective_start_and_end'
   end
 end

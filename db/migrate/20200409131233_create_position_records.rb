@@ -24,6 +24,6 @@ class CreatePositionRecords < ActiveRecord::Migration[6.0]
       t.timestamps
     end
 
-    add_index :position_records, ['Position ID', 'Effective From Date', 'Effective To Date'], unique: true
+    add_index :position_records, ['Position ID', 'Effective From Date', 'Effective To Date'], unique: true, name: 'index_position_records_effective_from_and_to'
   end
 end

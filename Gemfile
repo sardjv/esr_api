@@ -63,7 +63,7 @@ gem 'rack-cors', '~> 1.1.1'
 
 # Bundle zoneinfo files which are not included in Windows.
 # https://github.com/tzinfo/tzinfo-data
-gem 'tzinfo-data', '~> 1.2019.3'
+gem 'tzinfo-data', '~> 1.2020.1'
 
 # OmniAuth is a flexible authentication system utilizing Rack middleware.
 # https://github.com/auth0/omniauth-auth0
@@ -76,7 +76,7 @@ gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
 group :development, :test do
   # Call 'byebug' anywhere in your code to drop into a debugger console.
   # https://github.com/deivid-rodriguez/byebug
-  gem 'byebug', '~> 11.1.2', platform: :mri
+  gem 'byebug', '~> 11.1.3', platform: :mri
 
   # Generate Swagger docs from RSpec tests.
   # https://github.com/rswag/rswag
@@ -104,7 +104,7 @@ group :test do
 
   # Fixtures replacement with a straightforward definition syntax.
   # https://github.com/thoughtbot/factory_bot
-  gem 'factory_bot', '~> 5.1.2'
+  gem 'factory_bot', '~> 5.2.0'
 
   # Generate code coverage documentation.
   # https://github.com/colszowka/simplecov
