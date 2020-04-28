@@ -28,6 +28,10 @@ To generate seed data for demonstration purposes:
 docker-compose run api bundle exec rails db:seed
 ```
 
+## Logging in
+
+Auth0 is required for login. You also need to add your client ID and secret to the env file in the Auth0 section.
+
 ## Deployment without Docker
 
 If you can run [Docker](https://en.wikipedia.org/wiki/Docker_(software)), that is the quickest way to get started. If Docker install is not possible, the Dockerfile, docker-compose.yml and Gemfile files included in the repository can be used as a guide for dependencies.

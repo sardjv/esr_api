@@ -3,8 +3,12 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   root 'pages#home'
 
+  get 'auth/:provider/callback' => 'auth0#callback'
+  get 'auth/failure' => 'auth0#failure'
+  get 'auth_logout' => 'auth0#destroy'
+
   # Swagger documentation.
-  mount Rswag::Ui::Engine => '/'
+  mount Rswag::Ui::Engine => 'api_docs'
   mount Rswag::Api::Engine => 'api_docs'
 
   namespace :api do
