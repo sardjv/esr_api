@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_143042) do
     t.date "Assignment End Date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["Assignment ID", "Effective Start Date", "Effective End Date"], name: "index_assignment_records_on_Assignment ID_and_Effective Start Date_and_Effective End Date", unique: true
+    t.index ["Assignment ID", "Effective Start Date", "Effective End Date"], name: "index_assignment_effective_start_and_end_date", unique: true
   end
 
   create_table "competency_records", force: :cascade do |t|
@@ -342,7 +342,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_143042) do
     t.string "Disability Flag"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["Person ID", "Effective Start Date", "Effective End Date"], name: "index_person_records_on_Person ID_and_Effective Start Date_and_Effective End Date", unique: true
+    t.index ["Person ID", "Effective Start Date", "Effective End Date"], name: "index_person_records_effective_start_and_end", unique: true
   end
 
   create_table "position_eit_records", force: :cascade do |t|
@@ -429,7 +429,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_143042) do
     t.string "Subjective Code Description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["Position ID", "Effective From Date", "Effective To Date"], name: "index_position_records_on_Position ID_and_Effective From Date_and_Effective To Date", unique: true
+    t.index ["Position ID", "Effective From Date", "Effective To Date"], name: "index_position_records_effective_from_and_to", unique: true
   end
 
   create_table "qualification_records", force: :cascade do |t|
