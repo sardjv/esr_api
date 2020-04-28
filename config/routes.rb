@@ -1,6 +1,8 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  root 'pages#home'
+
   # Swagger documentation.
   mount Rswag::Ui::Engine => '/'
   mount Rswag::Api::Engine => 'api_docs'
