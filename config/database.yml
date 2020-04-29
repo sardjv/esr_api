@@ -45,6 +45,5 @@ staging:
   database: <%= ENV['DB_DATABASE'] %>_test
 
 production:
-  <<: *default
-  database: <%= ENV['DB_DATABASE'] %>_production
+  database: esr_api_production
   url: <%= ENV['CLEARDB_DATABASE_URL'] %>
