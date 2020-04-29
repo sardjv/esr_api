@@ -12,6 +12,11 @@ module Admin
       # TODO Add authentication logic here.
     end
 
+    # disable 'edit' and 'destroy' links
+    def valid_action?(name, resource = resource_class)
+      %w[new edit destroy].exclude?(name.to_s) && super
+    end
+
     # Override this value to specify the number of elements to display at a time
     # on index pages. Defaults to 20.
     # def records_per_page

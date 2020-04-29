@@ -2,24 +2,25 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   namespace :admin do
-      resources :absence_records
-      resources :assignment_records
-      resources :competency_records
-      resources :costing_records
-      resources :disability_records
-      resources :element_records
-      resources :location_records
-      resources :organisation_records
-      resources :person_eit_records
-      resources :person_records
-      resources :position_eit_records
-      resources :position_records
-      resources :qualification_records
-      resources :sit_records
-      resources :training_absence_records
+    resources :absence_records
+    resources :assignment_records
+    resources :competency_records
+    resources :costing_records
+    resources :disability_records
+    resources :element_records
+    resources :location_records
+    resources :organisation_records
+    resources :person_eit_records
+    resources :person_records
+    resources :position_eit_records
+    resources :position_records
+    resources :qualification_records
+    resources :sit_records
+    resources :training_absence_records
 
-      root to: "absence_records#index"
-    end
+    root to: "absence_records#index"
+  end
+
   # Swagger documentation.
   mount Rswag::Ui::Engine => '/'
   mount Rswag::Api::Engine => 'api_docs'
