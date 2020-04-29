@@ -18,11 +18,17 @@ Rails.application.routes.draw do
     resources :sit_records
     resources :training_absence_records
 
-    root to: "absence_records#index"
+    root to: 'absence_records#index'
   end
 
+  root 'pages#home'
+
+  get 'auth/:provider/callback' => 'auth0#callback'
+  get 'auth/failure' => 'auth0#failure'
+  get 'auth_logout' => 'auth0#destroy'
+
   # Swagger documentation.
-  mount Rswag::Ui::Engine => '/'
+  mount Rswag::Ui::Engine => 'api_docs'
   mount Rswag::Api::Engine => 'api_docs'
 
   namespace :api do
