@@ -2,7 +2,7 @@ class Auth0Controller < ApplicationController
   def callback
     session[:user_id] = '123'
     session[:provider] = 'auth0'
-    redirect_to rswag_ui_path
+    redirect_to admin_root_path
   end
 
   def failure
