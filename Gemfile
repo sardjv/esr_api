@@ -65,6 +65,10 @@ gem 'rack-cors', '~> 1.1.1'
 # https://github.com/tzinfo/tzinfo-data
 gem 'tzinfo-data', '~> 1.2020.1'
 
+# A Rails engine that helps you put together a super-flexible admin dashboard.
+# https://github.com/thoughtbot/administrate
+gem 'administrate', '~> 0.13.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in your code to drop into a debugger console.
   # https://github.com/deivid-rodriguez/byebug
