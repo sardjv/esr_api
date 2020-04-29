@@ -1075,11 +1075,6 @@
           "type": "string",
           "example": "726999",
           "x-nullable": true
-        },
-        "Ins_Upd_TimeStamp": {
-          "type": "date-time",
-          "example": "2020-04-07T14:53:54.000Z",
-          "x-nullable": true
         }
       }
     },
@@ -3066,11 +3061,6 @@
           "type": "string",
           "example": "N",
           "x-nullable": true
-        },
-        "Ins_Upd_TimeStamp": {
-          "type": "date-time",
-          "example": "2020-04-07T14:53:54.000Z",
-          "x-nullable": true
         }
       }
     },
@@ -3623,11 +3613,6 @@
         "Subjective Code Description": {
           "type": "string",
           "example": "RT Doctor",
-          "x-nullable": true
-        },
-        "Ins_Upd_TimeStamp": {
-          "type": "date-time",
-          "example": null,
           "x-nullable": true
         }
       }

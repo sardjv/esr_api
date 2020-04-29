@@ -9,15 +9,14 @@ class PositionRecordDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     :'id' => Field::Number,
-    :'Record Type' => Field::String,
-    :'PositionID' => Field::String,
-    :'Effective FromDate' => Field::Date,
-    :'Effective ToDate' => Field::Date,
+    :'Position ID' => Field::String,
+    :'Effective From Date' => Field::Date,
+    :'Effective To Date' => Field::Date,
     :'Position Number' => Field::String,
     :'Position Name' => Field::String,
     :'Budgeted FTE' => Field::String,
     :'Subjective Code' => Field::String,
-    :'Job StaffGroup' => Field::String,
+    :'Job Staff Group' => Field::String,
     :'Job Role' => Field::String,
     :'Occupation Code' => Field::String,
     :'Payscale' => Field::String,
@@ -26,10 +25,9 @@ class PositionRecordDashboard < Administrate::BaseDashboard
     :'Organisation ID' => Field::String,
     :'Hiring Status' => Field::String,
     :'Position Type' => Field::String,
-    :'Workplace OrgCode' => Field::String,
-    :'Last UpdateDate' => Field::DateTime,
-    :'Subjective CodeDescription' => Field::String,
-    :'Ins_Upd_TimeStamp' => Field::DateTime,
+    :'Workplace Org Code' => Field::String,
+    :'Last Update Date' => Field::DateTime,
+    :'Subjective Code Description' => Field::String,
     :'created_at' => Field::DateTime,
     :'updated_at' => Field::DateTime,
   }.freeze
@@ -41,24 +39,22 @@ class PositionRecordDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :'id',
-    :'Record Type',
-    :'PositionID',
-    :'Effective FromDate',
+    :'Position ID',
+    :'Effective From Date',
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :'id',
-    :'Record Type',
-    :'PositionID',
-    :'Effective FromDate',
-    :'Effective ToDate',
+    :'Position ID',
+    :'Effective From Date',
+    :'Effective To Date',
     :'Position Number',
     :'Position Name',
     :'Budgeted FTE',
     :'Subjective Code',
-    :'Job StaffGroup',
+    :'Job Staff Group',
     :'Job Role',
     :'Occupation Code',
     :'Payscale',
@@ -67,10 +63,9 @@ class PositionRecordDashboard < Administrate::BaseDashboard
     :'Organisation ID',
     :'Hiring Status',
     :'Position Type',
-    :'Workplace OrgCode',
-    :'Last UpdateDate',
-    :'Subjective CodeDescription',
-    :'Ins_Upd_TimeStamp',
+    :'Workplace Org Code',
+    :'Last Update Date',
+    :'Subjective Code Description',
     :'created_at',
     :'updated_at',
   ].freeze

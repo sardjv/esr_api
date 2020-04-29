@@ -36,8 +36,7 @@ class Api::V1::Swagger::AbsenceRecord
           'Surgery Related' => { type: 'string', example: nil, 'x-nullable': true },
           'DH Monitoring' => { type: 'string', example: nil, 'x-nullable': true },
           'Sickness Reason' => { type: 'string', example: nil, 'x-nullable': true },
-          '3rd Party System Reference' => { type: 'string', example: '726999', 'x-nullable': true },
-          'Ins_Upd_TimeStamp' => { type: 'date-time', example: '2020-04-07T14:53:54.000Z', 'x-nullable': true }
+          '3rd Party System Reference' => { type: 'string', example: '726999', 'x-nullable': true }
         }
       },
       absence_records_response: {
