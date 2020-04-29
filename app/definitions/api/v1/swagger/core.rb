@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 class Api::V1::Swagger::Core
   def self.docs
     {
