@@ -8,10 +8,6 @@ gem 'rails', '~> 6.0.2.1'
 # https://github.com/puma/puma
 gem 'puma', '~> 4.3.3'
 
-# Abort requests that are taking too long.
-# https://github.com/sharpstone/rack-timeout
-gem 'rack-timeout', '~> 0.6'
-
 # Use PostgreSQL as the database for Active Record.
 # https://github.com/ged/ruby-pg
 # gem 'pg', '~> 1.2.3'
@@ -52,6 +48,10 @@ gem 'kiba-common', '~> 1.0.0'
 # https://github.com/rswag/rswag
 gem 'rswag-api', '~> 2.3.1'
 gem 'rswag-ui', '~> 2.3.1'
+
+# Use Webpack to manage app-like JavaScript modules in Rails.
+# https://github.com/rails/webpacker
+gem 'webpacker', '~> 5.1.1'
 
 # A resource-focused Rails library for developing JSON:API compliant servers.
 # https://github.com/cerebris/jsonapi-resources
