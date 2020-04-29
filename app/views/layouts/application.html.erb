@@ -12,7 +12,7 @@
   <meta name="description" content="">
 
   <title>
-    Start page template - NHS.UK prototype kit
+    NHS ESR Wrapper
   </title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
@@ -53,7 +53,7 @@
             <image src="https://assets.nhs.uk/images/nhs-logo.png" xlink:href=""></image>
           </svg>
           <span class="nhsuk-header__service-name">
-            Prototype kit
+            ESR Wrapper
           </span>
         </a>
       </div>
@@ -73,40 +73,7 @@
 
   <div class="nhsuk-width-container ">
     <main class="nhsuk-main-wrapper " id="maincontent" role="main">
-
-      <div class="nhsuk-grid-row">
-        <div class="nhsuk-grid-column-two-thirds">
-
-          <h1>
-            Service name goes here
-          </h1>
-
-          <p>
-            Use this service to:
-          </p>
-
-          <ul>
-            <li>
-              do something
-            </li>
-            <li>
-              update your name, address or other details
-            </li>
-            <li>
-              do something else
-            </li>
-          </ul>
-
-          <a href="/" class="nhsuk-button nhsuk-u-margin-bottom-8">
-            Start now
-          </a>
-
-          <%= yield %>
-
-        </div>
-
-      </div>
-
+      <%= yield %>
     </main>
   </div>
 

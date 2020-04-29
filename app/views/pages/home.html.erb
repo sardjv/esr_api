@@ -1,5 +1,32 @@
 
-<h1 class="nhsuk-heading-xl">Home#index</h1>
-<p class="nhsuk-body">Find me in app/views/pages/home.html.erb</p>
 
-<%= button_to 'Log in', root_url + 'auth/auth0', method: :post %>
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+    <h1>
+      ESR Wrapper
+    </h1>
+
+    <p>
+      Use this service to:
+    </p>
+
+    <ul>
+      <li>
+        Access your trust's ESR data.
+      </li>
+      <li>
+        Provide ESR data to other services within your trust via the API.
+      </li>
+    </ul>
+
+    <a href="/" class="nhsuk-button nhsuk-u-margin-bottom-8">
+      Log in
+    </a>
+
+    <%= button_to 'Log in', root_url + 'auth/auth0', method: :post %>
+
+
+  </div>
+
+</div>
