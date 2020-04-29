@@ -13,22 +13,22 @@ describe DailyImportJob, type: :job do
       .to change(ActiveJob::Base.queue_adapter.enqueued_jobs, :size).by(1)
   end
 
-  it 'creates a new SITRecord' do
+  it 'creates a new SitRecord' do
     perform_enqueued_jobs { add_job }
 
-    expect(SITRecord.count).to eq(1)
-    pr = SITRecord.first
+    expect(SitRecord.count).to eq(1)
+    pr = SitRecord.first
 
     # Expect values in the database to match input from add_sit_record.dsv.
-    Expectations::SITRecord.added.each do |key, value|
+    Expectations::SitRecord.added.each do |key, value|
       expect(pr.send(key)).to eq(value)
     end
   end
 
-  context 'with an existing SITRecord' do
+  context 'with an existing SitRecord' do
     before do
       perform_enqueued_jobs { add_job }
-      SITRecord.first.update(
+      SitRecord.first.update(
         'created_at' => Time.current - 1.week,
         'updated_at' => Time.current - 1.week
       )
@@ -37,14 +37,14 @@ describe DailyImportJob, type: :job do
     it 'updates it' do
       perform_enqueued_jobs { update_job }
 
-      expect(SITRecord.count).to eq(1)
-      pr = SITRecord.first
+      expect(SitRecord.count).to eq(1)
+      pr = SitRecord.first
 
       expect(pr.created_at).to be_within(2.seconds).of(Time.current - 1.week)
       expect(pr.updated_at).to be_within(2.seconds).of(Time.current)
 
       # Expect values in the database to match input from update_sit_record.dsv.
-      Expectations::SITRecord.updated.each do |key, value|
+      Expectations::SitRecord.updated.each do |key, value|
         expect(pr.send(key)).to eq(value)
       end
     end
@@ -52,7 +52,7 @@ describe DailyImportJob, type: :job do
     it 'deletes it' do
       perform_enqueued_jobs { delete_job }
 
-      expect(SITRecord.count).to eq(0)
+      expect(SitRecord.count).to eq(0)
     end
   end
 end

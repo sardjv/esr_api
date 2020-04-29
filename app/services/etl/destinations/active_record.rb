@@ -21,14 +21,14 @@ class ETL::Destinations::ActiveRecord
     when 'CMA' then ::CompetencyRecord.insert_all!([row.except('Record Type')])
     when 'DTA' then ::DisabilityRecord.insert_all!([row.except('Record Type')])
     when 'ELA' then ::ElementRecord.insert_all!([row.except('Record Type')])
-    when 'ETA' then ::PersonEITRecord.insert_all!([row.except('Record Type')])
+    when 'ETA' then ::PersonEitRecord.insert_all!([row.except('Record Type')])
     when 'LCA' then ::LocationRecord.insert_all!([row.except('Record Type')])
     when 'ORA' then ::OrganisationRecord.insert_all!([row.except('Record Type')])
     when 'PRA' then ::PersonRecord.insert_all!([row.except('Record Type')])
-    when 'PIA' then ::PositionEITRecord.insert_all!([row.except('Record Type')])
+    when 'PIA' then ::PositionEitRecord.insert_all!([row.except('Record Type')])
     when 'POA' then ::PositionRecord.insert_all!([row.except('Record Type')])
     when 'QLA' then ::QualificationRecord.insert_all!([row.except('Record Type')])
-    when 'STA' then ::SITRecord.insert_all!([row.except('Record Type')])
+    when 'STA' then ::SitRecord.insert_all!([row.except('Record Type')])
     when 'TRA' then ::TrainingAbsenceRecord.insert_all!([row.except('Record Type')])
     end
   end
@@ -82,7 +82,7 @@ class ETL::Destinations::ActiveRecord
         'Element Entry ID' => row['Element Entry ID']
       )
     when 'ETA', 'ETD'
-      ::PersonEITRecord.find_by(
+      ::PersonEitRecord.find_by(
         'Person Extra Information ID' => row['Person Extra Information ID']
       )
     when 'LCA', 'LCD'
@@ -94,7 +94,7 @@ class ETL::Destinations::ActiveRecord
         'Organisation ID' => row['Organisation ID']
       )
     when 'PIA', 'PID'
-      ::PositionEITRecord.find_by(
+      ::PositionEitRecord.find_by(
         'Position Extra Information ID' => row['Position Extra Information ID']
       )
     when 'POA', 'POD'
@@ -114,7 +114,7 @@ class ETL::Destinations::ActiveRecord
         'Qualification ID' => row['Qualification ID']
       )
     when 'STA', 'STD'
-      ::SITRecord.find_by(
+      ::SitRecord.find_by(
         'Special Information ID' => row['Special Information ID']
       )
     when 'TRA', 'TRD'

@@ -67,7 +67,8 @@ gem 'tzinfo-data', '~> 1.2020.1'
 
 # A Rails engine that helps you put together a super-flexible admin dashboard.
 # https://github.com/thoughtbot/administrate
-gem 'administrate', '~> 0.13.0'
+# Use master branch until 0.14.0 is available, for https://github.com/thoughtbot/administrate/pull/1574.
+gem 'administrate', github: 'thoughtbot/administrate', branch: 'master'
 
 group :development, :test do
   # Call 'byebug' anywhere in your code to drop into a debugger console.

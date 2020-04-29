@@ -1,4 +1,4 @@
-class ETL::Headers::SITRecord
+class ETL::Headers::SitRecord
   def self.all
     [
       'Record Type',

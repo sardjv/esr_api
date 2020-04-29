@@ -1,5 +1,5 @@
 module Expectations
-  class PositionEITRecord
+  class PositionEitRecord
     def self.added
       {
         'Position ID' => '5992270',

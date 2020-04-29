@@ -1,2 +1,2 @@
-class SITRecord < ApplicationRecord
+class SitRecord < ApplicationRecord
 end

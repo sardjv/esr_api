@@ -1,13 +1,13 @@
 require 'swagger_helper'
 
-describe 'Api::V1::PositionEITRecordResource', type: :request, swagger_doc: 'v1/swagger.json' do
+describe 'Api::V1::PositionEitRecordResource', type: :request, swagger_doc: 'v1/swagger.json' do
   let!(:position_eit_record) { create(:position_eit_record) }
   let!(:position_eit_record2) { create(:position_eit_record) }
   let(:response_data) { JSON.parse(response.body)['data'] }
 
   path '/api/v1/position_eit_records' do
     get 'position_eit records' do
-      tags 'PositionEITRecord'
+      tags 'PositionEitRecord'
       # security [{ apiToken: [] }, { apiEmail: [] }]
       produces 'application/vnd.api+json'
       parameter name: 'page[size]', in: :query, type: :integer, required: false
@@ -26,7 +26,7 @@ describe 'Api::V1::PositionEITRecordResource', type: :request, swagger_doc: 'v1/
           describe 'attributes match database values' do
             run_test! do
               expect(response_data.count).to eq(2)
-              database_record = PositionEITRecord.find(response_data.first['id'])
+              database_record = PositionEitRecord.find(response_data.first['id'])
               response_data.first['attributes'].each do |key, value|
                 expect(database_record.send(key).to_s).to eq(value.to_s)
               end

@@ -1,12 +1,12 @@
 require 'swagger_helper'
 
-describe 'Api::V1::PositionEITRecordResource', type: :request, swagger_doc: 'v1/swagger.json' do
+describe 'Api::V1::PositionEitRecordResource', type: :request, swagger_doc: 'v1/swagger.json' do
   let(:position_eit_record) { create(:position_eit_record) }
   let(:response_data) { JSON.parse(response.body)['data'] }
 
   path '/api/v1/position_eit_records/{id}' do
     get 'position_eit record' do
-      tags 'PositionEITRecord'
+      tags 'PositionEitRecord'
       # security [{ apiToken: [] }, { apiEmail: [] }]
       produces 'application/vnd.api+json'
       parameter name: :id, in: :path, type: :string, required: true

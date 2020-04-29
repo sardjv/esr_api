@@ -1,3 +1,3 @@
-describe SITRecord, type: :model do
-  it { expect(SITRecord.new).to be_valid }
+describe SitRecord, type: :model do
+  it { expect(SitRecord.new).to be_valid }
 end

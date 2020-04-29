@@ -1,13 +1,13 @@
 require 'swagger_helper'
 
-describe 'Api::V1::SITRecordResource', type: :request, swagger_doc: 'v1/swagger.json' do
+describe 'Api::V1::SitRecordResource', type: :request, swagger_doc: 'v1/swagger.json' do
   let!(:sit_record) { create(:sit_record) }
   let!(:sit_record2) { create(:sit_record) }
   let(:response_data) { JSON.parse(response.body)['data'] }
 
   path '/api/v1/sit_records' do
     get 'sit records' do
-      tags 'SITRecord'
+      tags 'SitRecord'
       # security [{ apiToken: [] }, { apiEmail: [] }]
       produces 'application/vnd.api+json'
       parameter name: 'page[size]', in: :query, type: :integer, required: false
@@ -26,7 +26,7 @@ describe 'Api::V1::SITRecordResource', type: :request, swagger_doc: 'v1/swagger.
           describe 'attributes match database values' do
             run_test! do
               expect(response_data.count).to eq(2)
-              database_record = SITRecord.find(response_data.first['id'])
+              database_record = SitRecord.find(response_data.first['id'])
               response_data.first['attributes'].each do |key, value|
                 expect(database_record.send(key).to_s).to eq(value.to_s)
               end

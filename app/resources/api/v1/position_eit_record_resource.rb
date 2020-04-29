@@ -1,7 +1,7 @@
 class Api::V1::PositionEitRecordResource < JSONAPI::Resource
   immutable # Remove POST and PUT endpoints.
 
-  model_name 'PositionEITRecord'
+  model_name 'PositionEitRecord'
 
-  attributes *ETL::Headers::PositionEITRecord.api_headers
+  attributes *ETL::Headers::PositionEitRecord.api_headers
 end

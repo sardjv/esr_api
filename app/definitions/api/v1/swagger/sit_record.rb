@@ -1,4 +1,4 @@
-class Api::V1::Swagger::SITRecord
+class Api::V1::Swagger::SitRecord
   def self.definitions
     {
       sit_record_attributes: {
