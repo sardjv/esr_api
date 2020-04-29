@@ -1,2 +1,2 @@
-class PositionEITRecord < ApplicationRecord
+class PositionEitRecord < ApplicationRecord
 end

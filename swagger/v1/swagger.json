@@ -490,7 +490,7 @@
       "get": {
         "summary": "person_eit record",
         "tags": [
-          "PersonEITRecord"
+          "PersonEitRecord"
         ],
         "produces": [
           "application/vnd.api+json"
@@ -517,7 +517,7 @@
       "get": {
         "summary": "person_eit records",
         "tags": [
-          "PersonEITRecord"
+          "PersonEitRecord"
         ],
         "produces": [
           "application/vnd.api+json"
@@ -610,7 +610,7 @@
       "get": {
         "summary": "position_eit record",
         "tags": [
-          "PositionEITRecord"
+          "PositionEitRecord"
         ],
         "produces": [
           "application/vnd.api+json"
@@ -637,7 +637,7 @@
       "get": {
         "summary": "position_eit records",
         "tags": [
-          "PositionEITRecord"
+          "PositionEitRecord"
         ],
         "produces": [
           "application/vnd.api+json"
@@ -790,7 +790,7 @@
       "get": {
         "summary": "sit record",
         "tags": [
-          "SITRecord"
+          "SitRecord"
         ],
         "produces": [
           "application/vnd.api+json"
@@ -817,7 +817,7 @@
       "get": {
         "summary": "sit records",
         "tags": [
-          "SITRecord"
+          "SitRecord"
         ],
         "produces": [
           "application/vnd.api+json"

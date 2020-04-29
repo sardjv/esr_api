@@ -13,22 +13,22 @@ describe DailyImportJob, type: :job do
       .to change(ActiveJob::Base.queue_adapter.enqueued_jobs, :size).by(1)
   end
 
-  it 'creates a new PersonEITRecord' do
+  it 'creates a new PersonEitRecord' do
     perform_enqueued_jobs { add_job }
 
-    expect(PersonEITRecord.count).to eq(1)
-    pr = PersonEITRecord.first
+    expect(PersonEitRecord.count).to eq(1)
+    pr = PersonEitRecord.first
 
     # Expect values in the database to match input from add_person_eit_record.dsv.
-    Expectations::PersonEITRecord.added.each do |key, value|
+    Expectations::PersonEitRecord.added.each do |key, value|
       expect(pr.send(key)).to eq(value)
     end
   end
 
-  context 'with an existing PersonEITRecord' do
+  context 'with an existing PersonEitRecord' do
     before do
       perform_enqueued_jobs { add_job }
-      PersonEITRecord.first.update(
+      PersonEitRecord.first.update(
         'created_at' => Time.current - 1.week,
         'updated_at' => Time.current - 1.week
       )
@@ -37,14 +37,14 @@ describe DailyImportJob, type: :job do
     it 'updates it' do
       perform_enqueued_jobs { update_job }
 
-      expect(PersonEITRecord.count).to eq(1)
-      pr = PersonEITRecord.first
+      expect(PersonEitRecord.count).to eq(1)
+      pr = PersonEitRecord.first
 
       expect(pr.created_at).to be_within(2.seconds).of(Time.current - 1.week)
       expect(pr.updated_at).to be_within(2.seconds).of(Time.current)
 
       # Expect values in the database to match input from update_person_eit_record.dsv.
-      Expectations::PersonEITRecord.updated.each do |key, value|
+      Expectations::PersonEitRecord.updated.each do |key, value|
         expect(pr.send(key)).to eq(value)
       end
     end
@@ -52,7 +52,7 @@ describe DailyImportJob, type: :job do
     it 'deletes it' do
       perform_enqueued_jobs { delete_job }
 
-      expect(PersonEITRecord.count).to eq(0)
+      expect(PersonEitRecord.count).to eq(0)
     end
   end
 end

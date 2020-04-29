@@ -1,4 +1,4 @@
-class Api::V1::Swagger::PersonEITRecord
+class Api::V1::Swagger::PersonEitRecord
   def self.definitions
     {
       person_eit_record_attributes: {

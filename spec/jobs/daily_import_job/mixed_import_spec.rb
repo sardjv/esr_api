@@ -15,12 +15,12 @@ describe DailyImportJob, type: :job do
         ElementRecord,
         LocationRecord,
         OrganisationRecord,
-        PersonEITRecord,
+        PersonEitRecord,
         PersonRecord,
-        PositionEITRecord,
+        PositionEitRecord,
         PositionRecord,
         QualificationRecord,
-        SITRecord,
+        SitRecord,
         TrainingAbsenceRecord
       ].each do |klass|
         expect(klass.count).to eq(1)

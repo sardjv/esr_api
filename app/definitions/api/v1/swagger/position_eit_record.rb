@@ -1,4 +1,4 @@
-class Api::V1::Swagger::PositionEITRecord
+class Api::V1::Swagger::PositionEitRecord
   def self.definitions
     {
       position_eit_record_attributes: {

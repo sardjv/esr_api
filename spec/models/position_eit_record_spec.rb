@@ -1,3 +1,3 @@
-describe PositionEITRecord, type: :model do
-  it { expect(PositionEITRecord.new).to be_valid }
+describe PositionEitRecord, type: :model do
+  it { expect(PositionEitRecord.new).to be_valid }
 end

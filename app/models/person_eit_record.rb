@@ -1,2 +1,2 @@
-class PersonEITRecord < ApplicationRecord
+class PersonEitRecord < ApplicationRecord
 end

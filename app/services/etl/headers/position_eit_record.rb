@@ -1,4 +1,4 @@
-class ETL::Headers::PositionEITRecord
+class ETL::Headers::PositionEitRecord
   def self.all
     [
       'Record Type',

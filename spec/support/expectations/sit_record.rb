@@ -1,5 +1,5 @@
 module Expectations
-  class SITRecord
+  class SitRecord
     def self.added
       {
         'Person ID' => '1234567',
