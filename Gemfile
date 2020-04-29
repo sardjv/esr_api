@@ -70,6 +70,14 @@ gem 'tzinfo-data', '~> 1.2020.1'
 # Use master branch until 0.14.0 is available, for https://github.com/thoughtbot/administrate/pull/1574.
 gem 'administrate', github: 'thoughtbot/administrate', branch: 'master'
 
+# OmniAuth is a flexible authentication system utilizing Rack middleware.
+# https://github.com/auth0/omniauth-auth0
+gem 'omniauth-auth0', '~> 2.3.1'
+
+# Provides CSRF protection on OmniAuth request endpoint on Rails application.
+# https://github.com/cookpad/omniauth-rails_csrf_protection
+gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
+
 group :development, :test do
   # Call 'byebug' anywhere in your code to drop into a debugger console.
   # https://github.com/deivid-rodriguez/byebug
