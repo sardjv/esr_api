@@ -23,7 +23,6 @@ class Api::V1::Swagger::PositionRecord
           'Workplace Org Code' => { type: 'string', example: nil, 'x-nullable': true},
           'Last Update Date' => { type: 'date-time', example: '2019-10-03T12:17:01.000Z', 'x-nullable': true },
           'Subjective Code Description' => { type: 'string', example: 'RT Doctor', 'x-nullable': true},
-          'Ins_Upd_TimeStamp' => { type: 'date-time', example: nil, 'x-nullable': true }
         }
       },
       position_records_response: {

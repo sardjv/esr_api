@@ -9,7 +9,6 @@ class LocationRecordDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     :'id' => Field::Number,
-    :'Record Type' => Field::String,
     :'Location ID' => Field::String,
     :'Location Code' => Field::String,
     :'Location Description' => Field::String,
@@ -42,7 +41,6 @@ class LocationRecordDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :'id',
-    :'Record Type',
     :'Location ID',
     :'Location Code',
   ].freeze
@@ -51,7 +49,6 @@ class LocationRecordDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :'id',
-    :'Record Type',
     :'Location ID',
     :'Location Code',
     :'Location Description',
