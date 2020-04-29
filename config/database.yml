@@ -47,3 +47,4 @@ staging:
 production:
   <<: *default
   database: <%= ENV['DB_DATABASE'] %>_production
+  url: <%= ENV['CLEARDB_DATABASE_URL'] %>
