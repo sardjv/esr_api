@@ -2,27 +2,22 @@
 <!--[if lt IE 9]><html class="ie8" lang="en"><![endif]-->
 <!--[if IE 9]><html class="ie9" lang="en"><![endif]-->
 <!--[if gt IE 9]><!-->
-<html lang="en" style="">
+<html lang="<%= I18n.locale %>">
 <!--<![endif]-->
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-
   <title>
     NHS ESR Wrapper
   </title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-
   <link href="https://www.nhs.uk/" rel="preconnect">
   <link href="https://assets.nhs.uk/" rel="preconnect" crossorigin>
-
   <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font" crossorigin>
   <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" rel="preload" as="font" crossorigin>
-
   <link rel="shortcut icon" href="<%= asset_pack_url('media/favicons/favicon.ico') %>" type='image/x-icon')>
   <link rel="apple-touch-icon" href="<%= asset_pack_url('media/favicons/apple-touch-icon-180x180.png') %>">
   <link rel="mask-icon" href="<%= asset_pack_url('media/favicons/favicon.svg') %>" color="#005eb8">
@@ -34,11 +29,8 @@
   <meta name="msapplication-wide310x150logo" content="<%= asset_pack_url('media/favicons/widetile-310x150.png') %>">
   <meta name="msapplication-square310x310logo" content="<%= asset_pack_url('media/favicons/largetile-310x310.png') %>">
 </head>
-
 <body class="js-enabled">
-
-<a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
-
+  <a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
   <header class="nhsuk-header" role="banner">
     <div class="nhsuk-width-container nhsuk-header__container">
       <div class="nhsuk-header__logo">
@@ -50,29 +42,80 @@
           </svg>
         </a>
       </div>
-
       <div class="nhsuk-header__transactional-service-name">
         <a class="nhsuk-header__transactional-service-name--link" href="/">ESR Wrapper  </a>
       </div>
+      <div class="nhsuk-header__content" id="content-header">
+        <div class="nhsuk-header__menu nhsuk-header__menu--only">
+          <button class="nhsuk-header__menu-toggle" id="toggle-menu" aria-controls="header-navigation" aria-label="Open menu">Menu</button>
+        </div>
+      </div>
     </div>
+    <nav class="nhsuk-header__navigation" id="header-navigation" role="navigation" aria-label="Primary navigation" aria-labelledby="label-navigation">
+      <div class="nhsuk-width-container">
+        <p class="nhsuk-header__navigation-title"><span id="label-navigation">Menu</span>
+          <button class="nhsuk-header__navigation-close" id="close-menu">
+            <svg class="nhsuk-icon nhsuk-icon__close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M13.41 12l5.3-5.29a1 1 0 1 0-1.42-1.42L12 10.59l-5.29-5.3a1 1 0 0 0-1.42 1.42l5.3 5.29-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l5.29-5.3 5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42z"></path>
+            </svg>
+            <span class="nhsuk-u-visually-hidden">Close menu</span>
+          </button>
+        </p>
+        <ul class="nhsuk-header__navigation-list nhsuk-header__navigation-list--small">
+          <li class="nhsuk-header__navigation-item">
+            <a class="nhsuk-header__navigation-link" href="/">
+              Home
+              <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+              </svg>
+            </a>
+          </li>
+          <li class="nhsuk-header__navigation-item">
+            <a class="nhsuk-header__navigation-link" href="/admin">
+              Admin
+              <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+              </svg>
+            </a>
+          </li>
+          <li class="nhsuk-header__navigation-item">
+            <a class="nhsuk-header__navigation-link" href="/api_docs">
+              API
+              <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   </header>
 
-  <div class="nhsuk-width-container ">
-    <main class="nhsuk-main-wrapper " id="maincontent" role="main">
-      <%= yield %>
+  <div class="nhsuk-width-container">
+    <main class="nhsuk-main-wrapper" id="maincontent">
+      <div class="nhsuk-grid-row">
+        <div class="nhsuk-grid-column-one-quarter">
+          <%= render "navigation" -%>
+        </div>
+        <div class="nhsuk-grid-column-three-quarters">
+          <%= yield %>
+        </div>
+      </div>
     </main>
   </div>
 
   <footer role="contentinfo">
     <div class="nhsuk-footer" id="nhsuk-footer">
       <div class="nhsuk-width-container">
+        <h2 class="nhsuk-u-visually-hidden">Support links</h2>
+        <ul class="nhsuk-footer__list">
+          <li class="nhsuk-footer__list-item"><a class="nhsuk-footer__list-item-link" href="/">Home</a></li>
+        </ul>
         <p class="nhsuk-footer__copyright">&copy; Crown copyright</p>
       </div>
     </div>
   </footer>
-
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'nhsuk', 'data-turbolinks-track': 'reload' %>
 </body>
-
 </html>

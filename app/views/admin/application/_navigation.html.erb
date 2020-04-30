@@ -7,14 +7,16 @@ for all resources in the admin dashboard,
 as defined by the routes in the `admin/` namespace
 %>
 
-<nav class="navigation" role="navigation">
-  <%= link_to("Back to app", root_url, class: "button button--alt") if defined?(root_url) %>
-
-  <% Administrate::Namespace.new(namespace).resources_with_index_route.each do |resource| %>
-    <%= link_to(
-      display_resource_name(resource),
-      resource_index_route(resource),
-      class: "navigation__link navigation__link--#{nav_link_state(resource)}"
-    ) if valid_action? :index, resource  %>
-  <% end %>
+<nav class="app-side-nav">
+  <ul class="nhsuk-list app-side-nav__list">
+    <% Administrate::Namespace.new(namespace).resources_with_index_route.each do |resource| %>
+      <li class="app-side-nav__item">
+        <%= link_to(
+          display_resource_name(resource),
+          resource_index_route(resource),
+          class: "app-subnav__link govuk-link govuk-link--no-visited-state"
+        ) if valid_action? :index, resource  %>
+      </li>
+    <% end %>
+  </ul>
 </nav>
