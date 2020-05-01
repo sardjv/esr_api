@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     root to: 'absence_records#index'
   end
 
-  root 'pages#home'
+  root to: 'admin/absence_records#index'
 
   get 'auth/:provider/callback' => 'auth0#callback'
   get 'auth/failure' => 'auth0#failure'
