@@ -14,18 +14,11 @@ docker-compose up
 
 It can then be accessed at [http://localhost:4000/](http://localhost:4000/)
 
-On the first run you need to create and migrate the database:
+On the first run you need to create, migrate and optionally seed the database:
 
 ```
-docker-compose run api bundle exec rails db:create
-docker-compose run api bundle exec rails db:migrate RAILS_ENV=development
+docker-compose run api bundle exec rails db:create db:migrate db:seed
 docker-compose run api bundle exec rails db:migrate RAILS_ENV=test
-```
-
-To generate seed data for demonstration purposes:
-
-```
-docker-compose run api bundle exec rails db:seed
 ```
 
 ## Logging in
