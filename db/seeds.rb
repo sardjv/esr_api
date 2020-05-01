@@ -1,5 +1,5 @@
 # Import some test data for demonstration purposes.
-DailyImportJob.perform_later(filename: 'spec/fixtures/files/add_absence_record.dsv')
+FakeDataJob.perform_later(klass: 'AbsenceRecord', quantity: 500)
 DailyImportJob.perform_later(filename: 'spec/fixtures/files/add_assignment_record.dsv')
 DailyImportJob.perform_later(filename: 'spec/fixtures/files/add_competency_record.dsv')
 DailyImportJob.perform_later(filename: 'spec/fixtures/files/add_costing_record.dsv')

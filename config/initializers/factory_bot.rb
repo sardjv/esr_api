@@ -1,0 +1,1 @@
+FactoryBot.find_definitions

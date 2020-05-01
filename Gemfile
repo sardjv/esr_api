@@ -78,6 +78,14 @@ gem 'omniauth-auth0', '~> 2.3.1'
 # https://github.com/cookpad/omniauth-rails_csrf_protection
 gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
 
+# Fixtures replacement with a straightforward definition syntax.
+# https://github.com/thoughtbot/factory_bot
+gem 'factory_bot', '~> 5.2.0'
+
+# Generate fake data such as names, addresses, and phone numbers.
+# https://github.com/faker-ruby/faker
+gem 'faker', '~> 2.11.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in your code to drop into a debugger console.
   # https://github.com/deivid-rodriguez/byebug
@@ -107,10 +115,6 @@ group :test do
   # https://github.com/rspec/rspec
   gem 'rspec-rails', '~> 4.0.0'
 
-  # Fixtures replacement with a straightforward definition syntax.
-  # https://github.com/thoughtbot/factory_bot
-  gem 'factory_bot', '~> 5.2.0'
-
   # Generate code coverage documentation.
   # https://github.com/colszowka/simplecov
   gem 'simplecov', '~> 0.18.5'
@@ -119,8 +123,4 @@ group :test do
   # https://github.com/DatabaseCleaner/database_cleaner
   gem 'database_cleaner-active_record', '~> 1.8.0'
   gem 'database_cleaner-redis', '~> 1.8.0'
-
-  # Generate fake data such as names, addresses, and phone numbers.
-  # https://github.com/faker-ruby/faker
-  gem 'faker', '~> 2.11.0'
 end
