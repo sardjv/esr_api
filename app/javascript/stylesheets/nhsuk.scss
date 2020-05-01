@@ -1,1 +1,14 @@
 @import 'node_modules/nhsuk-frontend/packages/nhsuk';
+
+// Table Search
+.esr-api__table-search {
+  float: right;
+}
+
+.esr-api__table-search-form {
+  padding: 16px;
+}
+
+.esr-api__table-search-input {
+  border-color: $nhsuk-border-color;
+}
