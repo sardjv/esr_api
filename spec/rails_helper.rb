@@ -16,6 +16,15 @@ require 'database_cleaner/active_record'
 require 'database_cleaner/redis'
 Dir[File.join(__dir__, 'support/expectations/', '*.rb')].each { |file| require file }
 
+module Faker::EsrApi
+  class AbsenceRecord < Faker::Base
+    def self.absence_type
+      fetch('absence_record.absence_type')
+    end
+  end
+end
+Faker.prepend Faker::EsrApi
+
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end

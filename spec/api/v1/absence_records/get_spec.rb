@@ -23,7 +23,11 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
           describe 'attributes match database values' do
             run_test! do
               response_data['attributes'].each do |key, value|
-                expect(absence_record.send(key).to_s).to eq(value.to_s)
+                if absence_record.send(key).is_a?(Time)
+                  expect(absence_record.send(key).strftime('%Y-%m-%dT%H:%M:%S.000Z')).to eq(value.to_s)
+                else
+                  expect(absence_record.send(key).to_s).to eq(value.to_s)
+                end
               end
             end
           end

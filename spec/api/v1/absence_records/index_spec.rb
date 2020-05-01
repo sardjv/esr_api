@@ -28,7 +28,11 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
               expect(response_data.count).to eq(2)
               database_record = AbsenceRecord.find(response_data.first['id'])
               response_data.first['attributes'].each do |key, value|
-                expect(database_record.send(key).to_s).to eq(value.to_s)
+                if database_record.send(key).is_a?(Time)
+                  expect(database_record.send(key).strftime('%Y-%m-%dT%H:%M:%S.000Z')).to eq(value.to_s)
+                else
+                  expect(database_record.send(key).to_s).to eq(value.to_s)
+                end
               end
             end
           end
