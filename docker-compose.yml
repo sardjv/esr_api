@@ -31,7 +31,7 @@ services:
   #     - '3307:1433'
 
   redis:
-    image: 'redis:5.0.8-alpine'
+    image: 'redis:6.0.1-alpine'
     command: redis-server --requirepass yourpassword
     depends_on:
       - redis_helper
