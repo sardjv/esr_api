@@ -12,7 +12,7 @@ If you have Docker on your machine, run:
 docker-compose up
 ```
 
-It can then be accessed at [http://localhost:4000/](http://localhost:4000/)
+It can then be accessed at [http://localhost:3000/](http://localhost:3000/)
 
 On the first run you need to create, migrate and optionally seed the database:
 
@@ -40,7 +40,7 @@ Core dependencies:
 
 ## Documentation
 
-The API documentation can be viewed at [http://localhost:4000/](http://localhost:4000/).
+The API documentation can be viewed at [http://localhost:3000/api_docs](http://localhost:3000/api_docs).
 
 The Swagger docs are generated from the RSpec tests in `spec/controllers/api` To rebuild the swagger docs:
 
