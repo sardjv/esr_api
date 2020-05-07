@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # Create database-backed web applications using the MVC pattern.
 # https://github.com/rails/rails
-gem 'rails', '~> 6.0.2.1'
+gem 'rails', '~> 6.0.3'
 
 # A Ruby/Rack web server built for concurrency.
 # https://github.com/puma/puma
