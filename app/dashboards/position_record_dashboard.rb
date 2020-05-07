@@ -10,8 +10,8 @@ class PositionRecordDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     :'id' => Field::Number,
     :'Position ID' => Field::String,
-    :'Effective From Date' => Field::Date,
-    :'Effective To Date' => Field::Date,
+    :'Effective From Date' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
+    :'Effective To Date' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
     :'Position Number' => Field::String,
     :'Position Name' => Field::String,
     :'Budgeted FTE' => Field::String,
