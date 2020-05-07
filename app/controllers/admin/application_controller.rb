@@ -6,6 +6,8 @@
 # you're free to overwrite the RESTful controller actions.
 module Admin
   class ApplicationController < Administrate::ApplicationController
+    include AdministrateExportable::Exporter
+
     before_action :authenticate_admin
 
     def authenticate_admin

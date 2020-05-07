@@ -2,21 +2,51 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   namespace :admin do
-    resources :absence_records
-    resources :assignment_records
-    resources :competency_records
-    resources :costing_records
-    resources :disability_records
-    resources :element_records
-    resources :location_records
-    resources :organisation_records
-    resources :person_eit_records
-    resources :person_records
-    resources :position_eit_records
-    resources :position_records
-    resources :qualification_records
-    resources :sit_records
-    resources :training_absence_records
+    resources :absence_records do
+      get :export, on: :collection
+    end
+    resources :assignment_records do
+      get :export, on: :collection
+    end
+    resources :competency_records do
+      get :export, on: :collection
+    end
+    resources :costing_records do
+      get :export, on: :collection
+    end
+    resources :disability_records do
+      get :export, on: :collection
+    end
+    resources :element_records do
+      get :export, on: :collection
+    end
+    resources :location_records do
+      get :export, on: :collection
+    end
+    resources :organisation_records do
+      get :export, on: :collection
+    end
+    resources :person_eit_records do
+      get :export, on: :collection
+    end
+    resources :person_records do
+      get :export, on: :collection
+    end
+    resources :position_eit_records do
+      get :export, on: :collection
+    end
+    resources :position_records do
+      get :export, on: :collection
+    end
+    resources :qualification_records do
+      get :export, on: :collection
+    end
+    resources :sit_records do
+      get :export, on: :collection
+    end
+    resources :training_absence_records do
+      get :export, on: :collection
+    end
 
     root to: 'absence_records#index'
   end
