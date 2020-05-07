@@ -86,6 +86,10 @@ gem 'factory_bot', '~> 5.2.0'
 # https://github.com/faker-ruby/faker
 gem 'faker', '~> 2.11.0'
 
+# Simple plugin to add CSV export feature to Administrate.
+# https://github.com/SourceLabsLLC/administrate_exportable
+gem 'administrate_exportable', '~> 0.2.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in your code to drop into a debugger console.
   # https://github.com/deivid-rodriguez/byebug
