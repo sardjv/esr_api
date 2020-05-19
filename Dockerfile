@@ -11,8 +11,6 @@ ENV BUNDLE_PATH /bundle_cache
 
 COPY package.json yarn.lock ./
 
-RUN yarn install --check-files
-
 COPY . .
 
 CMD puma -C config/puma.rb
