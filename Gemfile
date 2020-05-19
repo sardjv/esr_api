@@ -29,7 +29,7 @@ gem 'mysql2', '~> 0.5.3'
 # gem 'activerecord-sqlserver-adapter', git: 'https://github.com/rails-sqlserver/activerecord-sqlserver-adapter', branch: '6-0-dev'
 
 # A very fast key-value store to hold jobs until they are run.
-# https://github.com/redis-store/redis-rails
+# https://github.com/redis/redis-rb
 gem 'redis', '~> 4.1.4'
 
 # Simple, efficient background processing for Ruby.
