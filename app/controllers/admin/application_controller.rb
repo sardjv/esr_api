@@ -7,12 +7,7 @@
 module Admin
   class ApplicationController < Administrate::ApplicationController
     include AdministrateExportable::Exporter
-
-    before_action :authenticate_admin
-
-    def authenticate_admin
-      # TODO Add authentication logic here.
-    end
+    include Secured
 
     # disable 'edit' and 'destroy' links
     def valid_action?(name, resource = resource_class)
