@@ -81,10 +81,7 @@ Rails.application.routes.draw do
     end
   end
 
-  # Sidekiq dashboard.
-  Sidekiq::Web.use Rack::Auth::Basic do |username, password|
-    username == ENV['SIDEKIQ_DASHBOARD_USERNAME'] &&
-      password == ENV['SIDEKIQ_DASHBOARD_PASSWORD']
+  constraints lambda { |request| request.session[:userinfo].present? } do
+    mount Sidekiq::Web => '/sidekiq'
   end
-  mount Sidekiq::Web => '/sidekiq'
 end
