@@ -57,10 +57,6 @@ gem 'webpacker', '~> 5.1.1'
 # https://github.com/cerebris/jsonapi-resources
 gem 'jsonapi-resources', '~> 0.10.2'
 
-# Bypass Cross-Origin Resource Sharing (CORS) protection for trusted endpoints.
-# https://github.com/cyu/rack-cors
-gem 'rack-cors', '~> 1.1.1'
-
 # Bundle zoneinfo files which are not included in Windows.
 # https://github.com/tzinfo/tzinfo-data
 gem 'tzinfo-data', '~> 1.2020.1'
