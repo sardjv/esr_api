@@ -56,13 +56,5 @@ module EsrApi
     config.active_job.queue_name_prefix =
       "#{ENV['ACTIVE_JOB_QUEUE_PREFIX']}_#{Rails.env}"
 
-    # Bypass CORS protection to allow UI on port 3000 to access API.
-    config.middleware.insert_before 0, Rack::Cors do
-      allowed_headers = %i[get options head]
-      allow do
-        origins 'http://localhost:3000'
-        resource '*', headers: :any, methods: allowed_headers
-      end
-    end
   end
 end
