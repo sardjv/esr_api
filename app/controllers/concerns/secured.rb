@@ -1,5 +1,3 @@
-# app/controllers/concerns/secured.rb
-
 module Secured
   extend ActiveSupport::Concern
 
