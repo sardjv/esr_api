@@ -1,4 +1,4 @@
-module Secured
+module SecuredWithOauth
   extend ActiveSupport::Concern
 
   included do
