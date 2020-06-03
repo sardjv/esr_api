@@ -1,5 +1,5 @@
 # Mock users as authenticated for tests.
-module Secured
+module SecuredWithOauth
   def admin_authenticated?
     true
   end
