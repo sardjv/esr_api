@@ -21,9 +21,13 @@ docker-compose run api bundle exec rails db:create db:migrate db:seed
 docker-compose run api bundle exec rails db:migrate RAILS_ENV=test
 ```
 
-## Logging in
+## Admin Authentication
 
-Auth0 is required for login. You also need to add your client ID and secret to the env file in the Auth0 section.
+Auth0 is used for login. You need to add your client ID and secret to the env file in the Auth0 section.
+
+## API Authentication
+
+Auth0 is used for API authentication. Your client application will need to request a bearer JSON Web Token for the API from Auth0, and pass the bearer token in the header in requests to the API. See the 'Test' section of an Auth0 API application for more details on how to request and use the bearer token, eg https://manage.auth0.com/dashboard/eu/sardjv-dev/apis/5ed65b72dec4c8001874bd6f/test
 
 ## Deployment without Docker
 
