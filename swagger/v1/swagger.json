@@ -5,12 +5,26 @@
     "version": "v1",
     "description": "This is the ESR API. For more information visit <a href=\"https://github.com/sardjv/esr_api\">github.com/sardjv/esr_api</a>."
   },
+  "securityDefinitions": {
+    "JWT": {
+      "description": "The JSON Web Token from Auth0 for authentication.",
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
   "paths": {
     "/api/v1/absence_records/{id}": {
       "get": {
         "summary": "absence record",
         "tags": [
           "AbsenceRecord"
+        ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
         ],
         "produces": [
           "application/vnd.api+json"
@@ -38,6 +52,12 @@
         "summary": "absence records",
         "tags": [
           "AbsenceRecord"
+        ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
         ],
         "produces": [
           "application/vnd.api+json"
@@ -72,6 +92,12 @@
         "tags": [
           "AssignmentRecord"
         ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
+        ],
         "produces": [
           "application/vnd.api+json"
         ],
@@ -98,6 +124,12 @@
         "summary": "assignment records",
         "tags": [
           "AssignmentRecord"
+        ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
         ],
         "produces": [
           "application/vnd.api+json"
@@ -132,6 +164,12 @@
         "tags": [
           "CompetencyRecord"
         ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
+        ],
         "produces": [
           "application/vnd.api+json"
         ],
@@ -158,6 +196,12 @@
         "summary": "competency records",
         "tags": [
           "CompetencyRecord"
+        ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
         ],
         "produces": [
           "application/vnd.api+json"
@@ -192,6 +236,12 @@
         "tags": [
           "CostingRecord"
         ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
+        ],
         "produces": [
           "application/vnd.api+json"
         ],
@@ -218,6 +268,12 @@
         "summary": "costing records",
         "tags": [
           "CostingRecord"
+        ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
         ],
         "produces": [
           "application/vnd.api+json"
@@ -252,6 +308,12 @@
         "tags": [
           "DisabilityRecord"
         ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
+        ],
         "produces": [
           "application/vnd.api+json"
         ],
@@ -278,6 +340,12 @@
         "summary": "disability records",
         "tags": [
           "DisabilityRecord"
+        ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
         ],
         "produces": [
           "application/vnd.api+json"
@@ -312,6 +380,12 @@
         "tags": [
           "ElementRecord"
         ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
+        ],
         "produces": [
           "application/vnd.api+json"
         ],
@@ -338,6 +412,12 @@
         "summary": "element records",
         "tags": [
           "ElementRecord"
+        ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
         ],
         "produces": [
           "application/vnd.api+json"
@@ -372,6 +452,12 @@
         "tags": [
           "LocationRecord"
         ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
+        ],
         "produces": [
           "application/vnd.api+json"
         ],
@@ -398,6 +484,12 @@
         "summary": "person records",
         "tags": [
           "LocationRecord"
+        ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
         ],
         "produces": [
           "application/vnd.api+json"
@@ -432,6 +524,12 @@
         "tags": [
           "OrganisationRecord"
         ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
+        ],
         "produces": [
           "application/vnd.api+json"
         ],
@@ -458,6 +556,12 @@
         "summary": "organisation records",
         "tags": [
           "OrganisationRecord"
+        ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
         ],
         "produces": [
           "application/vnd.api+json"
@@ -492,6 +596,12 @@
         "tags": [
           "PersonEitRecord"
         ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
+        ],
         "produces": [
           "application/vnd.api+json"
         ],
@@ -518,6 +628,12 @@
         "summary": "person_eit records",
         "tags": [
           "PersonEitRecord"
+        ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
         ],
         "produces": [
           "application/vnd.api+json"
@@ -552,6 +668,12 @@
         "tags": [
           "PersonRecord"
         ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
+        ],
         "produces": [
           "application/vnd.api+json"
         ],
@@ -578,6 +700,12 @@
         "summary": "person records",
         "tags": [
           "PersonRecord"
+        ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
         ],
         "produces": [
           "application/vnd.api+json"
@@ -612,6 +740,12 @@
         "tags": [
           "PositionEitRecord"
         ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
+        ],
         "produces": [
           "application/vnd.api+json"
         ],
@@ -638,6 +772,12 @@
         "summary": "position_eit records",
         "tags": [
           "PositionEitRecord"
+        ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
         ],
         "produces": [
           "application/vnd.api+json"
@@ -672,6 +812,12 @@
         "tags": [
           "PositionRecord"
         ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
+        ],
         "produces": [
           "application/vnd.api+json"
         ],
@@ -698,6 +844,12 @@
         "summary": "position records",
         "tags": [
           "PositionRecord"
+        ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
         ],
         "produces": [
           "application/vnd.api+json"
@@ -732,6 +884,12 @@
         "tags": [
           "QualificationRecord"
         ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
+        ],
         "produces": [
           "application/vnd.api+json"
         ],
@@ -758,6 +916,12 @@
         "summary": "qualification records",
         "tags": [
           "QualificationRecord"
+        ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
         ],
         "produces": [
           "application/vnd.api+json"
@@ -792,6 +956,12 @@
         "tags": [
           "SitRecord"
         ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
+        ],
         "produces": [
           "application/vnd.api+json"
         ],
@@ -818,6 +988,12 @@
         "summary": "sit records",
         "tags": [
           "SitRecord"
+        ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
         ],
         "produces": [
           "application/vnd.api+json"
@@ -852,6 +1028,12 @@
         "tags": [
           "TrainingAbsenceRecord"
         ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
+        ],
         "produces": [
           "application/vnd.api+json"
         ],
@@ -878,6 +1060,12 @@
         "summary": "training_absence records",
         "tags": [
           "TrainingAbsenceRecord"
+        ],
+        "security": [
+          {
+            "JWT": {
+            }
+          }
         ],
         "produces": [
           "application/vnd.api+json"

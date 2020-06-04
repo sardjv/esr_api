@@ -7,15 +7,14 @@ describe 'Api::V1::LocationRecordResource', type: :request, swagger_doc: 'v1/swa
   path '/api/v1/location_records/{id}' do
     get 'person record' do
       tags 'LocationRecord'
-      # security [{ apiToken: [] }, { apiEmail: [] }]
+      security [JWT: {}]
       produces 'application/vnd.api+json'
       parameter name: :id, in: :path, type: :string, required: true
 
       let(:id) { location_record.id }
 
       context 'when a normal user' do
-        # let('X-API-TOKEN') { normal_user.authentication_token }
-        # let('X-API-EMAIL') { normal_user.email }
+        let(:Authorization) { 'Bearer dummy_json_web_token' }
 
         response '200', 'successful' do
           schema '$ref' => '#/definitions/location_record_response'

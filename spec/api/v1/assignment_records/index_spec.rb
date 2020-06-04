@@ -8,7 +8,7 @@ describe 'Api::V1::AssignmentRecordResource', type: :request, swagger_doc: 'v1/s
   path '/api/v1/assignment_records' do
     get 'assignment records' do
       tags 'AssignmentRecord'
-      # security [{ apiToken: [] }, { apiEmail: [] }]
+      security [JWT: {}]
       produces 'application/vnd.api+json'
       parameter name: 'page[size]', in: :query, type: :integer, required: false
       parameter name: 'page[number]', in: :query, type: :integer, required: false
@@ -17,8 +17,7 @@ describe 'Api::V1::AssignmentRecordResource', type: :request, swagger_doc: 'v1/s
       let!(:'page[number]') { 1 }
 
       context 'when a normal user' do
-        # let('X-API-TOKEN') { normal_user.authentication_token }
-        # let('X-API-EMAIL') { normal_user.email }
+        let(:Authorization) { 'Bearer dummy_json_web_token' }
 
         response '200', 'successful' do
           schema '$ref' => '#/definitions/assignment_records_response'
