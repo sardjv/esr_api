@@ -29,9 +29,10 @@ jobs:
     docker:
       - image: cimg/ruby:2.7-node # this is our primary docker image, where step commands run.
       - image: circleci/mysql:8.0.19
+        command: [--default-authentication-plugin=mysql_native_password]
         environment:
           MYSQL_ROOT_HOST: '%'
-          MYSQL_DATABASE: test_db
+          MYSQL_DATABASE: circle_ci
           MYSQL_USER: user
           MYSQL_PASSWORD: passw0rd
     # environment variables specific to Ruby/Rails, applied to the primary container.
@@ -39,7 +40,7 @@ jobs:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
       RAILS_ENV: test
-      DB_DATABASE: test_db
+      DB_DATABASE: circle_ci
       DB_USERNAME: user
       DB_PASSWORD: passw0rd
       DB_HOST: "127.0.0.1"
