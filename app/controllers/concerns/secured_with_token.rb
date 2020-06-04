@@ -20,6 +20,6 @@ module SecuredWithToken
   end
 
   def auth_token
-    JsonWebToken.verify(http_token)
+    Auth::JsonWebToken.verify(http_token)
   end
 end
