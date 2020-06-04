@@ -51,13 +51,6 @@ ActiveRecord::Schema.define(version: 2020_05_21_150009) do
     t.index ["Absence Attendance ID"], name: "index_absence_records_on_Absence Attendance ID", unique: true
   end
 
-  create_table "api_tokens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
-    t.string "name"
-    t.string "content"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "assignment_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "Person ID"
     t.string "Assignment ID"
