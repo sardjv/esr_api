@@ -28,7 +28,7 @@ jobs:
     # here we set TWO docker images.
     docker:
       - image: cimg/ruby:2.7-node # this is our primary docker image, where step commands run.
-      - image: circleci/mysql:8.0.4
+      - image: circleci/mysql:8.0.19
         environment:
           MYSQL_ROOT_PASSWORD: rootpw
           MYSQL_DATABASE: test_db
@@ -50,7 +50,7 @@ jobs:
       # up before we run operations on the database.
       - run:
           name: Wait for DB
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+          command: dockerize -wait tcp://localhost:3306 -timeout 1m
       - run:
           name: Database setup
           command: bundle exec rails db:create db:schema:load --trace
