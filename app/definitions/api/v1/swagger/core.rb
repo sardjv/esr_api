@@ -8,18 +8,14 @@ class Api::V1::Swagger::Core
           version: 'v1',
           description: 'This is the ESR API. For more information visit <a href="https://github.com/sardjv/esr_api">github.com/sardjv/esr_api</a>.'
         },
-        # securityDefinitions: {
-        #   apiToken: {
-        #     type: :apiKey,
-        #     name: 'X-API-TOKEN',
-        #     in: :header
-        #   },
-        #   apiEmail: {
-        #     type: :apiKey,
-        #     name: 'X-API-EMAIL',
-        #     in: :header
-        #   }
-        # },
+        securityDefinitions: {
+          JWT: {
+            description: 'The JSON Web Token from Auth0 for authentication.',
+            type: :apiKey,
+            name: 'Authorization',
+            in: :header
+          }
+        },
         paths: {},
         definitions: definitions.inject(&:merge)
       }
