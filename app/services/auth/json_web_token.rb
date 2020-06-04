@@ -2,7 +2,7 @@
 require 'net/http'
 require 'uri'
 
-class JsonWebToken
+class Auth::JsonWebToken
   def self.verify(token)
     JWT.decode(token, nil,
                true, # Verify the signature of this token
