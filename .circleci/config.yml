@@ -31,7 +31,8 @@ jobs:
       - image: circleci/mysql:8.0.19
         environment:
           MYSQL_ALLOW_EMPTY_PASSWORD: true
-          MYSQL_ROOT_HOST: %
+          MYSQL_ROOT_HOST: "%"
+
     # environment variables specific to Ruby/Rails, applied to the primary container.
     environment:
       BUNDLE_JOBS: "3"
