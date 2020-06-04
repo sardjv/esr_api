@@ -7,7 +7,7 @@
 module Admin
   class ApplicationController < Administrate::ApplicationController
     include AdministrateExportable::Exporter
-    include Secured
+    include SecuredWithOauth
 
     # disable 'edit' and 'destroy' links
     def valid_action?(name, resource = resource_class)

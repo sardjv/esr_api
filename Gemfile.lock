@@ -354,6 +354,7 @@ DEPENDENCIES
   guard-rspec (~> 4.7.3)
   guard-rubocop (~> 1.3.0)
   jsonapi-resources (~> 0.10.2)
+  jwt (~> 2.2.1)
   kiba (~> 3.0.0)
   kiba-common (~> 1.0.0)
   mysql2 (~> 0.5.3)

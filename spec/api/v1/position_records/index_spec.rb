@@ -8,7 +8,7 @@ describe 'Api::V1::PositionRecordResource', type: :request, swagger_doc: 'v1/swa
   path '/api/v1/position_records' do
     get 'position records' do
       tags 'PositionRecord'
-      # security [{ apiToken: [] }, { apiEmail: [] }]
+      security [JWT: {}]
       produces 'application/vnd.api+json'
       parameter name: 'page[size]', in: :query, type: :integer, required: false
       parameter name: 'page[number]', in: :query, type: :integer, required: false
@@ -17,8 +17,7 @@ describe 'Api::V1::PositionRecordResource', type: :request, swagger_doc: 'v1/swa
       let!(:'page[number]') { 1 }
 
       context 'when a normal user' do
-        # let('X-API-TOKEN') { normal_user.authentication_token }
-        # let('X-API-EMAIL') { normal_user.email }
+        let(:Authorization) { 'Bearer dummy_json_web_token' }
 
         response '200', 'successful' do
           schema '$ref' => '#/definitions/position_records_response'
