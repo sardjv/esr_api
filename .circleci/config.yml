@@ -33,8 +33,6 @@ jobs:
         environment:
           MYSQL_ROOT_HOST: '%'
           MYSQL_DATABASE: circle_ci
-          MYSQL_USER: root
-          MYSQL_PASSWORD: root
     # environment variables specific to Ruby/Rails, applied to the primary container.
     environment:
       BUNDLE_JOBS: "3"
@@ -42,7 +40,6 @@ jobs:
       RAILS_ENV: test
       DB_DATABASE: circle_ci
       DB_USERNAME: root
-      DB_PASSWORD: root
       DB_HOST: "127.0.0.1"
     # A series of steps to run, some are similar to those in "build".
     steps:
