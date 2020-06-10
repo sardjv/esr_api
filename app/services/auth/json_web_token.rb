@@ -16,7 +16,7 @@ class Auth::JsonWebToken
   end
 
   def self.jwks_hash
-    jwks_raw = Net::HTTP.get URI("https://sardjv-dev.eu.auth0.com/.well-known/jwks.json")
+    jwks_raw = Net::HTTP.get URI("#{ENV['AUTH0_TOKEN_ISSUER']}.well-known/jwks.json")
     jwks_keys = Array(JSON.parse(jwks_raw)['keys'])
     Hash[
       jwks_keys
