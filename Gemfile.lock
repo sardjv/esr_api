@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/thoughtbot/administrate.git
-  revision: 246175b5ee49fc6b059b100079898db853976a3c
+  revision: 78783494345844f852f4a1311b851c56044a4f45
   branch: master
   specs:
     administrate (0.13.0)
@@ -108,7 +108,7 @@ GEM
       i18n (>= 1.6, < 2)
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
-    ffi (1.13.0)
+    ffi (1.13.1)
     formatador (0.2.5)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
