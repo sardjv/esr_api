@@ -141,3 +141,10 @@
     :why: 
     :versions: []
     :when: 2020-06-16 14:24:28.121908900 Z
+- - :approve
+  - fsevents
+  - :who: Alex@SARDJV
+    :why: This dependency is required only for running on MacOS. Later versions are
+      also MIT licensed.
+    :versions: []
+    :when: 2020-06-16 16:40:45.378926400 Z
