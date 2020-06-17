@@ -1,4 +1,4 @@
-# ESR_API: a Ruby on Rails API for the NHS ESR System
+# ESR_API: a Ruby on Rails API for the NHS ESR System (pre-alpha)
 
 ## .env file
 
