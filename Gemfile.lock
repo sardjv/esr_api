@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/thoughtbot/administrate.git
-  revision: 4e0da55d181a2c622e31a4eb7dbb524fdf34a963
+  revision: 82539d9915cd18b84413e65e42eeae99f3a60c65
   branch: master
   specs:
     administrate (0.13.0)
