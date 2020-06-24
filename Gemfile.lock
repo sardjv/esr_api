@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/thoughtbot/administrate.git
-  revision: 4e0da55d181a2c622e31a4eb7dbb524fdf34a963
+  revision: d1f0467cea2549e3dd75f43e2af7205166dbee65
   branch: master
   specs:
     administrate (0.13.0)
@@ -81,7 +81,7 @@ GEM
       rails (>= 4.2)
       railties (>= 5.2.2.1)
     ast (2.4.0)
-    autoprefixer-rails (9.7.6)
+    autoprefixer-rails (9.8.4)
       execjs
     builder (3.2.4)
     byebug (11.1.3)
