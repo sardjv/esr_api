@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/thoughtbot/administrate.git
-  revision: d1f0467cea2549e3dd75f43e2af7205166dbee65
+  revision: df3969feadfb23a6fb40632aa994b289ce90cbd6
   branch: master
   specs:
     administrate (0.13.0)
@@ -354,7 +354,7 @@ GEM
     websocket-extensions (0.1.5)
     with_env (1.1.0)
     xml-simple (1.1.5)
-    zeitwerk (2.3.0)
+    zeitwerk (2.3.1)
 
 PLATFORMS
   ruby
