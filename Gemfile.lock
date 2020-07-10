@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/thoughtbot/administrate.git
-  revision: c88b73f77c29442334dc8f5f62a6f920e3dfad64
+  revision: 39bd1f8f730c6bb951d42cc54fcd2bfdcc83041d
   branch: master
   specs:
     administrate (0.14.0)
@@ -189,7 +189,7 @@ GEM
     mysql2 (0.5.3)
     nenv (0.3.0)
     nio4r (2.5.2)
-    nokogiri (1.10.9)
+    nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     notiffany (0.1.3)
       nenv (~> 0.1)
