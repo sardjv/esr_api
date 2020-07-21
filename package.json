@@ -2,7 +2,7 @@
   "dependencies": {
     "@rails/webpacker": "5.1.1",
     "nhsuk-frontend": "^3.0.4",
-    "snyk": "^1.345.1"
+    "snyk": "^1.363.0"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.11.0"
