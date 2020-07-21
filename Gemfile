@@ -14,19 +14,17 @@ gem 'puma', '~> 4.3.5'
 
 # Use MySQL as the database for Active Record.
 # https://github.com/brianmario/mysql2
-gem 'mysql2', '~> 0.5.3'
+# gem 'mysql2', '~> 0.5.3'
 
 # FreeTDS bindings for Ruby, required for SQL Server.
 # https://github.com/rails-sqlserver/tiny_tds
 # Ruby 2.6/2.7 compatibility under development, bump the version when merged:
 # https://github.com/rails-sqlserver/tiny_tds/pull/462
-# gem 'tiny_tds', '~> 2.1.3-pre'
+gem 'tiny_tds', '~> 2.1.3-pre'
 
 # Use SQL Server as the database for Active Record.
 # https://github.com/rails-sqlserver/activerecord-sqlserver-adapter
-# Rails 6 compatibility is under development, remove the branch reference when merged:
-# https://github.com/rails-sqlserver/activerecord-sqlserver-adapter/pull/690
-# gem 'activerecord-sqlserver-adapter', git: 'https://github.com/rails-sqlserver/activerecord-sqlserver-adapter', branch: '6-0-dev'
+gem 'activerecord-sqlserver-adapter', '~> 6.0.0'
 
 # A very fast key-value store to hold jobs until they are run.
 # https://github.com/redis/redis-rb
@@ -63,8 +61,7 @@ gem 'tzinfo-data', '~> 1.2020.1'
 
 # A Rails engine that helps you put together a super-flexible admin dashboard.
 # https://github.com/thoughtbot/administrate
-# Use master branch until 0.14.0 is available, for https://github.com/thoughtbot/administrate/pull/1574.
-gem 'administrate', github: 'thoughtbot/administrate', branch: 'master'
+gem 'administrate', '~> 0.14.0'
 
 # OmniAuth is a flexible authentication system utilizing Rack middleware.
 # https://github.com/auth0/omniauth-auth0
