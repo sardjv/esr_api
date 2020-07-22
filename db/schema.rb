@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_04_16_143042) do
 
-  create_table "absence_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+  create_table "absence_records", force: :cascade do |t|
     t.string "Person ID"
     t.string "Absence Attendance ID"
     t.string "Absence Type"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_143042) do
     t.string "Notifiable Disease"
     t.date "Return To Work Discussion Date"
     t.date "Occupational Health Referral Date"
-    t.timestamp "Last Update Date"
+    t.datetime "Last Update Date"
     t.string "Surgery Related"
     t.string "DH Monitoring"
     t.string "Sickness Reason"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_143042) do
     t.index ["Absence Attendance ID"], name: "index_absence_records_on_Absence Attendance ID", unique: true
   end
 
-  create_table "assignment_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+  create_table "assignment_records", force: :cascade do |t|
     t.string "Person ID"
     t.string "Assignment ID"
     t.date "Effective Start Date"
@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_143042) do
     t.date "Increment Date"
     t.string "Maximum Part Time Flag"
     t.string "AFC Flag"
-    t.timestamp "Last Update Date"
+    t.datetime "Last Update Date"
     t.date "Last Working Day"
     t.string "e-KSF Spinal Point"
     t.string "Manager Flag"
@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_143042) do
     t.index ["Assignment ID", "Effective Start Date", "Effective End Date"], name: "index_assignment_effective_start_and_end_date", unique: true
   end
 
-  create_table "competency_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+  create_table "competency_records", force: :cascade do |t|
     t.string "Person ID"
     t.string "Competency Element ID"
     t.string "Competency Type"
@@ -127,13 +127,13 @@ ActiveRecord::Schema.define(version: 2020_04_16_143042) do
     t.string "Proficiency High Level ID"
     t.string "Essential Flag"
     t.string "Records Type"
-    t.timestamp "Last Update Date"
+    t.datetime "Last Update Date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["Competency Element ID"], name: "index_competency_records_on_Competency Element ID", unique: true
   end
 
-  create_table "costing_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+  create_table "costing_records", force: :cascade do |t|
     t.string "Person ID"
     t.string "Assignment ID"
     t.string "Costing Allocation ID"
@@ -148,13 +148,13 @@ ActiveRecord::Schema.define(version: 2020_04_16_143042) do
     t.string "Element Number"
     t.string "Spare Segment"
     t.string "Percentage Split"
-    t.timestamp "Last Update Date"
+    t.datetime "Last Update Date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["Costing Allocation ID"], name: "index_costing_records_on_Costing Allocation ID", unique: true
   end
 
-  create_table "disability_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+  create_table "disability_records", force: :cascade do |t|
     t.string "Person ID"
     t.string "Disability ID"
     t.string "Category"
@@ -164,7 +164,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_143042) do
     t.index ["Disability ID"], name: "index_disability_records_on_Disability ID", unique: true
   end
 
-  create_table "element_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+  create_table "element_records", force: :cascade do |t|
     t.string "Person ID"
     t.string "Element Entry ID"
     t.date "Effective Start Date"
@@ -189,13 +189,13 @@ ActiveRecord::Schema.define(version: 2020_04_16_143042) do
     t.string "Entry Value 13"
     t.string "Entry Value 14"
     t.string "Entry Value 15"
-    t.timestamp "Last Update Date"
+    t.datetime "Last Update Date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["Element Entry ID"], name: "index_element_records_on_Element Entry ID", unique: true
   end
 
-  create_table "location_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+  create_table "location_records", force: :cascade do |t|
     t.string "Record Type"
     t.string "Location ID"
     t.string "Location Code"
@@ -217,13 +217,13 @@ ActiveRecord::Schema.define(version: 2020_04_16_143042) do
     t.string "Welsh Address Line 2"
     t.string "Welsh Address Line 3"
     t.string "Welsh Town Translation"
-    t.timestamp "Last Update Date"
+    t.datetime "Last Update Date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["Location ID"], name: "index_location_records_on_Location ID", unique: true
   end
 
-  create_table "organisation_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+  create_table "organisation_records", force: :cascade do |t|
     t.string "Organisation ID"
     t.string "Organisation Name"
     t.string "Organisation Type"
@@ -236,14 +236,14 @@ ActiveRecord::Schema.define(version: 2020_04_16_143042) do
     t.string "Parent Organisation ID"
     t.string "NACS Code"
     t.string "Location ID"
-    t.timestamp "Last Update Date"
+    t.datetime "Last Update Date"
     t.string "Cost Centre Description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["Organisation ID"], name: "index_organisation_records_on_Organisation ID", unique: true
   end
 
-  create_table "person_eit_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+  create_table "person_eit_records", force: :cascade do |t|
     t.string "Person ID"
     t.string "Person Extra Information ID"
     t.string "Information Type"
@@ -299,13 +299,13 @@ ActiveRecord::Schema.define(version: 2020_04_16_143042) do
     t.string "PEI_ATTRIBUTE18"
     t.string "PEI_ATTRIBUTE19"
     t.string "PEI_ATTRIBUTE20"
-    t.timestamp "Last Update Date"
+    t.datetime "Last Update Date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["Person Extra Information ID"], name: "index_person_eit_records_on_Person Extra Information ID", unique: true
   end
 
-  create_table "person_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+  create_table "person_records", force: :cascade do |t|
     t.string "Person ID"
     t.date "Effective Start Date"
     t.date "Effective End Date"
@@ -345,7 +345,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_143042) do
     t.index ["Person ID", "Effective Start Date", "Effective End Date"], name: "index_person_records_effective_start_and_end", unique: true
   end
 
-  create_table "position_eit_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+  create_table "position_eit_records", force: :cascade do |t|
     t.string "Position ID"
     t.string "Position Extra Information ID"
     t.string "Information Type"
@@ -401,13 +401,13 @@ ActiveRecord::Schema.define(version: 2020_04_16_143042) do
     t.string "POEI_ATTRIBUTE18"
     t.string "POEI_ATTRIBUTE19"
     t.string "POEI_ATTRIBUTE20"
-    t.timestamp "Last Update Date"
+    t.datetime "Last Update Date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["Position Extra Information ID"], name: "index_position_eit_records_on_Position Extra Information ID", unique: true
   end
 
-  create_table "position_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+  create_table "position_records", force: :cascade do |t|
     t.string "Position ID"
     t.date "Effective From Date"
     t.date "Effective To Date"
@@ -425,14 +425,14 @@ ActiveRecord::Schema.define(version: 2020_04_16_143042) do
     t.string "Hiring Status"
     t.string "Position Type"
     t.string "Workplace Org Code"
-    t.timestamp "Last Update Date"
+    t.datetime "Last Update Date"
     t.string "Subjective Code Description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["Position ID", "Effective From Date", "Effective To Date"], name: "index_position_records_effective_from_and_to", unique: true
   end
 
-  create_table "qualification_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+  create_table "qualification_records", force: :cascade do |t|
     t.string "Person ID"
     t.string "Qualification ID"
     t.string "Qualification Type"
@@ -444,13 +444,13 @@ ActiveRecord::Schema.define(version: 2020_04_16_143042) do
     t.date "End Date"
     t.string "Establishment"
     t.string "Country"
-    t.timestamp "Last Update Date"
+    t.datetime "Last Update Date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["Qualification ID"], name: "index_qualification_records_on_Qualification ID", unique: true
   end
 
-  create_table "sit_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+  create_table "sit_records", force: :cascade do |t|
     t.string "Person ID"
     t.string "Special Information ID"
     t.date "Effective Start Date"
@@ -507,13 +507,13 @@ ActiveRecord::Schema.define(version: 2020_04_16_143042) do
     t.string "ATTRIBUTE18"
     t.string "ATTRIBUTE19"
     t.string "ATTRIBUTE20"
-    t.timestamp "Last Update Date"
+    t.datetime "Last Update Date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["Special Information ID"], name: "index_sit_records_on_Special Information ID", unique: true
   end
 
-  create_table "training_absence_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+  create_table "training_absence_records", force: :cascade do |t|
     t.string "Person ID"
     t.string "Absence Attendance ID"
     t.string "Absence Type"
@@ -542,7 +542,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_143042) do
     t.string "Notifiable Disease"
     t.date "Return To Work Discussion Date"
     t.date "Occupational Health Referral Date"
-    t.timestamp "Last Update Date"
+    t.datetime "Last Update Date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["Absence Attendance ID"], name: "index_training_absence_records_on_Absence Attendance ID", unique: true

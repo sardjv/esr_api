@@ -10,27 +10,27 @@
 #   host:  <%= ENV['DB_HOST'] %>
 
 # MySQL option.
-default: &default
-  adapter: mysql2
-  encoding: utf8mb4
-  collation: utf8mb4_bin
-  reconnect: false
-  pool: 50
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
-  port: <%= ENV['DB_PORT'] %>
-  host: <%= ENV['DB_HOST'] %>
-  socket: /var/run/mysqld/mysqlx.sock
+# default: &default
+#   adapter: mysql2
+#   encoding: utf8mb4
+#   collation: utf8mb4_bin
+#   reconnect: false
+#   pool: 50
+#   username: <%= ENV['DB_USERNAME'] %>
+#   password: <%= ENV['DB_PASSWORD'] %>
+#   port: <%= ENV['DB_PORT'] %>
+#   host: <%= ENV['DB_HOST'] %>
+#   socket: /var/run/mysqld/mysqlx.sock
 
 # SQL Server option.
-# default: &default
-#   adapter: sqlserver
-#   pool: 5
-#   timeout: 60000
-#   encoding: utf8
-#   host: <%= ENV['DB_HOST'] %>
-#   username: <%= ENV['SQL_SERVER_USERNAME'] %>
-#   password: <%= ENV['SA_PASSWORD'] %>
+default: &default
+  adapter: sqlserver
+  pool: 5
+  timeout: 60000
+  encoding: utf8
+  host: <%= ENV['DB_HOST'] %>
+  username: <%= ENV['SQL_SERVER_USERNAME'] %>
+  password: <%= ENV['SA_PASSWORD'] %>
 
 development:
   <<: *default
