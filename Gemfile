@@ -32,7 +32,7 @@ gem 'redis', '~> 4.2.1'
 
 # Simple, efficient background processing for Ruby.
 # https://github.com/mperham/sidekiq
-gem 'sidekiq', '~> 6.1.0'
+gem 'sidekiq', '~> 6.1.1'
 
 # Data processing & ETL framework for Ruby.
 # https://github.com/thbar/kiba
