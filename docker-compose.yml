@@ -60,6 +60,7 @@ services:
     #    so that we can cache its result in the bundle_cache container.
     # 3) Start server.
     command: ./script/start_rails.sh
+    # command: ./script/start_rails_first_time.sh # Use this the first time you start up the project.
     ports:
       - '3000:3000'
     volumes:
