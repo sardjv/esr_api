@@ -7,7 +7,7 @@ describe 'Api::V1::CompetencyRecordResource', type: :request, swagger_doc: 'v1/s
   path '/api/v1/competency_records/{id}' do
     get 'competency record' do
       tags 'CompetencyRecord'
-      security [JWT: {}]
+      security [{ JWT: {} }]
       produces 'application/vnd.api+json'
       parameter name: :id, in: :path, type: :string, required: true
 

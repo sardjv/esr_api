@@ -7,7 +7,7 @@ describe 'Api::V1::SitRecordResource', type: :request, swagger_doc: 'v1/swagger.
   path '/api/v1/sit_records/{id}' do
     get 'sit record' do
       tags 'SitRecord'
-      security [JWT: {}]
+      security [{ JWT: {} }]
       produces 'application/vnd.api+json'
       parameter name: :id, in: :path, type: :string, required: true
 

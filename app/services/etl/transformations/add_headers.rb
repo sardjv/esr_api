@@ -31,7 +31,7 @@ class ETL::Transformations::AddHeaders
     if headers_count != row.count
       raise "Wrong number of columns for #{row[0]} row, expected #{headers_count}, got #{row.count}"
     elsif row.count == 0
-      raise "Empty row"
+      raise 'Empty row'
     end
   end
 end

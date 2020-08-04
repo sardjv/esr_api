@@ -81,7 +81,7 @@ Rails.application.routes.draw do
     end
   end
 
-  constraints lambda { |request| request.session[:userinfo].present? } do
+  constraints ->(request) { request.session[:userinfo].present? } do
     mount Sidekiq::Web => '/sidekiq'
   end
 end

@@ -3,5 +3,5 @@ class Api::V1::PersonRecordResource < JSONAPI::Resource
 
   model_name 'PersonRecord'
 
-  attributes *ETL::Headers::PersonRecord.api_headers
+  attributes(*ETL::Headers::PersonRecord.api_headers)
 end

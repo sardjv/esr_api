@@ -1,5 +1,4 @@
 class ETL::Destinations::ActiveRecord
-
   def write(row)
     if (record = existing_record(row))
       if delete?(row)

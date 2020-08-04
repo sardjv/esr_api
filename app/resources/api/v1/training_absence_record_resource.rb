@@ -3,5 +3,5 @@ class Api::V1::TrainingAbsenceRecordResource < JSONAPI::Resource
 
   model_name 'TrainingAbsenceRecord'
 
-  attributes *ETL::Headers::TrainingAbsenceRecord.api_headers
+  attributes(*ETL::Headers::TrainingAbsenceRecord.api_headers)
 end

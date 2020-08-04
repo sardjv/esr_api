@@ -7,7 +7,7 @@ describe 'Api::V1::ElementRecordResource', type: :request, swagger_doc: 'v1/swag
   path '/api/v1/element_records/{id}' do
     get 'element record' do
       tags 'ElementRecord'
-      security [JWT: {}]
+      security [{ JWT: {} }]
       produces 'application/vnd.api+json'
       parameter name: :id, in: :path, type: :string, required: true
 

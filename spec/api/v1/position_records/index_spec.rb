@@ -8,7 +8,7 @@ describe 'Api::V1::PositionRecordResource', type: :request, swagger_doc: 'v1/swa
   path '/api/v1/position_records' do
     get 'position records' do
       tags 'PositionRecord'
-      security [JWT: {}]
+      security [{ JWT: {} }]
       produces 'application/vnd.api+json'
       parameter name: 'page[size]', in: :query, type: :integer, required: false
       parameter name: 'page[number]', in: :query, type: :integer, required: false

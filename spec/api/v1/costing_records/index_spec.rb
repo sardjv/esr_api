@@ -8,7 +8,7 @@ describe 'Api::V1::CostingRecordResource', type: :request, swagger_doc: 'v1/swag
   path '/api/v1/costing_records' do
     get 'costing records' do
       tags 'CostingRecord'
-      security [JWT: {}]
+      security [{ JWT: {} }]
       produces 'application/vnd.api+json'
       parameter name: 'page[size]', in: :query, type: :integer, required: false
       parameter name: 'page[number]', in: :query, type: :integer, required: false

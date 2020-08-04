@@ -7,7 +7,7 @@ describe 'Api::V1::DisabilityRecordResource', type: :request, swagger_doc: 'v1/s
   path '/api/v1/disability_records/{id}' do
     get 'disability record' do
       tags 'DisabilityRecord'
-      security [JWT: {}]
+      security [{ JWT: {} }]
       produces 'application/vnd.api+json'
       parameter name: :id, in: :path, type: :string, required: true
 

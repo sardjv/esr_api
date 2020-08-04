@@ -7,7 +7,7 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
   path '/api/v1/absence_records/{id}' do
     get 'absence record' do
       tags 'AbsenceRecord'
-      security [JWT: {}]
+      security [{ JWT: {} }]
       produces 'application/vnd.api+json'
       parameter name: :id, in: :path, type: :string, required: true
 

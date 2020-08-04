@@ -3,5 +3,5 @@ class Api::V1::DisabilityRecordResource < JSONAPI::Resource
 
   model_name 'DisabilityRecord'
 
-  attributes *ETL::Headers::DisabilityRecord.api_headers
+  attributes(*ETL::Headers::DisabilityRecord.api_headers)
 end

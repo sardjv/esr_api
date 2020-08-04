@@ -8,7 +8,7 @@ describe 'Api::V1::PersonEitRecordResource', type: :request, swagger_doc: 'v1/sw
   path '/api/v1/person_eit_records' do
     get 'person_eit records' do
       tags 'PersonEitRecord'
-      security [JWT: {}]
+      security [{ JWT: {} }]
       produces 'application/vnd.api+json'
       parameter name: 'page[size]', in: :query, type: :integer, required: false
       parameter name: 'page[number]', in: :query, type: :integer, required: false

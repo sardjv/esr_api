@@ -1,4 +1,4 @@
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 
 class CostingRecordDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -8,24 +8,24 @@ class CostingRecordDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    :'id' => Field::Number,
-    :'Person ID' => Field::String,
-    :'Assignment ID' => Field::String,
-    :'Costing Allocation ID' => Field::String,
-    :'Effective Start Date' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
-    :'Effective End Date' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
-    :'Entity Code' => Field::String,
-    :'Charitable Indicator' => Field::String,
-    :'Cost Centre' => Field::String,
-    :'Subjective' => Field::String,
-    :'Analysis 1' => Field::String,
-    :'Analysis 2' => Field::String,
-    :'Element Number' => Field::String,
-    :'Spare Segment' => Field::String,
-    :'Percentage Split' => Field::String,
-    :'Last Update Date' => Field::DateTime,
-    :'created_at' => Field::DateTime,
-    :'updated_at' => Field::DateTime,
+    'id': Field::Number,
+    'Person ID': Field::String,
+    'Assignment ID': Field::String,
+    'Costing Allocation ID': Field::String,
+    'Effective Start Date': Field::Date.with_options(transform_on_export: ->(field) { field.data.strftime('%d/%m/%Y') }),
+    'Effective End Date': Field::Date.with_options(transform_on_export: ->(field) { field.data.strftime('%d/%m/%Y') }),
+    'Entity Code': Field::String,
+    'Charitable Indicator': Field::String,
+    'Cost Centre': Field::String,
+    'Subjective': Field::String,
+    'Analysis 1': Field::String,
+    'Analysis 2': Field::String,
+    'Element Number': Field::String,
+    'Spare Segment': Field::String,
+    'Percentage Split': Field::String,
+    'Last Update Date': Field::DateTime,
+    'created_at': Field::DateTime,
+    'updated_at': Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -34,16 +34,16 @@ class CostingRecordDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :'id',
+    :id,
     :'Person ID',
     :'Assignment ID',
-    :'Costing Allocation ID',
+    :'Costing Allocation ID'
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :'id',
+    :id,
     :'Person ID',
     :'Assignment ID',
     :'Costing Allocation ID',
@@ -52,15 +52,15 @@ class CostingRecordDashboard < Administrate::BaseDashboard
     :'Entity Code',
     :'Charitable Indicator',
     :'Cost Centre',
-    :'Subjective',
+    :Subjective,
     :'Analysis 1',
     :'Analysis 2',
     :'Element Number',
     :'Spare Segment',
     :'Percentage Split',
     :'Last Update Date',
-    :'created_at',
-    :'updated_at',
+    :created_at,
+    :updated_at
   ].freeze
 
   # COLLECTION_FILTERS

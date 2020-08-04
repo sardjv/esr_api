@@ -1,4 +1,4 @@
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 
 class LocationRecordDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -8,30 +8,30 @@ class LocationRecordDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    :'id' => Field::Number,
-    :'Location ID' => Field::String,
-    :'Location Code' => Field::String,
-    :'Location Description' => Field::String,
-    :'Inactive Date' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
-    :'Assignment Address 1st line' => Field::String,
-    :'Assignment Address 2nd line' => Field::String,
-    :'Assignment Address 3rd line' => Field::String,
-    :'Town' => Field::String,
-    :'County' => Field::String,
-    :'Postcode' => Field::String,
-    :'Country' => Field::String,
-    :'Telephone' => Field::String,
-    :'Fax' => Field::String,
-    :'Payslip Delivery Point' => Field::String,
-    :'Site Code' => Field::String,
-    :'Welsh Location Translation' => Field::String,
-    :'Welsh Address Line 1' => Field::String,
-    :'Welsh Address Line 2' => Field::String,
-    :'Welsh Address Line 3' => Field::String,
-    :'Welsh Town Translation' => Field::String,
-    :'Last Update Date' => Field::DateTime,
-    :'created_at' => Field::DateTime,
-    :'updated_at' => Field::DateTime,
+    'id': Field::Number,
+    'Location ID': Field::String,
+    'Location Code': Field::String,
+    'Location Description': Field::String,
+    'Inactive Date': Field::Date.with_options(transform_on_export: ->(field) { field.data.strftime('%d/%m/%Y') }),
+    'Assignment Address 1st line': Field::String,
+    'Assignment Address 2nd line': Field::String,
+    'Assignment Address 3rd line': Field::String,
+    'Town': Field::String,
+    'County': Field::String,
+    'Postcode': Field::String,
+    'Country': Field::String,
+    'Telephone': Field::String,
+    'Fax': Field::String,
+    'Payslip Delivery Point': Field::String,
+    'Site Code': Field::String,
+    'Welsh Location Translation': Field::String,
+    'Welsh Address Line 1': Field::String,
+    'Welsh Address Line 2': Field::String,
+    'Welsh Address Line 3': Field::String,
+    'Welsh Town Translation': Field::String,
+    'Last Update Date': Field::DateTime,
+    'created_at': Field::DateTime,
+    'updated_at': Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -40,15 +40,15 @@ class LocationRecordDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :'id',
+    :id,
     :'Location ID',
-    :'Location Code',
+    :'Location Code'
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :'id',
+    :id,
     :'Location ID',
     :'Location Code',
     :'Location Description',
@@ -56,12 +56,12 @@ class LocationRecordDashboard < Administrate::BaseDashboard
     :'Assignment Address 1st line',
     :'Assignment Address 2nd line',
     :'Assignment Address 3rd line',
-    :'Town',
-    :'County',
-    :'Postcode',
-    :'Country',
-    :'Telephone',
-    :'Fax',
+    :Town,
+    :County,
+    :Postcode,
+    :Country,
+    :Telephone,
+    :Fax,
     :'Payslip Delivery Point',
     :'Site Code',
     :'Welsh Location Translation',
@@ -70,8 +70,8 @@ class LocationRecordDashboard < Administrate::BaseDashboard
     :'Welsh Address Line 3',
     :'Welsh Town Translation',
     :'Last Update Date',
-    :'created_at',
-    :'updated_at',
+    :created_at,
+    :updated_at
   ].freeze
 
   # COLLECTION_FILTERS

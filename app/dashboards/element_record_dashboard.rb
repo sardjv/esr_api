@@ -1,4 +1,4 @@
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 
 class ElementRecordDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -8,34 +8,34 @@ class ElementRecordDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    :'id' => Field::Number,
-    :'Person ID' => Field::String,
-    :'Element Entry ID' => Field::String,
-    :'Effective Start Date' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
-    :'Effective End Date' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
-    :'Element Entry Type' => Field::String,
-    :'Assignment ID' => Field::String,
-    :'Element Type ID' => Field::String,
-    :'Element Type Name' => Field::String,
-    :'Earned Date' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
-    :'Entry Value 1' => Field::String,
-    :'Entry Value 2' => Field::String,
-    :'Entry Value 3' => Field::String,
-    :'Entry Value 4' => Field::String,
-    :'Entry Value 5' => Field::String,
-    :'Entry Value 6' => Field::String,
-    :'Entry Value 7' => Field::String,
-    :'Entry Value 8' => Field::String,
-    :'Entry Value 9' => Field::String,
-    :'Entry Value 10' => Field::String,
-    :'Entry Value 11' => Field::String,
-    :'Entry Value 12' => Field::String,
-    :'Entry Value 13' => Field::String,
-    :'Entry Value 14' => Field::String,
-    :'Entry Value 15' => Field::String,
-    :'Last Update Date' => Field::DateTime,
-    :'created_at' => Field::DateTime,
-    :'updated_at' => Field::DateTime,
+    'id': Field::Number,
+    'Person ID': Field::String,
+    'Element Entry ID': Field::String,
+    'Effective Start Date': Field::Date.with_options(transform_on_export: ->(field) { field.data.strftime('%d/%m/%Y') }),
+    'Effective End Date': Field::Date.with_options(transform_on_export: ->(field) { field.data.strftime('%d/%m/%Y') }),
+    'Element Entry Type': Field::String,
+    'Assignment ID': Field::String,
+    'Element Type ID': Field::String,
+    'Element Type Name': Field::String,
+    'Earned Date': Field::Date.with_options(transform_on_export: ->(field) { field.data.strftime('%d/%m/%Y') }),
+    'Entry Value 1': Field::String,
+    'Entry Value 2': Field::String,
+    'Entry Value 3': Field::String,
+    'Entry Value 4': Field::String,
+    'Entry Value 5': Field::String,
+    'Entry Value 6': Field::String,
+    'Entry Value 7': Field::String,
+    'Entry Value 8': Field::String,
+    'Entry Value 9': Field::String,
+    'Entry Value 10': Field::String,
+    'Entry Value 11': Field::String,
+    'Entry Value 12': Field::String,
+    'Entry Value 13': Field::String,
+    'Entry Value 14': Field::String,
+    'Entry Value 15': Field::String,
+    'Last Update Date': Field::DateTime,
+    'created_at': Field::DateTime,
+    'updated_at': Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -44,16 +44,16 @@ class ElementRecordDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :'id',
+    :id,
     :'Person ID',
     :'Element Entry ID',
-    :'Effective Start Date',
+    :'Effective Start Date'
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :'id',
+    :id,
     :'Person ID',
     :'Element Entry ID',
     :'Effective Start Date',
@@ -79,8 +79,8 @@ class ElementRecordDashboard < Administrate::BaseDashboard
     :'Entry Value 14',
     :'Entry Value 15',
     :'Last Update Date',
-    :'created_at',
-    :'updated_at',
+    :created_at,
+    :updated_at
   ].freeze
 
   # COLLECTION_FILTERS
