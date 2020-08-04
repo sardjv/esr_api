@@ -3,7 +3,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     :auth0,
     ENV['AUTH0_CLIENT_ID'],
     ENV['AUTH0_CLIENT_SECRET'],
-    'sardjv.eu.auth0.com',
+    ENV['AUTH0_CLIENT_DOMAIN'],
     callback_path: '/auth/auth0/callback',
     authorize_params: {
       scope: 'openid profile'
