@@ -16,7 +16,34 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
       let!(:'page[size]') { 2 }
       let!(:'page[number]') { 1 }
 
-      context 'when a normal user' do
+      context 'when not authenticated' do
+        let(:Authorization) { nil }
+
+        before do
+          module SecuredWithToken
+            def authenticate_request!
+              render json: { errors: ['Not Authenticated'] }, status: :unauthorized
+            end
+          end
+        end
+
+        response '401', 'Error: Unauthorized' do
+          schema '$ref' => '#/definitions/error_401'
+
+          run_test!
+        end
+
+        after do
+          # Reset Auth after test.
+          module SecuredWithToken
+            def authenticate_request!
+              true
+            end
+          end
+        end
+      end
+
+      context 'when an admin' do
         let(:Authorization) { 'Bearer dummy_json_web_token' }
 
         response '200', 'successful' do
