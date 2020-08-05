@@ -1,15 +1,13 @@
 module SecuredWithOauth
   extend ActiveSupport::Concern
 
-  included do
-    before_action :redirect_unless_logged_in
+  def authenticate_user!
+    return if user_authenticated?
+
+    redirect_to '/'
   end
 
-  def redirect_unless_logged_in
-    redirect_to '/' unless admin_authenticated?
-  end
-
-  def admin_authenticated?
-    session[:userinfo].present?
+  def user_authenticated?
+    session && session[:userinfo].present?
   end
 end
