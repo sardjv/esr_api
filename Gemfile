@@ -124,7 +124,7 @@ group :test do
 
   # Generate code coverage documentation.
   # https://github.com/colszowka/simplecov
-  gem 'simplecov', '~> 0.18.5'
+  gem 'simplecov', '~> 0.19.0'
 
   # Strategies for cleaning databases between tests.
   # https://github.com/DatabaseCleaner/database_cleaner
