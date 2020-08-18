@@ -75,7 +75,7 @@ gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
 
 # A ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard.
 # https://github.com/jwt/ruby-jwt
-gem 'jwt', '~> 2.2.1'
+gem 'jwt', '~> 2.2.2'
 
 # Fixtures replacement with a straightforward definition syntax.
 # https://github.com/thoughtbot/factory_bot
