@@ -38,7 +38,8 @@ class Api::V1::Swagger::Core
       Api::V1::Swagger::PositionRecord.definitions,
       Api::V1::Swagger::QualificationRecord.definitions,
       Api::V1::Swagger::SitRecord.definitions,
-      Api::V1::Swagger::TrainingAbsenceRecord.definitions
+      Api::V1::Swagger::TrainingAbsenceRecord.definitions,
+      Api::V1::Swagger::Errors.definitions
     ]
   end
 end
