@@ -56,10 +56,6 @@ services:
       - 'redis'
       - webpacker
     build: .
-    # 1) Remove any existing server process in case of dirty shutdown, with -f in case the file doesn't exist.
-    # 2) if `bundle check` indicates it's needed, `bundle install` here rather than in Dockerfile,
-    #    so that we can cache its result in the bundle_cache container.
-    # 3) Start server.
     command: ./script/start_rails.sh
     # command: ./script/start_rails_first_time.sh # Use this the first time you start up the project.
     ports:
