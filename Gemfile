@@ -89,6 +89,10 @@ gem 'faker', '~> 2.13.0'
 # https://github.com/SourceLabsLLC/administrate_exportable
 gem 'administrate_exportable', '~> 0.2.0'
 
+# Flexible authentication solution for Rails with Warden.
+# https://github.com/heartcombo/devise
+gem 'devise', '~> 4.7.2'
+
 group :development, :test do
   # Call 'byebug' anywhere in your code to drop into a debugger console.
   # https://github.com/deivid-rodriguez/byebug
