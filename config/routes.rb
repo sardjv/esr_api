@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  devise_for :users
   namespace :admin do
     resources :absence_records do
       get :export, on: :collection

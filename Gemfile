@@ -130,6 +130,10 @@ group :test do
   # https://github.com/colszowka/simplecov
   gem 'simplecov', '~> 0.19.0'
 
+  # Simple one-liner tests for common Rails functionality.
+  # https://github.com/thoughtbot/shoulda-matchers
+  gem 'shoulda-matchers', '~> 4.4.1'
+
   # Strategies for cleaning databases between tests.
   # https://github.com/DatabaseCleaner/database_cleaner
   gem 'database_cleaner-active_record', '~> 1.8.0'
