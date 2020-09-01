@@ -13,7 +13,18 @@ describe 'Api::V1::LocationRecordResource', type: :request, swagger_doc: 'v1/swa
 
       let(:id) { location_record.id }
 
-      context 'when a normal user' do
+      context 'when not authenticated' do
+        let(:Authorization) { nil }
+
+        response '401', 'Error: Unauthorized' do
+          schema '$ref' => '#/definitions/error_401'
+
+          run_test!
+        end
+      end
+
+      context 'when an admin' do
+        include_context 'Mock Token'
         let(:Authorization) { 'Bearer dummy_json_web_token' }
 
         response '200', 'successful' do

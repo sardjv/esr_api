@@ -51,7 +51,7 @@ gem 'rswag-ui', '~> 2.3.1'
 
 # Use Webpack to manage app-like JavaScript modules in Rails.
 # https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.1.1'
+gem 'webpacker', '~> 5.2.1'
 
 # A resource-focused Rails library for developing JSON:API compliant servers.
 # https://github.com/cerebris/jsonapi-resources
@@ -75,7 +75,7 @@ gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
 
 # A ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard.
 # https://github.com/jwt/ruby-jwt
-gem 'jwt', '~> 2.2.1'
+gem 'jwt', '~> 2.2.2'
 
 # Fixtures replacement with a straightforward definition syntax.
 # https://github.com/thoughtbot/factory_bot
@@ -114,7 +114,7 @@ group :development do
 
   # Tool to check dependency licenses.
   # https://github.com/pivotal/LicenseFinder
-  gem 'license_finder', '~> 6.8.0'
+  gem 'license_finder', '~> 6.8.1'
 end
 
 group :test do
@@ -124,7 +124,7 @@ group :test do
 
   # Generate code coverage documentation.
   # https://github.com/colszowka/simplecov
-  gem 'simplecov', '~> 0.18.5'
+  gem 'simplecov', '~> 0.19.0'
 
   # Strategies for cleaning databases between tests.
   # https://github.com/DatabaseCleaner/database_cleaner
