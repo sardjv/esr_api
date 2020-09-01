@@ -315,7 +315,7 @@ GEM
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
-    simplecov (0.18.5)
+    simplecov (0.19.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
     simplecov-html (0.12.2)
@@ -377,7 +377,7 @@ DEPENDENCIES
   rswag-ui (~> 2.3.1)
   rubocop-rails (~> 2.7.1)
   sidekiq (~> 6.1.1)
-  simplecov (~> 0.18.5)
+  simplecov (~> 0.19.0)
   tzinfo-data (~> 1.2020.1)
   webpacker (~> 5.2.1)
 
