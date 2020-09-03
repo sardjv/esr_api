@@ -65,14 +65,6 @@ gem 'tzinfo-data', '~> 1.2020.1'
 # https://github.com/thoughtbot/administrate
 gem 'administrate', '~> 0.14.0'
 
-# OmniAuth is a flexible authentication system utilizing Rack middleware.
-# https://github.com/auth0/omniauth-auth0
-gem 'omniauth-auth0', '~> 2.3.1'
-
-# Provides CSRF protection on OmniAuth request endpoint on Rails application.
-# https://github.com/cookpad/omniauth-rails_csrf_protection
-gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
-
 # A ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard.
 # https://github.com/jwt/ruby-jwt
 gem 'jwt', '~> 2.2.2'

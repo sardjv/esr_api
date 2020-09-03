@@ -13,7 +13,7 @@ describe Admin::AbsenceRecordsController, type: :request do
   end
 
   context 'when authenticated' do
-    include_context 'Mock OAuth'
+    include_context 'Mock Auth'
 
     describe 'GET index' do
       before { get admin_absence_records_path }

@@ -1,4 +1,4 @@
-RSpec.shared_context 'Mock OAuth' do
+RSpec.shared_context 'Mock Auth' do
   before do
     class Admin::ApplicationController < Administrate::ApplicationController
       def user_authenticated?

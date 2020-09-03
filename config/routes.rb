@@ -54,10 +54,6 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  get 'auth/:provider/callback' => 'auth0#callback'
-  get 'auth/failure' => 'auth0#failure'
-  get 'auth_logout' => 'auth0#destroy'
-
   # Swagger documentation.
   mount Rswag::Ui::Engine => 'api_docs'
   mount Rswag::Api::Engine => 'api_docs'
