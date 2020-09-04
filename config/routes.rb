@@ -48,11 +48,11 @@ Rails.application.routes.draw do
     resources :training_absence_records do
       get :export, on: :collection
     end
-
-    root to: 'absence_records#index'
   end
 
-  root to: 'pages#home'
+  root to: 'admin/absence_records#index'
+
+  get '/pages/home', to: 'pages#home'
 
   # Swagger documentation.
   mount Rswag::Ui::Engine => 'api_docs'
