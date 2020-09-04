@@ -4,7 +4,7 @@
 #
 # If you want to add pagination or other controller-level concerns,
 # you're free to overwrite the RESTful controller actions.
-class Admin::ApplicationController < Administrate::ApplicationController
+class Ui::ApplicationController < Administrate::ApplicationController
   include AdministrateExportable::Exporter
   before_action :check_signed_in!
 
