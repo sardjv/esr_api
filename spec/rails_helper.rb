@@ -84,6 +84,6 @@ RSpec.configure do |config|
 
   config.include ActiveJob::TestHelper, type: :job
 
-  config.include_context 'Mock OAuth', include_shared: true
+  config.include_context 'Mock Auth', include_shared: true
   config.include_context 'Mock Token', include_shared: true
 end

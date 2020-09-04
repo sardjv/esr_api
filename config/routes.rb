@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  devise_for :users
   namespace :admin do
     resources :absence_records do
       get :export, on: :collection
@@ -47,15 +48,11 @@ Rails.application.routes.draw do
     resources :training_absence_records do
       get :export, on: :collection
     end
-
-    root to: 'absence_records#index'
   end
 
-  root to: 'pages#home'
+  root to: 'admin/absence_records#index'
 
-  get 'auth/:provider/callback' => 'auth0#callback'
-  get 'auth/failure' => 'auth0#failure'
-  get 'auth_logout' => 'auth0#destroy'
+  get '/pages/home', to: 'pages#home'
 
   # Swagger documentation.
   mount Rswag::Ui::Engine => 'api_docs'

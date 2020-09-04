@@ -10,7 +10,7 @@ class Api::V1::Swagger::Core
         },
         securityDefinitions: {
           JWT: {
-            description: 'The JSON Web Token from Auth0 for authentication.',
+            description: 'The JSON Web Token for authentication.',
             type: :apiKey,
             name: 'Authorization',
             in: :header

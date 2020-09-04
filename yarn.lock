@@ -954,6 +954,11 @@
   dependencies:
     mkdirp "^1.0.4"
 
+"@rails/ujs@6.0.3-2":
+  version "6.0.3-2"
+  resolved "https://registry.yarnpkg.com/@rails/ujs/-/ujs-6.0.3-2.tgz#e14c1f29086858215ce7ccd9ad6d8888c458b4a3"
+  integrity sha512-WcpIEftNCfGDEgk6KerOugiet75Mir5q/HT1yt3dDhpBI91BaZ15lfSQIsZwMw2nyeDz9A9QBz8dAFAd4gXIzg==
+
 "@rails/webpacker@5.2.0":
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/@rails/webpacker/-/webpacker-5.2.0.tgz#0beaf004f15ed97110bb0daaa52f8a6ef1fae266"

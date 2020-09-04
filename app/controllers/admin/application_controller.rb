@@ -6,16 +6,12 @@
 # you're free to overwrite the RESTful controller actions.
 class Admin::ApplicationController < Administrate::ApplicationController
   include AdministrateExportable::Exporter
-  before_action :authenticate_user!
+  before_action :check_signed_in!
 
-  def authenticate_user!
-    return if user_authenticated?
+  def check_signed_in!
+    return if signed_in?
 
-    redirect_to '/'
-  end
-
-  def user_authenticated?
-    session && session[:userinfo].present?
+    redirect_to pages_home_path
   end
 
   # disable 'edit' and 'destroy' links

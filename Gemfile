@@ -65,14 +65,6 @@ gem 'tzinfo-data', '~> 1.2020.1'
 # https://github.com/thoughtbot/administrate
 gem 'administrate', '~> 0.14.0'
 
-# OmniAuth is a flexible authentication system utilizing Rack middleware.
-# https://github.com/auth0/omniauth-auth0
-gem 'omniauth-auth0', '~> 2.3.1'
-
-# Provides CSRF protection on OmniAuth request endpoint on Rails application.
-# https://github.com/cookpad/omniauth-rails_csrf_protection
-gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
-
 # A ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard.
 # https://github.com/jwt/ruby-jwt
 gem 'jwt', '~> 2.2.2'
@@ -88,6 +80,10 @@ gem 'faker', '~> 2.13.0'
 # Simple plugin to add CSV export feature to Administrate.
 # https://github.com/SourceLabsLLC/administrate_exportable
 gem 'administrate_exportable', '~> 0.2.0'
+
+# Flexible authentication solution for Rails with Warden.
+# https://github.com/heartcombo/devise
+gem 'devise', '~> 4.7.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in your code to drop into a debugger console.
@@ -125,6 +121,10 @@ group :test do
   # Generate code coverage documentation.
   # https://github.com/colszowka/simplecov
   gem 'simplecov', '~> 0.19.0'
+
+  # Simple one-liner tests for common Rails functionality.
+  # https://github.com/thoughtbot/shoulda-matchers
+  gem 'shoulda-matchers', '~> 4.4.1'
 
   # Strategies for cleaning databases between tests.
   # https://github.com/DatabaseCleaner/database_cleaner
