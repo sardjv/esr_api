@@ -1,7 +1,7 @@
 RSpec.shared_context 'Mock Auth' do
   before do
     class Admin::ApplicationController < Administrate::ApplicationController
-      def user_authenticated?
+      def signed_in?
         true
       end
     end
@@ -10,8 +10,8 @@ RSpec.shared_context 'Mock Auth' do
   after do
     # Reset Auth after test.
     class Admin::ApplicationController < Administrate::ApplicationController
-      def user_authenticated?
-        session && session[:userinfo].present?
+      def signed_in?
+        super
       end
     end
   end
