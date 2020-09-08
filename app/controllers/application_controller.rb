@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
   end
 
-  def after_sign_in_path_for(resource)
-    admin_absence_records_path
+  def after_sign_in_path_for(_resource)
+    ui_absence_records_path
   end
 end

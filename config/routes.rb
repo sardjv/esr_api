@@ -2,7 +2,7 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   devise_for :users
-  namespace :admin do
+  namespace :ui do
     resources :absence_records do
       get :export, on: :collection
     end
@@ -48,9 +48,11 @@ Rails.application.routes.draw do
     resources :training_absence_records do
       get :export, on: :collection
     end
+
+    get '/data', to: 'data#index'
   end
 
-  root to: 'admin/absence_records#index'
+  root to: 'ui/absence_records#index'
 
   get '/pages/home', to: 'pages#home'
 
