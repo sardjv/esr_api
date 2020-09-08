@@ -6,39 +6,39 @@ describe DataHelper do
       expect(DataHelper.grouped_routes).to eq(
         {
           'A' => [
-            { name: 'Absence Records', path: 'ui/absence_records' },
-            { name: 'Assignment Records', path: 'ui/assignment_records' }
+            { name: 'Absence Records', path: 'absence_records' },
+            { name: 'Assignment Records', path: 'assignment_records' }
           ],
           'C' => [
-            { name: 'Competency Records', path: 'ui/competency_records'},
-            { name: 'Costing Records', path: 'ui/costing_records'}
+            { name: 'Competency Records', path: 'competency_records'},
+            { name: 'Costing Records', path: 'costing_records'}
           ],
           'D' => [
-            { name: 'Disability Records', path: 'ui/disability_records'}
+            { name: 'Disability Records', path: 'disability_records'}
           ],
           'E' => [
-            { name: 'Element Records', path: 'ui/element_records'}
+            { name: 'Element Records', path: 'element_records'}
           ],
           'L' => [
-            { name: 'Location Records', path: 'ui/location_records'}
+            { name: 'Location Records', path: 'location_records'}
           ],
           'O' => [
-            { name: 'Organisation Records', path: 'ui/organisation_records'}
+            { name: 'Organisation Records', path: 'organisation_records'}
           ],
           'P' => [
-            { name: 'Person Eit Records', path: 'ui/person_eit_records'},
-            { name: 'Person Records', path: 'ui/person_records'},
-            { name: 'Position Eit Records', path: 'ui/position_eit_records'},
-            { name: 'Position Records', path: 'ui/position_records'}
+            { name: 'Person Eit Records', path: 'person_eit_records'},
+            { name: 'Person Records', path: 'person_records'},
+            { name: 'Position Eit Records', path: 'position_eit_records'},
+            { name: 'Position Records', path: 'position_records'}
           ],
           'Q' => [
-            { name: 'Qualification Records', path: 'ui/qualification_records'}
+            { name: 'Qualification Records', path: 'qualification_records'}
           ],
           'S' => [
-            { name: 'Sit Records', path: 'ui/sit_records'}
+            { name: 'Sit Records', path: 'sit_records'}
           ],
           'T' => [
-            { name: 'Training Absence Records', path: 'ui/training_absence_records'}
+            { name: 'Training Absence Records', path: 'training_absence_records'}
           ]
         }
       )

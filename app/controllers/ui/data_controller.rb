@@ -1,4 +1,4 @@
-class DataController < ApplicationController
+class Ui::DataController < Ui::ApplicationController
   def index
     render locals: {
       grouped_routes: DataHelper.grouped_routes

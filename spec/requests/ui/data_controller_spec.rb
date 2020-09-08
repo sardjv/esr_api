@@ -1,7 +1,7 @@
-describe DataController, type: :request do
+describe Ui::DataController, type: :request do
   context 'when not authenticated' do
     describe 'GET index' do
-      before { get data_path }
+      before { get ui_data_path }
       it { expect(response).to redirect_to(pages_home_path) }
     end
   end
@@ -10,7 +10,7 @@ describe DataController, type: :request do
     include_context 'Mock Auth'
 
     describe 'GET index' do
-      before { get data_path }
+      before { get ui_data_path }
       it { expect(response).to be_successful }
     end
   end

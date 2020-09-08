@@ -5,7 +5,8 @@ module DataHelper
 
   def self.routes
     routes = Rails.application.routes.set.anchored_routes.map(&:defaults)
-    routes = routes.map { |r| r[:controller].starts_with?('ui/') ? r[:controller] : nil }.compact.uniq
-    routes.map { |r| { name: r.split('ui/').last.titleize, path: r } }
+    routes = routes.map { |r| r[:controller].starts_with?('ui/') && r[:controller] != 'ui/data' ? r[:controller] : nil }
+    routes = routes.compact.uniq
+    routes.map { |r| { name: r.split('ui/').last.titleize, path: r.split('ui/').last } }
   end
 end

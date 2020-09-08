@@ -49,12 +49,12 @@ Rails.application.routes.draw do
       get :export, on: :collection
     end
 
+    get '/data', to: 'data#index'
   end
 
   root to: 'ui/absence_records#index'
 
   get '/pages/home', to: 'pages#home'
-  get '/data', to: 'data#index'
 
   # Swagger documentation.
   mount Rswag::Ui::Engine => 'api_docs'
