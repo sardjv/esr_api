@@ -6,7 +6,7 @@ gem 'rails', '~> 6.0.3'
 
 # A Ruby/Rack web server built for concurrency.
 # https://github.com/puma/puma
-gem 'puma', '~> 4.3.5'
+gem 'puma', '~> 4.3.6'
 
 # Use PostgreSQL as the database for Active Record.
 # https://github.com/ged/ruby-pg
@@ -30,11 +30,11 @@ gem 'mysql2', '~> 0.5.3'
 
 # A very fast key-value store to hold jobs until they are run.
 # https://github.com/redis/redis-rb
-gem 'redis', '~> 4.2.1'
+gem 'redis', '~> 4.2.2'
 
 # Simple, efficient background processing for Ruby.
 # https://github.com/mperham/sidekiq
-gem 'sidekiq', '~> 6.1.1'
+gem 'sidekiq', '~> 6.1.2'
 
 # Data processing & ETL framework for Ruby.
 # https://github.com/thbar/kiba
@@ -106,7 +106,7 @@ group :development do
 
   # A static code analyzer and formatter, based on the community style guide.
   # https://github.com/rubocop-hq/rubocop-rails
-  gem 'rubocop-rails', '~> 2.7.1'
+  gem 'rubocop-rails', '~> 2.8.0'
 
   # Tool to check dependency licenses.
   # https://github.com/pivotal/LicenseFinder
