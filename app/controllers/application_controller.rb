@@ -22,7 +22,6 @@ class ApplicationController < ActionController::Base
   end
 
   def check_signed_in?
-    puts "NAME: #{controller_name}"
     !(devise_controller? || ['PagesController'].include?(controller_name))
   end
 end
