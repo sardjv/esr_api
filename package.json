@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@rails/ujs": "6.0.3-2",
+    "@rails/ujs": "6.0.3",
     "@rails/webpacker": "5.2.1",
     "nhsuk-frontend": "^3.0.4",
     "snyk": "^1.391.1"
