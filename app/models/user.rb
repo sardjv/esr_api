@@ -8,4 +8,6 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
+
+  has_many :tokens, inverse_of: :created_by, dependent: :restrict_with_exception
 end
