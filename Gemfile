@@ -85,6 +85,10 @@ gem 'administrate_exportable', '~> 0.2.0'
 # https://github.com/heartcombo/devise
 gem 'devise', '~> 4.7.2'
 
+# Modern encryption for Rails. Works with database fields, files, and strings.
+# https://github.com/ankane/lockbox#active-record
+gem 'lockbox', '~> 0.4.8'
+
 group :development, :test do
   # Call 'byebug' anywhere in your code to drop into a debugger console.
   # https://github.com/deivid-rodriguez/byebug
