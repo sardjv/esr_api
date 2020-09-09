@@ -50,6 +50,7 @@ Rails.application.routes.draw do
     end
 
     get '/data', to: 'data#index'
+    resources :tokens, only: [:create, :index, :destroy]
   end
 
   root to: 'ui/absence_records#index'
