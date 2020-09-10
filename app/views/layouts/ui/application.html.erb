@@ -54,12 +54,14 @@
       </div>
     </div>
     <%= render "navigation" -%>
+
   </header>
 
   <div class="nhsuk-width-container">
     <main class="nhsuk-main-wrapper" id="maincontent">
       <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-full">
+          <%= render "flashes" -%>
           <%= yield %>
         </div>
       </div>

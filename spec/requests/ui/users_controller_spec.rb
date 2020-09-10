@@ -7,7 +7,7 @@ describe Ui::UsersController, type: :request do
   end
 
   context 'when authenticated' do
-    include_context 'Mock Auth'
+    before { sign_in create(:confirmed_user) }
 
     describe 'GET index' do
       before { get ui_users_path }
