@@ -1,0 +1,43 @@
+<%#
+# Select Form Partial
+
+This partial renders a selectable text attribute,
+to be displayed on a resource's edit form page.
+
+## Local variables:
+
+- `f`:
+  A Rails form generator, used to help create the appropriate input fields.
+- `field`:
+  An instance of [Administrate::Field::Select][1].
+  A wrapper around the attribute pulled from the database.
+
+[1]: http://www.rubydoc.info/gems/administrate/Administrate/Field/Select
+%>
+
+<div class="field-unit__label">
+  <%= f.label field.attribute %>
+</div>
+<div class="field-unit__field">
+  <% if field.selectable_options.first&.is_a?(Array) %>
+    <%= f.select(
+      field.attribute,
+      options_from_collection_for_select(
+        field.selectable_options,
+        :last,
+        :first,
+        field.data.presence,
+      )
+    ) %>
+  <% else %>
+    <%= f.select(
+      field.attribute,
+      options_from_collection_for_select(
+        field.selectable_options,
+        :to_s,
+        :to_s,
+        field.data.presence,
+      )
+    ) %>
+  <% end %>
+</div>

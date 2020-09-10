@@ -1,0 +1,37 @@
+<%#
+# String Form Partial
+
+This partial renders an input element for a string attribute.
+By default, the input is a text field.
+
+## Local variables:
+
+- `f`:
+  A Rails form generator, used to help create the appropriate input fields.
+- `field`:
+  An instance of [Administrate::Field::String][1].
+  A wrapper around the String pulled from the database.
+
+[1]: http://www.rubydoc.info/gems/administrate/Administrate/Field/String
+%>
+
+<% if errors.any? %>
+  <div class="field-unit__label">
+    <%= f.label field.attribute, class: "nhsuk-label", for: "input-with-error-message" %>
+    <% errors.each do |error| %>
+      <span class="nhsuk-error-message" id="input-with-error-message-error">
+        <span class="nhsuk-u-visually-hidden">Error:</span><%= error %>
+      </span>
+    <% end %>
+  </div>
+  <div class="field-unit__field">
+    <%= f.text_field field.attribute, class: "nhsuk-input nhsuk-input--error" %>
+  </div>
+<% else %>
+  <div class="field-unit__label">
+    <%= f.label field.attribute, class: "nhsuk-label" %>
+  </div>
+  <div class="field-unit__field">
+    <%= f.text_field field.attribute, class: "nhsuk-input" %>
+  </div>
+<% end %>

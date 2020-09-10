@@ -4,5 +4,9 @@ FactoryBot.define do
     last_name  { Faker::Name.unique.last_name }
     email { Faker::Internet.unique.email }
     password { '123password' }
+
+    factory :confirmed_user do
+      confirmed_at { Time.current }
+    end
   end
 end

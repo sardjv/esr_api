@@ -42,19 +42,32 @@ to display a collection of resources in an HTML table.
       <tbody class="nhsuk-table__body">
         <% resources.each do |resource| %>
           <tr class="js-table-row nhsuk-table__row">
-              <% collection_presenter.attributes_for(resource).each do |attribute| %>
-                <td class="cell-data cell-data--<%= attribute.html_class %> nhsuk-table__cell">
-                  <%= render_field attribute %>
-                </td>
-              <% end %>
-            <td>
-              <a href="<%= polymorphic_path([namespace, resource]) -%>"
-                tabindex="-1"
-                class="action-show"
-              >
-                Show
-              </a>
-            </td>
+            <% collection_presenter.attributes_for(resource).each do |attribute| %>
+              <td class="cell-data cell-data--<%= attribute.html_class %> nhsuk-table__cell">
+                <%= render_field attribute %>
+              </td>
+            <% end %>
+
+            <% if valid_action? :show, collection_presenter.resource_name %>
+              <td>
+                <a href="<%= polymorphic_path([namespace, resource]) -%>"
+                  tabindex="-1"
+                  class="action-show"
+                >
+                  Show
+                </a>
+              </td>
+            <% end %>
+
+            <% if valid_action? :destroy, collection_presenter.resource_name %>
+              <td><%= link_to(
+                t("administrate.actions.destroy"),
+                [namespace, resource],
+                class: "text-color-red",
+                method: :delete,
+                data: { confirm: t("models.token.confirm.destroy") }
+              ) if show_action? :destroy, resource %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

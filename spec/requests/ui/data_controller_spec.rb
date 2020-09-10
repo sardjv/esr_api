@@ -7,7 +7,7 @@ describe Ui::DataController, type: :request do
   end
 
   context 'when authenticated' do
-    include_context 'Mock Auth'
+    before { sign_in create(:confirmed_user) }
 
     describe 'GET index' do
       before { get ui_data_path }

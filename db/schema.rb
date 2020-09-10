@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_01_132556) do
+ActiveRecord::Schema.define(version: 2020_09_09_112400) do
 
   create_table "absence_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "Person ID"
@@ -511,6 +511,17 @@ ActiveRecord::Schema.define(version: 2020_09_01_132556) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["Special Information ID"], name: "index_sit_records_on_Special Information ID", unique: true
+  end
+
+  create_table "tokens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "token_ciphertext", null: false
+    t.bigint "created_by_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["created_by_id"], name: "index_tokens_on_created_by_id"
+    t.index ["name", "created_by_id"], name: "index_tokens_on_name_and_created_by_id", unique: true
+    t.index ["token_ciphertext"], name: "index_tokens_on_token_ciphertext", unique: true
   end
 
   create_table "training_absence_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|

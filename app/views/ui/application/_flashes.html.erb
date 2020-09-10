@@ -1,0 +1,27 @@
+<%#
+# Flash Partial
+
+This partial renders flash messages on every page.
+
+## Relevant Helpers:
+
+- `flash`:
+  Returns a hash,
+  where the keys are the type of flash (alert, error, notice, etc)
+  and the values are the message to be displayed.
+%>
+<% if flash.any? %>
+  <% flash.each do |key, value| -%>
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        <div class="nhsuk-inset-text flash flash-<%= key %>">
+          <span class="nhsuk-u-visually-hidden">Information: </span>
+          <p><%= value.html_safe %></p>
+        </div>
+      </div>
+    </div>
+  <% end -%>
+<% end %>
+
+
+
