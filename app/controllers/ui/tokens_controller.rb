@@ -12,7 +12,7 @@ class Ui::TokensController < Ui::ApplicationController
 
     if resource.save
       redirect_to(
-        action: :index,
+        ui_tokens_path,
         notice: translate_with_resource('create.success')
       )
     else
