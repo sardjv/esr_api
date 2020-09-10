@@ -1,4 +1,11 @@
 en:
+  administrate:
+    actions:
+      destroy: Delete
+  models:
+    token:
+      confirm:
+        destroy: Are you sure? This token will be permanently deleted and any applications using it will no longer be able to access the API.
   faker:
     absence_record:
       absence_type:
