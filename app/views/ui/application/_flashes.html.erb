@@ -10,11 +10,18 @@ This partial renders flash messages on every page.
   where the keys are the type of flash (alert, error, notice, etc)
   and the values are the message to be displayed.
 %>
-
 <% if flash.any? %>
-  <div class="flashes">
-    <% flash.each do |key, value| -%>
-      <div class="flash flash-<%= key %>"><%= value.html_safe %></div>
-    <% end -%>
-  </div>
+  <% flash.each do |key, value| -%>
+    <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-two-thirds">
+        <div class="nhsuk-inset-text flash flash-<%= key %>">
+          <span class="nhsuk-u-visually-hidden">Information: </span>
+          <p><%= value.html_safe %></p>
+        </div>
+      </div>
+    </div>
+  <% end -%>
 <% end %>
+
+
+
