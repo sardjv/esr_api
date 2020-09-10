@@ -10,4 +10,11 @@ class User < ApplicationRecord
   validates :last_name, presence: true
 
   has_many :tokens, inverse_of: :created_by, dependent: :restrict_with_exception
+
+  # Devise method used to send email requesting confirmation. We need
+  # confirmation but won't have the ability to send emails so it needs to be
+  #  done manually by admins via the UI. We override this method to do nothing.
+  def send_on_create_confirmation_instructions
+    nil
+  end
 end
