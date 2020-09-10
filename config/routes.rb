@@ -48,9 +48,10 @@ Rails.application.routes.draw do
     resources :training_absence_records do
       get :export, on: :collection
     end
+    resources :tokens, only: %i[create index destroy]
+    resources :users
 
     get '/data', to: 'data#index'
-    resources :tokens, only: [:create, :index, :destroy]
   end
 
   root to: 'ui/absence_records#index'

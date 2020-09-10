@@ -1,4 +1,4 @@
-class Ui::TokensController < Ui::ApplicationController
+class Ui::UsersController < Ui::ApplicationController
   # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
   # for more information
 end
