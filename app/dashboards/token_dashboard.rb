@@ -14,7 +14,8 @@ class TokenDashboard < Administrate::BaseDashboard
       searchable: true,
       searchable_fields: %w[first_name last_name]
     ),
-    'created_at': Field::DateTime
+    'created_at': Field::DateTime,
+    'token': Field::String
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -31,9 +32,7 @@ class TokenDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :name,
-    :created_by,
-    :created_at
+    :token
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -57,8 +56,7 @@ class TokenDashboard < Administrate::BaseDashboard
 
   # Overwrite this method to customize how training absence records are displayed
   # across all pages of the admin dashboard.
-  #
-  # def display_resource(token)
-  #   "Token ##{token.id}"
-  # end
+  def display_resource(token)
+    token.name
+  end
 end

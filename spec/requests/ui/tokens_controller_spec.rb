@@ -56,6 +56,26 @@ describe Ui::TokensController, type: :request do
   context 'when not authenticated' do
     let!(:token) { create(:token) }
 
+    describe 'GET show' do
+      before { get ui_token_path(token) }
+      it { expect(response).to redirect_to(pages_home_path) }
+    end
+  end
+
+  context 'when authenticated' do
+    before { sign_in create(:confirmed_user) }
+
+    let!(:token) { create(:token) }
+
+    describe 'GET show' do
+      before { get ui_token_path(token) }
+      it { expect(response).to be_successful }
+    end
+  end
+
+  context 'when not authenticated' do
+    let!(:token) { create(:token) }
+
     describe 'DELETE destroy' do
       before { post ui_tokens_path, params: { token: { name: 'test' } } }
 
