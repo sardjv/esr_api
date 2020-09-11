@@ -2,6 +2,18 @@ en:
   administrate:
     actions:
       destroy: Delete
+  faker:
+    absence_record:
+      absence_type:
+        - Sickness
+        - Holiday
+        - Compassionate
+        - Travel disruption
+        - Maternity, Paternity and Adoption Leave
+        - Jury duty
+        - Appointment
+        - Training
+        - Disciplinary
   helpers:
     label:
       token:
@@ -16,15 +28,7 @@ en:
         content: This token gives complete access to ALL ESR data, including full confidential personal data. It must be kept secret and used with great care. This token can only be viewed once.
       hints:
         name: "Example: HR Team - Business Analytics App"
-  faker:
-    absence_record:
-      absence_type:
-        - Sickness
-        - Holiday
-        - Compassionate
-        - Travel disruption
-        - Maternity, Paternity and Adoption Leave
-        - Jury duty
-        - Appointment
-        - Training
-        - Disciplinary
+  time:
+    formats:
+      iso8601_utc: '%Y-%m-%dT%H:%M:%S.000Z'
+      readable: '%H:%M on %d %b %Y'
