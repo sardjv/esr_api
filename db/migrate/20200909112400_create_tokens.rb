@@ -5,6 +5,7 @@ class CreateTokens < ActiveRecord::Migration[6.0]
     create_table :tokens do |t|
       t.string :name, null: false
       t.string :token_ciphertext, null: false
+      t.timestamp :token_viewed_at
       t.references :created_by
       t.timestamps null: false
     end

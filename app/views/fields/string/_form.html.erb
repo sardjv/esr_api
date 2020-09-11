@@ -24,6 +24,11 @@ By default, the input is a text field.
       </span>
     <% end %>
   </div>
+  <% if hint %>
+    <span class="nhsuk-hint" id="input-with-hint-text-hint">
+      <%= hint %>
+    </span>
+  <% end %>
   <div class="field-unit__field">
     <%= f.text_field field.attribute, class: "nhsuk-input nhsuk-input--error" %>
   </div>
@@ -31,6 +36,11 @@ By default, the input is a text field.
   <div class="field-unit__label">
     <%= f.label field.attribute, class: "nhsuk-label" %>
   </div>
+  <% if hint %>
+    <span class="nhsuk-hint" id="input-with-hint-text-hint">
+      <%= hint %>
+    </span>
+  <% end %>
   <div class="field-unit__field">
     <%= f.text_field field.attribute, class: "nhsuk-input" %>
   </div>

@@ -516,6 +516,7 @@ ActiveRecord::Schema.define(version: 2020_09_09_112400) do
   create_table "tokens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "name", null: false
     t.string "token_ciphertext", null: false
+    t.timestamp "token_viewed_at"
     t.bigint "created_by_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

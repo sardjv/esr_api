@@ -15,7 +15,7 @@ class TokenDashboard < Administrate::BaseDashboard
       searchable_fields: %w[first_name last_name]
     ),
     'created_at': Field::DateTime,
-    'token': Field::String
+    'token_one_time': Field::String
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -32,7 +32,7 @@ class TokenDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :token
+    :token_one_time
   ].freeze
 
   # FORM_ATTRIBUTES
