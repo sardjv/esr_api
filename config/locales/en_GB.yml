@@ -2,10 +2,15 @@ en:
   administrate:
     actions:
       destroy: Delete
+  helpers:
+    label:
+      token:
+        token_one_time: Token (can only be viewed once)
   models:
     token:
       confirm:
         destroy: Are you sure? This token will be permanently deleted and any applications using it will no longer be able to access the API.
+      already_viewed: Token already viewed %{when} ago. If the token has been lost, please create a new one.
   faker:
     absence_record:
       absence_type:

@@ -70,6 +70,18 @@ describe Ui::TokensController, type: :request do
     describe 'GET show' do
       before { get ui_token_path(token) }
       it { expect(response).to be_successful }
+
+      it 'includes the decrypted token' do
+        expect(response.body).to include(token.token)
+      end
+
+      context 'when accessing again' do
+        before { get ui_token_path(token) }
+
+        it 'the decrypted token is not shown to the user' do
+          expect(response.body).not_to include(token.token)
+        end
+      end
     end
   end
 

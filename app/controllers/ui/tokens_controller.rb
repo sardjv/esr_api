@@ -2,6 +2,13 @@ class Ui::TokensController < Ui::ApplicationController
   # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
   # for more information
 
+  # GET /ui/tokens/:id
+  def show
+    render locals: {
+      page: Administrate::Page::Show.new(dashboard, requested_resource)
+    }
+  end
+
   # POST /ui/tokens
   def create
     resource = resource_class.new(resource_params)
