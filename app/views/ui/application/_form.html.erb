@@ -18,9 +18,13 @@ and renders all form fields for a resource's editable attributes.
   <fieldset class="nhsuk-fieldset">
 
     <% page.attributes.each do |attribute| -%>
+      <% hint = I18n.t(
+        "models.#{attribute.resource.class.name.downcase}.hints.#{attribute.name}",
+        default: nil
+      ) %>
       <% errors = page.resource.errors[attribute.name.to_sym] %>
       <div class="field-unit field-unit--<%= attribute.html_class %> field-unit--<%= requireness(attribute) %> nhsuk-form-group<%= errors.any? ? " nhsuk-form-group--error" : nil %>">
-        <%= render_field attribute, f: f, errors: errors %>
+        <%= render_field attribute, f: f, hint: hint, errors: errors %>
       </div>
     <% end -%>
 
