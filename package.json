@@ -3,7 +3,8 @@
     "@rails/ujs": "6.0.3",
     "@rails/webpacker": "5.2.1",
     "nhsuk-frontend": "^3.0.4",
-    "snyk": "^1.392.1"
+    "snyk": "^1.392.1",
+    "turbolinks": "^5.2.0"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.11.0"
