@@ -57,6 +57,17 @@ describe Ui::UsersController, type: :request do
       before { put ui_user_path(user), params: { user: { first_name: updated_name } } }
       it { expect(response).to be_successful }
       it { expect(user.reload.first_name).to eq(updated_name) }
+
+      describe 'activating user' do
+        before { put ui_user_path(user), params: { user: { activated: '1' } } }
+        it { expect(user.reload.confirmed_at).to be_within(1.second).of(Time.current) }
+
+        describe 'deactivating user' do
+          before { put ui_user_path(user), params: { user: { activated: '0' } } }
+          it { expect(user.reload.confirmed_at).to eq(nil) }
+        end
+
+      end
     end
   end
 end

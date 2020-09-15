@@ -17,4 +17,16 @@ class User < ApplicationRecord
   def send_on_create_confirmation_instructions
     nil
   end
+
+  def activated
+    confirmed_at.present?
+  end
+
+  def activated=(value)
+    if value == '1'
+      update(confirmed_at: Time.current)
+    else
+      update(confirmed_at: nil)
+    end
+  end
 end

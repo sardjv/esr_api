@@ -12,7 +12,8 @@ class UserDashboard < Administrate::BaseDashboard
     'first_name': Field::String,
     'last_name': Field::String,
     'created_at': Field::DateTime,
-    'updated_at': Field::DateTime
+    'updated_at': Field::DateTime,
+    'activated': Field::Boolean
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -25,7 +26,8 @@ class UserDashboard < Administrate::BaseDashboard
     :first_name,
     :last_name,
     :created_at,
-    :updated_at
+    :updated_at,
+    :activated
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -44,7 +46,8 @@ class UserDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :email,
     :first_name,
-    :last_name
+    :last_name,
+    :activated
   ].freeze
 
   # COLLECTION_FILTERS
