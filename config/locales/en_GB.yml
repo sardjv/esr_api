@@ -30,7 +30,7 @@ en:
         name: "Example: HR Team - Business Analytics App"
     user:
       errors:
-        cant_deactivate: You can't deactivate %{name} because they're the only active user.
+        cant_deactivate: can't deactivate the only active user
   time:
     formats:
       iso8601_utc: '%Y-%m-%dT%H:%M:%S.000Z'
