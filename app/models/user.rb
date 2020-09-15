@@ -48,6 +48,6 @@ class User < ApplicationRecord
   end
 
   def only_one_confirmed_user?
-    (User.count - User.where(confirmed_at: nil).count) < 2
+    User.where.not(confirmed_at: nil).count < 2
   end
 end
