@@ -83,6 +83,4 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include ActiveJob::TestHelper, type: :job
-
-  config.include_context 'Mock Token', include_shared: true
 end

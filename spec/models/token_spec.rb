@@ -8,4 +8,16 @@ describe Token, type: :model do
   it { should have_db_index(:token_ciphertext).unique }
   it { should have_db_index(%i[name created_by_id]).unique }
   it { should belong_to(:created_by) }
+
+  describe '.verify' do
+    let!(:token) { create(:token) }
+
+    it 'verifies token exists' do
+      expect(Token.verify(token.token)).to eq(true)
+    end
+
+    it 'raises error with unknown token ' do
+      expect { Token.verify('1234') }.to raise_error(VerificationError)
+    end
+  end
 end

@@ -5,6 +5,7 @@ class Token < ApplicationRecord
   validates :name, presence: true, uniqueness: { scope: :created_by_id }
   validates :token, presence: true
   encrypts :token
+  blind_index :token
 
   # Tokens should only be viewed once.
   def token_one_time
@@ -14,5 +15,11 @@ class Token < ApplicationRecord
       update(token_viewed_at: Time.current)
       token
     end
+  end
+
+  def self.verify(decrypted_token)
+    raise VerificationError unless Token.find_by(token: decrypted_token)
+
+    true
   end
 end

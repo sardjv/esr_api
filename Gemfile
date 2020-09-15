@@ -89,6 +89,10 @@ gem 'devise', '~> 4.7.2'
 # https://github.com/ankane/lockbox#active-record
 gem 'lockbox', '~> 0.4.8'
 
+# Securely search encrypted database fields.
+# https://github.com/ankane/blind_index
+gem 'blind_index'
+
 group :development, :test do
   # Call 'byebug' anywhere in your code to drop into a debugger console.
   # https://github.com/deivid-rodriguez/byebug
