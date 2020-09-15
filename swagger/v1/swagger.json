@@ -6,7 +6,7 @@
     "description": "This is the ESR API. For more information visit <a href=\"https://github.com/sardjv/esr_api\">github.com/sardjv/esr_api</a>."
   },
   "securityDefinitions": {
-    "JWT": {
+    "Token": {
       "description": "The JSON Web Token for authentication.",
       "type": "apiKey",
       "name": "Authorization",
@@ -22,7 +22,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -67,7 +67,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -118,7 +118,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -163,7 +163,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -214,7 +214,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -259,7 +259,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -310,7 +310,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -355,7 +355,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -406,7 +406,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -451,7 +451,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -502,7 +502,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -547,7 +547,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -598,7 +598,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -643,7 +643,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -694,7 +694,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -739,7 +739,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -790,7 +790,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -835,7 +835,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -886,7 +886,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -931,7 +931,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -982,7 +982,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -1027,7 +1027,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -1078,7 +1078,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -1123,7 +1123,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -1174,7 +1174,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -1219,7 +1219,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -1270,7 +1270,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -1315,7 +1315,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -1366,7 +1366,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],
@@ -1411,7 +1411,7 @@
         ],
         "security": [
           {
-            "JWT": {
+            "Token": {
             }
           }
         ],

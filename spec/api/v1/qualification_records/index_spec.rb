@@ -8,7 +8,7 @@ describe 'Api::V1::QualificationRecordResource', type: :request, swagger_doc: 'v
   path '/api/v1/qualification_records' do
     get 'qualification records' do
       tags 'QualificationRecord'
-      security [{ JWT: {} }]
+      security [{ Token: {} }]
       produces 'application/vnd.api+json'
       parameter name: 'page[size]', in: :query, type: :integer, required: false
       parameter name: 'page[number]', in: :query, type: :integer, required: false

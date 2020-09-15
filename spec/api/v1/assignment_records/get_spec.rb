@@ -7,7 +7,7 @@ describe 'Api::V1::AssignmentRecordResource', type: :request, swagger_doc: 'v1/s
   path '/api/v1/assignment_records/{id}' do
     get 'assignment record' do
       tags 'AssignmentRecord'
-      security [{ JWT: {} }]
+      security [{ Token: {} }]
       produces 'application/vnd.api+json'
       parameter name: :id, in: :path, type: :string, required: true
 

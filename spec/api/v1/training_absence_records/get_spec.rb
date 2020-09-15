@@ -7,7 +7,7 @@ describe 'Api::V1::TrainingAbsenceRecordResource', type: :request, swagger_doc: 
   path '/api/v1/training_absence_records/{id}' do
     get 'training_absence record' do
       tags 'TrainingAbsenceRecord'
-      security [{ JWT: {} }]
+      security [{ Token: {} }]
       produces 'application/vnd.api+json'
       parameter name: :id, in: :path, type: :string, required: true
 

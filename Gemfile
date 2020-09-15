@@ -65,10 +65,6 @@ gem 'tzinfo-data', '~> 1.2020.1'
 # https://github.com/thoughtbot/administrate
 gem 'administrate', '~> 0.14.0'
 
-# A ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard.
-# https://github.com/jwt/ruby-jwt
-gem 'jwt', '~> 2.2.2'
-
 # Fixtures replacement with a straightforward definition syntax.
 # https://github.com/thoughtbot/factory_bot
 gem 'factory_bot', '~> 6.1.0'

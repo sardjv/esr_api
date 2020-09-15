@@ -8,7 +8,7 @@ describe 'Api::V1::AssignmentRecordResource', type: :request, swagger_doc: 'v1/s
   path '/api/v1/assignment_records' do
     get 'assignment records' do
       tags 'AssignmentRecord'
-      security [{ JWT: {} }]
+      security [{ Token: {} }]
       produces 'application/vnd.api+json'
       parameter name: 'page[size]', in: :query, type: :integer, required: false
       parameter name: 'page[number]', in: :query, type: :integer, required: false

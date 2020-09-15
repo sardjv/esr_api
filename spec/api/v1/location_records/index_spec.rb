@@ -8,7 +8,7 @@ describe 'Api::V1::LocationRecordResource', type: :request, swagger_doc: 'v1/swa
   path '/api/v1/location_records' do
     get 'person records' do
       tags 'LocationRecord'
-      security [{ JWT: {} }]
+      security [{ Token: {} }]
       produces 'application/vnd.api+json'
       parameter name: 'page[size]', in: :query, type: :integer, required: false
       parameter name: 'page[number]', in: :query, type: :integer, required: false
