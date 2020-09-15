@@ -28,6 +28,9 @@ en:
         content: This token gives complete access to ALL ESR data, including full confidential personal data. It must be kept secret and used with great care. This token can only be viewed once.
       hints:
         name: "Example: HR Team - Business Analytics App"
+    user:
+      errors:
+        cant_deactivate: user can't be deactivated because this is the last remaining activated user
   time:
     formats:
       iso8601_utc: '%Y-%m-%dT%H:%M:%S.000Z'

@@ -55,7 +55,7 @@ describe Ui::UsersController, type: :request do
 
     describe 'PUT update' do
       before { put ui_user_path(user), params: { user: { first_name: updated_name } } }
-      it { expect(response).to be_successful }
+      it { expect(response).to redirect_to(ui_users_path) }
       it { expect(user.reload.first_name).to eq(updated_name) }
 
       describe 'activating user' do

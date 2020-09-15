@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
+  validate :at_least_one_confirmed_user
 
   has_many :tokens, inverse_of: :created_by, dependent: :restrict_with_exception
 
@@ -28,5 +29,21 @@ class User < ApplicationRecord
     else
       update(confirmed_at: nil)
     end
+  end
+
+  def at_least_one_confirmed_user
+    return unless nullifying_confirmed_at? && only_one_confirmed_user?
+
+    errors.add(:activated, I18n.t('user.errors.cant_deactivate'))
+  end
+
+  private
+
+  def nullifying_confirmed_at?
+    changed.include?('confirmed_at') && changes['confirmed_at'].last.nil?
+  end
+
+  def only_one_confirmed_user?
+    (User.count - User.where(confirmed_at: nil).count) < 2
   end
 end

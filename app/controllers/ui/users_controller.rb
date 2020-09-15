@@ -5,9 +5,9 @@ class Ui::UsersController < Ui::ApplicationController
   def update
     if requested_resource.update(resource_params)
       flash[:notice] = translate_with_resource("update.success")
-      render :edit, locals: {
-        page: Administrate::Page::Form.new(dashboard, requested_resource)
-      }
+      redirect_to(
+        action: :index
+      )
     else
       render :edit, locals: {
         page: Administrate::Page::Form.new(dashboard, requested_resource)
