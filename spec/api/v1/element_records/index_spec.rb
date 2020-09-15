@@ -27,8 +27,8 @@ describe 'Api::V1::ElementRecordResource', type: :request, swagger_doc: 'v1/swag
       end
 
       context 'when an admin' do
-        include_context 'Mock Token'
-        let(:Authorization) { 'Bearer dummy_json_web_token' }
+        let(:token) { create(:token) }
+        let(:Authorization) { "Bearer #{token.token}" }
 
         response '200', 'successful' do
           schema '$ref' => '#/definitions/element_records_response'

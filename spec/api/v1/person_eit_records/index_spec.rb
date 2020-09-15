@@ -27,8 +27,8 @@ describe 'Api::V1::PersonEitRecordResource', type: :request, swagger_doc: 'v1/sw
       end
 
       context 'when an admin' do
-        include_context 'Mock Token'
-        let(:Authorization) { 'Bearer dummy_json_web_token' }
+        let(:token) { create(:token) }
+        let(:Authorization) { "Bearer #{token.token}" }
 
         response '200', 'successful' do
           schema '$ref' => '#/definitions/person_eit_records_response'

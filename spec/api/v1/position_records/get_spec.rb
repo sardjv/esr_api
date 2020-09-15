@@ -24,8 +24,8 @@ describe 'Api::V1::PositionRecordResource', type: :request, swagger_doc: 'v1/swa
       end
 
       context 'when an admin' do
-        include_context 'Mock Token'
-        let(:Authorization) { 'Bearer dummy_json_web_token' }
+        let(:token) { create(:token) }
+        let(:Authorization) { "Bearer #{token.token}" }
 
         response '200', 'successful' do
           schema '$ref' => '#/definitions/position_record_response'
