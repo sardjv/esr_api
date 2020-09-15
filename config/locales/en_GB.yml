@@ -19,8 +19,6 @@ en:
       token:
         token_one_time: Token (can only be viewed once)
   models:
-    data:
-      name: Data
     token:
       already_viewed: Token already viewed %{when} ago. If the token has been lost, please create a new one.
       confirm:
@@ -40,6 +38,9 @@ en:
         one: Admin
         other: Admins
   navigation:
+    api:
+      test: Test the API
+    data: Data
     log_out: Log out
   time:
     formats:
