@@ -1,6 +1,15 @@
 require 'administrate/base_dashboard'
 
 class UserDashboard < Administrate::BaseDashboard
+  class << self
+    def model
+      'Admin'
+    end
+
+    def resource_name(_opts = nil)
+      'Admins'
+    end
+  end
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
