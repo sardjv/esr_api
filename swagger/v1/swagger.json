@@ -7,7 +7,7 @@
   },
   "securityDefinitions": {
     "Token": {
-      "description": "The JSON Web Token for authentication.",
+      "description": "The API token for authentication.",
       "type": "apiKey",
       "name": "Authorization",
       "in": "header"
