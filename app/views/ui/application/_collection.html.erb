@@ -36,7 +36,11 @@ to display a collection of resources in an HTML table.
               ).titleize %>
             </th>
           <% end %>
-          <th></th>
+          <% [valid_action?(:show, collection_presenter.resource_name),
+              valid_action?(:edit, collection_presenter.resource_name),
+              valid_action?(:destroy, collection_presenter.resource_name)].count(true).times do %>
+            <th scope="col"></th>
+          <% end %>
         </tr>
       </thead>
       <tbody class="nhsuk-table__body">
@@ -57,6 +61,14 @@ to display a collection of resources in an HTML table.
                   Show
                 </a>
               </td>
+            <% end %>
+
+            <% if valid_action? :edit, collection_presenter.resource_name %>
+              <td><%= link_to(
+                t("administrate.actions.edit"),
+                [:edit, namespace, resource],
+                class: "action-edit",
+              ) if show_action? :edit, resource%></td>
             <% end %>
 
             <% if valid_action? :destroy, collection_presenter.resource_name %>

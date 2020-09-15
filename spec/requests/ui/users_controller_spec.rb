@@ -14,4 +14,24 @@ describe Ui::UsersController, type: :request do
       it { expect(response).to be_successful }
     end
   end
+
+  context 'when not authenticated' do
+    let(:user) { create(:user) }
+
+    describe 'GET edit' do
+      before { get edit_ui_user_path(user) }
+      it { expect(response).to redirect_to(pages_home_path) }
+    end
+  end
+
+  context 'when authenticated' do
+    let(:user) { create(:user) }
+
+    before { sign_in create(:confirmed_user) }
+
+    describe 'GET edit' do
+      before { get edit_ui_user_path(user) }
+      it { expect(response).to be_successful }
+    end
+  end
 end

@@ -38,6 +38,15 @@ class UserDashboard < Administrate::BaseDashboard
     :updated_at
   ].freeze
 
+  # FORM_ATTRIBUTES
+  # an array of attributes that will be displayed
+  # on the model's form (`new` and `edit`) pages.
+  FORM_ATTRIBUTES = [
+    :email,
+    :first_name,
+    :last_name
+  ].freeze
+
   # COLLECTION_FILTERS
   # a hash that defines filters that can be used while searching via the search
   # field of the dashboard.
