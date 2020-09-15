@@ -13,7 +13,7 @@ class Ui::TokensController < Ui::ApplicationController
     if resource.save
       redirect_to(
         [namespace, resource],
-        notice: translate_with_resource('create.success'),
+        notice: translate_with_resource('create.success')
       )
     else
       render :new, locals: {
