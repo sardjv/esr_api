@@ -3,13 +3,14 @@ require 'administrate/base_dashboard'
 class UserDashboard < Administrate::BaseDashboard
   class << self
     def model
-      'Admin'
+      I18n.t('models.user.name', count: 1)
     end
 
     def resource_name(_opts = nil)
-      'Admins'
+      I18n.t('models.user.name', count: 2)
     end
   end
+
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
