@@ -15,4 +15,10 @@ class Token < ApplicationRecord
       token
     end
   end
+
+  def self.verify(token)
+    raise VerificationError unless Token.any? { |t| t.token == token }
+
+    true
+  end
 end
