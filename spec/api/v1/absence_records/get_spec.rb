@@ -27,16 +27,28 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
         let(:token) { create(:token) }
         let(:Authorization) { "Bearer #{token.token}" }
 
-        response '200', 'successful' do
-          schema '$ref' => '#/definitions/absence_record_response'
+        context 'when there are no confirmed users' do
+          response '403', 'Error: Forbidden' do
+            schema '$ref' => '#/definitions/error_403'
 
-          describe 'attributes match database values' do
-            run_test! do
-              response_data['attributes'].each do |key, value|
-                if absence_record.send(key).is_a?(Time)
-                  expect(absence_record.send(key).strftime('%Y-%m-%dT%H:%M:%S.000Z')).to eq(value.to_s)
-                else
-                  expect(absence_record.send(key).to_s).to eq(value.to_s)
+            run_test!
+          end
+        end
+
+        context 'with a confirmed user' do
+          let!(:confirmed_user) { create(:confirmed_user) }
+
+          response '200', 'successful' do
+            schema '$ref' => '#/definitions/absence_record_response'
+
+            describe 'attributes match database values' do
+              run_test! do
+                response_data['attributes'].each do |key, value|
+                  if absence_record.send(key).is_a?(Time)
+                    expect(absence_record.send(key).strftime('%Y-%m-%dT%H:%M:%S.000Z')).to eq(value.to_s)
+                  else
+                    expect(absence_record.send(key).to_s).to eq(value.to_s)
+                  end
                 end
               end
             end

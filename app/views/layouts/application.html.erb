@@ -35,6 +35,8 @@
   <meta name="msapplication-square310x310logo" content="<%= asset_pack_url('media/favicons/largetile-310x310.png') %>">
 
   <%= stylesheet_pack_tag 'nhsuk', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'nhsuk', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body class="js-enabled">
@@ -75,9 +77,6 @@
       </div>
     </div>
   </footer>
-
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'nhsuk', 'data-turbolinks-track': 'reload' %>
 </body>
 
 </html>
