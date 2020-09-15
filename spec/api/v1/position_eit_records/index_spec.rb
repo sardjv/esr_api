@@ -8,7 +8,7 @@ describe 'Api::V1::PositionEitRecordResource', type: :request, swagger_doc: 'v1/
   path '/api/v1/position_eit_records' do
     get 'position_eit records' do
       tags 'PositionEitRecord'
-      security [{ JWT: {} }]
+      security [{ Token: {} }]
       produces 'application/vnd.api+json'
       parameter name: 'page[size]', in: :query, type: :integer, required: false
       parameter name: 'page[number]', in: :query, type: :integer, required: false

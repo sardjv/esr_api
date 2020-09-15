@@ -7,7 +7,7 @@ describe 'Api::V1::OrganisationRecordResource', type: :request, swagger_doc: 'v1
   path '/api/v1/organisation_records/{id}' do
     get 'organisation record' do
       tags 'OrganisationRecord'
-      security [{ JWT: {} }]
+      security [{ Token: {} }]
       produces 'application/vnd.api+json'
       parameter name: :id, in: :path, type: :string, required: true
 

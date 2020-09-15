@@ -7,7 +7,7 @@ describe 'Api::V1::PersonRecordResource', type: :request, swagger_doc: 'v1/swagg
   path '/api/v1/person_records/{id}' do
     get 'person record' do
       tags 'PersonRecord'
-      security [{ JWT: {} }]
+      security [{ Token: {} }]
       produces 'application/vnd.api+json'
       parameter name: :id, in: :path, type: :string, required: true
 

@@ -8,7 +8,7 @@ describe 'Api::V1::ElementRecordResource', type: :request, swagger_doc: 'v1/swag
   path '/api/v1/element_records' do
     get 'element records' do
       tags 'ElementRecord'
-      security [{ JWT: {} }]
+      security [{ Token: {} }]
       produces 'application/vnd.api+json'
       parameter name: 'page[size]', in: :query, type: :integer, required: false
       parameter name: 'page[number]', in: :query, type: :integer, required: false

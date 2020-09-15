@@ -31,7 +31,17 @@ as defined by the routes in the `admin/` namespace
         <%= link_to(ui_tokens_path,
             class: "nhsuk-header__navigation-link"
             ) do %>
-          API Tokens
+          <%= TokenDashboard.resource_name %>
+          <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
+          </svg>
+        <% end%>
+      </li>
+      <li class="nhsuk-header__navigation-item">
+        <%= link_to(rswag_ui_path,
+            class: "nhsuk-header__navigation-link"
+            ) do %>
+          <%= I18n.t('navigation.api.test') %>
           <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
           </svg>
@@ -41,7 +51,7 @@ as defined by the routes in the `admin/` namespace
         <%= link_to(ui_data_path,
             class: "nhsuk-header__navigation-link"
             ) do %>
-          Data
+          <%= I18n.t('navigation.data') %>
           <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
           </svg>
@@ -49,7 +59,7 @@ as defined by the routes in the `admin/` namespace
       </li>
       <li class="nhsuk-header__navigation-item">
         <a class="nhsuk-header__navigation-link" href="<%= destroy_user_session_path %>" data-method="delete">
-          Log out
+          <%= I18n.t('navigation.log_out') %>
           <svg class="nhsuk-icon nhsuk-icon__chevron-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M15.5 12a1 1 0 0 1-.29.71l-5 5a1 1 0 0 1-1.42-1.42l4.3-4.29-4.3-4.29a1 1 0 0 1 1.42-1.42l5 5a1 1 0 0 1 .29.71z"></path>
           </svg>

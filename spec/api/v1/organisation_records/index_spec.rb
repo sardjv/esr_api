@@ -8,7 +8,7 @@ describe 'Api::V1::OrganisationRecordResource', type: :request, swagger_doc: 'v1
   path '/api/v1/organisation_records' do
     get 'organisation records' do
       tags 'OrganisationRecord'
-      security [{ JWT: {} }]
+      security [{ Token: {} }]
       produces 'application/vnd.api+json'
       parameter name: 'page[size]', in: :query, type: :integer, required: false
       parameter name: 'page[number]', in: :query, type: :integer, required: false

@@ -28,9 +28,20 @@ en:
         content: This token gives complete access to ALL ESR data, including full confidential personal data. It must be kept secret and used with great care. This token can only be viewed once.
       hints:
         name: "Example: HR Team - Business Analytics App"
+      name:
+        one: API Token
+        other: API Tokens
     user:
       errors:
         cant_deactivate: can't deactivate the only active user
+      name:
+        one: Admin
+        other: Admins
+  navigation:
+    api:
+      test: Test the API
+    data: Data
+    log_out: Log out
   time:
     formats:
       iso8601_utc: '%Y-%m-%dT%H:%M:%S.000Z'

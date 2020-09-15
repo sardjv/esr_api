@@ -7,7 +7,7 @@ describe 'Api::V1::QualificationRecordResource', type: :request, swagger_doc: 'v
   path '/api/v1/qualification_records/{id}' do
     get 'qualification record' do
       tags 'QualificationRecord'
-      security [{ JWT: {} }]
+      security [{ Token: {} }]
       produces 'application/vnd.api+json'
       parameter name: :id, in: :path, type: :string, required: true
 
