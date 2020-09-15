@@ -66,7 +66,6 @@ describe Ui::UsersController, type: :request do
           before { put ui_user_path(user), params: { user: { activated: '0' } } }
           it { expect(user.reload.confirmed_at).to eq(nil) }
         end
-
       end
     end
   end

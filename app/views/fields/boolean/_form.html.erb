@@ -15,9 +15,14 @@ By default, the input is a checkbox.
 [1]: http://www.rubydoc.info/gems/administrate/Administrate/Field/Boolean
 %>
 
-<div class="field-unit__label">
-  <%= f.label field.attribute %>
-</div>
-<div class="field-unit__field">
-  <%= f.check_box field.attribute %>
+<% errors.each do |error| %>
+  <span class="nhsuk-error-message" id="input-with-error-message-error">
+    <span class="nhsuk-u-visually-hidden">Error:</span><%= error %>
+  </span>
+<% end %>
+<div class="nhsuk-checkboxes">
+  <div class="nhsuk-checkboxes__item">
+    <%= f.check_box field.attribute, class: "nhsuk-checkboxes__input" %>
+    <%= f.label field.attribute, class: "nhsuk-label nhsuk-checkboxes__label" %>
+  </div>
 </div>

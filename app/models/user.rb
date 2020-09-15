@@ -34,7 +34,11 @@ class User < ApplicationRecord
   def at_least_one_confirmed_user
     return unless nullifying_confirmed_at? && only_one_confirmed_user?
 
-    errors.add(:activated, I18n.t('user.errors.cant_deactivate'))
+    errors.add(:activated, I18n.t('models.user.errors.cant_deactivate', name: name))
+  end
+
+  def name
+    "#{first_name} #{last_name}"
   end
 
   private
