@@ -513,10 +513,10 @@ ActiveRecord::Schema.define(version: 2020_09_15_101900) do
     t.index ["Special Information ID"], name: "index_sit_records_on_Special Information ID", unique: true
   end
 
-  create_table "tokens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+  create_table "tokens", force: :cascade do |t|
     t.string "name", null: false
     t.string "token_ciphertext", null: false
-    t.timestamp "token_viewed_at"
+    t.datetime "token_viewed_at"
     t.bigint "created_by_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -562,7 +562,7 @@ ActiveRecord::Schema.define(version: 2020_09_15_101900) do
     t.index ["Absence Attendance ID"], name: "index_training_absence_records_on_Absence Attendance ID", unique: true
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "encrypted_password", null: false
     t.string "reset_password_token"
