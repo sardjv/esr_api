@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_15_101900) do
+ActiveRecord::Schema.define(version: 2020_09_16_100500) do
 
   create_table "absence_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "Person ID"
@@ -521,6 +521,36 @@ ActiveRecord::Schema.define(version: 2020_09_15_101900) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "token_bidx"
+    t.string "authorized_absence_records_actions", default: "", null: false
+    t.string "authorized_absence_records_attributes", default: "", null: false
+    t.string "authorized_assignment_records_actions", default: "", null: false
+    t.string "authorized_assignment_records_attributes", default: "", null: false
+    t.string "authorized_competency_records_actions", default: "", null: false
+    t.string "authorized_competency_records_attributes", default: "", null: false
+    t.string "authorized_costing_records_actions", default: "", null: false
+    t.string "authorized_costing_records_attributes", default: "", null: false
+    t.string "authorized_disability_records_actions", default: "", null: false
+    t.string "authorized_disability_records_attributes", default: "", null: false
+    t.string "authorized_element_records_actions", default: "", null: false
+    t.string "authorized_element_records_attributes", default: "", null: false
+    t.string "authorized_location_records_actions", default: "", null: false
+    t.string "authorized_location_records_attributes", default: "", null: false
+    t.string "authorized_organisation_records_actions", default: "", null: false
+    t.string "authorized_organisation_records_attributes", default: "", null: false
+    t.string "authorized_person_eit_records_actions", default: "", null: false
+    t.string "authorized_person_eit_records_attributes", default: "", null: false
+    t.string "authorized_person_records_actions", default: "", null: false
+    t.string "authorized_person_records_attributes", default: "", null: false
+    t.string "authorized_position_eit_records_actions", default: "", null: false
+    t.string "authorized_position_eit_records_attributes", default: "", null: false
+    t.string "authorized_position_records_actions", default: "", null: false
+    t.string "authorized_position_records_attributes", default: "", null: false
+    t.string "authorized_qualification_records_actions", default: "", null: false
+    t.string "authorized_qualification_records_attributes", default: "", null: false
+    t.string "authorized_sit_records_actions", default: "", null: false
+    t.string "authorized_sit_records_attributes", default: "", null: false
+    t.string "authorized_training_absence_records_actions", default: "", null: false
+    t.string "authorized_training_absence_records_attributes", default: "", null: false
     t.index ["created_by_id"], name: "index_tokens_on_created_by_id"
     t.index ["name", "created_by_id"], name: "index_tokens_on_name_and_created_by_id", unique: true
     t.index ["token_bidx"], name: "index_tokens_on_token_bidx", unique: true
