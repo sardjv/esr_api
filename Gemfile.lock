@@ -1,12 +1,3 @@
-GIT
-  remote: https://github.com/rails-sqlserver/activerecord-sqlserver-adapter
-  revision: 0c35cc2608838a412b308b5363d88c14a6501323
-  branch: 6-0-dev
-  specs:
-    activerecord-sqlserver-adapter (6.0.0)
-      activerecord (~> 6.0.0)
-      tiny_tds
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -54,6 +45,9 @@ GEM
     activerecord (6.0.3.3)
       activemodel (= 6.0.3.3)
       activesupport (= 6.0.3.3)
+    activerecord-sqlserver-adapter (6.0.0)
+      activerecord (~> 6.0.0)
+      tiny_tds
     activestorage (6.0.3.3)
       actionpack (= 6.0.3.3)
       activejob (= 6.0.3.3)
@@ -356,7 +350,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-sqlserver-adapter!
+  activerecord-sqlserver-adapter (~> 6.0.0)
   administrate (~> 0.14.0)
   administrate_exportable (~> 0.2.0)
   blind_index

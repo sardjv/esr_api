@@ -64,8 +64,6 @@ services:
       - '.:/app'
       # We cache the bundle so that we don't re-download every gem on any change to the Gemfile.
       - bundle_cache:/bundle
-    links:
-      - mailcatcher
     environment:
       - BUNDLE_PATH=/bundle/vendor
       - WEBPACKER_DEV_SERVER_HOST=webpacker
@@ -105,12 +103,6 @@ services:
       - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
     env_file:
       - '.env'
-
-  mailcatcher:
-    image: yappabe/mailcatcher
-    ports:
-      - '1025:1025'
-      - '1080:1080'
 
 volumes:
   bundle_cache:
