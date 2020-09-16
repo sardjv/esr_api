@@ -1,4 +1,4 @@
-require_relative 'production.rb'
+require_relative 'production'
 
 Rails.application.configure do
   # Overwrite any production settings here, or if you want to start from

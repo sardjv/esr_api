@@ -9,8 +9,8 @@ class Api::V1::Swagger::Core
           description: 'This is the ESR API. For more information visit <a href="https://github.com/sardjv/esr_api">github.com/sardjv/esr_api</a>.'
         },
         securityDefinitions: {
-          JWT: {
-            description: 'The JSON Web Token from Auth0 for authentication.',
+          Token: {
+            description: 'The API token for authentication.',
             type: :apiKey,
             name: 'Authorization',
             in: :header
@@ -38,7 +38,8 @@ class Api::V1::Swagger::Core
       Api::V1::Swagger::PositionRecord.definitions,
       Api::V1::Swagger::QualificationRecord.definitions,
       Api::V1::Swagger::SitRecord.definitions,
-      Api::V1::Swagger::TrainingAbsenceRecord.definitions
+      Api::V1::Swagger::TrainingAbsenceRecord.definitions,
+      Api::V1::Swagger::Errors.definitions
     ]
   end
 end

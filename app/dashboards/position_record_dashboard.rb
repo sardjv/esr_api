@@ -1,4 +1,4 @@
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 
 class PositionRecordDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -8,28 +8,28 @@ class PositionRecordDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    :'id' => Field::Number,
-    :'Position ID' => Field::String,
-    :'Effective From Date' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
-    :'Effective To Date' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
-    :'Position Number' => Field::String,
-    :'Position Name' => Field::String,
-    :'Budgeted FTE' => Field::String,
-    :'Subjective Code' => Field::String,
-    :'Job Staff Group' => Field::String,
-    :'Job Role' => Field::String,
-    :'Occupation Code' => Field::String,
-    :'Payscale' => Field::String,
-    :'Grade Step' => Field::String,
-    :'ISA Regulated Post' => Field::String,
-    :'Organisation ID' => Field::String,
-    :'Hiring Status' => Field::String,
-    :'Position Type' => Field::String,
-    :'Workplace Org Code' => Field::String,
-    :'Last Update Date' => Field::DateTime,
-    :'Subjective Code Description' => Field::String,
-    :'created_at' => Field::DateTime,
-    :'updated_at' => Field::DateTime,
+    'id': Field::Number,
+    'Position ID': Field::String,
+    'Effective From Date': Field::Date.with_options(transform_on_export: ->(field) { field.data.strftime('%d/%m/%Y') }),
+    'Effective To Date': Field::Date.with_options(transform_on_export: ->(field) { field.data.strftime('%d/%m/%Y') }),
+    'Position Number': Field::String,
+    'Position Name': Field::String,
+    'Budgeted FTE': Field::String,
+    'Subjective Code': Field::String,
+    'Job Staff Group': Field::String,
+    'Job Role': Field::String,
+    'Occupation Code': Field::String,
+    'Payscale': Field::String,
+    'Grade Step': Field::String,
+    'ISA Regulated Post': Field::String,
+    'Organisation ID': Field::String,
+    'Hiring Status': Field::String,
+    'Position Type': Field::String,
+    'Workplace Org Code': Field::String,
+    'Last Update Date': Field::DateTime,
+    'Subjective Code Description': Field::String,
+    'created_at': Field::DateTime,
+    'updated_at': Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -38,15 +38,15 @@ class PositionRecordDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :'id',
+    :id,
     :'Position ID',
-    :'Effective From Date',
+    :'Effective From Date'
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :'id',
+    :id,
     :'Position ID',
     :'Effective From Date',
     :'Effective To Date',
@@ -57,7 +57,7 @@ class PositionRecordDashboard < Administrate::BaseDashboard
     :'Job Staff Group',
     :'Job Role',
     :'Occupation Code',
-    :'Payscale',
+    :Payscale,
     :'Grade Step',
     :'ISA Regulated Post',
     :'Organisation ID',
@@ -66,8 +66,8 @@ class PositionRecordDashboard < Administrate::BaseDashboard
     :'Workplace Org Code',
     :'Last Update Date',
     :'Subjective Code Description',
-    :'created_at',
-    :'updated_at',
+    :created_at,
+    :updated_at
   ].freeze
 
   # COLLECTION_FILTERS

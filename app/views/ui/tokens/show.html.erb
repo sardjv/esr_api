@@ -1,0 +1,64 @@
+<%#
+# Show
+This view is the template for the show page.
+It renders the attributes of a resource,
+as well as a link to its edit page.
+## Local variables:
+- `page`:
+  An instance of [Administrate::Page::Show][1].
+  Contains methods for accessing the resource to be displayed on the page,
+  as well as helpers for describing how each attribute of the resource
+  should be displayed.
+[1]: http://www.rubydoc.info/gems/administrate/Administrate/Page/Show
+%>
+<% content_for(:title) { t("administrate.actions.show_resource", name: page.page_title) } %>
+<header class="main-content__header" role="banner">
+  <h1 class="main-content__page-title">
+    <%= content_for(:title) %>
+  </h1>
+  <div>
+    <%= link_to(
+      t("administrate.actions.edit_resource", name: page.page_title),
+      [:edit, namespace, page.resource],
+      class: "button",
+    ) if valid_action?(:edit) && show_action?(:edit, page.resource) %>
+  </div>
+</header>
+
+<div class='nhsuk-warning-callout'>
+  <h3 class='nhsuk-warning-callout__label'>
+    <%= I18n.t('models.token.instructions.title') %>
+  </h3>
+  <p>
+    <%= I18n.t('models.token.instructions.content') %>
+  </p>
+</div>
+
+<div class="nhsuk-table__panel-with-heading-tab">
+  <div class="nhsuk-table-responsive">
+    <table class="nhsuk-table">
+      <caption class="nhsuk-table__caption">Other possible causes of your symptoms</caption>
+      <thead class="nhsuk-table__head">
+        <tr class="nhsuk-table__row">
+          <th class="nhsuk-table__header" scope="col"></th>
+          <th class="nhsuk-table__header" scope="col"></th>
+        </tr>
+      </thead>
+      <tbody class="nhsuk-table__body">
+        <% page.attributes.each do |attribute| %>
+        <tr class="nhsuk-table__row">
+          <td class="nhsuk-table__cell">
+            <%= t(
+              "helpers.label.#{resource_name}.#{attribute.name}",
+              default: attribute.name.titleize,
+            ) %>
+          </td>
+          <td class="nhsuk-table__cell ">
+            <%= render_field attribute, page: page %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

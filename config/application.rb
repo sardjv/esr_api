@@ -45,6 +45,10 @@ module EsrApi
       from: ENV['ACTION_MAILER_DEFAULT_FROM']
     }
 
+    # We don't necessarily have the ability to send emails within an organisation,
+    # so disable them here.
+    config.action_mailer.perform_deliveries = false
+
     # Set Redis as the back-end for the cache.
     config.cache_store = :redis_cache_store, {
       url: ENV['REDIS_CACHE_URL'],
@@ -55,6 +59,5 @@ module EsrApi
     config.active_job.queue_adapter = :sidekiq
     config.active_job.queue_name_prefix =
       "#{ENV['ACTIVE_JOB_QUEUE_PREFIX']}_#{Rails.env}"
-
   end
 end

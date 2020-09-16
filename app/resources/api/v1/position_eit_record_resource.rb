@@ -3,5 +3,5 @@ class Api::V1::PositionEitRecordResource < JSONAPI::Resource
 
   model_name 'PositionEitRecord'
 
-  attributes *ETL::Headers::PositionEitRecord.api_headers
+  attributes(*ETL::Headers::PositionEitRecord.api_headers)
 end

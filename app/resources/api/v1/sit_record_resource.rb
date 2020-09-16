@@ -3,5 +3,5 @@ class Api::V1::SitRecordResource < JSONAPI::Resource
 
   model_name 'SitRecord'
 
-  attributes *ETL::Headers::SitRecord.api_headers
+  attributes(*ETL::Headers::SitRecord.api_headers)
 end

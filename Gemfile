@@ -6,7 +6,7 @@ gem 'rails', '~> 6.0.3'
 
 # A Ruby/Rack web server built for concurrency.
 # https://github.com/puma/puma
-gem 'puma', '~> 4.3.5'
+gem 'puma', '~> 4.3.6'
 
 # Use PostgreSQL as the database for Active Record.
 # https://github.com/ged/ruby-pg
@@ -30,11 +30,11 @@ gem 'activerecord-sqlserver-adapter', git: 'https://github.com/rails-sqlserver/a
 
 # A very fast key-value store to hold jobs until they are run.
 # https://github.com/redis/redis-rb
-gem 'redis', '~> 4.2.1'
+gem 'redis', '~> 4.2.2'
 
 # Simple, efficient background processing for Ruby.
 # https://github.com/mperham/sidekiq
-gem 'sidekiq', '~> 6.1.1'
+gem 'sidekiq', '~> 6.1.2'
 
 # Data processing & ETL framework for Ruby.
 # https://github.com/thbar/kiba
@@ -51,7 +51,7 @@ gem 'rswag-ui', '~> 2.3.1'
 
 # Use Webpack to manage app-like JavaScript modules in Rails.
 # https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.1.1'
+gem 'webpacker', '~> 5.2.1'
 
 # A resource-focused Rails library for developing JSON:API compliant servers.
 # https://github.com/cerebris/jsonapi-resources
@@ -65,29 +65,29 @@ gem 'tzinfo-data', '~> 1.2020.1'
 # https://github.com/thoughtbot/administrate
 gem 'administrate', '~> 0.14.0'
 
-# OmniAuth is a flexible authentication system utilizing Rack middleware.
-# https://github.com/auth0/omniauth-auth0
-gem 'omniauth-auth0', '~> 2.3.1'
-
-# Provides CSRF protection on OmniAuth request endpoint on Rails application.
-# https://github.com/cookpad/omniauth-rails_csrf_protection
-gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
-
-# A ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard.
-# https://github.com/jwt/ruby-jwt
-gem 'jwt', '~> 2.2.1'
-
 # Fixtures replacement with a straightforward definition syntax.
 # https://github.com/thoughtbot/factory_bot
 gem 'factory_bot', '~> 6.1.0'
 
 # Generate fake data such as names, addresses, and phone numbers.
 # https://github.com/faker-ruby/faker
-gem 'faker', '~> 2.13.0'
+gem 'faker', '~> 2.14.0'
 
 # Simple plugin to add CSV export feature to Administrate.
 # https://github.com/SourceLabsLLC/administrate_exportable
 gem 'administrate_exportable', '~> 0.2.0'
+
+# Flexible authentication solution for Rails with Warden.
+# https://github.com/heartcombo/devise
+gem 'devise', '~> 4.7.2'
+
+# Modern encryption for Rails. Works with database fields, files, and strings.
+# https://github.com/ankane/lockbox#active-record
+gem 'lockbox', '~> 0.4.8'
+
+# Securely search encrypted database fields.
+# https://github.com/ankane/blind_index
+gem 'blind_index'
 
 group :development, :test do
   # Call 'byebug' anywhere in your code to drop into a debugger console.
@@ -110,11 +110,11 @@ group :development do
 
   # A static code analyzer and formatter, based on the community style guide.
   # https://github.com/rubocop-hq/rubocop-rails
-  gem 'rubocop-rails', '~> 2.7.0'
+  gem 'rubocop-rails', '~> 2.8.1'
 
   # Tool to check dependency licenses.
   # https://github.com/pivotal/LicenseFinder
-  gem 'license_finder', '~> 6.6.1'
+  gem 'license_finder', '~> 6.8.2'
 end
 
 group :test do
@@ -124,7 +124,11 @@ group :test do
 
   # Generate code coverage documentation.
   # https://github.com/colszowka/simplecov
-  gem 'simplecov', '~> 0.18.5'
+  gem 'simplecov', '~> 0.19.0'
+
+  # Simple one-liner tests for common Rails functionality.
+  # https://github.com/thoughtbot/shoulda-matchers
+  gem 'shoulda-matchers', '~> 4.4.1'
 
   # Strategies for cleaning databases between tests.
   # https://github.com/DatabaseCleaner/database_cleaner

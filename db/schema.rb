@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_16_143042) do
+ActiveRecord::Schema.define(version: 2020_09_15_101900) do
 
   create_table "absence_records", force: :cascade do |t|
     t.string "Person ID"
@@ -513,6 +513,20 @@ ActiveRecord::Schema.define(version: 2020_04_16_143042) do
     t.index ["Special Information ID"], name: "index_sit_records_on_Special Information ID", unique: true
   end
 
+  create_table "tokens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "token_ciphertext", null: false
+    t.timestamp "token_viewed_at"
+    t.bigint "created_by_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "token_bidx"
+    t.index ["created_by_id"], name: "index_tokens_on_created_by_id"
+    t.index ["name", "created_by_id"], name: "index_tokens_on_name_and_created_by_id", unique: true
+    t.index ["token_bidx"], name: "index_tokens_on_token_bidx", unique: true
+    t.index ["token_ciphertext"], name: "index_tokens_on_token_ciphertext", unique: true
+  end
+
   create_table "training_absence_records", force: :cascade do |t|
     t.string "Person ID"
     t.string "Absence Attendance ID"
@@ -546,6 +560,24 @@ ActiveRecord::Schema.define(version: 2020_04_16_143042) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["Absence Attendance ID"], name: "index_training_absence_records_on_Absence Attendance ID", unique: true
+  end
+
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "encrypted_password", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

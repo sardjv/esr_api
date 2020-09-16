@@ -3,5 +3,5 @@ class Api::V1::CompetencyRecordResource < JSONAPI::Resource
 
   model_name 'CompetencyRecord'
 
-  attributes *ETL::Headers::CompetencyRecord.api_headers
+  attributes(*ETL::Headers::CompetencyRecord.api_headers)
 end

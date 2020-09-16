@@ -1,4 +1,4 @@
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 
 class DisabilityRecordDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -8,13 +8,13 @@ class DisabilityRecordDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    :'id' => Field::Number,
-    :'Person ID' => Field::String,
-    :'Disability ID' => Field::String,
-    :'Category' => Field::String,
-    :'Status' => Field::String,
-    :'created_at' => Field::DateTime,
-    :'updated_at' => Field::DateTime,
+    'id': Field::Number,
+    'Person ID': Field::String,
+    'Disability ID': Field::String,
+    'Category': Field::String,
+    'Status': Field::String,
+    'created_at': Field::DateTime,
+    'updated_at': Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -23,22 +23,22 @@ class DisabilityRecordDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :'id',
+    :id,
     :'Person ID',
     :'Disability ID',
-    :'Category',
+    :Category
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :'id',
+    :id,
     :'Person ID',
     :'Disability ID',
-    :'Category',
-    :'Status',
-    :'created_at',
-    :'updated_at',
+    :Category,
+    :Status,
+    :created_at,
+    :updated_at
   ].freeze
 
   # COLLECTION_FILTERS

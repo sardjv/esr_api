@@ -3,5 +3,5 @@ class Api::V1::CostingRecordResource < JSONAPI::Resource
 
   model_name 'CostingRecord'
 
-  attributes *ETL::Headers::CostingRecord.api_headers
+  attributes(*ETL::Headers::CostingRecord.api_headers)
 end

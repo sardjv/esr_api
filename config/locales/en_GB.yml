@@ -1,4 +1,7 @@
 en:
+  administrate:
+    actions:
+      destroy: Delete
   faker:
     absence_record:
       absence_type:
@@ -11,4 +14,35 @@ en:
         - Appointment
         - Training
         - Disciplinary
-
+  helpers:
+    label:
+      token:
+        token_one_time: Token (can only be viewed once)
+  models:
+    token:
+      already_viewed: Token already viewed %{when} ago. If the token has been lost, please create a new one.
+      confirm:
+        destroy: Are you sure? This token will be permanently deleted and any applications using it will no longer be able to access the API.
+      instructions:
+        title: API Token
+        content: This token gives complete access to ALL ESR data, including full confidential personal data. It must be kept secret and used with great care. This token can only be viewed once.
+      hints:
+        name: "Example: HR Team - Business Analytics App"
+      name:
+        one: API Token
+        other: API Tokens
+    user:
+      errors:
+        cant_deactivate: can't deactivate the only active user
+      name:
+        one: Admin
+        other: Admins
+  navigation:
+    api:
+      test: Test the API
+    data: Data
+    log_out: Log out
+  time:
+    formats:
+      iso8601_utc: '%Y-%m-%dT%H:%M:%S.000Z'
+      readable: '%H:%M on %d %b %Y'

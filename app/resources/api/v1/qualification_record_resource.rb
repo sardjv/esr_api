@@ -3,5 +3,5 @@ class Api::V1::QualificationRecordResource < JSONAPI::Resource
 
   model_name 'QualificationRecord'
 
-  attributes *ETL::Headers::QualificationRecord.api_headers
+  attributes(*ETL::Headers::QualificationRecord.api_headers)
 end

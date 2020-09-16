@@ -1,4 +1,4 @@
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 
 class QualificationRecordDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -8,21 +8,21 @@ class QualificationRecordDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    :'id' => Field::Number,
-    :'Person ID' => Field::String,
-    :'Qualification ID' => Field::String,
-    :'Qualification Type' => Field::String,
-    :'Title' => Field::String,
-    :'Status' => Field::String,
-    :'Grade' => Field::String,
-    :'Awarded Date' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
-    :'Start Date' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
-    :'End Date' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
-    :'Establishment' => Field::String,
-    :'Country' => Field::String,
-    :'Last Update Date' => Field::DateTime,
-    :'created_at' => Field::DateTime,
-    :'updated_at' => Field::DateTime,
+    'id': Field::Number,
+    'Person ID': Field::String,
+    'Qualification ID': Field::String,
+    'Qualification Type': Field::String,
+    'Title': Field::String,
+    'Status': Field::String,
+    'Grade': Field::String,
+    'Awarded Date': Field::Date.with_options(transform_on_export: ->(field) { field.data.strftime('%d/%m/%Y') }),
+    'Start Date': Field::Date.with_options(transform_on_export: ->(field) { field.data.strftime('%d/%m/%Y') }),
+    'End Date': Field::Date.with_options(transform_on_export: ->(field) { field.data.strftime('%d/%m/%Y') }),
+    'Establishment': Field::String,
+    'Country': Field::String,
+    'Last Update Date': Field::DateTime,
+    'created_at': Field::DateTime,
+    'updated_at': Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -31,30 +31,30 @@ class QualificationRecordDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :'id',
+    :id,
     :'Person ID',
     :'Qualification ID',
-    :'Qualification Type',
+    :'Qualification Type'
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :'id',
+    :id,
     :'Person ID',
     :'Qualification ID',
     :'Qualification Type',
-    :'Title',
-    :'Status',
-    :'Grade',
+    :Title,
+    :Status,
+    :Grade,
     :'Awarded Date',
     :'Start Date',
     :'End Date',
-    :'Establishment',
-    :'Country',
+    :Establishment,
+    :Country,
     :'Last Update Date',
-    :'created_at',
-    :'updated_at',
+    :created_at,
+    :updated_at
   ].freeze
 
   # COLLECTION_FILTERS

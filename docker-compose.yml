@@ -54,20 +54,21 @@ services:
     depends_on:
       - 'db'
       - 'redis'
+      - webpacker
     build: .
-    # 1) Remove any existing server process in case of dirty shutdown, with -f in case the file doesn't exist.
-    # 2) if `bundle check` indicates it's needed, `bundle install` here rather than in Dockerfile,
-    #    so that we can cache its result in the bundle_cache container.
-    # 3) Start server.
     command: ./script/start_rails.sh
+    # command: ./script/start_rails_first_time.sh # Use this the first time you start up the project.
     ports:
       - '3000:3000'
     volumes:
       - '.:/app'
       # We cache the bundle so that we don't re-download every gem on any change to the Gemfile.
       - bundle_cache:/bundle
+    links:
+      - mailcatcher
     environment:
       - BUNDLE_PATH=/bundle/vendor
+      - WEBPACKER_DEV_SERVER_HOST=webpacker
     env_file:
       - '.env'
 
@@ -90,6 +91,26 @@ services:
       - BUNDLE_PATH=/bundle/vendor
     env_file:
       - '.env'
+
+  webpacker:
+    build: .
+    command: ./bin/webpack-dev-server
+    ports:
+      - '3035:3035'
+    volumes:
+      - '.:/app'
+      - bundle_cache:/bundle
+    environment:
+      - BUNDLE_PATH=/bundle/vendor
+      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
+    env_file:
+      - '.env'
+
+  mailcatcher:
+    image: yappabe/mailcatcher
+    ports:
+      - '1025:1025'
+      - '1080:1080'
 
 volumes:
   bundle_cache:

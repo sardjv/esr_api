@@ -1,4 +1,4 @@
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 
 class TrainingAbsenceRecordDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -8,38 +8,38 @@ class TrainingAbsenceRecordDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    :'id' => Field::Number,
-    :'Person ID' => Field::String,
-    :'Absence Attendance ID' => Field::String,
-    :'Absence Type' => Field::String,
-    :'Absence Reason' => Field::String,
-    :'Status' => Field::String,
-    :'Notification Date' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
-    :'Projected Start Date' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
-    :'Projected Start Time' => Field::String,
-    :'Projected End Date' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
-    :'Projected End Time' => Field::String,
-    :'Actual Start Date' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
-    :'Actual Start Time' => Field::String,
-    :'Actual End Date' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
-    :'Actual End Time' => Field::String,
-    :'Sickness Start Date' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
-    :'Sickness End Date' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
-    :'Absence Duration Days' => Field::String,
-    :'Absence Duration Hours' => Field::String,
-    :'Absence Units' => Field::String,
-    :'Hours Lost' => Field::String,
-    :'Sessions Lost' => Field::String,
-    :'Work Related' => Field::String,
-    :'Third Party' => Field::String,
-    :'Disability Related' => Field::String,
-    :'Violence & Aggression Related' => Field::String,
-    :'Notifiable Disease' => Field::String,
-    :'Return To Work Discussion Date' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
-    :'Occupational Health Referral Date' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
-    :'Last Update Date' => Field::DateTime,
-    :'created_at' => Field::DateTime,
-    :'updated_at' => Field::DateTime,
+    'id': Field::Number,
+    'Person ID': Field::String,
+    'Absence Attendance ID': Field::String,
+    'Absence Type': Field::String,
+    'Absence Reason': Field::String,
+    'Status': Field::String,
+    'Notification Date': Field::Date.with_options(transform_on_export: ->(field) { field.data.strftime('%d/%m/%Y') }),
+    'Projected Start Date': Field::Date.with_options(transform_on_export: ->(field) { field.data.strftime('%d/%m/%Y') }),
+    'Projected Start Time': Field::String,
+    'Projected End Date': Field::Date.with_options(transform_on_export: ->(field) { field.data.strftime('%d/%m/%Y') }),
+    'Projected End Time': Field::String,
+    'Actual Start Date': Field::Date.with_options(transform_on_export: ->(field) { field.data.strftime('%d/%m/%Y') }),
+    'Actual Start Time': Field::String,
+    'Actual End Date': Field::Date.with_options(transform_on_export: ->(field) { field.data.strftime('%d/%m/%Y') }),
+    'Actual End Time': Field::String,
+    'Sickness Start Date': Field::Date.with_options(transform_on_export: ->(field) { field.data.strftime('%d/%m/%Y') }),
+    'Sickness End Date': Field::Date.with_options(transform_on_export: ->(field) { field.data.strftime('%d/%m/%Y') }),
+    'Absence Duration Days': Field::String,
+    'Absence Duration Hours': Field::String,
+    'Absence Units': Field::String,
+    'Hours Lost': Field::String,
+    'Sessions Lost': Field::String,
+    'Work Related': Field::String,
+    'Third Party': Field::String,
+    'Disability Related': Field::String,
+    'Violence & Aggression Related': Field::String,
+    'Notifiable Disease': Field::String,
+    'Return To Work Discussion Date': Field::Date.with_options(transform_on_export: ->(field) { field.data.strftime('%d/%m/%Y') }),
+    'Occupational Health Referral Date': Field::Date.with_options(transform_on_export: ->(field) { field.data.strftime('%d/%m/%Y') }),
+    'Last Update Date': Field::DateTime,
+    'created_at': Field::DateTime,
+    'updated_at': Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -48,21 +48,21 @@ class TrainingAbsenceRecordDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :'id',
+    :id,
     :'Person ID',
     :'Absence Attendance ID',
-    :'Absence Type',
+    :'Absence Type'
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :'id',
+    :id,
     :'Person ID',
     :'Absence Attendance ID',
     :'Absence Type',
     :'Absence Reason',
-    :'Status',
+    :Status,
     :'Notification Date',
     :'Projected Start Date',
     :'Projected Start Time',
@@ -87,8 +87,8 @@ class TrainingAbsenceRecordDashboard < Administrate::BaseDashboard
     :'Return To Work Discussion Date',
     :'Occupational Health Referral Date',
     :'Last Update Date',
-    :'created_at',
-    :'updated_at',
+    :created_at,
+    :updated_at
   ].freeze
 
   # COLLECTION_FILTERS

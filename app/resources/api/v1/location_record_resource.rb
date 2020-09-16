@@ -3,5 +3,5 @@ class Api::V1::LocationRecordResource < JSONAPI::Resource
 
   model_name 'LocationRecord'
 
-  attributes *ETL::Headers::LocationRecord.api_headers
+  attributes(*ETL::Headers::LocationRecord.api_headers)
 end

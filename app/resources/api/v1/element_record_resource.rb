@@ -3,5 +3,5 @@ class Api::V1::ElementRecordResource < JSONAPI::Resource
 
   model_name 'ElementRecord'
 
-  attributes *ETL::Headers::ElementRecord.api_headers
+  attributes(*ETL::Headers::ElementRecord.api_headers)
 end

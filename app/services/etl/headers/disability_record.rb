@@ -15,7 +15,7 @@ class ETL::Headers::DisabilityRecord
       'not_used',
       'not_used',
       'not_used',
-      'not_used',
+      'not_used'
     ].freeze
   end
 

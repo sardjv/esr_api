@@ -1,4 +1,4 @@
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 
 class CompetencyRecordDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -8,31 +8,31 @@ class CompetencyRecordDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    :'id' => Field::Number,
-    :'Person ID' => Field::String,
-    :'Competency Element ID' => Field::String,
-    :'Competency Type' => Field::String,
-    :'Competency Status' => Field::String,
-    :'Competency Name' => Field::String,
-    :'Date From' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
-    :'Date To' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
-    :'Proficiency Level' => Field::String,
-    :'VPD Code' => Field::String,
-    :'Certification Date' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
-    :'Certification Method' => Field::String,
-    :'Next Certification Date' => Field::Date.with_options(transform_on_export: -> (field) { field.data.strftime("%d/%m/%Y") }),
-    :'Competence ID' => Field::String,
-    :'Business Group ID' => Field::String,
-    :'Job ID' => Field::String,
-    :'Organisation ID' => Field::String,
-    :'Position ID' => Field::String,
-    :'Proficiency Level ID' => Field::String,
-    :'Proficiency High Level ID' => Field::String,
-    :'Essential Flag' => Field::String,
-    :'Records Type' => Field::String,
-    :'Last Update Date' => Field::DateTime,
-    :'created_at' => Field::DateTime,
-    :'updated_at' => Field::DateTime,
+    'id': Field::Number,
+    'Person ID': Field::String,
+    'Competency Element ID': Field::String,
+    'Competency Type': Field::String,
+    'Competency Status': Field::String,
+    'Competency Name': Field::String,
+    'Date From': Field::Date.with_options(transform_on_export: ->(field) { field.data.strftime('%d/%m/%Y') }),
+    'Date To': Field::Date.with_options(transform_on_export: ->(field) { field.data.strftime('%d/%m/%Y') }),
+    'Proficiency Level': Field::String,
+    'VPD Code': Field::String,
+    'Certification Date': Field::Date.with_options(transform_on_export: ->(field) { field.data.strftime('%d/%m/%Y') }),
+    'Certification Method': Field::String,
+    'Next Certification Date': Field::Date.with_options(transform_on_export: ->(field) { field.data.strftime('%d/%m/%Y') }),
+    'Competence ID': Field::String,
+    'Business Group ID': Field::String,
+    'Job ID': Field::String,
+    'Organisation ID': Field::String,
+    'Position ID': Field::String,
+    'Proficiency Level ID': Field::String,
+    'Proficiency High Level ID': Field::String,
+    'Essential Flag': Field::String,
+    'Records Type': Field::String,
+    'Last Update Date': Field::DateTime,
+    'created_at': Field::DateTime,
+    'updated_at': Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -41,16 +41,16 @@ class CompetencyRecordDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :'id',
+    :id,
     :'Person ID',
     :'Competency Element ID',
-    :'Competency Type',
+    :'Competency Type'
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :'id',
+    :id,
     :'Person ID',
     :'Competency Element ID',
     :'Competency Type',
@@ -73,8 +73,8 @@ class CompetencyRecordDashboard < Administrate::BaseDashboard
     :'Essential Flag',
     :'Records Type',
     :'Last Update Date',
-    :'created_at',
-    :'updated_at',
+    :created_at,
+    :updated_at
   ].freeze
 
   # COLLECTION_FILTERS

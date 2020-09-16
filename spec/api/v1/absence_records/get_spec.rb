@@ -7,25 +7,48 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
   path '/api/v1/absence_records/{id}' do
     get 'absence record' do
       tags 'AbsenceRecord'
-      security [JWT: {}]
+      security [{ Token: {} }]
       produces 'application/vnd.api+json'
       parameter name: :id, in: :path, type: :string, required: true
 
       let(:id) { absence_record.id }
 
-      context 'when a normal user' do
-        let(:Authorization) { 'Bearer dummy_json_web_token' }
+      context 'when not authenticated' do
+        let(:Authorization) { nil }
 
-        response '200', 'successful' do
-          schema '$ref' => '#/definitions/absence_record_response'
+        response '401', 'Error: Unauthorized' do
+          schema '$ref' => '#/definitions/error_401'
 
-          describe 'attributes match database values' do
-            run_test! do
-              response_data['attributes'].each do |key, value|
-                if absence_record.send(key).is_a?(Time)
-                  expect(absence_record.send(key).strftime('%Y-%m-%dT%H:%M:%S.000Z')).to eq(value.to_s)
-                else
-                  expect(absence_record.send(key).to_s).to eq(value.to_s)
+          run_test!
+        end
+      end
+
+      context 'when an admin' do
+        let(:token) { create(:token) }
+        let(:Authorization) { "Bearer #{token.token}" }
+
+        context 'when there are no confirmed users' do
+          response '403', 'Error: Forbidden' do
+            schema '$ref' => '#/definitions/error_403'
+
+            run_test!
+          end
+        end
+
+        context 'with a confirmed user' do
+          let!(:confirmed_user) { create(:confirmed_user) }
+
+          response '200', 'successful' do
+            schema '$ref' => '#/definitions/absence_record_response'
+
+            describe 'attributes match database values' do
+              run_test! do
+                response_data['attributes'].each do |key, value|
+                  if absence_record.send(key).is_a?(Time)
+                    expect(absence_record.send(key).strftime('%Y-%m-%dT%H:%M:%S.000Z')).to eq(value.to_s)
+                  else
+                    expect(absence_record.send(key).to_s).to eq(value.to_s)
+                  end
                 end
               end
             end

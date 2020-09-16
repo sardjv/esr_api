@@ -3,5 +3,5 @@ class Api::V1::AssignmentRecordResource < JSONAPI::Resource
 
   model_name 'AssignmentRecord'
 
-  attributes *ETL::Headers::AssignmentRecord.api_headers
+  attributes(*ETL::Headers::AssignmentRecord.api_headers)
 end

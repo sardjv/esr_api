@@ -8,6 +8,9 @@ AllCops:
     - 'db/**/*'
     - 'log/**/*'
     - 'tmp/**/*'
+    - 'node_modules/**/*'
+    - 'bin/*'
+    - 'app/definitions/**/*'
 
   NewCops: enable
 
@@ -38,3 +41,12 @@ Style/ClassAndModuleChildren:
 
 Style/MixinUsage:
   Enabled: false
+
+Layout/LineLength:
+  Max: 100
+
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'spec/**/*.rb'
