@@ -2,7 +2,7 @@ class Token < ApplicationRecord
   include ActionView::Helpers::DateHelper
 
   belongs_to :created_by, class_name: 'User'
-  validates :name, presence: true, uniqueness: { scope: :created_by_id }
+  validates :name, presence: true, uniqueness: true
   validates :token, presence: true
   encrypts :token
   blind_index :token

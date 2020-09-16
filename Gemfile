@@ -24,9 +24,7 @@ gem 'mysql2', '~> 0.5.3'
 
 # Use SQL Server as the database for Active Record.
 # https://github.com/rails-sqlserver/activerecord-sqlserver-adapter
-# Rails 6 compatibility is under development, remove the branch reference when merged:
-# https://github.com/rails-sqlserver/activerecord-sqlserver-adapter/pull/690
-# gem 'activerecord-sqlserver-adapter', git: 'https://github.com/rails-sqlserver/activerecord-sqlserver-adapter', branch: '6-0-dev'
+# gem 'activerecord-sqlserver-adapter', '~> 6.0.0'
 
 # A very fast key-value store to hold jobs until they are run.
 # https://github.com/redis/redis-rb
