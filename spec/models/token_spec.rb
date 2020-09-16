@@ -3,7 +3,7 @@ describe Token, type: :model do
 
   it { expect(subject).to be_valid }
   it { should validate_presence_of(:name) }
-  it { should validate_uniqueness_of(:name).scoped_to(:created_by_id) }
+  it { should validate_uniqueness_of(:name).ignoring_case_sensitivity }
   it { should validate_presence_of(:token) }
   it { should have_db_index(:token_ciphertext).unique }
   it { should have_db_index(%i[name created_by_id]).unique }
