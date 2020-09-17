@@ -23,7 +23,7 @@ describe 'Api::V1::CostingRecordResource', type: :request, swagger_doc: 'v1/swag
         end
       end
 
-      context 'when an admin' do
+      context 'with a token' do
         let(:token) { create(:token) }
         let(:Authorization) { "Bearer #{token.token}" }
 

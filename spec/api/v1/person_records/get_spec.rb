@@ -23,7 +23,7 @@ describe 'Api::V1::PersonRecordResource', type: :request, swagger_doc: 'v1/swagg
         end
       end
 
-      context 'when an admin' do
+      context 'with a token' do
         let(:token) { create(:token) }
         let(:Authorization) { "Bearer #{token.token}" }
 

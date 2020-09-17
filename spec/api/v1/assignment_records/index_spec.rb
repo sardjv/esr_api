@@ -26,7 +26,7 @@ describe 'Api::V1::AssignmentRecordResource', type: :request, swagger_doc: 'v1/s
         end
       end
 
-      context 'when an admin' do
+      context 'with a token' do
         let(:token) { create(:token) }
         let(:Authorization) { "Bearer #{token.token}" }
 
