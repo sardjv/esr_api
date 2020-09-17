@@ -27,9 +27,9 @@ class Permission < ApplicationRecord
   validates :resource, presence: true, inclusion: { in: RESOURCES }
   validates :action, presence: true, inclusion: { in: ACTIONS }
   validates :columns, presence: true
-  validate :columns_all_in_resource
+  validate :columns_match_resource
 
-  def columns_all_in_resource
+  def columns_match_resource
     return if columns &&
               Permission::RESOURCES.include?(resource) &&
               (columns.split(',') - resource.constantize.column_names).empty?
