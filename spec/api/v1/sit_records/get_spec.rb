@@ -32,7 +32,7 @@ describe 'Api::V1::SitRecordResource', type: :request, swagger_doc: 'v1/swagger.
             subject: token,
             resource: resource,
             action: action,
-            columns: SitRecord.column_names.join(',')
+            columns: resource.constantize.column_names.join(',')
           )
         end
         let(:Authorization) { "Bearer #{token.token}" }
@@ -105,7 +105,7 @@ describe 'Api::V1::SitRecordResource', type: :request, swagger_doc: 'v1/swagger.
 
               describe 'attributes match database values' do
                 run_test! do
-                  expect(response_data['attributes']).to match_array(columns)
+                  expect(response_data['attributes'].map(&:first)).to match_array(columns)
                   response_data['attributes'].each do |key, value|
                     expect(sit_record.send(key).to_s).to eq(value.to_s)
                   end
@@ -122,7 +122,7 @@ describe 'Api::V1::SitRecordResource', type: :request, swagger_doc: 'v1/swagger.
 
               describe 'attributes match database values' do
                 run_test! do
-                  expect(response_data['attributes']).to match_array(columns)
+                  expect(response_data['attributes'].map(&:first)).to match_array(columns)
                   response_data['attributes'].each do |key, value|
                     expect(sit_record.send(key).to_s).to eq(value.to_s)
                   end
