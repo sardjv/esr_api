@@ -31,6 +31,9 @@ en:
       name:
         one: API Token
         other: API Tokens
+    permission:
+      errors:
+        column_not_found: don't all exist in resource
     user:
       errors:
         cant_deactivate: can't deactivate the only active user
