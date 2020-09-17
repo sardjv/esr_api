@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_16_100500) do
+ActiveRecord::Schema.define(version: 2020_09_17_094200) do
 
   create_table "absence_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "Person ID"
@@ -248,7 +248,7 @@ ActiveRecord::Schema.define(version: 2020_09_16_100500) do
     t.bigint "subject_id"
     t.string "resource", null: false
     t.string "action", null: false
-    t.string "attributes", null: false
+    t.string "columns", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["subject_id", "resource", "action"], name: "index_permissions_on_subject_id_and_resource_and_action", unique: true
@@ -534,7 +534,7 @@ ActiveRecord::Schema.define(version: 2020_09_16_100500) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "token_bidx"
     t.index ["created_by_id"], name: "index_tokens_on_created_by_id"
-    t.index ["name", "created_by_id"], name: "index_tokens_on_name_and_created_by_id", unique: true
+    t.index ["name"], name: "index_tokens_on_name", unique: true
     t.index ["token_bidx"], name: "index_tokens_on_token_bidx", unique: true
     t.index ["token_ciphertext"], name: "index_tokens_on_token_ciphertext", unique: true
   end

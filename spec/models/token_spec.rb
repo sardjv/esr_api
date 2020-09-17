@@ -6,8 +6,9 @@ describe Token, type: :model do
   it { should validate_uniqueness_of(:name).ignoring_case_sensitivity }
   it { should validate_presence_of(:token) }
   it { should have_db_index(:token_ciphertext).unique }
-  it { should have_db_index(%i[name created_by_id]).unique }
+  it { should have_db_index(:name).unique }
   it { should belong_to(:created_by) }
+  it { should have_many(:permissions).dependent(:destroy) }
 
   describe '.verify' do
     let!(:token) { create(:token) }
