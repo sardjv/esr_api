@@ -2,8 +2,11 @@ class Token < ApplicationRecord
   include ActionView::Helpers::DateHelper
 
   belongs_to :created_by, class_name: 'User'
+  has_many :permissions, as: :subject, dependent: :destroy
+
   validates :name, presence: true, uniqueness: true
   validates :token, presence: true
+
   encrypts :token
   blind_index :token
 
