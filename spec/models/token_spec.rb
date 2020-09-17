@@ -31,7 +31,7 @@ describe Token, type: :model do
             resource: resource,
             action: action
           )
-        }.to raise_error(VerificationError)
+        }.to raise_error(AuthenticationError)
       }
     end
 

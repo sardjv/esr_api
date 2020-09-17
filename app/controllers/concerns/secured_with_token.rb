@@ -3,7 +3,7 @@ module SecuredWithToken
 
   def authenticate_request!
     verify_token && verify_system_active
-  rescue VerificationError
+  rescue AuthenticationError
     render json: { errors: ['Not Authenticated'] }, status: :unauthorized
   rescue NoActiveUsersError
     render json: { errors: ['No Active Users'] }, status: :forbidden
