@@ -26,13 +26,14 @@ describe 'Api::V1::SitRecordResource', type: :request, swagger_doc: 'v1/swagger.
       context 'with a token' do
         let!(:confirmed_user) { create(:confirmed_user) }
         let(:token) { create(:token) }
+        let(:columns) { ETL::Headers::SitRecord.api_headers.join(',') }
         let!(:permission) do
           create(
             :permission,
             subject: token,
             resource: resource,
             action: action,
-            columns: resource.constantize.column_names.join(',')
+            columns: columns
           )
         end
         let(:Authorization) { "Bearer #{token.token}" }
@@ -50,6 +51,7 @@ describe 'Api::V1::SitRecordResource', type: :request, swagger_doc: 'v1/swagger.
         context 'with a permission with the wrong resource' do
           let(:resource) { 'AbsenceRecord' }
           let(:action) { 'show' }
+          let(:columns) { ETL::Headers::AbsenceRecord.api_headers.join(',') }
 
           response '403', 'Error: Forbidden' do
             schema '$ref' => '#/definitions/error_403'
@@ -83,29 +85,15 @@ describe 'Api::V1::SitRecordResource', type: :request, swagger_doc: 'v1/swagger.
             end
           end
 
-          context 'with no matching columns' do
-            let(:columns) { '' }
-
-            response '200', 'successful' do
-              schema '$ref' => '#/definitions/sit_record_response'
-
-              describe 'no data is returned' do
-                run_test! do
-                  expect(response_data['attributes']).to eq([])
-                end
-              end
-            end
-          end
-
           context 'with a subset of columns' do
-            let(:columns) { SitRecord.column_names[0..4].join(',') }
+            let(:columns) { ETL::Headers::SitRecord.api_headers[0..4].join(',') }
 
             response '200', 'successful' do
               schema '$ref' => '#/definitions/sit_record_response'
 
               describe 'attributes match database values' do
                 run_test! do
-                  expect(response_data['attributes'].map(&:first)).to match_array(columns)
+                  expect(response_data['attributes'].map(&:first)).to match_array(columns.split(','))
                   response_data['attributes'].each do |key, value|
                     expect(sit_record.send(key).to_s).to eq(value.to_s)
                   end
@@ -115,14 +103,12 @@ describe 'Api::V1::SitRecordResource', type: :request, swagger_doc: 'v1/swagger.
           end
 
           context 'with all columns' do
-            let(:columns) { SitRecord.column_names.join(',') }
-
             response '200', 'successful' do
               schema '$ref' => '#/definitions/sit_record_response'
 
               describe 'attributes match database values' do
                 run_test! do
-                  expect(response_data['attributes'].map(&:first)).to match_array(columns)
+                  expect(response_data['attributes'].map(&:first)).to match_array(columns.split(','))
                   response_data['attributes'].each do |key, value|
                     expect(sit_record.send(key).to_s).to eq(value.to_s)
                   end

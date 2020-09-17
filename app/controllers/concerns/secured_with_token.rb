@@ -14,7 +14,7 @@ module SecuredWithToken
   private
 
   def verify_token
-    Token.verify(
+    @credentials = Token.verify(
       inbound_token: http_token,
       resource: requested_resource,
       action: requested_action
