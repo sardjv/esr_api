@@ -6,7 +6,7 @@ class CreatePermissions < ActiveRecord::Migration[6.0]
       t.references :subject, polymorphic: true
       t.string :resource, null: false
       t.string :action, null: false
-      t.string :columns, null: false
+      t.text :columns, null: false
       t.timestamps null: false
     end
 
