@@ -30,7 +30,9 @@ class Permission < ApplicationRecord
   validate :columns_all_in_resource
 
   def columns_all_in_resource
-    return if columns && (columns.split(',') - resource.constantize.column_names).empty?
+    return if columns &&
+              Permission::RESOURCES.include?(resource) &&
+              (columns.split(',') - resource.constantize.column_names).empty?
 
     errors.add(:columns, I18n.t('models.permission.errors.column_not_found'))
   end
