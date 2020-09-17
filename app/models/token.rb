@@ -23,7 +23,7 @@ class Token < ApplicationRecord
   def self.verify(decrypted_token:, resource:, action:)
     raise VerificationError unless (token = Token.find_by(token: decrypted_token))
 
-    raise PermissionError unless token.permissions.count.positive?
+    raise PermissionError unless token.permissions.exists?(resource: resource, action: action)
 
     true
   end

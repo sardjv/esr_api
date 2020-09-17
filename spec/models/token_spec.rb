@@ -12,15 +12,24 @@ describe Token, type: :model do
 
   describe '.verify' do
     let!(:token) { create(:token) }
-    let!(:permission) { create(:permission, subject: token) }
+    let(:resource) { Permission::RESOURCES.first }
+    let(:action) { Permission::ACTIONS.first }
+    let!(:permission) {
+      create(
+        :permission,
+        subject: token,
+        resource: resource,
+        action: action
+      )
+    }
 
     context 'with nonexistent token' do
       it {
         expect {
           Token.verify(
             decrypted_token: '1234',
-            resource: permission.resource,
-            action: permission.action
+            resource: resource,
+            action: action
           )
         }.to raise_error(VerificationError)
       }
@@ -33,19 +42,47 @@ describe Token, type: :model do
         expect {
           Token.verify(
             decrypted_token: token.token,
-            resource: Permission::RESOURCES.first,
-            action: Permission::ACTIONS.first
+            resource: resource,
+            action: action
+          )
+        }.to raise_error(PermissionError)
+      }
+    end
+
+    context 'with a permission with the wrong resource and action' do
+      it {
+        expect {
+          Token.verify(
+            decrypted_token: token.token,
+            resource: Permission::RESOURCES.last,
+            action: Permission::ACTIONS.last
           )
         }.to raise_error(PermissionError)
       }
     end
 
     context 'with a permission with the wrong resource' do
-
+      it {
+        expect {
+          Token.verify(
+            decrypted_token: token.token,
+            resource: Permission::RESOURCES.last,
+            action: action
+          )
+        }.to raise_error(PermissionError)
+      }
     end
 
     context 'with a permission with the wrong action' do
-
+      it {
+        expect {
+          Token.verify(
+            decrypted_token: token.token,
+            resource: resource,
+            action: Permission::ACTIONS.last
+          )
+        }.to raise_error(PermissionError)
+      }
     end
 
     context 'with a permission with the right resource and action' do
