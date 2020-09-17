@@ -12,13 +12,52 @@ describe Token, type: :model do
 
   describe '.verify' do
     let!(:token) { create(:token) }
+    let!(:permission) { create(:permission, subject: token) }
 
-    it 'verifies token exists' do
-      expect(Token.verify(token.token)).to eq(true)
+    context 'with nonexistent token' do
+      it {
+        expect {
+          Token.verify(
+            decrypted_token: '1234',
+            resource: permission.resource,
+            action: permission.action
+          )
+        }.to raise_error(VerificationError)
+      }
     end
 
-    it 'raises error with unknown token ' do
-      expect { Token.verify('1234') }.to raise_error(VerificationError)
+    context 'with no permissions' do
+      let!(:permission) { nil }
+
+      it {
+        expect {
+          Token.verify(
+            decrypted_token: token.token,
+            resource: Permission::RESOURCES.first,
+            action: Permission::ACTIONS.first
+          )
+        }.to raise_error(PermissionError)
+      }
+    end
+
+    context 'with a permission with the wrong resource' do
+
+    end
+
+    context 'with a permission with the wrong action' do
+
+    end
+
+    context 'with a permission with the right resource and action' do
+      it {
+        expect(
+          Token.verify(
+            decrypted_token: token.token,
+            resource: permission.resource,
+            action: permission.action
+          )
+        ).to eq(true)
+      }
     end
   end
 end
