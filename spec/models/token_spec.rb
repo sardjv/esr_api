@@ -27,7 +27,7 @@ describe Token, type: :model do
       it {
         expect {
           Token.verify(
-            decrypted_token: '1234',
+            inbound_token: '1234',
             resource: resource,
             action: action
           )
@@ -41,7 +41,7 @@ describe Token, type: :model do
       it {
         expect {
           Token.verify(
-            decrypted_token: token.token,
+            inbound_token: token.token,
             resource: resource,
             action: action
           )
@@ -53,7 +53,7 @@ describe Token, type: :model do
       it {
         expect {
           Token.verify(
-            decrypted_token: token.token,
+            inbound_token: token.token,
             resource: Permission::RESOURCES.last,
             action: Permission::ACTIONS.last
           )
@@ -65,7 +65,7 @@ describe Token, type: :model do
       it {
         expect {
           Token.verify(
-            decrypted_token: token.token,
+            inbound_token: token.token,
             resource: Permission::RESOURCES.last,
             action: action
           )
@@ -77,7 +77,7 @@ describe Token, type: :model do
       it {
         expect {
           Token.verify(
-            decrypted_token: token.token,
+            inbound_token: token.token,
             resource: resource,
             action: Permission::ACTIONS.last
           )
@@ -89,7 +89,7 @@ describe Token, type: :model do
       it {
         expect(
           Token.verify(
-            decrypted_token: token.token,
+            inbound_token: token.token,
             resource: permission.resource,
             action: permission.action
           )
