@@ -8,4 +8,6 @@ describe Permission, type: :model do
   it { should validate_uniqueness_of(:subject_id).scoped_to(%i[resource action]) }
   it { should have_db_index(%i[subject_id resource action]).unique }
   it { should belong_to(:subject) }
+  it { should validate_inclusion_of(:resource).in_array(Permission::RESOURCES) }
+  it { should validate_inclusion_of(:action).in_array(Permission::ACTIONS) }
 end
