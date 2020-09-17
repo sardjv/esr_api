@@ -24,10 +24,22 @@ describe 'Api::V1::SitRecordResource', type: :request, swagger_doc: 'v1/swagger.
       end
 
       context 'with a token' do
+        let!(:confirmed_user) { create(:confirmed_user) }
         let(:token) { create(:token) }
+        let!(:permission) do
+          create(
+            :permission,
+            subject: token,
+            resource: resource,
+            action: action,
+            columns: SitRecord.column_names.join(',')
+          )
+        end
         let(:Authorization) { "Bearer #{token.token}" }
 
-        context 'when there are no confirmed users' do
+        context 'with no permissions' do
+          let!(:permission) { nil }
+
           response '403', 'Error: Forbidden' do
             schema '$ref' => '#/definitions/error_403'
 
@@ -35,16 +47,85 @@ describe 'Api::V1::SitRecordResource', type: :request, swagger_doc: 'v1/swagger.
           end
         end
 
-        context 'with a confirmed user' do
-          let!(:confirmed_user) { create(:confirmed_user) }
+        context 'with a permission with the wrong resource' do
+          let(:resource) { 'AbsenceRecord' }
+          let(:action) { 'show' }
 
-          response '200', 'successful' do
-            schema '$ref' => '#/definitions/sit_record_response'
+          response '403', 'Error: Forbidden' do
+            schema '$ref' => '#/definitions/error_403'
 
-            describe 'attributes match database values' do
-              run_test! do
-                response_data['attributes'].each do |key, value|
-                  expect(sit_record.send(key).to_s).to eq(value.to_s)
+            run_test!
+          end
+        end
+
+        context 'with a permission with the wrong action' do
+          let(:resource) { 'SitRecord' }
+          let(:action) { 'index' }
+
+          response '403', 'Error: Forbidden' do
+            schema '$ref' => '#/definitions/error_403'
+
+            run_test!
+          end
+        end
+
+        context 'with a permission with the right resource and action' do
+          let(:resource) { 'SitRecord' }
+          let(:action) { 'show' }
+
+          context 'when there are no confirmed users' do
+            let!(:confirmed_user) { nil }
+
+            response '403', 'Error: Forbidden' do
+              schema '$ref' => '#/definitions/error_403'
+
+              run_test!
+            end
+          end
+
+          context 'with no matching columns' do
+            let(:columns) { '' }
+
+            response '200', 'successful' do
+              schema '$ref' => '#/definitions/sit_record_response'
+
+              describe 'no data is returned' do
+                run_test! do
+                  expect(response_data['attributes']).to eq([])
+                end
+              end
+            end
+          end
+
+          context 'with a subset of columns' do
+            let(:columns) { SitRecord.column_names[0..4].join(',') }
+
+            response '200', 'successful' do
+              schema '$ref' => '#/definitions/sit_record_response'
+
+              describe 'attributes match database values' do
+                run_test! do
+                  expect(response_data['attributes']).to match_array(columns)
+                  response_data['attributes'].each do |key, value|
+                    expect(sit_record.send(key).to_s).to eq(value.to_s)
+                  end
+                end
+              end
+            end
+          end
+
+          context 'with all columns' do
+            let(:columns) { SitRecord.column_names.join(',') }
+
+            response '200', 'successful' do
+              schema '$ref' => '#/definitions/sit_record_response'
+
+              describe 'attributes match database values' do
+                run_test! do
+                  expect(response_data['attributes']).to match_array(columns)
+                  response_data['attributes'].each do |key, value|
+                    expect(sit_record.send(key).to_s).to eq(value.to_s)
+                  end
                 end
               end
             end
