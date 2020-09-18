@@ -63,6 +63,10 @@ gem 'tzinfo-data', '~> 1.2020.1'
 # https://github.com/thoughtbot/administrate
 gem 'administrate', '~> 0.14.0'
 
+# A plugin for nested has_many forms in Administrate
+# https://github.com/nickcharlton/administrate-field-nested_has_many
+gem 'administrate-field-nested_has_many', '~> 1.3.0'
+
 # Fixtures replacement with a straightforward definition syntax.
 # https://github.com/thoughtbot/factory_bot
 gem 'factory_bot', '~> 6.1.0'

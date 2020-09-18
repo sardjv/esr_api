@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@nathanvda/cocoon": "^1.2.14",
     "@rails/ujs": "6.0.3",
     "@rails/webpacker": "5.2.1",
     "nhsuk-frontend": "^3.0.4",

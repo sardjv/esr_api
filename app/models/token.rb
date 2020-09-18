@@ -3,6 +3,7 @@ class Token < ApplicationRecord
 
   belongs_to :created_by, class_name: 'User'
   has_many :permissions, as: :subject, dependent: :destroy
+  accepts_nested_attributes_for :permissions, reject_if: :all_blank, allow_destroy: true
 
   validates :name, presence: true, uniqueness: true
   validates :token, presence: true

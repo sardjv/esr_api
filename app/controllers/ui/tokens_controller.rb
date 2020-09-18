@@ -23,6 +23,6 @@ class Ui::TokensController < Ui::ApplicationController
   end
 
   def valid_action?(name, _resource = resource_class)
-    %w[index new create destroy].include?(name.to_s)
+    %w[index new create show destroy].include?(name.to_s)
   end
 end
