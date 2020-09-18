@@ -1,1 +1,0 @@
-class VerificationError < StandardError; end

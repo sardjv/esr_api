@@ -592,7 +592,7 @@
     },
     "/api/v1/location_records/{id}": {
       "get": {
-        "summary": "person record",
+        "summary": "location record",
         "tags": [
           "LocationRecord"
         ],
@@ -637,7 +637,7 @@
     },
     "/api/v1/location_records": {
       "get": {
-        "summary": "person records",
+        "summary": "location records",
         "tags": [
           "LocationRecord"
         ],
@@ -784,7 +784,7 @@
     },
     "/api/v1/person_eit_records/{id}": {
       "get": {
-        "summary": "person_eit record",
+        "summary": "person eit record",
         "tags": [
           "PersonEitRecord"
         ],
@@ -829,7 +829,7 @@
     },
     "/api/v1/person_eit_records": {
       "get": {
-        "summary": "person_eit records",
+        "summary": "person eit records",
         "tags": [
           "PersonEitRecord"
         ],
@@ -976,7 +976,7 @@
     },
     "/api/v1/position_eit_records/{id}": {
       "get": {
-        "summary": "position_eit record",
+        "summary": "position eit record",
         "tags": [
           "PositionEitRecord"
         ],
@@ -1021,7 +1021,7 @@
     },
     "/api/v1/position_eit_records": {
       "get": {
-        "summary": "position_eit records",
+        "summary": "position eit records",
         "tags": [
           "PositionEitRecord"
         ],
@@ -1360,7 +1360,7 @@
     },
     "/api/v1/training_absence_records/{id}": {
       "get": {
-        "summary": "training_absence record",
+        "summary": "training absence record",
         "tags": [
           "TrainingAbsenceRecord"
         ],
@@ -1405,7 +1405,7 @@
     },
     "/api/v1/training_absence_records": {
       "get": {
-        "summary": "training_absence records",
+        "summary": "training absence records",
         "tags": [
           "TrainingAbsenceRecord"
         ],

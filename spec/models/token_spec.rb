@@ -12,13 +12,89 @@ describe Token, type: :model do
 
   describe '.verify' do
     let!(:token) { create(:token) }
+    let(:resource) { Permission::RESOURCES.first }
+    let(:action) { Permission::ACTIONS.first }
+    let!(:permission) {
+      create(
+        :permission,
+        subject: token,
+        resource: resource,
+        action: action
+      )
+    }
 
-    it 'verifies token exists' do
-      expect(Token.verify(token.token)).to eq(true)
+    context 'with nonexistent token' do
+      it {
+        expect {
+          Token.verify(
+            inbound_token: '1234',
+            resource: resource,
+            action: action
+          )
+        }.to raise_error(AuthenticationError)
+      }
     end
 
-    it 'raises error with unknown token ' do
-      expect { Token.verify('1234') }.to raise_error(VerificationError)
+    context 'with no permissions' do
+      let!(:permission) { nil }
+
+      it {
+        expect {
+          Token.verify(
+            inbound_token: token.token,
+            resource: resource,
+            action: action
+          )
+        }.to raise_error(PermissionError)
+      }
+    end
+
+    context 'with a permission with the wrong resource and action' do
+      it {
+        expect {
+          Token.verify(
+            inbound_token: token.token,
+            resource: Permission::RESOURCES.last,
+            action: Permission::ACTIONS.last
+          )
+        }.to raise_error(PermissionError)
+      }
+    end
+
+    context 'with a permission with the wrong resource' do
+      it {
+        expect {
+          Token.verify(
+            inbound_token: token.token,
+            resource: Permission::RESOURCES.last,
+            action: action
+          )
+        }.to raise_error(PermissionError)
+      }
+    end
+
+    context 'with a permission with the wrong action' do
+      it {
+        expect {
+          Token.verify(
+            inbound_token: token.token,
+            resource: resource,
+            action: Permission::ACTIONS.last
+          )
+        }.to raise_error(PermissionError)
+      }
+    end
+
+    context 'with a permission with the right resource and action' do
+      it {
+        expect {
+          Token.verify(
+            inbound_token: token.token,
+            resource: permission.resource,
+            action: permission.action
+          )
+        }.not_to raise_error
+      }
     end
   end
 end

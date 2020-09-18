@@ -4,4 +4,8 @@ class Api::V1::PersonEitRecordResource < JSONAPI::Resource
   model_name 'PersonEitRecord'
 
   attributes(*ETL::Headers::PersonEitRecord.api_headers)
+
+  def fetchable_fields
+    context[:credentials][:permission].columns.split(',').map(&:to_sym)
+  end
 end

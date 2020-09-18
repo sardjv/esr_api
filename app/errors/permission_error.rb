@@ -1,0 +1,1 @@
+class PermissionError < StandardError; end

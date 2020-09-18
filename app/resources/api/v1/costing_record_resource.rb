@@ -4,4 +4,8 @@ class Api::V1::CostingRecordResource < JSONAPI::Resource
   model_name 'CostingRecord'
 
   attributes(*ETL::Headers::CostingRecord.api_headers)
+
+  def fetchable_fields
+    context[:credentials][:permission].columns.split(',').map(&:to_sym)
+  end
 end

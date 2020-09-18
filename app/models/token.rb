@@ -20,9 +20,16 @@ class Token < ApplicationRecord
     end
   end
 
-  def self.verify(decrypted_token)
-    raise VerificationError unless Token.find_by(token: decrypted_token)
+  def self.verify(inbound_token:, resource:, action:)
+    raise AuthenticationError unless (token = Token.find_by(
+      token: inbound_token
+    ))
 
-    true
+    raise PermissionError unless (permission = token.permissions.find_by(
+      resource: resource,
+      action: action
+    ))
+
+    { token: token, permission: permission }
   end
 end
