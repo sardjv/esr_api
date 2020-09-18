@@ -15,7 +15,7 @@ By default, the input is a text field.
 [1]: http://www.rubydoc.info/gems/administrate/Administrate/Field/String
 %>
 
-<% if errors.any? %>
+<% if defined?(errors) && errors.any? %>
   <div class="field-unit__label">
     <%= f.label field.attribute, class: "nhsuk-label", for: "input-with-error-message" %>
     <% errors.each do |error| %>
@@ -24,7 +24,7 @@ By default, the input is a text field.
       </span>
     <% end %>
   </div>
-  <% if hint %>
+  <% if defined?(hint) && hint %>
     <span class="nhsuk-hint" id="input-with-hint-text-hint">
       <%= hint %>
     </span>
@@ -36,7 +36,7 @@ By default, the input is a text field.
   <div class="field-unit__label">
     <%= f.label field.attribute, class: "nhsuk-label" %>
   </div>
-  <% if hint %>
+  <% if defined?(hint) && hint %>
     <span class="nhsuk-hint" id="input-with-hint-text-hint">
       <%= hint %>
     </span>

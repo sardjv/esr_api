@@ -22,7 +22,10 @@ class Ui::TokensController < Ui::ApplicationController
     end
   end
 
-  def valid_action?(name, _resource = resource_class)
-    %w[index new create destroy].include?(name.to_s)
+  def valid_action?(name, resource = resource_class)
+    case resource.to_s.downcase
+    when 'token' then %w[index new create show destroy].include?(name.to_s)
+    else false
+    end
   end
 end
