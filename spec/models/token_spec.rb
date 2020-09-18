@@ -87,13 +87,13 @@ describe Token, type: :model do
 
     context 'with a permission with the right resource and action' do
       it {
-        expect(
+        expect {
           Token.verify(
             inbound_token: token.token,
             resource: permission.resource,
             action: permission.action
           )
-        ).to eq(true)
+        }.not_to raise_error
       }
     end
   end
