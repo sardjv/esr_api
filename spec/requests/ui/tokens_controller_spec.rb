@@ -89,7 +89,7 @@ describe Ui::TokensController, type: :request do
     let!(:token) { create(:token) }
 
     describe 'DELETE destroy' do
-      before { post ui_tokens_path, params: { token: { name: 'test' } } }
+      before { delete ui_token_path(token) }
 
       it { expect(response).to redirect_to(pages_home_path) }
 
