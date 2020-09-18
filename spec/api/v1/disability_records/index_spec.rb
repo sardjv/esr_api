@@ -26,11 +26,24 @@ describe 'Api::V1::DisabilityRecordResource', type: :request, swagger_doc: 'v1/s
         end
       end
 
-      context 'with a token' do
+      context 'with a token and at least 1 confirmed user on the system' do
         let(:token) { create(:token) }
+        let!(:confirmed_user) { create(:confirmed_user) }
+        let(:columns) { ETL::Headers::DisabilityRecord.api_headers.join(',') }
+        let!(:permission) do
+          create(
+            :permission,
+            subject: token,
+            resource: resource,
+            action: action,
+            columns: columns
+          )
+        end
         let(:Authorization) { "Bearer #{token.token}" }
 
-        context 'when there are no confirmed users' do
+        context 'with no permissions' do
+          let!(:permission) { nil }
+
           response '403', 'Error: Forbidden' do
             schema '$ref' => '#/definitions/error_403'
 
@@ -38,28 +51,87 @@ describe 'Api::V1::DisabilityRecordResource', type: :request, swagger_doc: 'v1/s
           end
         end
 
-        context 'with a confirmed user' do
-          let!(:confirmed_user) { create(:confirmed_user) }
+        context 'with a permission with the wrong resource' do
+          let(:resource) { 'AbsenceRecord' }
+          let(:action) { 'index' }
+          let(:columns) { ETL::Headers::AbsenceRecord.api_headers.join(',') }
 
-          response '200', 'successful' do
-            schema '$ref' => '#/definitions/disability_records_response'
+          response '403', 'Error: Forbidden' do
+            schema '$ref' => '#/definitions/error_403'
 
-            describe 'attributes match database values' do
-              run_test! do
-                expect(response_data.count).to eq(2)
-                database_record = DisabilityRecord.find(response_data.first['id'])
-                response_data.first['attributes'].each do |key, value|
-                  expect(database_record.send(key).to_s).to eq(value.to_s)
+            run_test!
+          end
+        end
+
+        context 'with a permission with the wrong action' do
+          let(:resource) { 'DisabilityRecord' }
+          let(:action) { 'show' }
+
+          response '403', 'Error: Forbidden' do
+            schema '$ref' => '#/definitions/error_403'
+
+            run_test!
+          end
+        end
+
+        context 'with a permission with the right resource and action' do
+          let(:resource) { 'DisabilityRecord' }
+          let(:action) { 'index' }
+
+          context 'when there are no confirmed users' do
+            let!(:confirmed_user) { nil }
+
+            response '403', 'Error: Forbidden' do
+              schema '$ref' => '#/definitions/error_403'
+
+              run_test!
+            end
+          end
+
+          context 'with a subset of columns' do
+            let(:columns) { ETL::Headers::DisabilityRecord.api_headers[0..4].join(',') }
+
+            response '200', 'successful' do
+              schema '$ref' => '#/definitions/disability_records_response'
+
+              describe 'attributes match database values' do
+                run_test! do
+                  expect(response_data.count).to eq(2)
+                  expect(response_data.first['attributes'].map(&:first)).to match_array(columns.split(','))
+                  database_record = DisabilityRecord.find(response_data.first['id'])
+                  response_data.first['attributes'].each do |key, value|
+                    expect(database_record.send(key).to_s).to eq(value.to_s)
+                  end
                 end
               end
             end
+          end
 
-            context 'with 1 result per page' do
-              let!(:'page[size]') { 1 }
-              let!(:'page[number]') { 2 }
+          context 'with all columns' do
+            response '200', 'successful' do
+              schema '$ref' => '#/definitions/disability_records_response'
 
-              run_test! do
-                expect(response_data.length).to eq(1)
+              describe 'attributes match database values' do
+                run_test! do
+                  expect(response_data.count).to eq(2)
+                  database_record = DisabilityRecord.find(response_data.first['id'])
+                  response_data.first['attributes'].each do |key, value|
+                    if database_record.send(key).is_a?(Time)
+                      expect(database_record.send(key).strftime('%Y-%m-%dT%H:%M:%S.000Z')).to eq(value.to_s)
+                    else
+                      expect(database_record.send(key).to_s).to eq(value.to_s)
+                    end
+                  end
+                end
+              end
+
+              context 'with 1 result per page' do
+                let!(:'page[size]') { 1 }
+                let!(:'page[number]') { 2 }
+
+                run_test! do
+                  expect(response_data.length).to eq(1)
+                end
               end
             end
           end
