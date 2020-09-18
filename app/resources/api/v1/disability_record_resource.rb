@@ -4,4 +4,8 @@ class Api::V1::DisabilityRecordResource < JSONAPI::Resource
   model_name 'DisabilityRecord'
 
   attributes(*ETL::Headers::DisabilityRecord.api_headers)
+
+  def fetchable_fields
+    context[:credentials][:permission].columns.split(',').map(&:to_sym)
+  end
 end
