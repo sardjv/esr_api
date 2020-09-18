@@ -23,9 +23,9 @@ describe 'Api::V1::SitRecordResource', type: :request, swagger_doc: 'v1/swagger.
         end
       end
 
-      context 'with a token' do
-        let!(:confirmed_user) { create(:confirmed_user) }
+      context 'with a token and at least 1 confirmed user on the system' do
         let(:token) { create(:token) }
+        let!(:confirmed_user) { create(:confirmed_user) }
         let(:columns) { ETL::Headers::SitRecord.api_headers.join(',') }
         let!(:permission) do
           create(
