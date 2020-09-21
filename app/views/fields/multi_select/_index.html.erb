@@ -1,1 +1,3 @@
-<%= field.to_param.join(', ') %>
+<% field.to_param.split(',').each do |item| %>
+  <li><%= item %></li>
+<% end %>

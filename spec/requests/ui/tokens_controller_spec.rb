@@ -44,11 +44,40 @@ describe Ui::TokensController, type: :request do
   end
 
   context 'when authenticated' do
+    let(:name) { 'Test Token' }
+    let(:permission_resource) { 'AbsenceRecord' }
+    let(:permission_action) { 'index' }
+    let(:permission_columns) {
+      [
+        '',
+        'Absence Attendance ID',
+        'Absence Type'
+      ]
+    }
+
     before { sign_in create(:confirmed_user) }
 
     describe 'POST create' do
       it 'creates a new token' do
-        expect { post ui_tokens_path, params: { token: { name: 'test' } } }.to change { Token.count }.by(1)
+        expect {
+          post ui_tokens_path,
+          params: {
+            token: {
+              name: name,
+              permissions_attributes: [
+                {
+                  resource: permission_resource,
+                  action: permission_action,
+                  columns: permission_columns
+                }
+              ]
+            }
+          }
+        }.to change { Token.count }.by(1)
+        expect(Token.last.name).to eq(name)
+        expect(Token.last.permissions.first.resource).to eq(permission_resource)
+        expect(Token.last.permissions.first.action).to eq(permission_action)
+        expect(Token.last.permissions.first.columns).to eq(permission_columns.reject(&:empty?).join(','))
       end
     end
   end
