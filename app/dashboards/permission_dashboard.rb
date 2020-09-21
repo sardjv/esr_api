@@ -8,8 +8,8 @@ class PermissionDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    'resource': Field::String,
-    'action': Field::String,
+    'resource': Field::Select.with_options(collection: Permission::RESOURCES),
+    'action': Field::Select.with_options(collection: Permission::ACTIONS),
     'columns': Field::String
   }.freeze
 
