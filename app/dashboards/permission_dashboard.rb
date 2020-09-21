@@ -10,7 +10,7 @@ class PermissionDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     'resource': Field::Select.with_options(collection: Permission::RESOURCES),
     'action': Field::Select.with_options(collection: Permission::ACTIONS),
-    'columns': Field::String
+    'columns': Field::MultiSelect.with_options(collection: PermissionHelper.column_options(resource: 'AbsenceRecord'))
   }.freeze
 
   # COLLECTION_ATTRIBUTES
