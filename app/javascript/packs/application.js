@@ -13,7 +13,6 @@ require('jquery')
 require('@nathanvda/cocoon')
 
 import 'select2'
-import 'select2/dist/css/select2.css'
 
 // Load all JS on every page here, via this single entry point.
 // It's possible to do this better, either conditionally, or with separate packs,
