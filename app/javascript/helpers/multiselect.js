@@ -25,7 +25,7 @@ $(document).on('cocoon:after-insert', (e, insertedItem, originalEvent) => {
       url: url,
     }).done(function(response) {
       // Find columns selector with the same ID, and update the column options.
-      $('.multiselect').empty().select2({
+      $('#token_permissions_attributes_' + id + '_columns').empty().select2({
         width: '100%',
         data: response.column_options
       })
