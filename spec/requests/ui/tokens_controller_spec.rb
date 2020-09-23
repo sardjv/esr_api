@@ -47,14 +47,16 @@ describe Ui::TokensController, type: :request do
 
         context 'with resource set to AbsenceRecord' do
           let(:resource) { 'AbsenceRecord' }
+          let(:response) { JSON.parse(response.body)['column_options'] }
 
-          it { expect(response).to be_successful }
+          it { expect(response).to eq(ETL::Headers::AbsenceRecord.api_headers) }
         end
 
-        context 'with resource set to AbsenceRecord' do
+        context 'with resource set to AssignmentRecord' do
           let(:resource) { 'AssignmentRecord' }
+          let(:response) { JSON.parse(response.body)['column_options'] }
 
-          it { expect(response).to be_successful }
+          it { expect(response).to eq(ETL::Headers::AssignmentRecord.api_headers) }
         end
       end
     end
