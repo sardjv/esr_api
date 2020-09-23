@@ -22,7 +22,7 @@ describe Ui::TokensController, type: :request do
         it { expect(response).to redirect_to(pages_home_path) }
       end
 
-      describe 'format.js' do
+      describe 'format.json' do
         let(:params) { { resource: 'AbsenceRecord' } }
 
         before { get new_ui_token_path, params: params, xhr: true }
@@ -40,23 +40,25 @@ describe Ui::TokensController, type: :request do
         it { expect(response).to be_successful }
       end
 
-      describe 'format.js' do
+      describe 'format.json' do
         let(:params) { { resource: resource } }
 
-        before { get new_ui_token_path, params: params, xhr: true }
+        before do
+          get new_ui_token_path, params: params, as: :json
+        end
 
         context 'with resource set to AbsenceRecord' do
           let(:resource) { 'AbsenceRecord' }
-          let(:response) { JSON.parse(response.body)['column_options'] }
+          let(:column_options) { JSON.parse(response.body)['column_options'] }
 
-          it { expect(response).to eq(ETL::Headers::AbsenceRecord.api_headers) }
+          it { expect(column_options).to eq(ETL::Headers::AbsenceRecord.api_headers) }
         end
 
         context 'with resource set to AssignmentRecord' do
           let(:resource) { 'AssignmentRecord' }
-          let(:response) { JSON.parse(response.body)['column_options'] }
+          let(:column_options) { JSON.parse(response.body)['column_options'] }
 
-          it { expect(response).to eq(ETL::Headers::AssignmentRecord.api_headers) }
+          it { expect(column_options).to eq(ETL::Headers::AssignmentRecord.api_headers) }
         end
       end
     end

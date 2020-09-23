@@ -14,7 +14,7 @@ class Ui::TokensController < Ui::ApplicationController
           page: Administrate::Page::Form.new(dashboard, resource)
         }
       }
-      format.js {
+      format.json {
         # Used for updating permissions form column dropdown options if the resource changes.
         render json: { column_options: PermissionHelper.column_options(resource: params['resource']) }
       }
