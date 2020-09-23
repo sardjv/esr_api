@@ -42,6 +42,7 @@ describe Ui::TokensController, type: :request do
 
       describe 'format.json' do
         let(:params) { { resource: resource } }
+        let(:result) { JSON.parse(response.body)['column_options'] }
 
         before do
           get new_ui_token_path, params: params, as: :json
@@ -49,16 +50,16 @@ describe Ui::TokensController, type: :request do
 
         context 'with resource set to AbsenceRecord' do
           let(:resource) { 'AbsenceRecord' }
-          let(:column_options) { JSON.parse(response.body)['column_options'] }
+          let(:expected) { PermissionHelper.column_options_for_select2(resource: 'AbsenceRecord') }
 
-          it { expect(column_options).to eq(ETL::Headers::AbsenceRecord.api_headers) }
+          it { expect(result).to eq(expected) }
         end
 
-        context 'with resource set to AssignmentRecord' do
-          let(:resource) { 'AssignmentRecord' }
-          let(:column_options) { JSON.parse(response.body)['column_options'] }
+        context 'with resource set to SitRecord' do
+          let(:resource) { 'SitRecord' }
+          let(:expected) { PermissionHelper.column_options_for_select2(resource: 'SitRecord') }
 
-          it { expect(column_options).to eq(ETL::Headers::AssignmentRecord.api_headers) }
+          it { expect(result).to eq(expected) }
         end
       end
     end

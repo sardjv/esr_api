@@ -20,4 +20,28 @@ describe PermissionHelper do
       it { expect { PermissionHelper.column_options(resource: resource) }.not_to raise_error }
     end
   end
+
+  describe '.column_options_for_select2' do
+    context 'with a resource' do
+      let(:resource) { 'AbsenceRecord' }
+
+      it 'returns the right options' do
+        expect(
+          PermissionHelper.column_options_for_select2(resource: resource)
+        ).to eq(
+          {
+            'results' => ETL::Headers::AbsenceRecord.api_headers.map.with_index do |text, id|
+              { 'id' => id, 'text' => text }
+            end
+          }
+        )
+      end
+    end
+
+    context 'without a resource' do
+      let(:resource) { nil }
+
+      it { expect { PermissionHelper.column_options_for_select2(resource: resource) }.not_to raise_error }
+    end
+  end
 end

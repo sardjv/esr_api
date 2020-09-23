@@ -16,7 +16,9 @@ class Ui::TokensController < Ui::ApplicationController
       }
       format.json {
         # Used for updating permissions form column dropdown options if the resource changes.
-        render json: { column_options: PermissionHelper.column_options(resource: params['resource']) }
+        render json: {
+          column_options: PermissionHelper.column_options_for_select2(resource: params['resource'])
+        }
       }
     end
   end
