@@ -29,7 +29,7 @@ to be displayed on a resource's edit form page.
         field.data.presence,
       ),
       {},
-      class: 'nhsuk-select'
+      class: "nhsuk-select #{field.options[:classes]}"
     ) %>
   <% else %>
     <%= f.select(
@@ -41,7 +41,7 @@ to be displayed on a resource's edit form page.
         field.data.presence,
       ),
       {},
-      class: 'nhsuk-select'
+      class: "nhsuk-select #{field.options[:classes]}"
     ) %>
   <% end %>
 </div>
