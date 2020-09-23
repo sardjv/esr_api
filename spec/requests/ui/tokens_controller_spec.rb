@@ -17,8 +17,15 @@ describe Ui::TokensController, type: :request do
 
   context 'when not authenticated' do
     describe 'GET new' do
-      before { get new_ui_token_path }
-      it { expect(response).to redirect_to(pages_home_path) }
+      describe 'format.html' do
+        before { get new_ui_token_path }
+        it { expect(response).to redirect_to(pages_home_path) }
+      end
+
+      describe 'format.js' do
+        before { get new_ui_token_path, xhr: true }
+        it { expect(response).not_to be_successful }
+      end
     end
   end
 
@@ -26,8 +33,15 @@ describe Ui::TokensController, type: :request do
     before { sign_in create(:confirmed_user) }
 
     describe 'GET new' do
-      before { get new_ui_token_path }
-      it { expect(response).to be_successful }
+      describe 'format.html' do
+        before { get new_ui_token_path }
+        it { expect(response).to be_successful }
+      end
+
+      describe 'format.json' do
+        before { get new_ui_token_path, xhr: true }
+        it { expect(response).to be_successful }
+      end
     end
   end
 
