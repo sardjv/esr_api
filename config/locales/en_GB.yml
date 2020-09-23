@@ -25,7 +25,7 @@ en:
         destroy: Are you sure? This token will be permanently deleted and any applications using it will no longer be able to access the API.
       instructions:
         title: API Token
-        content: This token gives complete access to ALL ESR data, including full confidential personal data. It must be kept secret and used with great care. This token can only be viewed once.
+        content: This token by itself grants full access to confidential, personally identifiable ESR data, according to the permissions selected below. It must be kept secret and used with great care. This token can only be viewed once.
       hints:
         name: "Example: HR Team - Business Analytics App"
       name:

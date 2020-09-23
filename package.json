@@ -1,10 +1,12 @@
 {
   "dependencies": {
+    "@nathanvda/cocoon": "^1.2.14",
     "@rails/ujs": "6.0.3",
     "@rails/webpacker": "5.2.1",
     "nhsuk-frontend": "^3.0.4",
-    "snyk": "^1.395.0",
-    "turbolinks": "^5.2.0"
+    "snyk": "^1.399.1",
+    "turbolinks": "^5.2.0",
+    "select2": "4.0.13"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.11.0"

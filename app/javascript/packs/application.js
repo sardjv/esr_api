@@ -9,6 +9,17 @@
 
 require('@rails/ujs').start()
 require('turbolinks').start()
+require('jquery')
+require('@nathanvda/cocoon')
+
+import 'select2'
+import 'select2/dist/css/select2.css'
+
+// Load all JS on every page here, via this single entry point.
+// It's possible to do this better, either conditionally, or with separate packs,
+// but there are lots of gotchas for potentially minimal performance gain.
+// Currently on step 1 of this: https://stackoverflow.com/a/59495659/4741698
+import '../helpers/multiselect.js'
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

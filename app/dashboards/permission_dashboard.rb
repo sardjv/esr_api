@@ -1,16 +1,6 @@
 require 'administrate/base_dashboard'
 
-class TokenDashboard < Administrate::BaseDashboard
-  class << self
-    def model
-      I18n.t('models.token.name', count: 1)
-    end
-
-    def resource_name(_opts = nil)
-      I18n.t('models.token.name', count: 2)
-    end
-  end
-
+class PermissionDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -18,15 +8,9 @@ class TokenDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    'name': Field::String,
-    'created_by': Field::BelongsTo.with_options(
-      class_name: 'User',
-      searchable: true,
-      searchable_fields: %w[first_name last_name]
-    ),
-    'created_at': Field::DateTime,
-    'token_one_time': Field::String,
-    'permissions': Field::NestedHasMany.with_options(skip: :subject)
+    'resource': Field::Select.with_options(collection: Permission::RESOURCES, classes: 'resource-select'),
+    'action': Field::Select.with_options(collection: Permission::ACTIONS),
+    'columns': Field::MultiSelect.with_options(collection: PermissionHelper.column_options(resource: 'AbsenceRecord'))
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -35,25 +19,18 @@ class TokenDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :name,
-    :created_by,
-    :created_at,
-    :permissions
-  ].freeze
-
-  # SHOW_PAGE_ATTRIBUTES
-  # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = [
-    :token_one_time,
-    :permissions
+    :resource,
+    :action,
+    :columns
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :name,
-    :permissions
+    :resource,
+    :action,
+    :columns
   ].freeze
 
   # COLLECTION_FILTERS
@@ -70,7 +47,7 @@ class TokenDashboard < Administrate::BaseDashboard
 
   # Overwrite this method to customize how training absence records are displayed
   # across all pages of the admin dashboard.
-  def display_resource(token)
-    token.name
+  def display_resource(permission)
+    permission.name
   end
 end

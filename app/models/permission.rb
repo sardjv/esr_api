@@ -29,6 +29,12 @@ class Permission < ApplicationRecord
   validates :columns, presence: true
   validate :columns_match_resource
 
+  def columns=(value)
+    value = value.reject(&:empty?).join(',') if value.is_a?(Array)
+
+    super(value)
+  end
+
   def columns_match_resource
     return if columns &&
               Permission::RESOURCES.include?(resource) &&

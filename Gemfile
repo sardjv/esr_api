@@ -6,7 +6,7 @@ gem 'rails', '~> 6.0.3'
 
 # A Ruby/Rack web server built for concurrency.
 # https://github.com/puma/puma
-gem 'puma', '~> 4.3.6'
+gem 'puma', '~> 5.0.0'
 
 # Use PostgreSQL as the database for Active Record.
 # https://github.com/ged/ruby-pg
@@ -63,6 +63,10 @@ gem 'tzinfo-data', '~> 1.2020.1'
 # https://github.com/thoughtbot/administrate
 gem 'administrate', '~> 0.14.0'
 
+# A plugin for nested has_many forms in Administrate
+# https://github.com/nickcharlton/administrate-field-nested_has_many
+gem 'administrate-field-nested_has_many', '~> 1.3.0'
+
 # Fixtures replacement with a straightforward definition syntax.
 # https://github.com/thoughtbot/factory_bot
 gem 'factory_bot', '~> 6.1.0'
@@ -77,7 +81,7 @@ gem 'administrate_exportable', '~> 0.2.0'
 
 # Flexible authentication solution for Rails with Warden.
 # https://github.com/heartcombo/devise
-gem 'devise', '~> 4.7.2'
+gem 'devise', '~> 4.7.3'
 
 # Modern encryption for Rails. Works with database fields, files, and strings.
 # https://github.com/ankane/lockbox#active-record

@@ -3,6 +3,7 @@ class Token < ApplicationRecord
 
   belongs_to :created_by, class_name: 'User'
   has_many :permissions, as: :subject, dependent: :destroy
+  accepts_nested_attributes_for :permissions, reject_if: :all_blank, allow_destroy: true
 
   validates :name, presence: true, uniqueness: true
   validates :token, presence: true
@@ -20,9 +21,16 @@ class Token < ApplicationRecord
     end
   end
 
-  def self.verify(decrypted_token)
-    raise VerificationError unless Token.find_by(token: decrypted_token)
+  def self.verify(inbound_token:, resource:, action:)
+    raise AuthenticationError unless (token = Token.find_by(
+      token: inbound_token
+    ))
 
-    true
+    raise PermissionError unless (permission = token.permissions.find_by(
+      resource: resource,
+      action: action
+    ))
+
+    { token: token, permission: permission }
   end
 end
