@@ -52,8 +52,8 @@ services:
 
   api:
     depends_on:
-      - 'db'
-      - 'redis'
+      - db
+      - redis
       - webpacker
     build: .
     command: ./script/start_rails.sh

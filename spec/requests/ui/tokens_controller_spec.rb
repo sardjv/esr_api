@@ -17,8 +17,17 @@ describe Ui::TokensController, type: :request do
 
   context 'when not authenticated' do
     describe 'GET new' do
-      before { get new_ui_token_path }
-      it { expect(response).to redirect_to(pages_home_path) }
+      describe 'format.html' do
+        before { get new_ui_token_path }
+        it { expect(response).to redirect_to(pages_home_path) }
+      end
+
+      describe 'format.json' do
+        let(:params) { { resource: 'AbsenceRecord' } }
+
+        before { get new_ui_token_path, params: params, xhr: true }
+        it { expect(response).not_to be_successful }
+      end
     end
   end
 
@@ -26,8 +35,33 @@ describe Ui::TokensController, type: :request do
     before { sign_in create(:confirmed_user) }
 
     describe 'GET new' do
-      before { get new_ui_token_path }
-      it { expect(response).to be_successful }
+      describe 'format.html' do
+        before { get new_ui_token_path }
+        it { expect(response).to be_successful }
+      end
+
+      describe 'format.json' do
+        let(:params) { { resource: resource } }
+        let(:result) { JSON.parse(response.body)['column_options'] }
+
+        before do
+          get new_ui_token_path, params: params, as: :json
+        end
+
+        context 'with resource set to AbsenceRecord' do
+          let(:resource) { 'AbsenceRecord' }
+          let(:expected) { PermissionHelper.column_options_for_select2(resource: 'AbsenceRecord') }
+
+          it { expect(result).to eq(expected) }
+        end
+
+        context 'with resource set to SitRecord' do
+          let(:resource) { 'SitRecord' }
+          let(:expected) { PermissionHelper.column_options_for_select2(resource: 'SitRecord') }
+
+          it { expect(result).to eq(expected) }
+        end
+      end
     end
   end
 
@@ -44,11 +78,40 @@ describe Ui::TokensController, type: :request do
   end
 
   context 'when authenticated' do
+    let(:name) { 'Test Token' }
+    let(:permission_resource) { 'AbsenceRecord' }
+    let(:permission_action) { 'index' }
+    let(:permission_columns) {
+      [
+        '',
+        'Absence Attendance ID',
+        'Absence Type'
+      ]
+    }
+
     before { sign_in create(:confirmed_user) }
 
     describe 'POST create' do
       it 'creates a new token' do
-        expect { post ui_tokens_path, params: { token: { name: 'test' } } }.to change { Token.count }.by(1)
+        expect {
+          post ui_tokens_path,
+          params: {
+            token: {
+              name: name,
+              permissions_attributes: [
+                {
+                  resource: permission_resource,
+                  action: permission_action,
+                  columns: permission_columns
+                }
+              ]
+            }
+          }
+        }.to change { Token.count }.by(1)
+        expect(Token.last.name).to eq(name)
+        expect(Token.last.permissions.first.resource).to eq(permission_resource)
+        expect(Token.last.permissions.first.action).to eq(permission_action)
+        expect(Token.last.permissions.first.columns).to eq(permission_columns.reject(&:empty?).join(','))
       end
     end
   end

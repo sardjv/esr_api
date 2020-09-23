@@ -8,9 +8,9 @@ class PermissionDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    'resource': Field::String,
-    'action': Field::String,
-    'columns': Field::String
+    'resource': Field::Select.with_options(collection: Permission::RESOURCES, classes: 'resource-select'),
+    'action': Field::Select.with_options(collection: Permission::ACTIONS),
+    'columns': Field::MultiSelect.with_options(collection: PermissionHelper.column_options(resource: 'AbsenceRecord'))
   }.freeze
 
   # COLLECTION_ATTRIBUTES
