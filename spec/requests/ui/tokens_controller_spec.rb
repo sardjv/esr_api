@@ -23,7 +23,9 @@ describe Ui::TokensController, type: :request do
       end
 
       describe 'format.js' do
-        before { get new_ui_token_path, xhr: true }
+        let(:params) { { resource: 'AbsenceRecord' } }
+
+        before { get new_ui_token_path, params: params, xhr: true }
         it { expect(response).not_to be_successful }
       end
     end
@@ -38,9 +40,22 @@ describe Ui::TokensController, type: :request do
         it { expect(response).to be_successful }
       end
 
-      describe 'format.json' do
-        before { get new_ui_token_path, xhr: true }
-        it { expect(response).to be_successful }
+      describe 'format.js' do
+        let(:params) { { resource: resource } }
+
+        before { get new_ui_token_path, params: params, xhr: true }
+
+        context 'with resource set to AbsenceRecord' do
+          let(:resource) { 'AbsenceRecord' }
+
+          it { expect(response).to be_successful }
+        end
+
+        context 'with resource set to AbsenceRecord' do
+          let(:resource) { 'AssignmentRecord' }
+
+          it { expect(response).to be_successful }
+        end
       end
     end
   end
