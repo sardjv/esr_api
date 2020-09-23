@@ -9,9 +9,12 @@ module PermissionHelper
     return unless resource
 
     {
-      'results' => column_options(resource: resource).map.with_index do |text, id|
+      'results' => column_options(resource: resource).map.with_index { |text, id|
         { 'id' => id, 'text' => text }
-      end
+      },
+      'pagination': {
+        'more': false
+      }
     }
   end
 end
