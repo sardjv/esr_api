@@ -18,6 +18,11 @@
   padding: 16px;
 }
 
+.select2-container--default .select2-selection--multiple {
+  border: 4px solid #212b32;
+  border-radius: 0px;
+}
+
 .select2-container--default.select2-container--focus .select2-selection--multiple {
   @extend .nhsuk-select:focus;
   border-radius: 0px;
