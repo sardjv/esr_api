@@ -1,5 +1,6 @@
 describe Permission, type: :model do
-  subject { build(:permission) }
+  let(:token) { create(:token) }
+  subject { token.permissions.first }
 
   it { expect(subject).to be_valid }
   it { should validate_presence_of(:resource) }
