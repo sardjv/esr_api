@@ -1,21 +1,50 @@
-<div class='nhsuk-form-group'>
-  <div class="field-unit__label">
-    <%= f.label field.attribute, class: 'nhsuk-label' %>
+<% if defined?(errors) && errors %>
+  <div class='nhsuk-form-group error'>
+    <div class="field-unit__label">
+      <%= f.label field.attribute, class: 'nhsuk-label', for: 'input-with-error-message' %>
+      <% errors[field.attribute.to_sym].each do |error| %>
+        <span class="nhsuk-error-message" id="input-with-error-message-error">
+          <span class="nhsuk-u-visually-hidden">Error:</span><%= error %>
+        </span>
+    <% end %>
+    </div>
+    <div class="field-unit__field">
+      <%= f.select(
+        field.attribute,
+        options_from_collection_for_select(
+          field.selectable_options,
+          :to_s,
+          :to_s,
+          field.data.presence,
+        ),
+        {},
+        {
+          multiple: true,
+          class: 'multiselect nhsuk-input--error'
+        }
+      ) %>
+    </div>
   </div>
-  <div class="field-unit__field">
-    <%= f.select(
-      field.attribute,
-      options_from_collection_for_select(
-        field.selectable_options,
-        :to_s,
-        :to_s,
-        field.data.presence,
-      ),
-      {},
-      {
-        multiple: true,
-        class: 'multiselect'
-      }
-    ) %>
+<% else %>
+  <div class='nhsuk-form-group'>
+    <div class="field-unit__label">
+      <%= f.label field.attribute, class: 'nhsuk-label' %>
+    </div>
+    <div class="field-unit__field">
+      <%= f.select(
+        field.attribute,
+        options_from_collection_for_select(
+          field.selectable_options,
+          :to_s,
+          :to_s,
+          field.data.presence,
+        ),
+        {},
+        {
+          multiple: true,
+          class: 'multiselect'
+        }
+      ) %>
+    </div>
   </div>
-</div>
+<% end %>

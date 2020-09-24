@@ -2,7 +2,7 @@
   <fieldset class="field-unit--nested nhsuk-fieldset">
     <div class="field-unit__label">
       <%= f.label field.attribute, class: "nhsuk-label", for: "input-with-error-message" %>
-      <% errors.each do |error| %>
+      <% errors[field.attribute.to_sym].each do |error| %>
         <span class="nhsuk-error-message" id="input-with-error-message-error">
           <span class="nhsuk-u-visually-hidden">Error:</span><%= error %>
         </span>
@@ -19,6 +19,11 @@
         locals: {
           f: nested_form,
           field: field,
+          errors: errors.to_hash.select { |k, v|
+            k.to_s.include?(field.association_name)
+          }.transform_keys { |k|
+            k.to_s.gsub("#{field.association_name}.", '').to_sym
+          }
         },
       ) %>
     <% end %>

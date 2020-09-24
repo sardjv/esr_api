@@ -1,6 +1,6 @@
 <div class="nested-fields nhsuk-panel">
   <% field.nested_fields_for_builder(f).each do |attribute| -%>
-    <%= render_field attribute, f: f %>
+    <%= render_field attribute, f: f, parent_field: field, errors: defined?(errors) && errors %>
   <% end -%>
 
   <div class='nhsuk-form-group'>

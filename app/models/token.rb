@@ -8,6 +8,7 @@ class Token < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :token, presence: true
   validates :permissions, presence: true
+  validates_associated :permissions
 
   encrypts :token
   blind_index :token

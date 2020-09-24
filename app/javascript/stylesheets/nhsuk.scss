@@ -27,9 +27,16 @@
   padding: 16px;
 }
 
+// Style select2 multiselects to look similar to NHS selects.
 .select2-container--default .select2-selection--multiple {
   border: 2px solid #4c6272;
   border-radius: 0px;
+}
+
+.error {
+  .select2-container--default .select2-selection--multiple {
+    border: 4px solid #d5281b;
+  }
 }
 
 .select2-container--default.select2-container--focus .select2-selection--multiple {
