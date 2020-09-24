@@ -23,3 +23,10 @@ $(document).on('cocoon:after-insert', (e, insertedItem, originalEvent) => {
 
   });
 });
+
+// Used if there is an error on a form with a multiselect.
+window.addEventListener('turbolinks:load', () => {
+  $('.multiselect').select2({
+    width: '100%'
+  })
+});
