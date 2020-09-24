@@ -12,3 +12,8 @@
 .esr-api__table-search-input {
   border-color: $nhsuk-border-color;
 }
+
+// Nested has_many fields, used for Permissions on new Token form.
+.nested-fields {
+  padding: 16px;
+}
