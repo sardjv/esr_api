@@ -13,6 +13,15 @@
   border-color: $nhsuk-border-color;
 }
 
+.nhsuk-panel {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.nhsuk-button {
+  margin-bottom: 16px;
+}
+
 // Nested has_many fields, used for Permissions on new Token form.
 .nested-fields {
   padding: 16px;
