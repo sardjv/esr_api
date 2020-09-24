@@ -1,19 +1,21 @@
-<div class="field-unit__label">
-  <%= f.label field.attribute %>
-</div>
-<div class="field-unit__field">
-  <%= f.select(
-    field.attribute,
-    options_from_collection_for_select(
-      field.selectable_options,
-      :to_s,
-      :to_s,
-      field.data.presence,
-    ),
-    {},
-    {
-      multiple: true,
-      class: 'multiselect'
-    }
-  ) %>
+<div class='nhsuk-form-group'>
+  <div class="field-unit__label">
+    <%= f.label field.attribute, class: 'nhsuk-label' %>
+  </div>
+  <div class="field-unit__field">
+    <%= f.select(
+      field.attribute,
+      options_from_collection_for_select(
+        field.selectable_options,
+        :to_s,
+        :to_s,
+        field.data.presence,
+      ),
+      {},
+      {
+        multiple: true,
+        class: 'multiselect'
+      }
+    ) %>
+  </div>
 </div>
