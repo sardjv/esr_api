@@ -1,4 +1,4 @@
-<% if defined?(errors) && errors.any? %>
+<% if defined?(errors) && errors.try(:[], field.attribute.to_sym).try(:any?) %>
   <fieldset class="field-unit--nested nhsuk-fieldset">
     <div class="field-unit__label">
       <%= f.label field.attribute, class: "nhsuk-label", for: "input-with-error-message" %>

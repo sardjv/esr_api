@@ -1,4 +1,4 @@
-<% if defined?(errors) && errors %>
+<% if defined?(errors) && errors.try(:[], field.attribute.to_sym).try(:any?) %>
   <div class='nhsuk-form-group error'>
     <div class="field-unit__label">
       <%= f.label field.attribute, class: 'nhsuk-label', for: 'input-with-error-message' %>
@@ -6,7 +6,7 @@
         <span class="nhsuk-error-message" id="input-with-error-message-error">
           <span class="nhsuk-u-visually-hidden">Error:</span><%= error %>
         </span>
-    <% end %>
+      <% end %>
     </div>
     <div class="field-unit__field">
       <%= f.select(
