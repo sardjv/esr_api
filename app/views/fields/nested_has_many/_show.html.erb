@@ -1,9 +1,0 @@
-<%
-  current = Gem::Version.new(Administrate::VERSION)
-  v0_10 = Gem::Version.new("0.10")
-%>
-<% if current <= v0_10 %>
-  <%= render "fields/nested_has_many/show_old", **local_assigns %>
-<% else %>
-  <%= render "fields/nested_has_many/show_current", **local_assigns %>
-<% end %>
