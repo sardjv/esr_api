@@ -1,15 +1,5 @@
-function applySelect2() {
-  $('select').select2()
-}
-
-window.addEventListener('turbolinks:load', () => {
-  applySelect2()
-});
-
 // For nested forms.
 $(document).on('cocoon:after-insert', (e, insertedItem, originalEvent) => {
-  applySelect2()
-
   $('.multiselect').select2({
     width: '100%'
   })
