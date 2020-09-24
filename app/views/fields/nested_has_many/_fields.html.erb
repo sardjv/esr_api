@@ -3,5 +3,7 @@
     <%= render_field attribute, f: f %>
   <% end -%>
 
-  <%= link_to_remove_association I18n.t("administrate.fields.nested_has_many.remove", resource: field.associated_class_name.titleize), f, class: 'nhsuk-button nhsuk-button--secondary' %>
+  <div class='nhsuk-form-group'>
+    <%= link_to_remove_association I18n.t("administrate.fields.nested_has_many.remove", resource: field.associated_class_name.titleize), f, class: 'nhsuk-button nhsuk-button--secondary' %>
+  </div>
 </div>
