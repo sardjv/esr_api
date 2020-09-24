@@ -9,20 +9,20 @@ describe Token, type: :model do
   it { should have_db_index(:name).unique }
   it { should belong_to(:created_by) }
   it { should have_many(:permissions).dependent(:destroy) }
+  it { should validate_presence_of(:token) }
   it { should accept_nested_attributes_for(:permissions).allow_destroy(true) }
 
   describe '.verify' do
-    let!(:token) { create(:token) }
-    let(:resource) { Permission::RESOURCES.first }
-    let(:action) { Permission::ACTIONS.first }
-    let!(:permission) {
-      create(
+    let!(:token) { create(:token, permissions: [permission]) }
+    let(:permission) do
+      build(
         :permission,
-        subject: token,
         resource: resource,
         action: action
       )
-    }
+    end
+    let(:resource) { Permission::RESOURCES.first }
+    let(:action) { Permission::ACTIONS.first }
 
     context 'with nonexistent token' do
       it {
@@ -33,20 +33,6 @@ describe Token, type: :model do
             action: action
           )
         }.to raise_error(AuthenticationError)
-      }
-    end
-
-    context 'with no permissions' do
-      let!(:permission) { nil }
-
-      it {
-        expect {
-          Token.verify(
-            inbound_token: token.token,
-            resource: resource,
-            action: action
-          )
-        }.to raise_error(PermissionError)
       }
     end
 

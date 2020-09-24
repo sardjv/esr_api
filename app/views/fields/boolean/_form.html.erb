@@ -15,7 +15,7 @@ By default, the input is a checkbox.
 [1]: http://www.rubydoc.info/gems/administrate/Administrate/Field/Boolean
 %>
 
-<% errors.each do |error| %>
+<% errors[field.attribute.to_sym].each do |error| %>
   <span class="nhsuk-error-message" id="input-with-error-message-error">
     <span class="nhsuk-u-visually-hidden">Error:</span><%= error %>
   </span>

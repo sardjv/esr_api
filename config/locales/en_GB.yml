@@ -28,6 +28,7 @@ en:
         content: This token by itself grants full access to confidential, personally identifiable ESR data, according to the permissions selected below. It must be kept secret and used with great care. This token can only be viewed once.
       hints:
         name: "Example: HR Team - Business Analytics App"
+        permissions: Add permissions to grant access to resources, HTTP actions and database columns.
       name:
         one: API Token
         other: API Tokens

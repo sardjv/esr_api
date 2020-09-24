@@ -24,29 +24,18 @@ describe 'Api::V1::CostingRecordResource', type: :request, swagger_doc: 'v1/swag
       end
 
       context 'with a token and at least 1 confirmed user on the system' do
-        let(:token) { create(:token) }
-        let!(:confirmed_user) { create(:confirmed_user) }
-        let(:columns) { ETL::Headers::CostingRecord.api_headers.join(',') }
-        let!(:permission) do
-          create(
+        let(:token) { create(:token, permissions: [permission]) }
+        let(:permission) do
+          build(
             :permission,
-            subject: token,
             resource: resource,
             action: action,
             columns: columns
           )
         end
+        let!(:confirmed_user) { create(:confirmed_user) }
+        let(:columns) { ETL::Headers::CostingRecord.api_headers.join(',') }
         let(:Authorization) { "Bearer #{token.token}" }
-
-        context 'with no permissions' do
-          let!(:permission) { nil }
-
-          response '403', 'Error: Forbidden' do
-            schema '$ref' => '#/definitions/error_403'
-
-            run_test!
-          end
-        end
 
         context 'with a permission with the wrong resource' do
           let(:resource) { 'AbsenceRecord' }
