@@ -6,11 +6,7 @@ $(document).on('cocoon:after-insert', (e, insertedItem, originalEvent) => {
 
   // Update permission#columns when permission#resource changed.
   $('.resource-select').on('change', (e) => {
-    // Temporary ID used to distinguish between multiple nested forms.
-    const id = e.target.id.split('_')[3]
-    const target = $('#token_permissions_attributes_' + id + '_columns')
-    const url = '/ui/tokens/new.json?resource=' + e.target.value
-    updateSelect(target, url)
+    updateSelect(e.target)
   });
 });
 
@@ -22,15 +18,15 @@ window.addEventListener('turbolinks:load', () => {
 
   // Update permission#columns when permission#resource changed.
   $('.resource-select').on('change', (e) => {
-    // Temporary ID used to distinguish between multiple nested forms.
-    const id = e.target.id.split('_')[3]
-    const target = $('#token_permissions_attributes_' + id + '_columns')
-    const url = '/ui/tokens/new.json?resource=' + e.target.value
-    updateSelect(target, url)
+    updateSelect(e.target)
   });
 });
 
-function updateSelect(target, url) {
+function updateSelect(element) {
+  // Temporary ID used to distinguish between multiple nested forms.
+  const id = element.id.split('_')[3]
+  const target = $('#token_permissions_attributes_' + id + '_columns')
+  const url = '/ui/tokens/new.json?resource=' + element.value
   // Fetch data.
   $.ajax({
     url: url,
