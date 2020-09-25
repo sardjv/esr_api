@@ -20,9 +20,9 @@
           f: nested_form,
           field: field,
           errors: errors.to_hash.select { |k, v|
-            k.to_s.include?(field.association_name)
+            k.to_s.include?("#{field.association_name}[#{nested_form.index}]")
           }.transform_keys { |k|
-            k.to_s.gsub("#{field.association_name}.", '').to_sym
+            k.to_s.gsub("#{field.association_name}[#{nested_form.index}].", '').to_sym
           }
         },
       ) %>
