@@ -88,6 +88,13 @@ describe Ui::TokensController, type: :request do
         'Absence Type'
       ]
     }
+    let(:permission_attributes) {
+      {
+        resource: permission_resource,
+        action: permission_action,
+        columns: permission_columns
+      }
+    }
 
     before { sign_in create(:confirmed_user) }
 
@@ -99,11 +106,7 @@ describe Ui::TokensController, type: :request do
             token: {
               name: name,
               permissions_attributes: [
-                {
-                  resource: permission_resource,
-                  action: permission_action,
-                  columns: permission_columns
-                }
+                permission_attributes
               ]
             }
           }
@@ -112,6 +115,23 @@ describe Ui::TokensController, type: :request do
         expect(Token.last.permissions.first.resource).to eq(permission_resource)
         expect(Token.last.permissions.first.action).to eq(permission_action)
         expect(Token.last.permissions.first.columns).to eq(permission_columns.reject(&:empty?).join(','))
+      end
+
+      context 'with 2 identical permissions' do
+        it 'is invalid' do
+          expect {
+            post ui_tokens_path,
+                 params: {
+                   token: {
+                     name: name,
+                     permissions_attributes: [
+                       permission_attributes,
+                       permission_attributes
+                     ]
+                   }
+                 }
+          }.not_to change { Token.count }
+        end
       end
     end
   end
