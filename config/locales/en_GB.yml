@@ -1,4 +1,11 @@
 en:
+  activerecord:
+    errors:
+      models:
+        token:
+          attributes:
+            permissions:
+              invalid: are invalid
   administrate:
     actions:
       destroy: Delete
