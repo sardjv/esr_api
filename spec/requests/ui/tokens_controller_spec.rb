@@ -130,7 +130,7 @@ describe Ui::TokensController, type: :request do
                      ]
                    }
                  }
-          }.not_to change { Token.count }
+          }.not_to(change { Token.count })
         end
       end
     end
