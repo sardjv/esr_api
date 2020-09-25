@@ -38,7 +38,11 @@ workers ENV.fetch('WEB_CONCURRENCY') { 2 }
 #
 # Under most situations you will not have to tweak this value, which is why it
 # is coded into the config rather than being an environment variable.
-worker_timeout 30
+if ENV.fetch('RAILS_ENV') == 'development'
+  worker_timeout 3600
+else
+  worker_timeout 30
+end
 
 # The path to the puma binary without any arguments.
 restart_command 'puma'
