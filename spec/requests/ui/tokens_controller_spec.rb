@@ -119,7 +119,7 @@ describe Ui::TokensController, type: :request do
 
       context 'with 2 identical permissions' do
         it 'is invalid' do
-          expect {
+          expect do
             post ui_tokens_path,
                  params: {
                    token: {
@@ -130,7 +130,7 @@ describe Ui::TokensController, type: :request do
                      ]
                    }
                  }
-          }.not_to(change { Token.count })
+          end.not_to(change { Token.count })
         end
       end
     end
