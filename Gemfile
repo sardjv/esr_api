@@ -36,7 +36,7 @@ gem 'sidekiq', '~> 6.1.2'
 
 # Data processing & ETL framework for Ruby.
 # https://github.com/thbar/kiba
-gem 'kiba', '~> 3.0.0'
+gem 'kiba', '~> 3.5.0'
 
 # Kiba companion gem for commonly-used helpers.
 # https://github.com/thbar/kiba-common
