@@ -33,6 +33,7 @@ class Permission < ApplicationRecord
     super&.split(',')
   end
 
+  # Columns are stored in the database as a comma-separated string.
   def columns=(value)
     value = value.reject(&:empty?).join(',') if value.is_a?(Array)
 
