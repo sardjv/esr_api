@@ -46,6 +46,16 @@ class Ui::TokensController < Ui::ApplicationController
     end
   end
 
+  def destroy
+    # delete rather than destroy to bypass the readonly? check on Token.
+    if requested_resource.delete
+      flash[:notice] = translate_with_resource('destroy.success')
+    else
+      flash[:error] = requested_resource.errors.full_messages.join('<br/>')
+    end
+    redirect_to action: :index
+  end
+
   def valid_action?(name, resource = resource_class)
     case resource.to_s.downcase
     when 'token' then %w[index new create show destroy].include?(name.to_s)
