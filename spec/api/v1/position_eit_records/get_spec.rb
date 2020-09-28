@@ -34,13 +34,13 @@ describe 'Api::V1::PositionEitRecordResource', type: :request, swagger_doc: 'v1/
           )
         end
         let!(:confirmed_user) { create(:confirmed_user) }
-        let(:columns) { ETL::Headers::PositionEitRecord.api_headers.join(',') }
+        let(:columns) { ETL::Headers::PositionEitRecord.api_headers }
         let(:Authorization) { "Bearer #{token.token}" }
 
         context 'with a permission with the wrong resource' do
           let(:resource) { 'AbsenceRecord' }
           let(:action) { 'show' }
-          let(:columns) { ETL::Headers::AbsenceRecord.api_headers.join(',') }
+          let(:columns) { ETL::Headers::AbsenceRecord.api_headers }
 
           response '403', 'Error: Forbidden' do
             schema '$ref' => '#/definitions/error_403'
@@ -75,14 +75,14 @@ describe 'Api::V1::PositionEitRecordResource', type: :request, swagger_doc: 'v1/
           end
 
           context 'with a subset of columns' do
-            let(:columns) { ETL::Headers::PositionEitRecord.api_headers[0..4].join(',') }
+            let(:columns) { ETL::Headers::PositionEitRecord.api_headers[0..4] }
 
             response '200', 'successful' do
               schema '$ref' => '#/definitions/position_eit_record_response'
 
               describe 'attributes match database values' do
                 run_test! do
-                  expect(response_data['attributes'].map(&:first)).to match_array(columns.split(','))
+                  expect(response_data['attributes'].map(&:first)).to match_array(columns)
                   response_data['attributes'].each do |key, value|
                     expect(position_eit_record.send(key).to_s).to eq(value.to_s)
                   end
@@ -97,7 +97,7 @@ describe 'Api::V1::PositionEitRecordResource', type: :request, swagger_doc: 'v1/
 
               describe 'attributes match database values' do
                 run_test! do
-                  expect(response_data['attributes'].map(&:first)).to match_array(columns.split(','))
+                  expect(response_data['attributes'].map(&:first)).to match_array(columns)
                   response_data['attributes'].each do |key, value|
                     if position_eit_record.send(key).is_a?(Time)
                       expect(position_eit_record.send(key).strftime('%Y-%m-%dT%H:%M:%S.000Z')).to eq(value.to_s)

@@ -29,6 +29,10 @@ class Permission < ApplicationRecord
   validates :columns, presence: true
   validate :columns_match_resource
 
+  def columns
+    super&.split(',')
+  end
+
   def columns=(value)
     value = value.reject(&:empty?).join(',') if value.is_a?(Array)
 
@@ -38,7 +42,7 @@ class Permission < ApplicationRecord
   def columns_match_resource
     return if columns &&
               Permission::RESOURCES.include?(resource) &&
-              (columns.split(',') - resource.constantize.column_names).empty?
+              (columns - resource.constantize.column_names).empty?
 
     errors.add(:columns, I18n.t('models.permission.errors.column_not_found'))
   end

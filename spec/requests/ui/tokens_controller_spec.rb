@@ -114,7 +114,7 @@ describe Ui::TokensController, type: :request do
         expect(Token.last.name).to eq(name)
         expect(Token.last.permissions.first.resource).to eq(permission_resource)
         expect(Token.last.permissions.first.action).to eq(permission_action)
-        expect(Token.last.permissions.first.columns).to eq(permission_columns.reject(&:empty?).join(','))
+        expect(Token.last.permissions.first.columns).to eq(permission_columns.reject(&:empty?))
       end
 
       context 'with 2 identical permissions' do
