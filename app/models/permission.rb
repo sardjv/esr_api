@@ -47,4 +47,8 @@ class Permission < ApplicationRecord
 
     errors.add(:columns, I18n.t('models.permission.errors.column_not_found'))
   end
+
+  def readonly?
+    persisted?
+  end
 end
