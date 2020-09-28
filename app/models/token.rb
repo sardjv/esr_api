@@ -53,4 +53,8 @@ class Token < ApplicationRecord
 
     { token: token, permission: permission }
   end
+
+  def readonly?
+    persisted? && changes.keys != ['token_viewed_at']
+  end
 end
