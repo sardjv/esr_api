@@ -12,7 +12,7 @@
       <%= f.select(
         field.attribute,
         options_from_collection_for_select(
-          field.selectable_options,
+          f.index.is_a?(Integer) ? @options[f.index] : field.selectable_options,
           :to_s,
           :to_s,
           field.data.presence,
@@ -34,7 +34,7 @@
       <%= f.select(
         field.attribute,
         options_from_collection_for_select(
-          field.selectable_options,
+          f.index.is_a?(Integer) ? @options[f.index] : field.selectable_options,
           :to_s,
           :to_s,
           field.data.presence,

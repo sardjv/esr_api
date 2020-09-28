@@ -37,6 +37,9 @@ class Ui::TokensController < Ui::ApplicationController
         notice: translate_with_resource('create.success')
       )
     else
+      @options = resource.permissions.map { |p|
+        PermissionHelper.column_options(resource: p.resource)
+      }
       render :new, locals: {
         page: Administrate::Page::Form.new(dashboard, resource)
       }
