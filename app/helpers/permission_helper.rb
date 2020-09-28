@@ -8,8 +8,8 @@ module PermissionHelper
   def self.column_options_for_select2(resource:)
     return unless resource
 
-    column_options(resource: resource).map.with_index do |text, id|
-      { 'id' => id, 'text' => text }
+    column_options(resource: resource).map do |text|
+      { 'id' => text, 'text' => text }
     end
   end
 end
