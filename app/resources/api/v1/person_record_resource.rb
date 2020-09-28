@@ -6,6 +6,6 @@ class Api::V1::PersonRecordResource < JSONAPI::Resource
   attributes(*ETL::Headers::PersonRecord.api_headers)
 
   def fetchable_fields
-    context[:credentials][:permission].columns.split(',').map(&:to_sym)
+    context[:credentials][:permission].columns.map(&:to_sym)
   end
 end

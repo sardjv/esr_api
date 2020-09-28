@@ -37,13 +37,13 @@ describe 'Api::V1::PositionEitRecordResource', type: :request, swagger_doc: 'v1/
           )
         end
         let!(:confirmed_user) { create(:confirmed_user) }
-        let(:columns) { ETL::Headers::PositionEitRecord.api_headers.join(',') }
+        let(:columns) { ETL::Headers::PositionEitRecord.api_headers }
         let(:Authorization) { "Bearer #{token.token}" }
 
         context 'with a permission with the wrong resource' do
           let(:resource) { 'AbsenceRecord' }
           let(:action) { 'index' }
-          let(:columns) { ETL::Headers::AbsenceRecord.api_headers.join(',') }
+          let(:columns) { ETL::Headers::AbsenceRecord.api_headers }
 
           response '403', 'Error: Forbidden' do
             schema '$ref' => '#/definitions/error_403'
@@ -78,7 +78,7 @@ describe 'Api::V1::PositionEitRecordResource', type: :request, swagger_doc: 'v1/
           end
 
           context 'with a subset of columns' do
-            let(:columns) { ETL::Headers::PositionEitRecord.api_headers[0..4].join(',') }
+            let(:columns) { ETL::Headers::PositionEitRecord.api_headers[0..4] }
 
             response '200', 'successful' do
               schema '$ref' => '#/definitions/position_eit_records_response'
@@ -86,7 +86,7 @@ describe 'Api::V1::PositionEitRecordResource', type: :request, swagger_doc: 'v1/
               describe 'attributes match database values' do
                 run_test! do
                   expect(response_data.count).to eq(2)
-                  expect(response_data.first['attributes'].map(&:first)).to match_array(columns.split(','))
+                  expect(response_data.first['attributes'].map(&:first)).to match_array(columns)
                   database_record = PositionEitRecord.find(response_data.first['id'])
                   response_data.first['attributes'].each do |key, value|
                     expect(database_record.send(key).to_s).to eq(value.to_s)

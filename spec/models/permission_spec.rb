@@ -30,4 +30,14 @@ describe Permission, type: :model do
       )
     end
   end
+
+  context 'with a persisted token' do
+    describe 'updating the permission' do
+      it 'fails; tokens should be immutable' do
+        expect do
+          subject.update(columns: PermissionHelper.column_options(resource: subject.resource))
+        end.to raise_error(ActiveRecord::ReadOnlyRecord)
+      end
+    end
+  end
 end

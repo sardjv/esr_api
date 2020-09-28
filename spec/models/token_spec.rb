@@ -12,6 +12,27 @@ describe Token, type: :model do
   it { should validate_presence_of(:token) }
   it { should accept_nested_attributes_for(:permissions).allow_destroy(true) }
 
+  context 'with a persisted token' do
+    subject { create(:token) }
+
+    context 'when adding a new permission' do
+      let(:permission) do
+        build(
+          :permission,
+          resource: Permission::RESOURCES.last,
+          action: Permission::ACTIONS.last,
+          columns: 'Person ID'
+        )
+      end
+
+      before { subject.permissions << permission }
+
+      it 'fails; tokens should be immutable' do
+        expect { subject.save! }.to raise_error(ActiveRecord::ReadOnlyRecord)
+      end
+    end
+  end
+
   describe '.verify' do
     let!(:token) { create(:token, permissions: [permission]) }
     let(:permission) do

@@ -1,4 +1,11 @@
 en:
+  activerecord:
+    errors:
+      models:
+        token:
+          attributes:
+            permissions:
+              invalid: are invalid
   administrate:
     actions:
       destroy: Delete
@@ -35,6 +42,7 @@ en:
     permission:
       errors:
         column_not_found: don't all exist in resource
+        uniqueness: cannot create multiple permissions for action '%{action}' on resource '%{resource}'
     user:
       errors:
         cant_deactivate: can't deactivate the only active user

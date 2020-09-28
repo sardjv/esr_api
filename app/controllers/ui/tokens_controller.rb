@@ -37,10 +37,23 @@ class Ui::TokensController < Ui::ApplicationController
         notice: translate_with_resource('create.success')
       )
     else
+      @options = resource.permissions.map { |p|
+        PermissionHelper.column_options(resource: p.resource)
+      }
       render :new, locals: {
         page: Administrate::Page::Form.new(dashboard, resource)
       }
     end
+  end
+
+  def destroy
+    # delete rather than destroy to bypass the readonly? check on Token.
+    if requested_resource.delete
+      flash[:notice] = translate_with_resource('destroy.success')
+    else
+      flash[:error] = requested_resource.errors.full_messages.join('<br/>')
+    end
+    redirect_to action: :index
   end
 
   def valid_action?(name, resource = resource_class)

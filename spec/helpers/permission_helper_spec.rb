@@ -29,8 +29,8 @@ describe PermissionHelper do
         expect(
           PermissionHelper.column_options_for_select2(resource: resource)
         ).to eq(
-          ETL::Headers::AbsenceRecord.api_headers.map.with_index do |text, id|
-            { 'id' => id, 'text' => text }
+          ETL::Headers::AbsenceRecord.api_headers.map do |text|
+            { 'id' => text, 'text' => text }
           end
         )
       end
