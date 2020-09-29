@@ -1,27 +1,29 @@
-<div class='nhsuk-grid-column-two-thirds'>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <fieldset class='nhsuk-fieldset'>
-      <legend class='nhsuk-fieldset__legend nhsuk-fieldset__legend--xl'>
-        <h1 class='nhsuk-fieldset__heading'>
-          <%= I18n.t('navigation.log_in_title') %>
-        </h1>
-      </legend>
+<div class='nhsuk-grid-row'>
+  <div class='nhsuk-grid-column-two-thirds'>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <fieldset class='nhsuk-fieldset'>
+        <legend class='nhsuk-fieldset__legend nhsuk-fieldset__legend--xl'>
+          <h1 class='nhsuk-fieldset__heading'>
+            <%= I18n.t('navigation.log_in_title') %>
+          </h1>
+        </legend>
 
-      <div class='nhsuk-form-group'>
-        <%= f.label :email, class: 'nhsuk-label', for: 'input-email' %>
-        <%= f.email_field :email, class: 'nhsuk-input', id: 'input-email', autofocus: true, autocomplete: 'email' %>
-      </div>
+        <div class='nhsuk-form-group'>
+          <%= f.label :email, class: 'nhsuk-label', for: 'input-email' %>
+          <%= f.email_field :email, class: 'nhsuk-input', id: 'input-email', autofocus: true, autocomplete: 'email' %>
+        </div>
 
-      <div class='nhsuk-form-group'>
-        <%= f.label :password, class: 'nhsuk-label', for: 'input-password' %>
-        <%= f.password_field :password, class: 'nhsuk-input', id: 'input-password', autocomplete: 'current-password' %>
-      </div>
+        <div class='nhsuk-form-group'>
+          <%= f.label :password, class: 'nhsuk-label', for: 'input-password' %>
+          <%= f.password_field :password, class: 'nhsuk-input', id: 'input-password', autocomplete: 'current-password' %>
+        </div>
 
-      <div class='form-actions'>
-        <%= f.submit I18n.t('navigation.log_in'), class: 'nhsuk-button' %>
-      </div>
-    </fieldset>
-  <% end %>
+        <div class='form-actions'>
+          <%= f.submit I18n.t('navigation.log_in'), class: 'nhsuk-button' %>
+        </div>
+      </fieldset>
+    <% end %>
 
-  <%= render 'devise/shared/links' %>
+    <%= render 'devise/shared/links' %>
+  </div>
 </div>
