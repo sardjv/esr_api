@@ -53,6 +53,7 @@ en:
     api:
       test: Test the API
     data: Data
+    log_in_title: Admin login
     log_in: Log in
     log_out: Log out
     sign_up: Sign up
