@@ -9,11 +9,11 @@
         </legend>
 
         <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource&.errors&.messages[:email]&.present? ? " nhsuk-form-group--error" : nil %>">
-          <%= render 'fields/email/form', f: f, field: Administrate::Field::Email.new(:email, nil, nil), errors: resource.errors.messages %>
+          <%= render 'fields/email/form', f: f, field: Struct.new(:attribute).new(:email), errors: resource.errors.messages %>
         </div>
 
         <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource.errors.messages[:password]&.present? ? " nhsuk-form-group--error" : nil %>">
-          <%= render 'fields/password/form', f: f, field: Administrate::Field::Password.new(:password, nil, nil), errors: resource.errors.messages %>
+          <%= render 'fields/password/form', f: f, field: Struct.new(:attribute, :data).new(:password, nil), errors: resource.errors.messages %>
         </div>
 
         <div class='form-actions'>
