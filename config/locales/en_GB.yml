@@ -53,7 +53,9 @@ en:
     api:
       test: Test the API
     data: Data
+    log_in: Log in
     log_out: Log out
+    sign_up: Sign up
   time:
     formats:
       iso8601_utc: '%Y-%m-%dT%H:%M:%S.000Z'
