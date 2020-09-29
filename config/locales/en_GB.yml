@@ -13,7 +13,7 @@ en:
     failure:
       unconfirmed: Your account needs to be activated - please get in touch with an existing administrator to request access.
     registrations:
-      signed_up_but_unconfirmed: Your account has been created and needs to be activated by an existing administrator. Please get in touch with %{admin} to request activation.
+      signed_up_but_unconfirmed: Your account has been created and needs to be activated by an existing administrator. Please get in touch with an existing administrator to request activation.
   faker:
     absence_record:
       absence_type:

@@ -1,9 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  devise_for :users, controllers: {
-    registrations: 'users/registrations'
-  }
+  devise_for :users
   namespace :ui do
     resources :absence_records do
       get :export, on: :collection
