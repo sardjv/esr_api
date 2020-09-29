@@ -1,16 +1,17 @@
-<div class="nhsuk-grid-row">
-  <div class="nhsuk-grid-column-two-thirds">
+<div class='nhsuk-grid-row'>
+  <div class='nhsuk-grid-column-two-thirds'>
     <p>
-      You can use this service to:
+      <%= I18n.t('navigation.homepage.service_functions') %>
     </p>
     <ul>
       <li>
-        Access your trust's ESR data via the administrator dashboard.
+        <%= I18n.t('navigation.homepage.view_data') %>
       </li>
       <li>
-        Grant access to ESR data to other services within your trust via the API.
+        <%= I18n.t('navigation.homepage.grant_api_access') %>
       </li>
     </ul>
-    <%= button_to 'Log in', new_user_session_path, method: :post, class:'nhsuk-button nhsuk-u-margin-bottom-8' %>
+
+    <%= button_to I18n.t('navigation.log_in_title'), new_user_session_path, method: :post, class:'nhsuk-button nhsuk-u-margin-bottom-8' %>
   </div>
 </div>

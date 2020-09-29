@@ -53,6 +53,10 @@ en:
     api:
       test: Test the API
     data: Data
+    homepage:
+      service_functions: You can use this service to
+      view_data: Access your trust's ESR data via the administrator dashboard.
+      grant_api_access: Grant access to ESR data to other services within your trust via the API.
     log_in_title: Admin login
     log_in: Log in
     log_out: Log out
