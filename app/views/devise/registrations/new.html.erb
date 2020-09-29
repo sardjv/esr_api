@@ -8,23 +8,23 @@
           </h1>
         </legend>
 
-        <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource&.errors&.messages[:email]&.present? ? " nhsuk-form-group--error" : nil %>">
+        <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource.errors.messages[:email]&.present? ? " nhsuk-form-group--error" : nil %>">
           <%= render 'fields/email/form', f: f, field: Administrate::Field::Email.new(:email, nil, nil), errors: resource.errors.messages %>
         </div>
 
-        <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource&.errors&.messages[:first_name]&.present? ? " nhsuk-form-group--error" : nil %>">
+        <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource.errors.messages[:first_name]&.present? ? " nhsuk-form-group--error" : nil %>">
           <%= render 'fields/string/form', f: f, field: Administrate::Field::String.new(:first_name, nil, nil), errors: resource.errors.messages %>
         </div>
 
-        <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource&.errors&.messages[:last_name]&.present? ? " nhsuk-form-group--error" : nil %>">
+        <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource.errors.messages[:last_name]&.present? ? " nhsuk-form-group--error" : nil %>">
           <%= render 'fields/string/form', f: f, field: Administrate::Field::String.new(:last_name, nil, nil), errors: resource.errors.messages %>
         </div>
 
-        <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource&.errors&.messages[:password]&.present? ? " nhsuk-form-group--error" : nil %>">
+        <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource.errors.messages[:password]&.present? ? " nhsuk-form-group--error" : nil %>">
           <%= render 'fields/password/form', f: f, field: Administrate::Field::Password.new(:password, nil, nil), errors: resource.errors.messages %>
         </div>
 
-        <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource&.errors&.messages[:password_confirmation]&.present? ? " nhsuk-form-group--error" : nil %>">
+        <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource.errors.messages[:password_confirmation]&.present? ? " nhsuk-form-group--error" : nil %>">
           <%= render 'fields/password/form', f: f, field: Administrate::Field::Password.new(:password_confirmation, nil, nil), errors: resource.errors.messages %>
         </div>
 

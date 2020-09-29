@@ -8,14 +8,12 @@
           </h1>
         </legend>
 
-        <div class='nhsuk-form-group'>
-          <%= f.label :email, class: 'nhsuk-label', for: 'input-email' %>
-          <%= f.email_field :email, class: 'nhsuk-input', id: 'input-email', autofocus: true, autocomplete: 'email' %>
+        <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource&.errors&.messages[:email]&.present? ? " nhsuk-form-group--error" : nil %>">
+          <%= render 'fields/email/form', f: f, field: Administrate::Field::Email.new(:email, nil, nil), errors: resource.errors.messages %>
         </div>
 
-        <div class='nhsuk-form-group'>
-          <%= f.label :password, class: 'nhsuk-label', for: 'input-password' %>
-          <%= f.password_field :password, class: 'nhsuk-input', id: 'input-password', autocomplete: 'current-password' %>
+        <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource.errors.messages[:password]&.present? ? " nhsuk-form-group--error" : nil %>">
+          <%= render 'fields/password/form', f: f, field: Administrate::Field::Password.new(:password, nil, nil), errors: resource.errors.messages %>
         </div>
 
         <div class='form-actions'>
