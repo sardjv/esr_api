@@ -9,6 +9,11 @@ en:
   administrate:
     actions:
       destroy: Delete
+  devise:
+    failure:
+      unconfirmed: Your account needs to be activated by an existing administrator. Please get in touch to request access.
+    registrations:
+      signed_up_but_unconfirmed: Your account needs to be activated by an existing administrator. Please get in touch to request access.
   faker:
     absence_record:
       absence_type:
