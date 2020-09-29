@@ -61,9 +61,8 @@
     </div>
   </header>
 
-  <div class="nhsuk-width-container ">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <div class="nhsuk-width-container">
+    <%= render 'layouts/shared/flash' %>
 
     <main class="nhsuk-main-wrapper " id="maincontent" role="main">
       <%= yield %>

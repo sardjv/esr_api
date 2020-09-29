@@ -53,6 +53,9 @@ en:
     api:
       test: Test the API
     data: Data
+    flash:
+      alert: Alert
+      notice: Notice
     homepage:
       service_functions: You can use this service to
       view_data: Access your trust's ESR data via the administrator dashboard.
