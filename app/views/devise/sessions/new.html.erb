@@ -1,26 +1,32 @@
-<h2><%= I18n.t('navigation.log_in') %></h2>
+<fieldset class='nhsuk-fieldset'>
+  <legend class='nhsuk-fieldset__legend nhsuk-fieldset__legend--xl'>
+    <h1 class='nhsuk-fieldset__heading'>
+      <%= I18n.t('navigation.log_in') %>
+    </h1>
+  </legend>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class='field'>
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: 'email' %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class='nhsuk-form-group'>
+      <%= f.label :email, class: 'nhsuk-label', for: 'input-email' %>
+      <%= f.email_field :email, class: 'nhsuk-input', id: 'input-email', autofocus: true, autocomplete: 'email' %>
+    </div>
 
-  <div class='field'>
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: 'current-password' %>
-  </div>
+    <div class='nhsuk-form-group'>
+      <%= f.label :password, class: 'nhsuk-label', for: 'input-password' %>
+      <%= f.password_field :password, class: 'nhsuk-input', id: 'input-password', autocomplete: 'current-password' %>
+    </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class='field'>
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <% if devise_mapping.rememberable? %>
+      <div class='nhsuk-form-group'>
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+
+    <div class='actions'>
+      <%= f.submit I18n.t('navigation.log_in') %>
     </div>
   <% end %>
-
-  <div class='actions'>
-    <%= f.submit I18n.t('navigation.log_in') %>
-  </div>
-<% end %>
+</fieldset>
 
 <%= render 'devise/shared/links' %>
