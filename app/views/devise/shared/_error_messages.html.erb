@@ -8,7 +8,9 @@
     </h2>
     <ul>
       <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <span class="nhsuk-error-message" id="input-with-error-message-error">
+          <span class="nhsuk-u-visually-hidden">Error:</span><%= message %>
+        </span>
       <% end %>
     </ul>
   </div>

@@ -1,8 +1,6 @@
 <div class='nhsuk-grid-row'>
   <div class='nhsuk-grid-column-two-thirds'>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render 'devise/shared/error_messages', resource: resource %>
-
       <fieldset class='nhsuk-fieldset'>
         <legend class='nhsuk-fieldset__legend nhsuk-fieldset__legend--xl'>
           <h1 class='nhsuk-fieldset__heading'>
@@ -10,29 +8,24 @@
           </h1>
         </legend>
 
-        <div class='nhsuk-form-group'>
-          <%= f.label :email, class: 'nhsuk-label', for: 'input-email' %>
-          <%= f.email_field :email, class: 'nhsuk-input', id: 'input-email', autofocus: true, autocomplete: 'email' %>
+        <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource&.errors&.messages[:email]&.present? ? " nhsuk-form-group--error" : nil %>">
+          <%= render 'fields/email/form', f: f, field: Administrate::Field::Email.new(:email, nil, nil), errors: resource.errors.messages %>
         </div>
 
-        <div class='nhsuk-form-group'>
-          <%= f.label :first_name, class: 'nhsuk-label', for: 'input-first-name' %>
-          <%= f.text_field :first_name, class: 'nhsuk-input', id: 'input-first-name', autocomplete: 'first-name' %>
+        <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource&.errors&.messages[:first_name]&.present? ? " nhsuk-form-group--error" : nil %>">
+          <%= render 'fields/string/form', f: f, field: Administrate::Field::String.new(:first_name, nil, nil), errors: resource.errors.messages %>
         </div>
 
-        <div class='nhsuk-form-group'>
-          <%= f.label :last_name, class: 'nhsuk-label', for: 'input-last-name' %>
-          <%= f.text_field :last_name, class: 'nhsuk-input', id: 'input-last-name', autocomplete: 'last-name' %>
+        <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource&.errors&.messages[:last_name]&.present? ? " nhsuk-form-group--error" : nil %>">
+          <%= render 'fields/string/form', f: f, field: Administrate::Field::String.new(:last_name, nil, nil), errors: resource.errors.messages %>
         </div>
 
-        <div class='nhsuk-form-group'>
-          <%= f.label :password, class: 'nhsuk-label', for: 'input-password' %>
-          <%= f.password_field :password, class: 'nhsuk-input', id: 'input-password', autocomplete: 'new-password' %>
+        <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource&.errors&.messages[:password]&.present? ? " nhsuk-form-group--error" : nil %>">
+          <%= render 'fields/password/form', f: f, field: Administrate::Field::Password.new(:password, nil, nil), errors: resource.errors.messages %>
         </div>
 
-        <div class='nhsuk-form-group'>
-          <%= f.label :password_confirmation, class: 'nhsuk-label', for: 'input-password' %>
-          <%= f.password_field :password_confirmation, class: 'nhsuk-input', id: 'input-password', autocomplete: 'new-password' %>
+        <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource&.errors&.messages[:password_confirmation]&.present? ? " nhsuk-form-group--error" : nil %>">
+          <%= render 'fields/password/form', f: f, field: Administrate::Field::Password.new(:password_confirmation, nil, nil), errors: resource.errors.messages %>
         </div>
 
         <div class='form-actions'>
