@@ -43,7 +43,6 @@ describe Ui::UsersController, type: :request do
       before { put ui_user_path(user), params: { user: { first_name: updated_name } } }
       it { expect(response).to redirect_to(pages_home_path) }
       it { expect(user.reload.first_name).not_to eq(updated_name) }
-
     end
   end
 
@@ -66,6 +65,32 @@ describe Ui::UsersController, type: :request do
           before { put ui_user_path(user), params: { user: { activated: '0' } } }
           it { expect(user.reload.confirmed_at).to eq(nil) }
         end
+      end
+    end
+  end
+
+  context 'when not authenticated' do
+    let!(:user) { create(:user) }
+
+    describe 'DELETE destroy' do
+      before { delete ui_user_path(user) }
+
+      it { expect(response).to redirect_to(pages_home_path) }
+
+      it 'does not delete the token' do
+        expect { delete ui_user_path(user) }.not_to change { User.count }
+      end
+    end
+  end
+
+  context 'when authenticated' do
+    let!(:user) { create(:user) }
+
+    before { sign_in create(:confirmed_user) }
+
+    describe 'DELETE destroy' do
+      it 'deletes the user' do
+        expect { delete ui_user_path(user) }.to change { User.count }.by(-1)
       end
     end
   end
