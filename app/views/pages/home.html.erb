@@ -1,5 +1,6 @@
 <div class='nhsuk-grid-row'>
   <div class='nhsuk-grid-column-two-thirds'>
+    <h2><%= I18n.t('app.name') %></h2>
     <p>
       <%= I18n.t('navigation.homepage.service_functions') %>
     </p>
@@ -21,5 +22,23 @@
         <span class='nhsuk-action-link__text'><%= I18n.t('navigation.log_in_title') %></span>
       <% end %>
     </div>
+
+    <h2><%= I18n.t('navigation.homepage.support') %></h2>
+
+    <p><a href='<%= I18n.t('navigation.links.docs') %>'><%= I18n.t('navigation.homepage.view_documentation') %></a></p>
+
+    <% points_of_contact = User.where(point_of_contact: true) %>
+    <% if points_of_contact.any? %>
+
+      <p><%= I18n.t('navigation.homepage.please_contact') %>:</p>
+
+      <ul>
+        <% points_of_contact.each do |point_of_contact| %>
+          <li>
+            <%= "#{point_of_contact.name} (#{point_of_contact.email})" %>
+        <% end %>
+      </ul>
+    <% end %>
+
   </div>
 </div>
