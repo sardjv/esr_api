@@ -1,39 +1,39 @@
-<h2>Sign up</h2>
+<div class='nhsuk-grid-row'>
+  <div class='nhsuk-grid-column-two-thirds'>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <fieldset class='nhsuk-fieldset'>
+        <legend class='nhsuk-fieldset__legend nhsuk-fieldset__legend--xl'>
+          <h1 class='nhsuk-fieldset__heading'>
+            <%= I18n.t('navigation.sign_up_title') %>
+          </h1>
+        </legend>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+        <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource.errors.messages[:email]&.present? ? " nhsuk-form-group--error" : nil %>">
+          <%= render 'fields/email/form', f: f, field: Struct.new(:attribute).new(:email), errors: resource.errors.messages %>
+        </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource.errors.messages[:first_name]&.present? ? " nhsuk-form-group--error" : nil %>">
+          <%= render 'fields/string/form', f: f, field: Struct.new(:attribute).new(:first_name), errors: resource.errors.messages %>
+        </div>
+
+        <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource.errors.messages[:last_name]&.present? ? " nhsuk-form-group--error" : nil %>">
+          <%= render 'fields/string/form', f: f, field: Struct.new(:attribute).new(:last_name), errors: resource.errors.messages %>
+        </div>
+
+        <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource.errors.messages[:password]&.present? ? " nhsuk-form-group--error" : nil %>">
+          <%= render 'fields/password/form', f: f, field: Struct.new(:attribute, :data).new(:password, nil), errors: resource.errors.messages %>
+        </div>
+
+        <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource.errors.messages[:password_confirmation]&.present? ? " nhsuk-form-group--error" : nil %>">
+          <%= render 'fields/password/form', f: f, field: Struct.new(:attribute, :data).new(:password_confirmation, nil), errors: resource.errors.messages %>
+        </div>
+
+        <div class='form-actions'>
+          <%= f.submit I18n.t('navigation.sign_up'), class: 'nhsuk-button' %>
+        </div>
+      </fieldset>
+    <% end %>
+
+    <%= render 'devise/shared/links' %>
   </div>
-
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

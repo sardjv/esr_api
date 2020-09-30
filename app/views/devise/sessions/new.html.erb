@@ -1,26 +1,27 @@
-<h2>Log in</h2>
+<div class='nhsuk-grid-row'>
+  <div class='nhsuk-grid-column-two-thirds'>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <fieldset class='nhsuk-fieldset'>
+        <legend class='nhsuk-fieldset__legend nhsuk-fieldset__legend--xl'>
+          <h1 class='nhsuk-fieldset__heading'>
+            <%= I18n.t('navigation.log_in_title') %>
+          </h1>
+        </legend>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource&.errors&.messages[:email]&.present? ? " nhsuk-form-group--error" : nil %>">
+          <%= render 'fields/email/form', f: f, field: Struct.new(:attribute).new(:email), errors: resource.errors.messages %>
+        </div>
+
+        <div class="field-unit field-unit--email field-unit--required %> nhsuk-form-group<%= resource.errors.messages[:password]&.present? ? " nhsuk-form-group--error" : nil %>">
+          <%= render 'fields/password/form', f: f, field: Struct.new(:attribute, :data).new(:password, nil), errors: resource.errors.messages %>
+        </div>
+
+        <div class='form-actions'>
+          <%= f.submit I18n.t('navigation.log_in'), class: 'nhsuk-button' %>
+        </div>
+      </fieldset>
+    <% end %>
+
+    <%= render 'devise/shared/links' %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
