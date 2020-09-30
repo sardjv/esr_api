@@ -49,7 +49,7 @@ Rails.application.routes.draw do
       get :export, on: :collection
     end
     resources :tokens, only: %i[index new create show destroy]
-    resources :users, only: %i[index show edit update destroy]
+    resources :users, only: %i[index edit update destroy]
 
     get '/data', to: 'data#index'
   end
