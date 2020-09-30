@@ -51,6 +51,8 @@ en:
         column_not_found: don't all exist in resource
         uniqueness: can only create 1 permission for action '%{action}' on resource '%{resource}'
     user:
+      confirm:
+        destroy: Are you sure? This user will be permanently deleted and they will no longer be able to log in to access the API.
       errors:
         cant_deactivate: can't deactivate the only active user
       name:
