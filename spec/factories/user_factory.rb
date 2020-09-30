@@ -5,6 +5,7 @@ FactoryBot.define do
     email { Faker::Internet.unique.email }
     password { '123password' }
     reset_password_token { Faker::Alphanumeric.unique.alphanumeric(number: 6) }
+    point_of_contact { true }
 
     factory :confirmed_user do
       confirmed_at { Time.current }

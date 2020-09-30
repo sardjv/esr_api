@@ -23,7 +23,8 @@ class UserDashboard < Administrate::BaseDashboard
     'last_name': Field::String,
     'created_at': Field::DateTime,
     'updated_at': Field::DateTime,
-    'activated': Field::Boolean
+    'activated': Field::Boolean,
+    'point_of_contact': Field::Boolean
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -35,9 +36,8 @@ class UserDashboard < Administrate::BaseDashboard
     :email,
     :first_name,
     :last_name,
-    :created_at,
-    :updated_at,
-    :activated
+    :activated,
+    :point_of_contact
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -47,7 +47,9 @@ class UserDashboard < Administrate::BaseDashboard
     :first_name,
     :last_name,
     :created_at,
-    :updated_at
+    :updated_at,
+    :activated,
+    :point_of_contact
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -57,7 +59,8 @@ class UserDashboard < Administrate::BaseDashboard
     :email,
     :first_name,
     :last_name,
-    :activated
+    :activated,
+    :point_of_contact
   ].freeze
 
   # COLLECTION_FILTERS
