@@ -9,6 +9,8 @@ en:
   administrate:
     actions:
       destroy: Delete
+  app:
+    name: ESR Wrapper
   devise:
     failure:
       unconfirmed: Your account needs to be activated - please get in touch with an existing administrator to request access.
