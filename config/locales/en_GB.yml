@@ -71,9 +71,14 @@ en:
       notice: Notice
     github: Github
     homepage:
-      service_functions: You can use this service to
-      view_data: Access your trust's ESR data via the administrator dashboard.
       grant_api_access: Grant access to ESR data to other services within your trust via the API.
+      please_contact: If you cannot find the answer in the documentation, please contact an existing administrator
+      service_functions: You can use this service to
+      support: Support
+      view_data: Access your trust's ESR data via the administrator dashboard.
+      view_documentation: Click here to view the documentation.
+    links:
+      docs: https://sardjv.github.io/esr_api_docs/
     log_in_title: Admin login
     log_in: Log in
     log_out: Log out
