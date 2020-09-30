@@ -16,6 +16,6 @@ class Ui::UsersController < Ui::ApplicationController
   end
 
   def valid_action?(name, _resource = resource_class)
-    %w[index edit update].include?(name.to_s)
+    %w[index edit update destroy].include?(name.to_s)
   end
 end
