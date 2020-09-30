@@ -9,6 +9,9 @@ en:
   administrate:
     actions:
       destroy: Delete
+    controller:
+      destroy:
+        success: "%{resource} was successfully deleted."
   app:
     name: ESR Wrapper
   devise:
