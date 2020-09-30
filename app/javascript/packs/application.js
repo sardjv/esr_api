@@ -19,6 +19,7 @@ import 'select2'
 // but there are lots of gotchas for potentially minimal performance gain.
 // Currently on step 1 of this: https://stackoverflow.com/a/59495659/4741698
 import '../helpers/multiselect.js'
+import '../helpers/nhsuk.js'
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
