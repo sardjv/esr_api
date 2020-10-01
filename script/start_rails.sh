@@ -18,7 +18,7 @@ echo '
           / __/ __/ _ \  | | /| / /______ ____  ___  ___ ____
          / _/_\ \/ , _/  | |/ |/ / __/ _ `/ _ \/ _ \/ -_) __/
         /___/___/_/|_|   |__/|__/_/  \_,_/ .__/ .__/\__/_/
-                                          /_/  /_/
+                                        /_/  /_/
 '
 
 # Remove any existing server process in case of dirty shutdown, with -f in case the file doesn't exist.
