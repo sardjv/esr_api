@@ -54,10 +54,10 @@ services:
     depends_on:
       - db
       - redis
+      - sidekiq
       - webpacker
     build: .
     command: ./script/start_rails.sh
-    # command: ./script/start_rails_first_time.sh # Use this the first time you start up the project.
     ports:
       - '3000:3000'
     volumes:

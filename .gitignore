@@ -38,3 +38,6 @@ yarn-debug.log*
 
 # Ignore IDE settings.
 /.vscode
+
+# Ignore initial boot flag.
+script/first_run_complete.tmp
