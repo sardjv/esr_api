@@ -49,6 +49,13 @@ describe DailyImportJob, type: :job do
       end
     end
 
+    it 'versions it' do
+      perform_enqueued_jobs { update_job }
+
+      expect(AbsenceRecord.first.versions.last.whodunnit_type).to eq('Import')
+      expect(AbsenceRecord.first.versions.last.whodunnit).to eq(update_filename.split('/').last)
+    end
+
     it 'deletes it' do
       perform_enqueued_jobs { delete_job }
 

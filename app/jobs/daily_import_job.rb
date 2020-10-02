@@ -13,7 +13,7 @@ class DailyImportJob < ApplicationJob
       transform ETL::Transformations::SkipBlanks
 
       # Write it to the destination.
-      destination ETL::Destinations::ActiveRecord
+      destination ETL::Destinations::ActiveRecord, filename: filename
     end
 
     Kiba.run(job)
