@@ -7,6 +7,7 @@ class DailyImportJob < ApplicationJob
       source ETL::Sources::TildeSeparatedValues, filename: filename
 
       # Transform pipeline.
+      transform ETL::Transformations::SkipUnwantedRows
       transform ETL::Transformations::AddHeaders
       transform ETL::Transformations::StringToDate
       transform ETL::Transformations::StringToTimestamp
