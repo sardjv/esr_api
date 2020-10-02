@@ -13,6 +13,7 @@ class CreateVersions < ActiveRecord::Migration[6.0]
       t.string   :item_type, {:null=>false, :limit=>191}
       t.bigint   :item_id,   null: false
       t.string   :event,     null: false
+      t.string   :whodunnit_type
       t.string   :whodunnit
       t.text     :object, limit: TEXT_BYTES
 

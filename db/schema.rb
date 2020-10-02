@@ -597,6 +597,7 @@ ActiveRecord::Schema.define(version: 2020_10_02_110545) do
     t.string "item_type", limit: 191, null: false
     t.bigint "item_id", null: false
     t.string "event", null: false
+    t.string "whodunnit_type"
     t.string "whodunnit"
     t.text "object", size: :long
     t.datetime "created_at"
