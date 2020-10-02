@@ -24,11 +24,7 @@ class User < ApplicationRecord
   end
 
   def activated=(value)
-    if value == '1'
-      update(confirmed_at: Time.current)
-    else
-      update(confirmed_at: nil)
-    end
+    self.confirmed_at = (value == '1' ? Time.current : nil)
   end
 
   def at_least_one_confirmed_user

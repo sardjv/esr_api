@@ -66,6 +66,12 @@ describe Ui::UsersController, type: :request do
           it { expect(user.reload.confirmed_at).to eq(nil) }
         end
       end
+
+      describe 'papertrail' do
+        it 'creates a new version with a whodunnit_type' do
+          expect(user.versions.last.whodunnit_type).to eq('User')
+        end
+      end
     end
   end
 

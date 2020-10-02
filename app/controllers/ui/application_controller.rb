@@ -13,4 +13,8 @@ class Ui::ApplicationController < Administrate::ApplicationController
   def valid_action?(name, resource = resource_class)
     %w[new edit destroy].exclude?(name.to_s) && super
   end
+
+  def info_for_paper_trail
+    { whodunnit_type: current_user.class.name }
+  end
 end
