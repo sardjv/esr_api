@@ -1,6 +1,7 @@
 class Ui::ApplicationController < Administrate::ApplicationController
   include AdministrateExportable::Exporter
   before_action :check_signed_in!
+  before_action :set_paper_trail_whodunnit
 
   def check_signed_in!
     return if signed_in?

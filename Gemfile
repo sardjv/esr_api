@@ -91,6 +91,10 @@ gem 'lockbox', '~> 0.4.9'
 # https://github.com/ankane/blind_index
 gem 'blind_index'
 
+# Track changes to your rails models.
+# https://github.com/paper-trail-gem/paper_trail
+gem 'paper_trail', '~> 11.0.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in your code to drop into a debugger console.
   # https://github.com/deivid-rodriguez/byebug
