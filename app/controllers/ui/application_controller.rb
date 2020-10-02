@@ -1,6 +1,6 @@
 class Ui::ApplicationController < Administrate::ApplicationController
   include AdministrateExportable::Exporter
-  before_action :check_signed_in!
+  prepend_before_action :check_signed_in!
   before_action :set_paper_trail_whodunnit
 
   def check_signed_in!
@@ -15,6 +15,9 @@ class Ui::ApplicationController < Administrate::ApplicationController
   end
 
   def info_for_paper_trail
-    { whodunnit_type: current_user.class.name }
+    {
+      whodunnit_type: current_user.class.name,
+      whodunnit: current_user.id.to_s
+    }
   end
 end
