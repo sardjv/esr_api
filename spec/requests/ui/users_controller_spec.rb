@@ -49,8 +49,9 @@ describe Ui::UsersController, type: :request do
   context 'when authenticated' do
     let(:user) { create(:user) }
     let(:updated_name) { 'new name' }
+    let(:confirmed_user) { create(:confirmed_user) }
 
-    before { sign_in create(:confirmed_user) }
+    before { sign_in confirmed_user }
 
     describe 'PUT update' do
       before { put ui_user_path(user), params: { user: { first_name: updated_name } } }
@@ -64,6 +65,13 @@ describe Ui::UsersController, type: :request do
         describe 'deactivating user' do
           before { put ui_user_path(user), params: { user: { activated: '0' } } }
           it { expect(user.reload.confirmed_at).to eq(nil) }
+        end
+      end
+
+      describe 'papertrail' do
+        it 'creates a new version with a whodunnit' do
+          expect(user.versions.last.whodunnit_type).to eq('User')
+          expect(user.versions.last.whodunnit).to eq(confirmed_user.id.to_s)
         end
       end
     end

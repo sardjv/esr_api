@@ -1,5 +1,13 @@
 class ETL::Destinations::ActiveRecord
+  attr_reader :filename
+
+  def initialize(filename:)
+    @filename = filename
+  end
+
   def write(row)
+    set_paper_trail_whodunnit
+
     if (record = existing_record(row))
       if delete?(row)
         record.destroy
@@ -121,5 +129,20 @@ class ETL::Destinations::ActiveRecord
         'Absence Attendance ID' => row['Absence Attendance ID']
       )
     end
+  end
+
+  def set_paper_trail_whodunnit
+    PaperTrail.request.controller_info = info_for_paper_trail
+  end
+
+  def info_for_paper_trail
+    {
+      whodunnit_type: 'Import',
+      whodunnit: filename_without_path
+    }
+  end
+
+  def filename_without_path
+    filename.split('/').last
   end
 end
