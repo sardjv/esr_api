@@ -64,6 +64,7 @@ en:
   navigation:
     api:
       documentation: Help
+      logs: Logs
       test: Test the API
     data: Data
     flash:
