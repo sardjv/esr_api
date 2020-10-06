@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.7.2'
 
 # Create database-backed web applications using the MVC pattern.
 # https://github.com/rails/rails
