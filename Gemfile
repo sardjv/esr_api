@@ -120,7 +120,7 @@ group :development do
 
   # Tool to check dependency licenses.
   # https://github.com/pivotal/LicenseFinder
-  gem 'license_finder', '~> 6.8.2'
+  gem 'license_finder', '~> 6.9.0'
 end
 
 group :test do
