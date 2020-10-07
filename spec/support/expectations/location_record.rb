@@ -28,7 +28,7 @@ module Expectations
 
     def self.updated
       r = added
-      r['Assignment Address 2nd line'] = 'Town Wells Clinic'
+      r['Assignment Address 2nd line'] = 'Town Wells Café'
       r
     end
   end
