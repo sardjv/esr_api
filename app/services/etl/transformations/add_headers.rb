@@ -12,10 +12,10 @@ class ETL::Transformations::AddHeaders
     when 'ABD' then ETL::Headers::AbsenceRecord.delete_headers
     when 'ASA' then ETL::Headers::AssignmentRecord.all
     when 'ASD' then ETL::Headers::AssignmentRecord.delete_headers
-    when 'COA' then ETL::Headers::CostingRecord.all
-    when 'COD' then ETL::Headers::CostingRecord.delete_headers
     when 'CMA' then ETL::Headers::CompetencyRecord.all
     when 'CMD' then ETL::Headers::CompetencyRecord.delete_headers
+    when 'COA' then ETL::Headers::CostingRecord.all
+    when 'COD' then ETL::Headers::CostingRecord.delete_headers
     when 'DTA' then ETL::Headers::DisabilityRecord.all
     when 'DTD' then ETL::Headers::DisabilityRecord.delete_headers
     when 'ELA' then ETL::Headers::ElementRecord.all

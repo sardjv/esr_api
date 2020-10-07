@@ -36,6 +36,13 @@ class ETL::Headers::CompetencyRecord
     ].freeze
   end
 
+  def self.delete_headers
+    [
+      'Record Type',
+      'Competency Element ID'
+    ]
+  end
+
   def self.timestamp_headers
     [
       'Last Update Date'

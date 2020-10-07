@@ -29,6 +29,13 @@ class ETL::Headers::OrganisationRecord
     ].freeze
   end
 
+  def self.delete_headers
+    [
+      'Record Type',
+      'Organisation ID'
+    ]
+  end
+
   def self.timestamp_headers
     [
       'Last Update Date'

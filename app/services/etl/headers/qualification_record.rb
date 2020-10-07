@@ -25,6 +25,13 @@ class ETL::Headers::QualificationRecord
     ].freeze
   end
 
+  def self.delete_headers
+    [
+      'Record Type',
+      'Qualification ID'
+    ]
+  end
+
   def self.timestamp_headers
     [
       'Last Update Date'

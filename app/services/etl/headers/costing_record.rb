@@ -27,6 +27,13 @@ class ETL::Headers::CostingRecord
     ].freeze
   end
 
+  def self.delete_headers
+    [
+      'Record Type',
+      'Costing Allocation ID'
+    ]
+  end
+
   def self.timestamp_headers
     [
       'Last Update Date'

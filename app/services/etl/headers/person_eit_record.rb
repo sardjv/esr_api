@@ -65,6 +65,13 @@ class ETL::Headers::PersonEitRecord
     [].freeze
   end
 
+  def self.delete_headers
+    [
+      'Record Type',
+      'Person Extra Information ID'
+    ]
+  end
+
   def self.timestamp_headers
     [
       'Last Update Date'

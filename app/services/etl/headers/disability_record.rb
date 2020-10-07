@@ -23,6 +23,13 @@ class ETL::Headers::DisabilityRecord
     [].freeze
   end
 
+  def self.delete_headers
+    [
+      'Record Type',
+      'Disability ID'
+    ]
+  end
+
   def self.timestamp_headers
     [].freeze
   end

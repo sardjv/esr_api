@@ -69,6 +69,13 @@ class ETL::Headers::SitRecord
     ].freeze
   end
 
+  def self.delete_headers
+    [
+      'Record Type',
+      'Special Information ID'
+    ]
+  end
+
   def self.timestamp_headers
     [
       'Last Update Date'
