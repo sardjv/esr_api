@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.7.2'
 
 # Create database-backed web applications using the MVC pattern.
 # https://github.com/rails/rails
@@ -120,7 +121,7 @@ group :development do
 
   # Tool to check dependency licenses.
   # https://github.com/pivotal/LicenseFinder
-  gem 'license_finder', '~> 6.8.2'
+  gem 'license_finder', '~> 6.9.0'
 end
 
 group :test do
