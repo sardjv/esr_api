@@ -68,6 +68,13 @@ class ETL::Headers::AssignmentRecord
     ].freeze
   end
 
+  def self.delete_headers
+    [
+      'Record Type',
+      'Assignment ID'
+    ]
+  end
+
   def self.timestamp_headers
     [
       'Last Update Date'

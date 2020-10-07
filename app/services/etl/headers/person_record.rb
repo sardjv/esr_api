@@ -63,6 +63,13 @@ class ETL::Headers::PersonRecord
     ].freeze
   end
 
+  def self.delete_headers
+    [
+      'Record Type',
+      'Person ID'
+    ]
+  end
+
   def self.timestamp_headers
     [].freeze
   end

@@ -1,5 +1,5 @@
 module Expectations
-  class LocationRecord
+  class Iso88591Encoding
     def self.added
       {
         'Location ID' => '1234567',
@@ -7,7 +7,7 @@ module Expectations
         'Location Description' => 'Maternity Town Hospital',
         'Inactive Date' => nil,
         'Assignment Address 1st line' => 'Maternity',
-        'Assignment Address 2nd line' => 'Town Wells Hospital',
+        'Assignment Address 2nd line' => 'Town Wells Café',
         'Assignment Address 3rd line' => nil,
         'Town' => nil,
         'County' => nil,
@@ -24,12 +24,6 @@ module Expectations
         'Welsh Town Translation' => nil,
         'Last Update Date' => Time.new(2011, 8, 3, 16, 13, 10)
       }
-    end
-
-    def self.updated
-      r = added
-      r['Assignment Address 2nd line'] = 'Town Wells Clinic'
-      r
     end
   end
 end
