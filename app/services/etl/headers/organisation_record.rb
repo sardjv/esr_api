@@ -15,7 +15,8 @@ class ETL::Headers::OrganisationRecord
       'NACS Code',
       'Location ID',
       'Last Update Date',
-      'Cost Centre Description'
+      'Cost Centre Description',
+      'not_used'
     ].freeze
   end
 
