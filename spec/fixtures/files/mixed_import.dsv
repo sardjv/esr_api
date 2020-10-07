@@ -5,7 +5,7 @@ CMA~1234567~10005280~PERSONAL~ACHIEVED~NHS|KSF|Health, Safety and Security C3|Co
 COA~1234567~937490~5507703~20110308~47121231~ABC~~~0702K161~~~~~1~20110308 103538
 DTA~1234567~654321~~~~LOV~A~~~~~~~
 ELA~1234567~7105629~20111212~20111212~E~123456~4321~AfC Annual Leave Accrual 1NHS~~203~203~203~203~203~218~218~ 218~218~218~248~248~248~248~248~20051022 063428
-LCA~1234567~070 z Maternity LWH~Maternity Town Hospital~~Maternity~Town Wells Café~~~~~GB~~~Y~~~~~~~20110803 161310
+LCA~1234567~070 z Maternity LWH~Maternity Town Hospital~~Maternity~Town Wells Hospital~~~~~GB~~~Y~~~~~~~20110803 161310
 ORA~1234567~070 6 Domestic (BRO)~NHS_TM~19510101~~~~~070E642~548444~~96804~20061019 233601~070E642
 ETA~1234567~957384~ NHS Regs and Memships~NHS Regs and Memships~Nursing and Midwifery Council~ 94I0864E~ 31/08/2012 00:00:00~~ 31/08/2013 00:00:00~~~~~~~~~~~~~~~~~~~~~~~~~~ Nursing and Midwifery Council~ Sub-Part 1 RNLD (Learning Disabilities)~~~~~~~~~~~~~No~No~No~No~~~~20110719 232041
 PRA~A48180~20170501~20200501~102598012~Mr.~sname~fname~fname~sname~~sname~Female~19860801~AB012201B~289601~20040601~20200501~~E~~20200501~British~~United Kingdom~OXLEAS NHS TRUST~Unknown~20030701~20040401~~~~~EMP~Employee.Ex-Applicant~john.smith@example.com~20030701~~20170501~N~~~~
@@ -20,7 +20,7 @@ CMA~1234567~10005280~PERSONAL~ACHIEVED~NHS|LOCAL|Health, Safety and Security C3|
 COA~1234567~937490~5507703~20110308~47121231~XYZ~~~0702K161~~~~~1~20110308 103538
 DTA~1234567~654321~~~~LIFT~A~~~~~~~
 ELA~1234567~7105629~20111212~20111212~Y~123456~4321~AfC Annual Leave Accrual 1NHS~~203~203~203~203~203~218~218~ 218~218~218~248~248~248~248~248~20051022 063428
-LCA~1234567~070 z Maternity LWH~Maternity Town Hospital~~Maternity~Town Wells Clinic~~~~~GB~~~Y~~~~~~~20110803 161310
+LCA~1234567~070 z Maternity LWH~Maternity Town Hospital~~Maternity~Town Wells Café~~~~~GB~~~Y~~~~~~~20110803 161310
 ORA~1234567~070 6 Outpatient (BRO)~NHS_TM~19510101~~~~~070E642~548444~~96804~20061019 233601~070E642
 ETA~1234567~957384~NHS Regs and Memberships~NHS Regs and Memberships~Nursing and Midwifery Council~ 94I0864E~ 31/08/2012 00:00:00~~ 31/08/2013 00:00:00~~~~~~~~~~~~~~~~~~~~~~~~~~ Nursing and Midwifery Council~ Sub-Part 1 RNLD (Learning Disabilities)~~~~~~~~~~~~~No~No~No~No~~~~20110719 232041
 PRA~A48180~20170501~20200501~102598012~Mr.~sname~fname~fname~sname~~sname~Female~19860801~AB012201B~289601~20040601~20200501~~E~~20200501~British~~United Kingdom~OXLEAS NHS TRUST~Unknown~20030701~20040401~~~~~EMP~Employee.Ex-Applicant~john.smith.new.email@example.com~20030701~~20170501~N~~~~
