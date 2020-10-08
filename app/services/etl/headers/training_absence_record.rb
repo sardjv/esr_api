@@ -48,6 +48,13 @@ class ETL::Headers::TrainingAbsenceRecord
     ].freeze
   end
 
+  def self.delete_headers
+    [
+      'Record Type',
+      'Absence Attendance ID'
+    ]
+  end
+
   def self.timestamp_headers
     [
       'Last Update Date'

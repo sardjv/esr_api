@@ -65,6 +65,13 @@ class ETL::Headers::PositionEitRecord
     [].freeze
   end
 
+  def self.delete_headers
+    [
+      'Record Type',
+      'Position Extra Information ID'
+    ]
+  end
+
   def self.timestamp_headers
     [
       'Last Update Date'

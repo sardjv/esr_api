@@ -7,7 +7,9 @@ class ETL::Transformations::SkipUnwantedRows
 
   def unwanted
     [
-      'HDR'
+      'HDR', # File header row.
+      'CDA', # Undocumented record type. Excluded as it's not clear what the headers should be.
+      'TRL' # File trailer row.
     ].freeze
   end
 end

@@ -23,7 +23,11 @@ class ETL::Headers::CompetencyRecord
       'Proficiency High Level ID',
       'Essential Flag',
       'Records Type',
-      'Last Update Date'
+      'Last Update Date',
+      'not_used',
+      'not_used',
+      'not_used',
+      'not_used'
     ].freeze
   end
 
@@ -34,6 +38,13 @@ class ETL::Headers::CompetencyRecord
       'Certification Date',
       'Next Certification Date'
     ].freeze
+  end
+
+  def self.delete_headers
+    [
+      'Record Type',
+      'Competency Element ID'
+    ]
   end
 
   def self.timestamp_headers

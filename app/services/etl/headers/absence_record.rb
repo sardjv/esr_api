@@ -41,6 +41,13 @@ class ETL::Headers::AbsenceRecord
       'not_used',
       'not_used',
       'not_used',
+      'not_used',
+      'not_used',
+      'not_used',
+      'not_used',
+      'not_used',
+      'not_used',
+      'not_used',
       'not_used'
     ].freeze
   end
@@ -57,6 +64,13 @@ class ETL::Headers::AbsenceRecord
       'Return To Work Discussion Date',
       'Occupational Health Referral Date'
     ].freeze
+  end
+
+  def self.delete_headers
+    [
+      'Record Type',
+      'Absence Attendance ID'
+    ]
   end
 
   def self.timestamp_headers

@@ -15,7 +15,8 @@ class ETL::Headers::OrganisationRecord
       'NACS Code',
       'Location ID',
       'Last Update Date',
-      'Cost Centre Description'
+      'Cost Centre Description',
+      'not_used'
     ].freeze
   end
 
@@ -26,6 +27,13 @@ class ETL::Headers::OrganisationRecord
       'Hierarchy Version Date From',
       'Hierarchy Version Date To'
     ].freeze
+  end
+
+  def self.delete_headers
+    [
+      'Record Type',
+      'Organisation ID'
+    ]
   end
 
   def self.timestamp_headers

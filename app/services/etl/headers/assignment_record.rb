@@ -50,6 +50,7 @@ class ETL::Headers::AssignmentRecord
       'e-KSF Spinal Point',
       'Manager Flag',
       'Assignment End Date',
+      'not_used',
       'not_used'
     ].freeze
   end
@@ -66,6 +67,13 @@ class ETL::Headers::AssignmentRecord
       'Last Working Day',
       'Assignment End Date'
     ].freeze
+  end
+
+  def self.delete_headers
+    [
+      'Record Type',
+      'Assignment ID'
+    ]
   end
 
   def self.timestamp_headers
