@@ -5,6 +5,5 @@ import MenuToggle from 'nhsuk-frontend/packages/components/header/menuToggle';
 
 // Solve issue where Turbolinks stops menus working after page navigation.
 document.addEventListener('turbolinks:render', function() {
-  console.log('toggling!')
   MenuToggle()
 })
