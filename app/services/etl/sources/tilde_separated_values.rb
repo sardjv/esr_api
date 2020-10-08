@@ -13,7 +13,8 @@ class ETL::Sources::TildeSeparatedValues
       csv_options: {
         headers: false,
         col_sep: '~',
-        encoding: 'ISO-8859-1'
+        encoding: 'ISO-8859-1',
+        liberal_parsing: true
       }
     ).each do |row|
       yield row
