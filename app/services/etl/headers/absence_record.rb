@@ -41,6 +41,13 @@ class ETL::Headers::AbsenceRecord
       'not_used',
       'not_used',
       'not_used',
+      'not_used',
+      'not_used',
+      'not_used',
+      'not_used',
+      'not_used',
+      'not_used',
+      'not_used',
       'not_used'
     ].freeze
   end

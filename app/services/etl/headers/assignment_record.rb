@@ -50,6 +50,7 @@ class ETL::Headers::AssignmentRecord
       'e-KSF Spinal Point',
       'Manager Flag',
       'Assignment End Date',
+      'not_used',
       'not_used'
     ].freeze
   end
