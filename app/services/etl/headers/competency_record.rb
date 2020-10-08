@@ -23,7 +23,11 @@ class ETL::Headers::CompetencyRecord
       'Proficiency High Level ID',
       'Essential Flag',
       'Records Type',
-      'Last Update Date'
+      'Last Update Date',
+      'not_used',
+      'not_used',
+      'not_used',
+      'not_used'
     ].freeze
   end
 
