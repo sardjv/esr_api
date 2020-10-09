@@ -2,6 +2,7 @@ class Ui::ApplicationController < Administrate::ApplicationController
   include AdministrateExportable::Exporter
   prepend_before_action :check_signed_in!
   before_action :set_paper_trail_whodunnit
+  include PublicActivity::StoreController
 
   def check_signed_in!
     return if signed_in?

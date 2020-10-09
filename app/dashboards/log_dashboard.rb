@@ -14,9 +14,6 @@ class LogDashboard < Administrate::BaseDashboard
     'owner': Field::BelongsTo.with_options(
       class_name: 'User'
     ),
-    'recipient': Field::BelongsTo.with_options(
-      class_name: 'User'
-    ),
     'key': Field::String,
     'parameters': Field::String,
     'created_at': Field::DateTime
@@ -30,7 +27,6 @@ class LogDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :trackable,
     :owner,
-    :recipient,
     :key,
     :parameters,
     :created_at
