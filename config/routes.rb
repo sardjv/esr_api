@@ -50,6 +50,12 @@ Rails.application.routes.draw do
     end
     resources :logs, only: %i[index]
     resources :tokens, only: %i[index new create show destroy]
+    get '/permissions/:id', to: redirect { |path_params, req|
+      p = Permission.find(path_params[:id])
+      # Permissions can be viewed on parent subject.
+      "ui/#{p.subject_type.downcase.pluralize}/#{p.subject_id}"
+    }, as: 'permission'
+
     resources :users, only: %i[index edit update destroy]
 
     get '/data', to: 'data#index'
