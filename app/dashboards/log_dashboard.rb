@@ -15,7 +15,6 @@ class LogDashboard < Administrate::BaseDashboard
       class_name: 'User'
     ),
     'key': Field::String,
-    'parameters': Field::String,
     'created_at': Field::DateTime
   }.freeze
 
@@ -28,7 +27,6 @@ class LogDashboard < Administrate::BaseDashboard
     :trackable,
     :owner,
     :key,
-    :parameters,
     :created_at
   ].freeze
 
