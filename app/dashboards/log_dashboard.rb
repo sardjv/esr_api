@@ -12,7 +12,7 @@ class LogDashboard < Administrate::BaseDashboard
       classes: DataHelper.models
     ),
     'owner': Field::Polymorphic.with_options(
-      classes: ['User', 'Token']
+      classes: %w[User Token]
     ),
     'key': Field::String,
     'created_at': Field::DateTime

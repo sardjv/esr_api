@@ -33,6 +33,11 @@ en:
         - Disciplinary
   helpers:
     label:
+      log:
+        created_at: Timestamp
+        key: Action
+        owner: Authorisation
+        trackable: Resource
       token:
         token_one_time: Token (can only be viewed once)
   models:
