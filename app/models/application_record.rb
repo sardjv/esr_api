@@ -3,5 +3,5 @@ class ApplicationRecord < ActiveRecord::Base
   has_paper_trail
   include PublicActivity::Model
   tracked owner: ->(controller, _model) { controller&.current_user }
-  has_many :logs, as: :trackable
+  has_many :logs, as: :trackable, dependent: :nullify
 end

@@ -11,8 +11,8 @@ class LogDashboard < Administrate::BaseDashboard
     'trackable': Field::Polymorphic.with_options(
       classes: DataHelper.models
     ),
-    'owner': Field::BelongsTo.with_options(
-      class_name: 'User'
+    'owner': Field::Polymorphic.with_options(
+      classes: ['User', 'Token']
     ),
     'key': Field::String,
     'created_at': Field::DateTime
