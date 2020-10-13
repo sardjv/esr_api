@@ -2,7 +2,7 @@ module SecuredWithToken
   extend ActiveSupport::Concern
 
   def authenticate_request!
-    verify_token && verify_system_active
+    verify_token && verify_system_active && log_request
   rescue AuthenticationError
     render json: { errors: ['Not Authenticated'] }, status: :unauthorized
   rescue NoActiveUsersError
@@ -25,6 +25,18 @@ module SecuredWithToken
     raise NoActiveUsersError unless User.where.not(confirmed_at: nil).exists?
 
     true
+  end
+
+  def log_request
+    return unless params['id']
+
+    Log.create(
+      trackable_type: requested_resource,
+      trackable_id: params['id'],
+      key: "#{requested_resource.underscore}.#{requested_action}",
+      owner_type: 'Token',
+      owner_id: @credentials[:token].id
+    )
   end
 
   def http_token
