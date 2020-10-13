@@ -22,7 +22,9 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
         response '401', 'Error: Unauthorized' do
           schema '$ref' => '#/definitions/error_401'
 
-          run_test!
+          run_test! do
+            refute(absence_record.logs.exists?(key: 'absence_record.index'))
+          end
         end
       end
 
@@ -48,7 +50,9 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
           response '403', 'Error: Forbidden' do
             schema '$ref' => '#/definitions/error_403'
 
-            run_test!
+            run_test! do
+              refute(absence_record.logs.exists?(key: 'absence_record.index'))
+            end
           end
         end
 
@@ -59,7 +63,9 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
           response '403', 'Error: Forbidden' do
             schema '$ref' => '#/definitions/error_403'
 
-            run_test!
+            run_test! do
+              refute(absence_record.logs.exists?(key: 'absence_record.index'))
+            end
           end
         end
 
@@ -73,7 +79,9 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
             response '403', 'Error: Forbidden' do
               schema '$ref' => '#/definitions/error_403'
 
-              run_test!
+              run_test! do
+                refute(absence_record.logs.exists?(key: 'absence_record.index'))
+              end
             end
           end
 
@@ -91,6 +99,8 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
                   response_data.first['attributes'].each do |key, value|
                     expect(database_record.send(key).to_s).to eq(value.to_s)
                   end
+
+                  assert(absence_record.logs.exists?(key: 'absence_record.index'))
                 end
               end
             end
@@ -111,6 +121,8 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
                       expect(database_record.send(key).to_s).to eq(value.to_s)
                     end
                   end
+
+                  assert(absence_record.logs.exists?(key: 'absence_record.index'))
                 end
               end
 
@@ -120,6 +132,8 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
 
                 run_test! do
                   expect(response_data.length).to eq(1)
+
+                  assert(absence_record.logs.exists?(key: 'absence_record.index'))
                 end
               end
             end

@@ -28,15 +28,23 @@ module SecuredWithToken
   end
 
   def log_request
-    return unless params['id']
-
-    Log.create(
+    Log.create!(
       trackable_type: requested_resource,
-      trackable_id: params['id'],
+      trackable_id: trackable_id,
       key: "#{requested_resource.underscore}.#{requested_action}",
       owner_type: 'Token',
       owner_id: @credentials[:token].id
     )
+  end
+
+  # For index requests, fall back to the first item on the page as trackable,
+  # since we have to put something.
+  def trackable_id
+    params['id'] || first_item_on_page_id
+  end
+
+  def first_item_on_page_id
+    requested_resource.constantize.all.page(params['page']['number']).per(params['page']['size']).first.id
   end
 
   def http_token
