@@ -1,8 +1,9 @@
 class Ui::ApplicationController < Administrate::ApplicationController
   include AdministrateExportable::Exporter
+  include PublicActivity::StoreController
+  around_action :set_time_zone
   prepend_before_action :check_signed_in!
   before_action :set_paper_trail_whodunnit
-  include PublicActivity::StoreController
 
   def check_signed_in!
     return if signed_in?
@@ -20,5 +21,11 @@ class Ui::ApplicationController < Administrate::ApplicationController
       whodunnit_type: current_user.class.name,
       whodunnit: current_user.id.to_s
     }
+  end
+
+  private
+
+  def set_time_zone(&block)
+    Time.use_zone(current_user.time_zone, &block)
   end
 end
