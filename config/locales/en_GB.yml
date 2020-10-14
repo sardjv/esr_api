@@ -13,7 +13,7 @@ en:
       destroy:
         success: "%{resource} was successfully deleted."
   app:
-    name: ESR Wrapper
+    name: ESR Wrapper v%{version}
   devise:
     failure:
       unconfirmed: Your account needs to be activated - please get in touch with an existing administrator to request access.
