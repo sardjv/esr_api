@@ -96,6 +96,10 @@ gem 'blind_index'
 # https://github.com/paper-trail-gem/paper_trail
 gem 'paper_trail', '~> 11.0.0'
 
+# Easy activity tracking for models - similar to Github's Public Activity.
+# https://github.com/chaps-io/public_activity
+gem 'public_activity', '~> 1.6.4'
+
 group :development, :test do
   # Call 'byebug' anywhere in your code to drop into a debugger console.
   # https://github.com/deivid-rodriguez/byebug

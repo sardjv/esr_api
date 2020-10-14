@@ -1,6 +1,8 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  root to: 'ui/users#index'
+
   devise_for :users
   namespace :ui do
     resources :absence_records do
@@ -48,13 +50,22 @@ Rails.application.routes.draw do
     resources :training_absence_records do
       get :export, on: :collection
     end
+    resources :events, only: %i[index]
     resources :tokens, only: %i[index new create show destroy]
+    get '/permissions/:id', to: redirect { |path_params, req|
+      p = Permission.find(path_params[:id])
+      # Permissions can be viewed on parent subject.
+      "ui/#{p.subject_type.downcase.pluralize}/#{p.subject_id}"
+    }, as: 'permission'
+
     resources :users, only: %i[index edit update destroy]
+    get '/users/:id', to: redirect { |path_params, req|
+      # Redirect user_path to edit_user_path.
+      "ui/users/#{path_params[:id]}/edit"
+    }
 
     get '/data', to: 'data#index'
   end
-
-  root to: 'ui/absence_records#index'
 
   get '/pages/home', to: 'pages#home'
 

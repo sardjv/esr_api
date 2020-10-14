@@ -3,10 +3,11 @@
     "@nathanvda/cocoon": "^1.2.14",
     "@rails/ujs": "6.0.3",
     "@rails/webpacker": "5.2.1",
+    "chokidar": "^3.4.2",
     "nhsuk-frontend": "^3.0.4",
+    "select2": "4.0.13",
     "snyk": "^1.413.3",
-    "turbolinks": "^5.2.0",
-    "select2": "4.0.13"
+    "turbolinks": "^5.2.0"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.11.0"

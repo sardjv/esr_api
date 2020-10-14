@@ -51,4 +51,8 @@ class Permission < ApplicationRecord
   def readonly?
     persisted?
   end
+
+  def name
+    "#{resource}##{action}"
+  end
 end

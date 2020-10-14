@@ -19,7 +19,9 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
         response '401', 'Error: Unauthorized' do
           schema '$ref' => '#/definitions/error_401'
 
-          run_test!
+          run_test! do
+            refute(absence_record.events.exists?(key: 'absence_record.show'))
+          end
         end
       end
 
@@ -45,7 +47,9 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
           response '403', 'Error: Forbidden' do
             schema '$ref' => '#/definitions/error_403'
 
-            run_test!
+            run_test! do
+              refute(absence_record.events.exists?(key: 'absence_record.show'))
+            end
           end
         end
 
@@ -56,7 +60,9 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
           response '403', 'Error: Forbidden' do
             schema '$ref' => '#/definitions/error_403'
 
-            run_test!
+            run_test! do
+              refute(absence_record.events.exists?(key: 'absence_record.show'))
+            end
           end
         end
 
@@ -70,7 +76,9 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
             response '403', 'Error: Forbidden' do
               schema '$ref' => '#/definitions/error_403'
 
-              run_test!
+              run_test! do
+                refute(absence_record.events.exists?(key: 'absence_record.show'))
+              end
             end
           end
 
@@ -86,6 +94,8 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
                   response_data['attributes'].each do |key, value|
                     expect(absence_record.send(key).to_s).to eq(value.to_s)
                   end
+
+                  assert(absence_record.events.exists?(key: 'absence_record.show'))
                 end
               end
             end
@@ -105,6 +115,8 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
                       expect(absence_record.send(key).to_s).to eq(value.to_s)
                     end
                   end
+
+                  assert(absence_record.events.exists?(key: 'absence_record.show'))
                 end
               end
             end
