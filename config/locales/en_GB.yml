@@ -89,7 +89,7 @@ en:
     sign_in: Sign in
     sign_out: Sign out
     or: or
-    sidekiq: Sidekiq
+    sidekiq: Imports
     sign_up_title: Admin sign-up
     sign_up: Sign up
   time:

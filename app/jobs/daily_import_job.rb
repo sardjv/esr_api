@@ -1,5 +1,5 @@
 class DailyImportJob < ApplicationJob
-  queue_as :default
+  queue_as :synchronous
 
   def perform(filename:)
     job = Kiba.parse do
