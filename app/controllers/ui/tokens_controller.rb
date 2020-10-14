@@ -2,7 +2,6 @@ class Ui::TokensController < Ui::ApplicationController
   # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
   # for more information
 
-
   # GET /ui/tokens
   def new
     resource = new_resource
@@ -61,5 +60,12 @@ class Ui::TokensController < Ui::ApplicationController
     when 'token' then %w[index new create show destroy].include?(name.to_s)
     else false
     end
+  end
+
+  def order
+    @order ||= Administrate::Order.new(
+      params.fetch(resource_name, {}).fetch(:order, :updated_at),
+      params.fetch(resource_name, {}).fetch(:direction, :desc),
+    )
   end
 end
