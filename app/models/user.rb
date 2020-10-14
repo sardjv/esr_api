@@ -10,7 +10,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validate :at_least_one_confirmed_user
 
-  has_many :tokens, inverse_of: :created_by
+  has_many :tokens, inverse_of: :created_by, dependent: :nullify
 
   # Devise method used to send email requesting confirmation. We need
   # confirmation but won't have the ability to send emails so it needs to be

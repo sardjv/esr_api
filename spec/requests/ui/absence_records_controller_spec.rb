@@ -18,20 +18,12 @@ describe Ui::AbsenceRecordsController, type: :request do
     describe 'GET index' do
       before { get ui_absence_records_path }
       it { expect(response).to be_successful }
-
-      it 'creates an event' do
-        expect(Event.last.key).to eq('absence_record.index')
-      end
     end
 
     describe 'GET show' do
       let(:absence_record) { create(:absence_record) }
       before { get ui_absence_record_path(absence_record.id) }
       it { expect(response).to be_successful }
-
-      it 'creates an event' do
-        expect(Event.last.key).to eq('absence_record.show')
-      end
     end
   end
 end

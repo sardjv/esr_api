@@ -2,7 +2,7 @@ module SecuredWithToken
   extend ActiveSupport::Concern
 
   def authenticate_request!
-    verify_token && verify_system_active && log_request
+    verify_token && verify_system_active && track_request
   rescue AuthenticationError
     render json: { errors: ['Not Authenticated'] }, status: :unauthorized
   rescue NoActiveUsersError
@@ -27,7 +27,7 @@ module SecuredWithToken
     true
   end
 
-  def log_request
+  def track_request
     Event.create!(
       trackable_type: requested_resource,
       trackable_id: trackable_id,
