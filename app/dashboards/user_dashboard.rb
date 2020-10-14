@@ -24,7 +24,8 @@ class UserDashboard < Administrate::BaseDashboard
     'created_at': Field::DateTime,
     'updated_at': Field::DateTime,
     'activated': Field::Boolean,
-    'point_of_contact': Field::Boolean
+    'point_of_contact': Field::Boolean,
+    'time_zone': Field::Select.with_options(collection: ActiveSupport::TimeZone::MAPPING.keys)
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -40,18 +41,6 @@ class UserDashboard < Administrate::BaseDashboard
     :point_of_contact
   ].freeze
 
-  # SHOW_PAGE_ATTRIBUTES
-  # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = [
-    :email,
-    :first_name,
-    :last_name,
-    :created_at,
-    :updated_at,
-    :activated,
-    :point_of_contact
-  ].freeze
-
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
@@ -59,6 +48,7 @@ class UserDashboard < Administrate::BaseDashboard
     :email,
     :first_name,
     :last_name,
+    :time_zone,
     :activated,
     :point_of_contact
   ].freeze

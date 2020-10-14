@@ -4,7 +4,7 @@ class Ui::UsersController < Ui::ApplicationController
 
   def update
     if requested_resource.update(resource_params)
-      flash[:notice] = translate_with_resource("update.success")
+      flash[:notice] = translate_with_resource('update.success')
       redirect_to(
         action: :index
       )
