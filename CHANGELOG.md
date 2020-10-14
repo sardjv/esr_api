@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Add ability to import all files from a directory.
+- Add rake task to import all files from a directory.
 
 ## [0.3.2] - 2020-10-14
 
