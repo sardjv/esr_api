@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Fix issue where API causes error if page parameter is missing.
+- Fix issue where API causes error if requested record does not exist.
 
 ## [0.3.1] - 2020-10-14
 
