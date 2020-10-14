@@ -1,7 +1,7 @@
 describe DailyImportJob, type: :job do
-  let(:add_filename) { file_fixture('add_position_record.dsv').to_path }
+  let(:add_filename) { file_fixture('add_position_record.DAT').to_path }
   subject(:add_job) { DailyImportJob.perform_later(filename: add_filename) }
-  let(:update_filename) { file_fixture('update_position_record.dsv').to_path }
+  let(:update_filename) { file_fixture('update_position_record.DAT').to_path }
   subject(:update_job) { DailyImportJob.perform_later(filename: update_filename) }
 
   it 'queues the job' do
@@ -17,7 +17,7 @@ describe DailyImportJob, type: :job do
     expect(PositionRecord.count).to eq(1)
     pr = PositionRecord.first
 
-    # Expect values in the database to match input from add_position_record.dsv.
+    # Expect values in the database to match input from add_position_record.DAT.
     Expectations::PositionRecord.added.each do |key, value|
       expect(pr.send(key)).to eq(value)
     end
@@ -41,7 +41,7 @@ describe DailyImportJob, type: :job do
       expect(pr.created_at).to be_within(2.seconds).of(Time.current - 1.week)
       expect(pr.updated_at).to be_within(2.seconds).of(Time.current)
 
-      # Expect values in the database to match input from update_position_record.dsv.
+      # Expect values in the database to match input from update_position_record.DAT.
       Expectations::PositionRecord.updated.each do |key, value|
         expect(pr.send(key)).to eq(value)
       end
