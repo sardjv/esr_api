@@ -19,8 +19,8 @@ describe Ui::AbsenceRecordsController, type: :request do
       before { get ui_absence_records_path }
       it { expect(response).to be_successful }
 
-      it 'creates a log entry' do
-        expect(Log.last.key).to eq('absence_record.index')
+      it 'creates an event' do
+        expect(Event.last.key).to eq('absence_record.index')
       end
     end
 
@@ -29,8 +29,8 @@ describe Ui::AbsenceRecordsController, type: :request do
       before { get ui_absence_record_path(absence_record.id) }
       it { expect(response).to be_successful }
 
-      it 'creates a log entry' do
-        expect(Log.last.key).to eq('absence_record.show')
+      it 'creates an event' do
+        expect(Event.last.key).to eq('absence_record.show')
       end
     end
   end

@@ -23,7 +23,7 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
           schema '$ref' => '#/definitions/error_401'
 
           run_test! do
-            refute(absence_record.logs.exists?(key: 'absence_record.index'))
+            refute(absence_record.events.exists?(key: 'absence_record.index'))
           end
         end
       end
@@ -51,7 +51,7 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
             schema '$ref' => '#/definitions/error_403'
 
             run_test! do
-              refute(Log.exists?(key: 'absence_record.index'))
+              refute(Event.exists?(key: 'absence_record.index'))
             end
           end
         end
@@ -64,7 +64,7 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
             schema '$ref' => '#/definitions/error_403'
 
             run_test! do
-              refute(Log.exists?(key: 'absence_record.index'))
+              refute(Event.exists?(key: 'absence_record.index'))
             end
           end
         end
@@ -80,7 +80,7 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
               schema '$ref' => '#/definitions/error_403'
 
               run_test! do
-                refute(Log.exists?(key: 'absence_record.index'))
+                refute(Event.exists?(key: 'absence_record.index'))
               end
             end
           end
@@ -100,7 +100,7 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
                     expect(database_record.send(key).to_s).to eq(value.to_s)
                   end
 
-                  assert(Log.exists?(key: 'absence_record.index'))
+                  assert(Event.exists?(key: 'absence_record.index'))
                 end
               end
             end
@@ -122,7 +122,7 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
                     end
                   end
 
-                  assert(Log.exists?(key: 'absence_record.index'))
+                  assert(Event.exists?(key: 'absence_record.index'))
                 end
               end
 
@@ -133,7 +133,7 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
                 run_test! do
                   expect(response_data.length).to eq(1)
 
-                  assert(Log.exists?(key: 'absence_record.index'))
+                  assert(Event.exists?(key: 'absence_record.index'))
                 end
               end
             end

@@ -33,7 +33,7 @@ en:
         - Disciplinary
   helpers:
     label:
-      log:
+      event:
         created_at: Timestamp
         key: Action
         owner: Authorisation
@@ -69,7 +69,7 @@ en:
   navigation:
     api:
       documentation: Help
-      logs: Logs
+      events: Events
       test: Test the API
     data: Data
     flash:

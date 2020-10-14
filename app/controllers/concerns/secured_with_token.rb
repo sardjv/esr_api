@@ -28,7 +28,7 @@ module SecuredWithToken
   end
 
   def log_request
-    Log.create!(
+    Event.create!(
       trackable_type: requested_resource,
       trackable_id: trackable_id,
       key: "#{requested_resource.underscore}.#{requested_action}",

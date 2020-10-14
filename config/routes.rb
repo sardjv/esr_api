@@ -48,7 +48,7 @@ Rails.application.routes.draw do
     resources :training_absence_records do
       get :export, on: :collection
     end
-    resources :logs, only: %i[index]
+    resources :events, only: %i[index]
     resources :tokens, only: %i[index new create show destroy]
     get '/permissions/:id', to: redirect { |path_params, req|
       p = Permission.find(path_params[:id])

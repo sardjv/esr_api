@@ -1,4 +1,4 @@
-class Ui::LogsController < Ui::ApplicationController
+class Ui::EventsController < Ui::ApplicationController
   # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
   # for more information
 

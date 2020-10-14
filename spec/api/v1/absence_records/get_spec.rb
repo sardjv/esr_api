@@ -20,7 +20,7 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
           schema '$ref' => '#/definitions/error_401'
 
           run_test! do
-            refute(absence_record.logs.exists?(key: 'absence_record.show'))
+            refute(absence_record.events.exists?(key: 'absence_record.show'))
           end
         end
       end
@@ -48,7 +48,7 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
             schema '$ref' => '#/definitions/error_403'
 
             run_test! do
-              refute(absence_record.logs.exists?(key: 'absence_record.show'))
+              refute(absence_record.events.exists?(key: 'absence_record.show'))
             end
           end
         end
@@ -61,7 +61,7 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
             schema '$ref' => '#/definitions/error_403'
 
             run_test! do
-              refute(absence_record.logs.exists?(key: 'absence_record.show'))
+              refute(absence_record.events.exists?(key: 'absence_record.show'))
             end
           end
         end
@@ -77,7 +77,7 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
               schema '$ref' => '#/definitions/error_403'
 
               run_test! do
-                refute(absence_record.logs.exists?(key: 'absence_record.show'))
+                refute(absence_record.events.exists?(key: 'absence_record.show'))
               end
             end
           end
@@ -95,7 +95,7 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
                     expect(absence_record.send(key).to_s).to eq(value.to_s)
                   end
 
-                  assert(absence_record.logs.exists?(key: 'absence_record.show'))
+                  assert(absence_record.events.exists?(key: 'absence_record.show'))
                 end
               end
             end
@@ -116,7 +116,7 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
                     end
                   end
 
-                  assert(absence_record.logs.exists?(key: 'absence_record.show'))
+                  assert(absence_record.events.exists?(key: 'absence_record.show'))
                 end
               end
             end

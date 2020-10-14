@@ -1,5 +1,5 @@
 Warden::Manager.after_authentication do |user, _auth, _opts|
-  Log.create!(
+  Event.create!(
     trackable_type: 'User',
     trackable_id: user.id,
     key: 'user.signed_in',
@@ -9,7 +9,7 @@ Warden::Manager.after_authentication do |user, _auth, _opts|
 end
 
 Warden::Manager.before_logout do |user, _auth, _opts|
-  Log.create!(
+  Event.create!(
     trackable_type: 'User',
     trackable_id: user.id,
     key: 'user.signed_out',
