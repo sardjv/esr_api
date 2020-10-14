@@ -82,6 +82,18 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
             end
           end
 
+          context 'when there is no absence record' do
+            let(:id) { '123' }
+
+            response '404', 'Error: Record not found' do
+              schema '$ref' => '#/definitions/error_404'
+
+              run_test! do
+                refute(Event.exists?(key: 'absence_record.show'))
+              end
+            end
+          end
+
           context 'with a subset of columns' do
             let(:columns) { ETL::Headers::AbsenceRecord.api_headers[0..4] }
 

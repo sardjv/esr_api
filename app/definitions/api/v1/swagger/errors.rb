@@ -16,18 +16,7 @@ class Api::V1::Swagger::Errors
       error_404: {
         type: 'object',
         properties: {
-          errors: {
-            type: 'array',
-            items: {
-              type: 'object',
-              properties: {
-                title: { type: 'string', example: 'Record not found' },
-                detail: { type: 'string', example: 'The record identified by invalid could not be found.' },
-                code: { type: 'string', example: 'RECORD_NOT_FOUND' }, # may need to be changed/deleted based on config
-                status: { type: 'string', example: '404' }
-              }
-            }
-          }
+          error: { type: 'string', example: 'Record not found' }
         }
       },
       error_415: {
@@ -38,7 +27,7 @@ class Api::V1::Swagger::Errors
             items: {
               type: 'object',
               properties: {
-                title: { type: 'string', example: 'Unsopported media type' },
+                title: { type: 'string', example: 'Unsupported media type' },
                 detail: { type: 'string', example: 'All requests that create or update must use the \'application/vnd.api+json\' Content-Type. This request specified \'application/json\'.' },
                 code: { type: 'string', example: 'UNSUPPORTED_MEDIA_TYPE ' },
                 status: { type: 'string', example: '415' }

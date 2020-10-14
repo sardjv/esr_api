@@ -2,13 +2,15 @@ module SecuredWithToken
   extend ActiveSupport::Concern
 
   def authenticate_request!
-    verify_token && verify_system_active && track_request
+    verify_token && verify_system_active && verify_resource && track_request
   rescue AuthenticationError
     render json: { errors: ['Not Authenticated'] }, status: :unauthorized
   rescue NoActiveUsersError
     render json: { errors: ['No Active Users'] }, status: :forbidden
   rescue PermissionError
     render json: { errors: ['Permission Denied'] }, status: :forbidden
+  rescue NotFoundError
+    render json: { errors: ['Record Not Found'] }, status: :not_found
   end
 
   private
@@ -23,6 +25,16 @@ module SecuredWithToken
 
   def verify_system_active
     raise NoActiveUsersError unless User.where.not(confirmed_at: nil).exists?
+
+    true
+  end
+
+  def verify_resource
+    if params['id']
+      raise NotFoundError unless requested_resource.constantize.exists?(params['id'])
+    else
+      raise NotFoundError unless requested_resource.constantize.any?
+    end
 
     true
   end
@@ -44,7 +56,7 @@ module SecuredWithToken
   end
 
   def first_item_on_page_id
-    requested_resource.constantize.all.page(params['page']['number']).per(params['page']['size']).first.id
+    requested_resource.constantize.all.page(params.dig('page', 'number')).per(params.dig('page', 'size')).first.id
   end
 
   def http_token
