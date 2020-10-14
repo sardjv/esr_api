@@ -1,6 +1,8 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  root to: 'ui/users#index'
+
   devise_for :users
   namespace :ui do
     resources :absence_records do
@@ -64,8 +66,6 @@ Rails.application.routes.draw do
 
     get '/data', to: 'data#index'
   end
-
-  root to: 'ui/absence_records#index'
 
   get '/pages/home', to: 'pages#home'
 
