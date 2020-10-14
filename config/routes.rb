@@ -57,6 +57,10 @@ Rails.application.routes.draw do
     }, as: 'permission'
 
     resources :users, only: %i[index edit update destroy]
+    get '/users/:id', to: redirect { |path_params, req|
+      # Redirect user_path to edit_user_path.
+      "ui/users/#{path_params[:id]}/edit"
+    }
 
     get '/data', to: 'data#index'
   end

@@ -85,9 +85,9 @@ en:
       view_documentation: Click here to view the documentation.
     links:
       docs: https://sardjv.github.io/esr_api_docs/
-    log_in_title: Admin login
-    log_in: Log in
-    log_out: Log out
+    sign_in_title: Admin signin
+    sign_in: Sign in
+    sign_out: Sign out
     or: or
     sidekiq: Sidekiq
     sign_up_title: Admin signup
