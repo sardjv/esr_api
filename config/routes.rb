@@ -93,7 +93,7 @@ Rails.application.routes.draw do
     end
   end
 
-  constraints ->(request) { request.session[:userinfo].present? } do
+  authenticate :user do
     mount Sidekiq::Web => '/sidekiq'
   end
 end

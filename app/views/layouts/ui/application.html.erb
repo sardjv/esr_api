@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <title>
-    NHS ESR Wrapper
+    <%= I18n.t('app.name', version: EsrApi::VERSION) %>
   </title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
@@ -47,7 +47,7 @@
         </a>
       </div>
       <div class="nhsuk-header__transactional-service-name">
-        <a class="nhsuk-header__transactional-service-name--link" href="/"><%= I18n.t('app.name') %></a>
+        <a class="nhsuk-header__transactional-service-name--link" href="/"><%= I18n.t('app.name', version: EsrApi::VERSION) %></a>
       </div>
       <div class="nhsuk-header__content" id="content-header">
         <div class="nhsuk-header__menu nhsuk-header__menu--only">
