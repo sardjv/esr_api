@@ -1,10 +1,10 @@
-describe DailyImportJob, type: :job do
+describe ImportFileJob, type: :job do
   let(:add_filename) { file_fixture('add_absence_record.DAT').to_path }
-  subject(:add_job) { DailyImportJob.perform_later(filename: add_filename) }
+  subject(:add_job) { ImportFileJob.perform_later(filename: add_filename) }
   let(:update_filename) { file_fixture('update_absence_record.DAT').to_path }
-  subject(:update_job) { DailyImportJob.perform_later(filename: update_filename) }
+  subject(:update_job) { ImportFileJob.perform_later(filename: update_filename) }
   let(:delete_filename) { file_fixture('delete_absence_record.DAT').to_path }
-  subject(:delete_job) { DailyImportJob.perform_later(filename: delete_filename) }
+  subject(:delete_job) { ImportFileJob.perform_later(filename: delete_filename) }
 
   it 'queues the job' do
     expect { add_job }

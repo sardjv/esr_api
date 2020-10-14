@@ -1,4 +1,4 @@
-class DailyImportJob < ApplicationJob
+class ImportFileJob < ApplicationJob
   queue_as :synchronous
 
   def perform(filename:)

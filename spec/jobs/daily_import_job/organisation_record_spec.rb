@@ -1,10 +1,10 @@
-describe DailyImportJob, type: :job do
+describe ImportFileJob, type: :job do
   let(:add_filename) { file_fixture('add_organisation_record.DAT').to_path }
   let(:update_filename) { file_fixture('update_organisation_record.DAT').to_path }
   let(:delete_filename) { file_fixture('delete_organisation_record.DAT').to_path }
-  let(:add_job) { DailyImportJob.perform_later(filename: add_filename) }
-  let(:update_job) { DailyImportJob.perform_later(filename: update_filename) }
-  let(:delete_job) { DailyImportJob.perform_later(filename: delete_filename) }
+  let(:add_job) { ImportFileJob.perform_later(filename: add_filename) }
+  let(:update_job) { ImportFileJob.perform_later(filename: update_filename) }
+  let(:delete_job) { ImportFileJob.perform_later(filename: delete_filename) }
 
   it 'queues the jobs' do
     expect { add_job }

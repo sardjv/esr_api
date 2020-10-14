@@ -1,6 +1,6 @@
-describe DailyImportJob, type: :job do
+describe ImportFileJob, type: :job do
   let(:filename) { file_fixture('mixed_import.DAT').to_path }
-  subject(:job) { DailyImportJob.perform_later(filename: filename) }
+  subject(:job) { ImportFileJob.perform_later(filename: filename) }
 
   context 'with records created' do
     before { perform_enqueued_jobs { job } }
