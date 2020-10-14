@@ -1,4 +1,4 @@
-describe DailyImportJob, type: :job do
+describe ImportFileJob, type: :job do
   let(:classes) { ['AbsenceRecord'] }
   let(:klass) { classes.first }
   let(:quantity) { 2 }

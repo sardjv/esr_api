@@ -1,5 +1,7 @@
-class DailyImportJob < ApplicationJob
-  queue_as :default
+class ImportFileJob < ApplicationJob
+  # This job must be run on a synchronous queue with only 1 worker, because
+  # each row must be imported in the order it occurred.
+  queue_as :synchronous
 
   def perform(filename:)
     job = Kiba.parse do
