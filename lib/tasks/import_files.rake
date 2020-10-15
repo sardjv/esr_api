@@ -33,7 +33,7 @@ def valid_filename_regex
   # IIIIIII is presumably HHMMSSSS, or similar, haven't quite figured that out yet.
   # Example valid seed file: GO_277_GDW_GOF_20200602_00001632.DAT
   # Example valid delta file: GO_277_GDW_GOC_20200603_00001633.DAT
-  Regexp.new('.*([0-9]{4})(0[1-9]|1[0-2])(2[0-3]|[01][0-9])_([0-9]{8}).DAT')
+  Regexp.new('.*([0-9]{4})(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])_([0-9]{8}).DAT')
 end
 
 def sort_by_timestamp(filenames)
