@@ -1,7 +1,7 @@
 describe ImportFileJob, type: :job do
-  let(:add_filename) { file_fixture('add_location_record.DAT').to_path }
-  let(:update_filename) { file_fixture('update_location_record.DAT').to_path }
-  let(:delete_filename) { file_fixture('delete_location_record.DAT').to_path }
+  let(:add_filename) { file_fixture('good_imports/add_location_record.DAT').to_path }
+  let(:update_filename) { file_fixture('good_imports/update_location_record.DAT').to_path }
+  let(:delete_filename) { file_fixture('good_imports/delete_location_record.DAT').to_path }
   let(:add_job) { ImportFileJob.perform_later(filename: add_filename) }
   let(:update_job) { ImportFileJob.perform_later(filename: update_filename) }
   let(:delete_job) { ImportFileJob.perform_later(filename: delete_filename) }

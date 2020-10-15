@@ -1,5 +1,5 @@
 describe ImportFileJob, type: :job do
-  let(:filename) { file_fixture('mixed_import.DAT').to_path }
+  let(:filename) { file_fixture('good_imports/mixed_import.DAT').to_path }
   subject(:job) { ImportFileJob.perform_later(filename: filename) }
 
   context 'with records created' do

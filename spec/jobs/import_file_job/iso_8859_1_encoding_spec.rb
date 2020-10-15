@@ -1,5 +1,5 @@
 describe ImportFileJob, type: :job do
-  let(:add_filename) { file_fixture('iso_8859_1_encoding.DAT').to_path }
+  let(:add_filename) { file_fixture('good_imports/iso_8859_1_encoding.DAT').to_path }
   let(:add_job) { ImportFileJob.perform_later(filename: add_filename) }
 
   it 'creates a new LocationRecord' do

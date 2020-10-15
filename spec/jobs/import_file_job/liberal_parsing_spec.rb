@@ -1,5 +1,5 @@
 describe ImportFileJob, type: :job do
-  let(:add_filename) { file_fixture('liberal_parsing.DAT').to_path }
+  let(:add_filename) { file_fixture('good_imports/liberal_parsing.DAT').to_path }
   let(:add_job) { ImportFileJob.perform_later(filename: add_filename) }
 
   context 'with a row with quotes inside a column' do
