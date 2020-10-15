@@ -24,7 +24,7 @@ task :import_files, [:imports_path] => [:environment] do |_task, args|
 end
 
 def valid_import_filename_regex
-  # Checks that files end in the format YYYYMMDD_0000HHMM.DAT.
+  # Check that filename ends in the format YYYYMMDD_0000HHMM.DAT.
   # Example valid seed file: GO_277_GDW_GOF_20200602_00001632.DAT
   # Example valid delta file: GO_277_GDW_GOC_20200603_00001633.DAT
   Regexp.new('.*([0-9]{4})(0[1-9]|1[0-2])(2[0-3]|[01][0-9])_0000([0-5][0-9])([0-5][0-9]).DAT')
