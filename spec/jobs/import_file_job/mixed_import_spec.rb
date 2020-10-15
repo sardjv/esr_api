@@ -1,5 +1,5 @@
 describe ImportFileJob, type: :job do
-  let(:filename) { file_fixture('good_imports/mixed_import.DAT').to_path }
+  let(:filename) { file_fixture('good_imports/mixed_import_20201015_00001157.DAT').to_path }
   subject(:job) { ImportFileJob.perform_later(filename: filename) }
 
   context 'with records created' do
@@ -25,7 +25,7 @@ describe ImportFileJob, type: :job do
       ].each do |klass|
         expect(klass.count).to eq(1)
 
-        # Expect values in the database to match input from mixed_record.DAT.
+        # Expect values in the database to match input from mixed_record_20201015_00001157.DAT.
         "Expectations::#{klass}".constantize.updated.each do |key, value|
           expect(klass.first.send(key)).to eq(value)
         end

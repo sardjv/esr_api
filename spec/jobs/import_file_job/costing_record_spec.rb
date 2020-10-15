@@ -1,7 +1,7 @@
 describe ImportFileJob, type: :job do
-  let(:add_filename) { file_fixture('good_imports/add_costing_record.DAT').to_path }
-  let(:update_filename) { file_fixture('good_imports/update_costing_record.DAT').to_path }
-  let(:delete_filename) { file_fixture('good_imports/delete_costing_record.DAT').to_path }
+  let(:add_filename) { file_fixture('good_imports/add_costing_record_20201015_00001157.DAT').to_path }
+  let(:update_filename) { file_fixture('good_imports/update_costing_record_20201015_00001157.DAT').to_path }
+  let(:delete_filename) { file_fixture('good_imports/delete_costing_record_20201015_00001157.DAT').to_path }
   let(:add_job) { ImportFileJob.perform_later(filename: add_filename) }
   let(:update_job) { ImportFileJob.perform_later(filename: update_filename) }
   let(:delete_job) { ImportFileJob.perform_later(filename: delete_filename) }
@@ -19,7 +19,7 @@ describe ImportFileJob, type: :job do
     expect(CostingRecord.count).to eq(1)
     pr = CostingRecord.first
 
-    # Expect values in the database to match input from add_costing_record.DAT.
+    # Expect values in the database to match input from add_costing_record_20201015_00001157.DAT.
     Expectations::CostingRecord.added.each do |key, value|
       expect(pr.send(key)).to eq(value)
     end
@@ -43,7 +43,7 @@ describe ImportFileJob, type: :job do
       expect(pr.created_at).to be_within(2.seconds).of(Time.current - 1.week)
       expect(pr.updated_at).to be_within(2.seconds).of(Time.current)
 
-      # Expect values in the database to match input from update_costing_record.DAT.
+      # Expect values in the database to match input from update_costing_record_20201015_00001157.DAT.
       Expectations::CostingRecord.updated.each do |key, value|
         expect(pr.send(key)).to eq(value)
       end
