@@ -12,7 +12,7 @@ class LocationRecordDashboard < Administrate::BaseDashboard
     'Location ID': Field::String,
     'Location Code': Field::String,
     'Location Description': Field::String,
-    'Inactive Date': Field::Date.with_options(transform_on_export: ->(field) { field.data.strftime('%d/%m/%Y') }),
+    'Inactive Date': Field::Date.with_options(transform_on_export: ->(field) { field.data&.strftime('%d/%m/%Y') }),
     'Assignment Address 1st line': Field::String,
     'Assignment Address 2nd line': Field::String,
     'Assignment Address 3rd line': Field::String,

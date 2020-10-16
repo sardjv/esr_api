@@ -17,5 +17,5 @@ as a localized date & time string.
 %>
 
 <% if field.data %>
-  <%= field.data.strftime(I18n.t('time.formats.readable')) %>
+  <%= field.data&.strftime(I18n.t('time.formats.readable')) %>
 <% end %>
