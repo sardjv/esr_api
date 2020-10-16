@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Fix import to skip with LOV records.
+- Fix import to skip LOV records.
 - Prevent Sidekiq from retrying failed import jobs.
 
 ## [0.4.4] - 2020-10-15
