@@ -2,6 +2,7 @@ class ImportFileJob < ApplicationJob
   # This job must be run on a synchronous queue with only 1 worker, because
   # each row must be imported in the order it occurred.
   queue_as :synchronous
+  sidekiq_options retry: false # Failed import jobs need debugging, not retrying.
 
   def perform(filename:)
     job = Kiba.parse do
