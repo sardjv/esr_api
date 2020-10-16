@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Fix CSV export to cope will nil dates.
+- Fix FakeDataJob queue name.
 
 ## [0.4.5] - 2020-10-16
 
