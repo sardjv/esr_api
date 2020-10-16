@@ -34,8 +34,18 @@ describe Ui::AbsenceRecordsController, type: :request do
     end
 
     describe 'GET CSV export' do
-      context 'with a null date' do
-        before { get export_ui_absence_records_path, params: { format: :csv } }
+      before { get export_ui_absence_records_path, params: { format: :csv } }
+      it { expect(response).to be_successful }
+
+      context 'with nil values' do
+        before do
+          absence_record.update(
+            absence_record
+              .attributes.except('id', 'created_at', 'updated_at')
+              .transform_values { nil }
+          )
+        end
+
         it { expect(response).to be_successful }
       end
     end
