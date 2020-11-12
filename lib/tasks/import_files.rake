@@ -30,7 +30,7 @@ private
 
 def valid_filename_regex
   # Check that filename ends in the format YYYYMMDD_IIIIIIII.DAT.
-  # IIIIIII is presumably HHMMSSSS, or similar, haven't quite figured that out yet.
+  # IIIIIII is an ordered index.
   # Example valid seed file: GO_277_GDW_GOF_20200602_00001632.DAT
   # Example valid delta file: GO_277_GDW_GOC_20200603_00001633.DAT
   Regexp.new('.*([0-9]{4})(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])_([0-9]{8}).DAT')
