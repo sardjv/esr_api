@@ -11,7 +11,7 @@ bundle install
 # Yarn install here instead of in Dockerfile since it needs to come after bundle install.
 yarn install
 
-# Precompile CSS and JS assets for production.
+# Compile CSS and JS assets for production.
 bundle exec rails assets:precompile
 bundle exec rails webpacker:compile
 
