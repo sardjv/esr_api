@@ -7,7 +7,7 @@ gem 'rails', '~> 6.0.3'
 
 # A Ruby/Rack web server built for concurrency.
 # https://github.com/puma/puma
-gem 'puma', '~> 5.0.2'
+gem 'puma', '~> 5.0.4'
 
 # Use PostgreSQL as the database for Active Record.
 # https://github.com/ged/ruby-pg
