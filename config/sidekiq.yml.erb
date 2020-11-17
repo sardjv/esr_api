@@ -1,8 +1,36 @@
 ---
 
 :queues:
-  - <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_synchronous
+  - <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_absence_records
+  - <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_assignment_records
+  - <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_competency_records
+  - <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_costing_records
+  - <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_disability_records
+  - <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_element_records
+  - <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_person_eit_records
+  - <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_location_records
+  - <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_organisation_records
+  - <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_person_records
+  - <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_position_eit_records
+  - <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_position_records
+  - <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_qualification_records
+  - <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_sit_records
+  - <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_training_absence_records
   - <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_asynchronous
 :limits:
-  <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_synchronous: 1
+  <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_absence_records: 1
+  <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_assignment_records: 1
+  <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_competency_records: 1
+  <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_costing_records: 1
+  <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_disability_records: 1
+  <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_element_records: 1
+  <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_person_eit_records: 1
+  <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_location_records: 1
+  <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_organisation_records: 1
+  <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_person_records: 1
+  <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_position_eit_records: 1
+  <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_position_records: 1
+  <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_qualification_records: 1
+  <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_sit_records: 1
+  <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_training_absence_records: 1
   <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_asynchronous: 10
