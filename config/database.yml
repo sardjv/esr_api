@@ -48,4 +48,4 @@ production:
   adapter: mysql2
   encoding: utf8mb4
   database: esr_api_production
-  url: <%= ENV['CLEARDB_DATABASE_URL'] %>
+  url: <%= ENV['CLEARDB_DATABASE_URL'] || "#{ENV['DB_DATABASE']_production}" %>
