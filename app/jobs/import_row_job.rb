@@ -1,12 +1,11 @@
 class ImportRowJob < ApplicationJob
   # Shared code inherited by ImportAbsenceRecordJob, etc.
   def perform(row:, filename:)
-
     job = Kiba.parse do
-      # Read the data.
+      # Yield the row.
       source ETL::Sources::Row, row: row
 
-      # Transform pipeline.
+      # Clean data.
       transform ETL::Transformations::AddHeaders
       transform ETL::Transformations::StringToDate
       transform ETL::Transformations::StringToTimestamp

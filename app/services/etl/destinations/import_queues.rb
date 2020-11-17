@@ -6,12 +6,13 @@ class ETL::Destinations::ImportQueues
   end
 
   def write(row)
-    job(row.first).send(:perform_later, row: row, filename: filename)
+    # Get the appropriate queue for this row, and send it the job.
+    queue_name(row.first).send(:perform_later, row: row, filename: filename)
   end
 
   private
 
-  def job(type)
+  def queue_name(type)
     case type
     when 'ABA', 'ABD' then ImportAbsenceRecordJob
     when 'ASA', 'ASD' then ImportAssignmentRecordJob
