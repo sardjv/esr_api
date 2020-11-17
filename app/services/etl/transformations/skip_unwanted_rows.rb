@@ -9,7 +9,7 @@ class ETL::Transformations::SkipUnwantedRows
     [
       'HDR', # File header row.
       'CDA', # Undocumented record type. Excluded as it's not clear what the headers should be.
-      'LOV', # Undocumented record type.
+      'LOV', # Undocumented record type. Excluded as it's not clear what the headers should be.
       'TRL' # File trailer row.
     ].freeze
   end

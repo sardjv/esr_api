@@ -1,23 +1,14 @@
 class ImportFileJob < ApplicationJob
-  # This job must be run on a synchronous queue with only 1 worker, because
-  # each row must be imported in the order it occurred.
-  queue_as :synchronous
-  sidekiq_options retry: false # Failed import jobs need debugging, not retrying.
-
   def perform(filename:)
     job = Kiba.parse do
-      # Read the data.
+      # Parse the data from tilde separated values to an array.
       source ETL::Sources::TildeSeparatedValues, filename: filename
 
-      # Transform pipeline.
+      # Skip unhandled rows.
       transform ETL::Transformations::SkipUnwantedRows
-      transform ETL::Transformations::AddHeaders
-      transform ETL::Transformations::StringToDate
-      transform ETL::Transformations::StringToTimestamp
-      transform ETL::Transformations::SkipBlanks
 
-      # Write it to the destination.
-      destination ETL::Destinations::ActiveRecord, filename: filename
+      # Create a job for each row, on a queue for that type.
+      destination ETL::Destinations::ImportQueues, filename: filename
     end
 
     Kiba.run(job)
