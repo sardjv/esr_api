@@ -1,14 +1,6 @@
 version: '3.7'
 
 services:
-  # PostgresSQL option.
-  # db:
-  #   image: 'postgres:12.2-alpine'
-  #   volumes:
-  #     - 'db:/var/lib/postgresql/data'
-  #   env_file:
-  #     - '.env'
-
   # MySQL option.
   db:
     image: 'mysql:8.0.21'
@@ -19,16 +11,6 @@ services:
       - '.env'
     ports:
       - '3307:3306'
-
-  # SQL Server option.
-  # db:
-  #   image: microsoft/mssql-server-linux:2017-latest
-  #   volumes:
-  #     - 'db:/var/lib/sql_server'
-  #   env_file:
-  #     - '.env'
-  #   ports:
-  #     - '3307:1433'
 
   redis:
     image: 'redis:6.0.1-alpine'
@@ -55,28 +37,19 @@ services:
       - db
       - redis
       - sidekiq
-      - webpacker
     build: .
-    command: ./script/start_rails.sh
+    command: ./script/start_rails_production.sh
     ports:
       - '3000:3000'
     volumes:
       - '.:/app'
-      # We cache the bundle so that we don't re-download every gem on any change to the Gemfile.
-      - bundle_cache:/bundle
     environment:
       - BUNDLE_PATH=/bundle/vendor
       - WEBPACKER_DEV_SERVER_HOST=webpacker
-      - NODE_ENV=development
-      - RAILS_ENV=development
+      - NODE_ENV=production
+      - RAILS_ENV=production
     env_file:
       - '.env'
-
-  bundle_cache:
-    # BusyBox combines tiny versions of many common UNIX utilities into a single small executable.
-    image: busybox
-    volumes:
-      - '.:/bundle_cache'
 
   sidekiq:
     depends_on:
@@ -89,28 +62,11 @@ services:
       - bundle_cache:/bundle
     environment:
       - BUNDLE_PATH=/bundle/vendor
-      - NODE_ENV=development
-      - RAILS_ENV=development
-    env_file:
-      - '.env'
-
-  webpacker:
-    build: .
-    command: ./bin/webpack-dev-server
-    ports:
-      - '3035:3035'
-    volumes:
-      - '.:/app'
-      - bundle_cache:/bundle
-    environment:
-      - BUNDLE_PATH=/bundle/vendor
-      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
-      - NODE_ENV=development
-      - RAILS_ENV=development
+      - NODE_ENV=production
+      - RAILS_ENV=production
     env_file:
       - '.env'
 
 volumes:
-  bundle_cache:
   redis:
   db:
