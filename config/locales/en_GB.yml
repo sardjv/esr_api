@@ -13,6 +13,7 @@ en:
       destroy:
         success: "%{resource} was successfully deleted."
   app:
+    environment: (%{env} mode. You MUST use production mode to protect user data.)
     name: ESR Wrapper v%{version}
   devise:
     failure:
