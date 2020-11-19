@@ -71,6 +71,8 @@ services:
       - WEBPACKER_DEV_SERVER_HOST=webpacker
       - NODE_ENV=development
       - RAILS_ENV=development
+      - RAILS_MAX_THREADS=1 # 1 is good for debugging.
+      - WEB_CONCURRENCY=1 # 1 is good for debugging.
     env_file:
       - '.env'
 

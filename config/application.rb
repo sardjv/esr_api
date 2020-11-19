@@ -26,25 +26,6 @@ module EsrApi
     config.log_tags  = %i[subdomain uuid]
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
 
-    # Action mailer settings.
-    config.action_mailer.delivery_method = :smtp
-    config.action_mailer.smtp_settings = {
-      address: ENV['SMTP_ADDRESS'],
-      port: ENV['SMTP_PORT'].to_i,
-      domain: ENV['SMTP_DOMAIN'],
-      user_name: ENV['SMTP_USERNAME'],
-      password: ENV['SMTP_PASSWORD'],
-      authentication: ENV['SMTP_AUTH'],
-      enable_starttls_auto: ENV['SMTP_ENABLE_STARTTLS_AUTO'] == 'true'
-    }
-
-    config.action_mailer.default_url_options = {
-      host: ENV['ACTION_MAILER_HOST']
-    }
-    config.action_mailer.default_options = {
-      from: ENV['ACTION_MAILER_DEFAULT_FROM']
-    }
-
     # We don't necessarily have the ability to send emails within an organisation,
     # so disable them here.
     config.action_mailer.perform_deliveries = false
