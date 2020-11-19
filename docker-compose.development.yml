@@ -1,5 +1,5 @@
 # Development docker-compose file.
-# Run with: docker-compose -f docker-compose.development.yml up
+# To use: docker-compose -f docker-compose.development.yml up
 version: '3.7'
 
 services:
