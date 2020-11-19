@@ -3,7 +3,6 @@
 version: '3.7'
 
 services:
-  # MySQL option.
   db:
     image: 'mysql:8.0.22'
     restart: always

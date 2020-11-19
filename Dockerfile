@@ -3,14 +3,8 @@ FROM ruby:2.7.2-alpine
 RUN apk update
 RUN apk add build-base git nodejs yarn
 
-# PostgreSQL option.
-# RUN apk add postgresql-dev
-
 # MySQL option.
 RUN apk add mysql-dev
-
-# SQL Server option.
-# RUN apk add unixodbc-dev unixodbc freetds-dev freetds
 
 RUN mkdir /app
 

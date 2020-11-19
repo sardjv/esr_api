@@ -1,15 +1,5 @@
 ---
 
-# PostgreSQL option.
-# default: &default
-#   adapter: postgresql
-#   encoding: unicode
-#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-#   username: <%= ENV['POSTGRES_USERNAME'] %>
-#   password: <%= ENV['POSTGRES_PASSWORD'] %>
-#   host:  <%= ENV['DB_HOST'] %>
-
-# MySQL option.
 default: &default
   adapter: mysql2
   encoding: utf8mb4
@@ -21,16 +11,6 @@ default: &default
   port: <%= ENV['DB_PORT'] %>
   host: <%= ENV['DB_HOST'] %>
   socket: /var/run/mysqld/mysqlx.sock
-
-# SQL Server option.
-# default: &default
-#   adapter: sqlserver
-#   pool: 5
-#   timeout: 60000
-#   encoding: utf8
-#   host: <%= ENV['DB_HOST'] %>
-#   username: <%= ENV['SQL_SERVER_USERNAME'] %>
-#   password: <%= ENV['SA_PASSWORD'] %>
 
 development:
   <<: *default

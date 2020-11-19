@@ -3,15 +3,6 @@
 version: '3.7'
 
 services:
-  # PostgresSQL option.
-  # db:
-  #   image: 'postgres:12.2-alpine'
-  #   volumes:
-  #     - 'db:/var/lib/postgresql/data'
-  #   env_file:
-  #     - '.env'
-
-  # MySQL option.
   db:
     image: 'mysql:8.0.22'
     restart: always
@@ -19,14 +10,6 @@ services:
       - 'db:/var/lib/mysql'
     env_file:
       - '.env'
-
-  # SQL Server option.
-  # db:
-  #   image: microsoft/mssql-server-linux:2017-latest
-  #   volumes:
-  #     - 'db:/var/lib/sql_server'
-  #   env_file:
-  #     - '.env'
 
   redis:
     image: 'redis:6.0.9-alpine'
