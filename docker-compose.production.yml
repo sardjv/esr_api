@@ -1,3 +1,5 @@
+# Production docker-compose file.
+# Run with: docker-compose -f docker-compose.production.yml up
 version: '3.7'
 
 services:
@@ -44,7 +46,6 @@ services:
     volumes:
       - '.:/app'
     environment:
-      - BUNDLE_PATH=/bundle/vendor
       - WEBPACKER_DEV_SERVER_HOST=webpacker
       - NODE_ENV=production
       - RAILS_ENV=production
@@ -59,9 +60,7 @@ services:
     command: ./script/start_sidekiq.sh
     volumes:
       - '.:/app'
-      - bundle_cache:/bundle
     environment:
-      - BUNDLE_PATH=/bundle/vendor
       - NODE_ENV=production
       - RAILS_ENV=production
     env_file:
