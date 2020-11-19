@@ -13,7 +13,6 @@ yarn install
 
 # Compile CSS and JS assets for production.
 bundle exec rails assets:precompile
-bundle exec rails webpacker:compile
 
 # Perform any database tasks needed.
 bundle exec rails db:create db:migrate
