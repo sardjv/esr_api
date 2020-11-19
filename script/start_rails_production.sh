@@ -12,6 +12,7 @@ bundle install
 yarn install
 
 # Compile CSS and JS assets for production.
+bundle exec rails assets:clobber
 bundle exec rails assets:precompile
 
 # Perform any database tasks needed.
