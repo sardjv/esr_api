@@ -46,6 +46,7 @@ staging:
 
 production:
   <% if ENV['CLEARDB_DATABASE_URL'] %>
+    # For Heroku.
     adapter: mysql2
     encoding: utf8mb4
     database: esr_api_production
