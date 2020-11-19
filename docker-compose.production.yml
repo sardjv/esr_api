@@ -5,7 +5,7 @@ version: '3.7'
 services:
   # MySQL option.
   db:
-    image: 'mysql:8.0.21'
+    image: 'mysql:8.0.22'
     restart: always
     volumes:
       - 'db:/var/lib/mysql'
@@ -16,7 +16,7 @@ services:
     restart: always
 
   redis:
-    image: 'redis:6.0.1-alpine'
+    image: 'redis:6.0.9-alpine'
     command: redis-server --requirepass yourpassword
     depends_on:
       - redis_helper
@@ -32,7 +32,7 @@ services:
   # From: https://stackoverflow.com/a/58090841
   # More details: https://easyengine.io/tutorials/redis/
   redis_helper:
-    image: busybox
+    image: busybox:1.32.0
     command: sh -c "echo never > /sys/kernel/mm/transparent_hugepage/enabled"
     privileged: true
 
