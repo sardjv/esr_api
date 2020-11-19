@@ -11,8 +11,6 @@ services:
       - 'db:/var/lib/mysql'
     env_file:
       - '.env'
-    ports:
-      - '3307:3306'
     restart: always
 
   redis:

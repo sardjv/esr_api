@@ -19,8 +19,6 @@ services:
       - 'db:/var/lib/mysql'
     env_file:
       - '.env'
-    ports:
-      - '3307:3306'
 
   # SQL Server option.
   # db:
@@ -29,8 +27,6 @@ services:
   #     - 'db:/var/lib/sql_server'
   #   env_file:
   #     - '.env'
-  #   ports:
-  #     - '3307:1433'
 
   redis:
     image: 'redis:6.0.9-alpine'
