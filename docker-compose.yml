@@ -1,14 +1,8 @@
+# Production docker-compose file.
+# Run with: docker-compose up
 version: '3.7'
 
 services:
-  # PostgresSQL option.
-  # db:
-  #   image: 'postgres:12.2-alpine'
-  #   volumes:
-  #     - 'db:/var/lib/postgresql/data'
-  #   env_file:
-  #     - '.env'
-
   # MySQL option.
   db:
     image: 'mysql:8.0.22'
@@ -19,16 +13,7 @@ services:
       - '.env'
     ports:
       - '3307:3306'
-
-  # SQL Server option.
-  # db:
-  #   image: microsoft/mssql-server-linux:2017-latest
-  #   volumes:
-  #     - 'db:/var/lib/sql_server'
-  #   env_file:
-  #     - '.env'
-  #   ports:
-  #     - '3307:1433'
+    restart: always
 
   redis:
     image: 'redis:6.0.9-alpine'
@@ -41,6 +26,7 @@ services:
       net.core.somaxconn: '511'
     volumes:
       - 'redis:/data'
+    restart: always
 
   # Fix Redis 'WARNING you have Transparent Huge Pages (THP) support'.
   # From: https://stackoverflow.com/a/58090841
@@ -55,28 +41,19 @@ services:
       - db
       - redis
       - sidekiq
-      - webpacker
     build: .
-    command: ./script/start_rails.sh
+    command: ./script/start_rails_production.sh
     ports:
       - '3000:3000'
     volumes:
       - '.:/app'
-      # We cache the bundle so that we don't re-download every gem on any change to the Gemfile.
-      - bundle_cache:/bundle
     environment:
-      - BUNDLE_PATH=/bundle/vendor
       - WEBPACKER_DEV_SERVER_HOST=webpacker
-      - NODE_ENV=development
-      - RAILS_ENV=development
+      - NODE_ENV=production
+      - RAILS_ENV=production
     env_file:
       - '.env'
-
-  bundle_cache:
-    # BusyBox combines tiny versions of many common UNIX utilities into a single small executable.
-    image: busybox:1.32.0
-    volumes:
-      - '.:/bundle_cache'
+    restart: always
 
   sidekiq:
     depends_on:
@@ -86,31 +63,13 @@ services:
     command: ./script/start_sidekiq.sh
     volumes:
       - '.:/app'
-      - bundle_cache:/bundle
     environment:
-      - BUNDLE_PATH=/bundle/vendor
-      - NODE_ENV=development
-      - RAILS_ENV=development
+      - NODE_ENV=production
+      - RAILS_ENV=production
     env_file:
       - '.env'
-
-  webpacker:
-    build: .
-    command: ./bin/webpack-dev-server
-    ports:
-      - '3035:3035'
-    volumes:
-      - '.:/app'
-      - bundle_cache:/bundle
-    environment:
-      - BUNDLE_PATH=/bundle/vendor
-      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
-      - NODE_ENV=development
-      - RAILS_ENV=development
-    env_file:
-      - '.env'
+    restart: always
 
 volumes:
-  bundle_cache:
   redis:
   db:
