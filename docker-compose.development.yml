@@ -46,6 +46,7 @@ services:
   rails:
     depends_on:
       - db
+      - db_test
       - redis
       - sidekiq
       - webpacker
