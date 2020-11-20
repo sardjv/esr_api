@@ -6,8 +6,8 @@ default: &default
   collation: utf8mb4_bin
   reconnect: false
   pool: 50
-  username: <%= ENV['MYSQL_USER'] %>
-  password: <%= ENV['MYSQL_PASSWORD'] %>
+  username: <%= ENV['DB_USERNAME'] || ENV['MYSQL_USER'] %>
+  password: <%= ENV['DB_PASSWORD'] || ENV['MYSQL_PASSWORD'] %>
   port: <%= ENV['DB_PORT'] %>
   host: <%= ENV['DB_HOST'] || 'db' %>
   socket: /var/run/mysqld/mysqlx.sock
