@@ -10,6 +10,18 @@ services:
       - 'db:/var/lib/mysql'
     env_file:
       - '.env'
+    environment:
+      - MYSQL_DATABASE=esr_api_development
+
+  db_test:
+    image: 'mysql:8.0.22'
+    restart: always
+    volumes:
+      - 'db_test:/var/lib/mysql'
+    env_file:
+      - '.env'
+    environment:
+      - MYSQL_DATABASE=esr_api_test
 
   redis:
     image: 'redis:6.0.9-alpine'
@@ -52,7 +64,6 @@ services:
       - RAILS_ENV=development
       - RAILS_MAX_THREADS=1 # 1 is good for debugging.
       - WEB_CONCURRENCY=1 # 1 is good for debugging.
-      - MYSQL_DATABASE=esr_api_development
     env_file:
       - '.env'
 
@@ -98,3 +109,4 @@ volumes:
   bundle_cache:
   redis:
   db:
+  db_test:

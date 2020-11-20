@@ -10,6 +10,8 @@ services:
       - 'db:/var/lib/mysql'
     env_file:
       - '.env'
+    environment:
+      - MYSQL_DATABASE=esr_api_production
     restart: always
 
   redis:
@@ -51,7 +53,6 @@ services:
       - RAILS_MAX_THREADS=5 # See config/puma.rb for more info.
       - WEB_CONCURRENCY=2 # See config/puma.rb for more info.
       - RAILS_SERVE_STATIC_FILES=true
-      - MYSQL_DATABASE=esr_api_production
     env_file:
       - '.env'
     restart: always

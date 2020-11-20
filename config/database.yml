@@ -9,7 +9,7 @@ default: &default
   username: <%= ENV['MYSQL_USER'] %>
   password: <%= ENV['MYSQL_PASSWORD'] %>
   port: <%= ENV['DB_PORT'] %>
-  host: <%= ENV['DB_HOST'] %>
+  host: <%= ENV['DB_HOST'] || 'db' %>
   socket: /var/run/mysqld/mysqlx.sock
 
 development:
@@ -18,10 +18,12 @@ development:
 
 test:
   <<: *default
+  host: <%= ENV['DB_HOST'] || 'db_test' %>
   database: esr_api_test
 
 staging:
   <<: *default
+  host: <%= ENV['DB_HOST'] || 'db_test' %>
   database: esr_api_test
 
 production:
