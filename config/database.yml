@@ -14,17 +14,17 @@ default: &default
 
 development:
   <<: *default
-  database: <%= ENV['DB_DATABASE'] %>_development
+  database: esr_api_development
 
 test:
   <<: *default
   host: <%= ENV['DB_HOST'] || 'db_test' %>
-  database: <%= ENV['DB_DATABASE'] %>_test
+  database: <%= ENV['DB_DATABASE'] || 'esr_api_test' %>
 
 staging:
   <<: *default
   host: <%= ENV['DB_HOST'] || 'db_test' %>
-  database: <%= ENV['DB_DATABASE'] %>_test
+  database: <%= ENV['DB_DATABASE'] || 'esr_api_test' %>
 
 production:
   <% if ENV['CLEARDB_DATABASE_URL'] %>
