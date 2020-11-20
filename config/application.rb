@@ -32,7 +32,7 @@ module EsrApi
 
     # Set Redis as the back-end for the cache.
     config.cache_store = :redis_cache_store, {
-      url: ENV['REDIS_CACHE_URL'],
+      url: "redis://:#{ENV['REDIS_PASSWORD']}@redis:#{ENV['REDIS_PORT']}/0",
       namespace: ENV['REDIS_CACHE_NAMESPACE']
     }
 

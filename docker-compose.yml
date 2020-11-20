@@ -21,7 +21,7 @@ services:
 
   redis:
     image: 'redis:6.0.9-alpine'
-    command: redis-server --requirepass yourpassword
+    command: redis-server --requirepass ${REDIS_PASSWORD}
     depends_on:
       - redis_helper
     sysctls:
@@ -30,6 +30,8 @@ services:
       net.core.somaxconn: '511'
     volumes:
       - 'redis:/data'
+    env_file:
+      - '.env'
     restart: always
 
   # Fix Redis 'WARNING you have Transparent Huge Pages (THP) support'.
