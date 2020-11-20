@@ -4,6 +4,11 @@ version: '3.7'
 
 services:
   db:
+    # This will give a warning on initial boot:
+    # root@localhost is created with an empty password !
+    # It refers just to the first boot, the root user with password is created later
+    # while the database is listening only on the unix socket.
+    # https://github.com/docker-library/mysql/issues/307
     image: 'mysql:8.0.22'
     restart: always
     volumes:
