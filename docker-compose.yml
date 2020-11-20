@@ -47,7 +47,7 @@ services:
       - redis
       - sidekiq
     build: .
-    command: ./script/start_rails.sh
+    command: ./script/start_rails_production.sh
     ports:
       - '3000:3000'
     volumes:
