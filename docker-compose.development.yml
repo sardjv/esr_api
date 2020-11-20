@@ -31,7 +31,7 @@ services:
     command: sh -c "echo never > /sys/kernel/mm/transparent_hugepage/enabled"
     privileged: true
 
-  api:
+  rails:
     depends_on:
       - db
       - redis
@@ -52,6 +52,7 @@ services:
       - RAILS_ENV=development
       - RAILS_MAX_THREADS=1 # 1 is good for debugging.
       - WEB_CONCURRENCY=1 # 1 is good for debugging.
+      - MYSQL_DATABASE=esr_api_development
     env_file:
       - '.env'
 
@@ -79,7 +80,7 @@ services:
 
   webpacker:
     build: .
-    command: ./bin/webpack-dev-server
+    command: ./script/start_webpacker.sh
     ports:
       - '3035:3035'
     volumes:

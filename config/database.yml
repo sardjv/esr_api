@@ -6,23 +6,23 @@ default: &default
   collation: utf8mb4_bin
   reconnect: false
   pool: 50
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
+  username: <%= ENV['MYSQL_USER'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
   port: <%= ENV['DB_PORT'] %>
   host: <%= ENV['DB_HOST'] %>
   socket: /var/run/mysqld/mysqlx.sock
 
 development:
   <<: *default
-  database: <%= ENV['DB_DATABASE'] %>_development
+  database: esr_api_development
 
 test:
   <<: *default
-  database: <%= ENV['DB_DATABASE'] %>_test
+  database: esr_api_test
 
 staging:
   <<: *default
-  database: <%= ENV['DB_DATABASE'] %>_test
+  database: esr_api_test
 
 production:
   <% if ENV['CLEARDB_DATABASE_URL'] %>
@@ -33,5 +33,5 @@ production:
     url: <%= ENV['CLEARDB_DATABASE_URL'] %>
   <% else %>
     <<: *default
-    database: <%= ENV['DB_DATABASE'] %>_production
+    database: esr_api_production
   <% end %>
