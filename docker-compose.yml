@@ -50,6 +50,7 @@ services:
       - RAILS_ENV=production
       - RAILS_MAX_THREADS=5 # See config/puma.rb for more info.
       - WEB_CONCURRENCY=2 # See config/puma.rb for more info.
+      - RAILS_SERVE_STATIC_FILES=true
     env_file:
       - '.env'
     restart: always
