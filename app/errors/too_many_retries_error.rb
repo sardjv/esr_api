@@ -1,0 +1,1 @@
+class TooManyRetriesError < StandardError; end

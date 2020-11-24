@@ -56,7 +56,7 @@
       </div>
 
       <div class="nhsuk-header__transactional-service-name">
-        <a class="nhsuk-header__transactional-service-name--link" href="/"><%= I18n.t('app.name', version: EsrApi::VERSION) %></a>
+        <a class="nhsuk-header__transactional-service-name--link" href="/"><%= I18n.t('app.name', version: EsrApi::VERSION) %> <%= I18n.t('app.environment', env: Rails.env) unless Rails.env.production? %></a>
       </div>
     </div>
   </header>

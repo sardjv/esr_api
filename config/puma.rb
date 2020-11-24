@@ -8,6 +8,9 @@ bind "tcp://#{ENV['BIND_ON']}"
 #
 # More threads will increase CPU load but will also increase throughput.
 #
+# In production, it is usually a good idea to set threads equal to the number of
+# processor cores you have on your server.
+#
 # Like anything this will heavily depend on the size of your instance and web
 # application's demands. 5 is a relatively safe number, start here and increase
 # it based on your app's demands.
@@ -21,6 +24,9 @@ threads threads_count, threads_count
 #
 # If you're looking to maximize performance you'll want to use as many workers
 # as you can without starving your server of RAM.
+#
+# Loosely speaking, workers consume more RAM and threads consume more CPU,
+# and both offer more concurrency.
 #
 # This value isn't really possible to auto-calculate if empty, so it defaults
 # to 2 when it's not set. That is heavily leaning on the safe side.
