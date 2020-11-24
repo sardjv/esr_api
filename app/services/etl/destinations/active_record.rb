@@ -5,7 +5,7 @@ class ETL::Destinations::ActiveRecord
     @filename = filename
   end
 
-  def write(row)
+  def write(row, retries = 0)
     set_paper_trail_whodunnit
 
     if (record = existing_record(row))
@@ -16,30 +16,44 @@ class ETL::Destinations::ActiveRecord
       end
     else
       row = row.merge({ 'created_at' => Time.current, 'updated_at' => Time.current })
-      upsert(row)
+      create(row, retries)
     end
   end
 
-  def upsert(row)
-    # Upsert instead of create here to avoid race condition where a record is
-    # created and updated at almost the same file; the record can be written after
-    # #existing_record checks, but before the below is called.
-    case row['Record Type']
-    when 'ABA' then ::AbsenceRecord.upsert(row.except('Record Type'))
-    when 'ASA' then ::AssignmentRecord.upsert(row.except('Record Type'))
-    when 'COA' then ::CostingRecord.upsert(row.except('Record Type'))
-    when 'CMA' then ::CompetencyRecord.upsert(row.except('Record Type'))
-    when 'DTA' then ::DisabilityRecord.upsert(row.except('Record Type'))
-    when 'ELA' then ::ElementRecord.upsert(row.except('Record Type'))
-    when 'ETA' then ::PersonEitRecord.upsert(row.except('Record Type'))
-    when 'LCA' then ::LocationRecord.upsert(row.except('Record Type'))
-    when 'ORA' then ::OrganisationRecord.upsert(row.except('Record Type'))
-    when 'PRA' then ::PersonRecord.upsert(row.except('Record Type'))
-    when 'PIA' then ::PositionEitRecord.upsert(row.except('Record Type'))
-    when 'POA' then ::PositionRecord.upsert(row.except('Record Type'))
-    when 'QLA' then ::QualificationRecord.upsert(row.except('Record Type'))
-    when 'STA' then ::SitRecord.upsert(row.except('Record Type'))
-    when 'TRA' then ::TrainingAbsenceRecord.upsert(row.except('Record Type'))
+  def create(row, retries)
+    begin
+      case row['Record Type']
+      when 'ABA' then ::AbsenceRecord.create(row.except('Record Type'))
+      when 'ASA' then ::AssignmentRecord.create(row.except('Record Type'))
+      when 'COA' then ::CostingRecord.create(row.except('Record Type'))
+      when 'CMA' then ::CompetencyRecord.create(row.except('Record Type'))
+      when 'DTA' then ::DisabilityRecord.create(row.except('Record Type'))
+      when 'ELA' then ::ElementRecord.create(row.except('Record Type'))
+      when 'ETA' then ::PersonEitRecord.create(row.except('Record Type'))
+      when 'LCA' then ::LocationRecord.create(row.except('Record Type'))
+      when 'ORA' then ::OrganisationRecord.create(row.except('Record Type'))
+      when 'PRA' then ::PersonRecord.create(row.except('Record Type'))
+      when 'PIA' then ::PositionEitRecord.create(row.except('Record Type'))
+      when 'POA' then ::PositionRecord.create(row.except('Record Type'))
+      when 'QLA' then ::QualificationRecord.create(row.except('Record Type'))
+      when 'STA' then ::SitRecord.create(row.except('Record Type'))
+      when 'TRA' then ::TrainingAbsenceRecord.create(row.except('Record Type'))
+      end
+    rescue ActiveRecord::RecordNotUnique
+      # Race condition where a record is
+      # created and updated at almost the same time; the record can be created after
+      # the #existing_record check, but before #create is called.
+      # In that case, another call to write(row) should be able to find and update the row.
+      # Careful about just retrying the job as an alternative - that could lead to a situation
+      # where update jobs get in the wrong order (if another one has already been queued
+      # for this record in the meantime). Also note that this depends on there only being 1 running
+      # worker per job type.
+      # If TooManyRetriesError is raised, there's a flaw in my logic, or need to wait for
+      # more retries.
+      raise TooManyRetriesError if retries >= 100
+
+      retries += 1
+      write(row, retries)
     end
   end
 
