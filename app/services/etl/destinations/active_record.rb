@@ -16,27 +16,30 @@ class ETL::Destinations::ActiveRecord
       end
     else
       row = row.merge({ 'created_at' => Time.current, 'updated_at' => Time.current })
-      create(row)
+      upsert(row)
     end
   end
 
-  def create(row)
+  def upsert(row)
+    # Upsert instead of create here to avoid race condition where a record is
+    # created and updated at almost the same file; the record can be written after
+    # #existing_record checks, but before the below is called.
     case row['Record Type']
-    when 'ABA' then ::AbsenceRecord.insert_all!([row.except('Record Type')])
-    when 'ASA' then ::AssignmentRecord.insert_all!([row.except('Record Type')])
-    when 'COA' then ::CostingRecord.insert_all!([row.except('Record Type')])
-    when 'CMA' then ::CompetencyRecord.insert_all!([row.except('Record Type')])
-    when 'DTA' then ::DisabilityRecord.insert_all!([row.except('Record Type')])
-    when 'ELA' then ::ElementRecord.insert_all!([row.except('Record Type')])
-    when 'ETA' then ::PersonEitRecord.insert_all!([row.except('Record Type')])
-    when 'LCA' then ::LocationRecord.insert_all!([row.except('Record Type')])
-    when 'ORA' then ::OrganisationRecord.insert_all!([row.except('Record Type')])
-    when 'PRA' then ::PersonRecord.insert_all!([row.except('Record Type')])
-    when 'PIA' then ::PositionEitRecord.insert_all!([row.except('Record Type')])
-    when 'POA' then ::PositionRecord.insert_all!([row.except('Record Type')])
-    when 'QLA' then ::QualificationRecord.insert_all!([row.except('Record Type')])
-    when 'STA' then ::SitRecord.insert_all!([row.except('Record Type')])
-    when 'TRA' then ::TrainingAbsenceRecord.insert_all!([row.except('Record Type')])
+    when 'ABA' then ::AbsenceRecord.upsert(row.except('Record Type'))
+    when 'ASA' then ::AssignmentRecord.upsert(row.except('Record Type'))
+    when 'COA' then ::CostingRecord.upsert(row.except('Record Type'))
+    when 'CMA' then ::CompetencyRecord.upsert(row.except('Record Type'))
+    when 'DTA' then ::DisabilityRecord.upsert(row.except('Record Type'))
+    when 'ELA' then ::ElementRecord.upsert(row.except('Record Type'))
+    when 'ETA' then ::PersonEitRecord.upsert(row.except('Record Type'))
+    when 'LCA' then ::LocationRecord.upsert(row.except('Record Type'))
+    when 'ORA' then ::OrganisationRecord.upsert(row.except('Record Type'))
+    when 'PRA' then ::PersonRecord.upsert(row.except('Record Type'))
+    when 'PIA' then ::PositionEitRecord.upsert(row.except('Record Type'))
+    when 'POA' then ::PositionRecord.upsert(row.except('Record Type'))
+    when 'QLA' then ::QualificationRecord.upsert(row.except('Record Type'))
+    when 'STA' then ::SitRecord.upsert(row.except('Record Type'))
+    when 'TRA' then ::TrainingAbsenceRecord.upsert(row.except('Record Type'))
     end
   end
 
