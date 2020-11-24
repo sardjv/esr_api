@@ -9,23 +9,9 @@ gem 'rails', '~> 6.0.3'
 # https://github.com/puma/puma
 gem 'puma', '~> 5.0.4'
 
-# Use PostgreSQL as the database for Active Record.
-# https://github.com/ged/ruby-pg
-# gem 'pg', '~> 1.2.3'
-
 # Use MySQL as the database for Active Record.
 # https://github.com/brianmario/mysql2
 gem 'mysql2', '~> 0.5.3'
-
-# FreeTDS bindings for Ruby, required for SQL Server.
-# https://github.com/rails-sqlserver/tiny_tds
-# Ruby 2.6/2.7 compatibility under development, bump the version when merged:
-# https://github.com/rails-sqlserver/tiny_tds/pull/462
-# gem 'tiny_tds', '~> 2.1.3-pre'
-
-# Use SQL Server as the database for Active Record.
-# https://github.com/rails-sqlserver/activerecord-sqlserver-adapter
-# gem 'activerecord-sqlserver-adapter', '~> 6.0.0'
 
 # A very fast key-value store to hold jobs until they are run.
 # https://github.com/redis/redis-rb

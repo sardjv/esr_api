@@ -1,36 +1,16 @@
 ---
 
-# PostgreSQL option.
-# default: &default
-#   adapter: postgresql
-#   encoding: unicode
-#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-#   username: <%= ENV['POSTGRES_USERNAME'] %>
-#   password: <%= ENV['POSTGRES_PASSWORD'] %>
-#   host:  <%= ENV['DB_HOST'] %>
-
-# MySQL option.
 default: &default
   adapter: mysql2
   encoding: utf8mb4
   collation: utf8mb4_bin
   reconnect: false
   pool: 50
-  username: <%= ENV['DB_USERNAME'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
+  username: <%= ENV['DB_USERNAME'] || ENV['MYSQL_USER'] %>
+  password: <%= ENV['DB_PASSWORD'] || ENV['MYSQL_PASSWORD'] %>
   port: <%= ENV['DB_PORT'] %>
-  host: <%= ENV['DB_HOST'] %>
+  host: <%= ENV['DB_HOST'] || 'db' %>
   socket: /var/run/mysqld/mysqlx.sock
-
-# SQL Server option.
-# default: &default
-#   adapter: sqlserver
-#   pool: 5
-#   timeout: 60000
-#   encoding: utf8
-#   host: <%= ENV['DB_HOST'] %>
-#   username: <%= ENV['SQL_SERVER_USERNAME'] %>
-#   password: <%= ENV['SA_PASSWORD'] %>
 
 development:
   <<: *default
@@ -38,14 +18,22 @@ development:
 
 test:
   <<: *default
+  host: <%= ENV['DB_HOST'] || 'db_test' %>
   database: <%= ENV['DB_DATABASE'] %>_test
 
 staging:
   <<: *default
+  host: <%= ENV['DB_HOST'] || 'db_test' %>
   database: <%= ENV['DB_DATABASE'] %>_test
 
 production:
-  adapter: mysql2
-  encoding: utf8mb4
-  database: esr_api_production
-  url: <%= ENV['CLEARDB_DATABASE_URL'] %>
+  <% if ENV['CLEARDB_DATABASE_URL'] %>
+    # For Heroku.
+    adapter: mysql2
+    encoding: utf8mb4
+    database: esr_api_production
+    url: <%= ENV['CLEARDB_DATABASE_URL'] %>
+  <% else %>
+    <<: *default
+    database: <%= ENV['DB_DATABASE'] %>_production
+  <% end %>
