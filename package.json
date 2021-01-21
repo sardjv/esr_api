@@ -6,7 +6,7 @@
     "chokidar": "^3.4.3",
     "nhsuk-frontend": "^4.0.0",
     "select2": "4.0.13",
-    "snyk": "^1.431.1",
+    "snyk": "^1.438.0",
     "turbolinks": "^5.2.0"
   },
   "devDependencies": {
