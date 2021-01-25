@@ -12,6 +12,8 @@ class User < ApplicationRecord
 
   has_many :tokens, inverse_of: :created_by
 
+  before_create :activate_first_user
+
   # Devise method used to send email requesting confirmation. We need
   # confirmation but won't have the ability to send emails so it needs to be
   #  done manually by admins via the UI. We override this method to do nothing.
@@ -19,7 +21,7 @@ class User < ApplicationRecord
     nil
   end
 
-  def activated
+  def activated?
     confirmed_at.present?
   end
 
@@ -45,5 +47,11 @@ class User < ApplicationRecord
 
   def only_one_confirmed_user?
     User.where.not(confirmed_at: nil).count < 2
+  end
+
+  def activate_first_user
+    return if User.any?
+
+    assign_attributes(confirmed_at: Time.current)
   end
 end

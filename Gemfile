@@ -90,9 +90,9 @@ gem 'paper_trail', '~> 11.1.0'
 gem 'public_activity', '~> 1.6.4'
 
 group :development, :test do
-  # Call 'byebug' anywhere in your code to drop into a debugger console.
-  # https://github.com/deivid-rodriguez/byebug
-  gem 'byebug', '~> 11.1.3', platform: :mri
+  # Call 'binding.pry' anywhere in your code to drop into a debugger console.
+  # https://github.com/pry/pry
+  gem 'pry', '~> 0.13.1'
 
   # Generate Swagger docs from RSpec tests.
   # https://github.com/rswag/rswag
