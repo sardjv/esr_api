@@ -49,6 +49,8 @@ class User < ApplicationRecord
     User.where.not(confirmed_at: nil).count < 2
   end
 
+  # The very first admin on the platform should be activated
+  # by default, so they can activate any subsequent users.
   def activate_first_user
     return if User.any?
 
