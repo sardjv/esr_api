@@ -21,7 +21,7 @@ class User < ApplicationRecord
     nil
   end
 
-  def activated?
+  def activated
     confirmed_at.present?
   end
 

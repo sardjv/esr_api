@@ -11,14 +11,14 @@ describe User, type: :model do
     subject! { create(:user) }
 
     it 'does not require confirmation' do
-      assert(subject.activated?)
+      assert(subject.activated)
     end
 
     describe 'the next user' do
       let(:user2) { create(:user) }
 
       it 'requires confirmation' do
-        refute(user2.activated?)
+        refute(user2.activated)
       end
     end
 

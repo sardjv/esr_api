@@ -71,7 +71,7 @@ describe 'Api::V1::AbsenceRecordResource', type: :request, swagger_doc: 'v1/swag
           let(:action) { 'show' }
 
           context 'when there are no confirmed users' do
-            let!(:confirmed_user) { nil }
+            before { User.update_all(confirmed_at: nil) }
 
             response '403', 'Error: Forbidden' do
               schema '$ref' => '#/definitions/error_403'
