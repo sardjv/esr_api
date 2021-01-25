@@ -80,7 +80,7 @@ gem 'blind_index'
 
 # Track changes to your rails models.
 # https://github.com/paper-trail-gem/paper_trail
-gem 'paper_trail', '~> 11.0.0'
+gem 'paper_trail', '~> 11.1.0'
 
 # Easy activity tracking for models - similar to Github's Public Activity.
 # https://github.com/chaps-io/public_activity
