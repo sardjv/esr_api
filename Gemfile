@@ -40,7 +40,10 @@ gem 'webpacker', '~> 5.2.1'
 
 # A resource-focused Rails library for developing JSON:API compliant servers.
 # https://github.com/cerebris/jsonapi-resources
-gem 'jsonapi-resources', '~> 0.10.2'
+# Use specified version until jsonapi-resources version after 0.10.2 is released.
+# This is so we can use this PR https://github.com/cerebris/jsonapi-resources/pull/1346
+# for Rails 6.1.1 compatibility.
+gem 'jsonapi-resources', github: 'cerebris/jsonapi-resources', ref: 'eb432722b915e76914be9132e010a1244a32e91c'
 
 # Bundle zoneinfo files which are not included in Windows.
 # https://github.com/tzinfo/tzinfo-data
