@@ -5691,13 +5691,12 @@ netmask@^1.0.6:
   resolved "https://registry.yarnpkg.com/netmask/-/netmask-1.0.6.tgz#20297e89d86f6f6400f250d9f4f6b4c1945fcd35"
   integrity sha1-ICl+idhvb2QA8lDZ9Pa0wZRfzTU=
 
-nhsuk-frontend@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/nhsuk-frontend/-/nhsuk-frontend-4.0.0.tgz#8c3ed531f4e8fec997072144685a7a522d2ec7ea"
-  integrity sha512-V41sm5d1z8vU46Cw51WTrf+pPKdy31zSUZ/xTsOIGJxsUziJ/m8fowDakVJjtHORmz42wMtRs4azYL4oYUnzJg==
+nhsuk-frontend@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/nhsuk-frontend/-/nhsuk-frontend-4.1.0.tgz#5f3569350282a1a7d53253ab60d71b4d81eefdac"
+  integrity sha512-Qg/2O72XeHkyzMnEV58bvrYb9Wg0QcoTIZgBAa8B0ch6yO0rW+u6tNv3eD2fSkQ8NLBGWVRmdBAXGtcn1xMQZw==
   dependencies:
     accessible-autocomplete "^2.0.3"
-    sass-mq "^5.0.1"
 
 nice-try@^1.0.4:
   version "1.0.5"
@@ -7690,11 +7689,6 @@ sass-loader@^8.0.2:
     neo-async "^2.6.1"
     schema-utils "^2.6.1"
     semver "^6.3.0"
-
-sass-mq@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/sass-mq/-/sass-mq-5.0.1.tgz#42c711e657d884ff6a1bb4d405dfb6f08a7dc622"
-  integrity sha512-ugSVZO5fzasSFrGfKCtY02spnkOOfo9U9sXuzCuSXoCl1CgcoqdJRdNmigZkhvRVph1GKM6o0pgI00Jjc445CA==
 
 sax@>=0.6.0, sax@^1.2.4, sax@~1.2.4:
   version "1.2.4"

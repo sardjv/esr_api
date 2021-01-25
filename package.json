@@ -4,7 +4,7 @@
     "@rails/ujs": "6.0.3",
     "@rails/webpacker": "5.2.1",
     "chokidar": "^3.5.1",
-    "nhsuk-frontend": "^4.0.0",
+    "nhsuk-frontend": "^4.1.0",
     "select2": "4.0.13",
     "snyk": "^1.439.0",
     "turbolinks": "^5.2.0"
