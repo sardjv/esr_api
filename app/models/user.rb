@@ -54,6 +54,9 @@ class User < ApplicationRecord
   def activate_first_user
     return if User.any?
 
-    assign_attributes(confirmed_at: Time.current)
+    assign_attributes(
+      confirmed_at: Time.current,
+      point_of_contact: true
+    )
   end
 end

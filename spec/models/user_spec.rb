@@ -12,6 +12,7 @@ describe User, type: :model do
 
     it 'does not require confirmation' do
       assert(subject.activated)
+      assert(subject.point_of_contact)
     end
 
     describe 'the next user' do
@@ -19,6 +20,7 @@ describe User, type: :model do
 
       it 'requires confirmation' do
         refute(user2.activated)
+        refute(user2.point_of_contact)
       end
     end
 
