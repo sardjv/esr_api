@@ -37,20 +37,20 @@ class User < ApplicationRecord
   private
 
   def at_least_one_confirmed_user
-    return unless nullifying?('confirmed_at')
+    return unless removing?('confirmed_at')
     return if more_than_one?('confirmed_at')
 
     errors.add(:activated, I18n.t('models.user.errors.cant_deactivate'))
   end
 
   def at_least_one_point_of_contact_user
-    return unless nullifying?('point_of_contact')
+    return unless removing?('point_of_contact')
     return if more_than_one?('point_of_contact')
 
     errors.add(:point_of_contact, I18n.t('models.user.errors.cant_remove_only_point_of_contact'))
   end
 
-  def nullifying?(field)
+  def removing?(field)
     changed.include?(field) && changes[field].last.blank?
   end
 
