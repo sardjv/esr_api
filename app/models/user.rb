@@ -38,24 +38,20 @@ class User < ApplicationRecord
 
   def at_least_one_confirmed_user
     return unless removing?('confirmed_at')
-    return if more_than_one?('confirmed_at')
+    return if User.where.not(confirmed_at: nil).many?
 
     errors.add(:activated, I18n.t('models.user.errors.cant_deactivate'))
   end
 
   def at_least_one_point_of_contact_user
     return unless removing?('point_of_contact')
-    return if more_than_one?('point_of_contact')
+    return if User.where(point_of_contact: true).many?
 
     errors.add(:point_of_contact, I18n.t('models.user.errors.cant_remove_only_point_of_contact'))
   end
 
   def removing?(field)
     changed.include?(field) && changes[field].last.blank?
-  end
-
-  def more_than_one?(field)
-    User.where.not(field => nil).many?
   end
 
   # The very first admin on the platform should be activated

@@ -16,30 +16,29 @@ describe User, type: :model do
     end
 
     describe 'the next user' do
-      let(:user2) { create(:user) }
+      let!(:user2) { create(:user) }
 
       it 'requires confirmation' do
         refute(user2.activated)
         refute(user2.point_of_contact)
       end
-    end
 
-    describe 'deactivation' do
-      it 'is not possible, as the system must always have at least 1 active user' do
-        expect(User.count).to eq(1)
-        subject.update(confirmed_at: nil)
-        expect(subject).not_to be_valid
-        subject.reload
-        expect(subject.confirmed_at).not_to eq(nil)
+      describe 'deactivation' do
+        before { subject.update(confirmed_at: nil) }
+
+        it 'is not possible, as the system must always have at least 1 active user' do
+          expect(subject).not_to be_valid
+          assert(subject.reload.confirmed_at)
+        end
       end
-    end
 
-    describe 'removal of point of contact' do
-      it 'is not possible, as the system must always have at least 1 point of contact' do
-        expect(User.count).to eq(1)
-        subject.update(point_of_contact: false)
-        expect(subject).not_to be_valid
-        assert(subject.reload.point_of_contact)
+      describe 'removal of point of contact' do
+        before { subject.update(point_of_contact: false) }
+
+        it 'is not possible, as the system must always have at least 1 point of contact' do
+          expect(subject).not_to be_valid
+          assert(subject.reload.point_of_contact)
+        end
       end
     end
   end
