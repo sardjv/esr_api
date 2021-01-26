@@ -33,5 +33,14 @@ describe User, type: :model do
         expect(subject.confirmed_at).not_to eq(nil)
       end
     end
+
+    describe 'removal of point of contact' do
+      it 'is not possible, as the system must always have at least 1 point of contact' do
+        expect(User.count).to eq(1)
+        subject.update(point_of_contact: false)
+        expect(subject).not_to be_valid
+        assert(subject.reload.point_of_contact)
+      end
+    end
   end
 end

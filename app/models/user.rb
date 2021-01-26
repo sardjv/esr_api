@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validate :at_least_one_confirmed_user
+  validate :at_least_one_point_of_contact_user
 
   has_many :tokens, inverse_of: :created_by
 
@@ -29,24 +30,32 @@ class User < ApplicationRecord
     self.confirmed_at = (value == '1' ? Time.current : nil)
   end
 
-  def at_least_one_confirmed_user
-    return unless nullifying_confirmed_at? && only_one_confirmed_user?
-
-    errors.add(:activated, I18n.t('models.user.errors.cant_deactivate'))
-  end
-
   def name
     "#{first_name} #{last_name}"
   end
 
   private
 
-  def nullifying_confirmed_at?
-    changed.include?('confirmed_at') && changes['confirmed_at'].last.nil?
+  def at_least_one_confirmed_user
+    return unless nullifying?('confirmed_at')
+    return if more_than_one?('confirmed_at')
+
+    errors.add(:activated, I18n.t('models.user.errors.cant_deactivate'))
   end
 
-  def only_one_confirmed_user?
-    User.where.not(confirmed_at: nil).count < 2
+  def at_least_one_point_of_contact_user
+    return unless nullifying?('point_of_contact')
+    return if more_than_one?('point_of_contact')
+
+    errors.add(:point_of_contact, I18n.t('models.user.errors.cant_remove_only_point_of_contact'))
+  end
+
+  def nullifying?(field)
+    changed.include?(field) && changes[field].last.blank?
+  end
+
+  def more_than_one?(field)
+    User.where.not(field => nil).many?
   end
 
   # The very first admin on the platform should be activated

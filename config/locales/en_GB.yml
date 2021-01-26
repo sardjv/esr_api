@@ -64,6 +64,7 @@ en:
         destroy: Are you sure? This user will be permanently deleted and they will no longer be able to log in.
       errors:
         cant_deactivate: can't deactivate the only active user
+        cant_remove_only_point_of_contact: can't remove the only point of contact
       name:
         one: Admin
         other: Admins
