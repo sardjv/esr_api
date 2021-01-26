@@ -1,4 +1,5 @@
 describe ImportFileJob, type: :job do
+  let!(:admin) { create(:confirmed_user) }
   let(:add_filename) { file_fixture('good_imports/add_competency_record_20201015_00001157.DAT').to_path }
   let(:update_filename) { file_fixture('good_imports/update_competency_record_20201015_00001157.DAT').to_path }
   let(:delete_filename) { file_fixture('good_imports/delete_competency_record_20201015_00001157.DAT').to_path }

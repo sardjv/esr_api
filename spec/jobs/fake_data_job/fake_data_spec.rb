@@ -1,4 +1,6 @@
 describe ImportFileJob, type: :job do
+  let!(:admin) { create(:confirmed_user) }
+
   let(:classes) { ['AbsenceRecord'] }
   let(:klass) { classes.first }
   let(:quantity) { 2 }
