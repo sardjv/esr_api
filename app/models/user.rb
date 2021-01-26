@@ -17,7 +17,7 @@ class User < ApplicationRecord
 
   # Devise method used to send email requesting confirmation. We need
   # confirmation but won't have the ability to send emails so it needs to be
-  #  done manually by admins via the UI. We override this method to do nothing.
+  # done manually by admins via the UI. We override this method to do nothing.
   def send_on_create_confirmation_instructions
     nil
   end
