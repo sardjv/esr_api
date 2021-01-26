@@ -3,6 +3,7 @@
 # This script will copy .env.example into a new file .env, and replace
 # each instance of the string YOU_MUST_CHANGE_THIS_PASSWORD with a random
 # 64-character hex. For use on initial system setup only.
+# Requires openssl.
 ENV_FILE=.env
 if [ -f $ENV_FILE ]
 then echo "$ENV_FILE detected, aborting."
