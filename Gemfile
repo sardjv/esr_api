@@ -128,7 +128,7 @@ group :test do
 
   # Simple one-liner tests for common Rails functionality.
   # https://github.com/thoughtbot/shoulda-matchers
-  gem 'shoulda-matchers', '~> 4.4.1'
+  gem 'shoulda-matchers', '~> 4.5.1'
 
   # Strategies for cleaning databases between tests.
   # https://github.com/DatabaseCleaner/database_cleaner
