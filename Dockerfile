@@ -1,7 +1,7 @@
 FROM ruby:3.0.0-alpine
 
 RUN apk update
-RUN apk add build-base git nodejs yarn mysql-dev
+RUN apk add build-base git nodejs yarn mysql-dev openssl
 
 WORKDIR /app
 
