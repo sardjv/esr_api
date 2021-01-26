@@ -24,9 +24,7 @@ module SecuredWithToken
   end
 
   def verify_system_active
-    raise NoActiveUsersError unless User.where.not(confirmed_at: nil).exists?
-
-    true
+    System.verify_active?
   end
 
   def verify_resource
