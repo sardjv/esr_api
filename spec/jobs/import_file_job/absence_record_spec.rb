@@ -1,4 +1,5 @@
 describe ImportFileJob, type: :job do
+  let!(:admin) { create(:confirmed_user) }
   let(:add_filename) { file_fixture('good_imports/add_absence_record_20201015_00001157.DAT').to_path }
   subject(:add_job) { ImportFileJob.perform_later(filename: add_filename) }
   let(:update_filename) { file_fixture('good_imports/update_absence_record_20201015_00001157.DAT').to_path }

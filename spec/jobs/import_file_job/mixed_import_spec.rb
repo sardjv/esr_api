@@ -1,4 +1,5 @@
 describe ImportFileJob, type: :job do
+  let!(:admin) { create(:confirmed_user) }
   let(:filename) { file_fixture('good_imports/mixed_import_20201015_00001157.DAT').to_path }
   subject(:job) { ImportFileJob.perform_later(filename: filename) }
 

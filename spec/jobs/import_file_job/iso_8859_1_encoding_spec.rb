@@ -1,4 +1,5 @@
 describe ImportFileJob, type: :job do
+  let!(:admin) { create(:confirmed_user) }
   let(:add_filename) { file_fixture('good_imports/iso_8859_1_encoding_20201015_00001157.DAT').to_path }
   let(:add_job) { ImportFileJob.perform_later(filename: add_filename) }
 
