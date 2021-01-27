@@ -87,12 +87,12 @@ en:
       view_documentation: Click here to view the documentation.
     links:
       docs: https://sardjv.github.io/esr_api_docs/
-    sign_in_title: Admin sign-in
+    sign_in_title: Sign in
     sign_in: Sign in
     sign_out: Sign out
     or: or
     sidekiq: Imports
-    sign_up_title: Admin sign-up
+    sign_up_title: Create an account
     sign_up: Sign up
   time:
     formats:
