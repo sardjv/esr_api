@@ -8,6 +8,9 @@
 # Ignore bundler config.
 /.bundle
 
+# This file should be used only in development env.
+docker-compose.override.yml
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
