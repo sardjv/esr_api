@@ -10,7 +10,6 @@ require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 require 'database_cleaner/active_record'
-require 'database_cleaner/redis'
 Dir[File.join(__dir__, 'support/', '*.rb')].each { |file| require file }
 Dir[File.join(__dir__, 'support/expectations/', '*.rb')].each { |file| require file }
 
@@ -41,7 +40,6 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 RSpec.configure do |config|
   config.before(:suite) do
-    DatabaseCleaner[:redis].db = "redis://:#{ENV['REDIS_PASSWORD']}@redis:#{ENV['REDIS_PORT']}/0"
     DatabaseCleaner.strategy = :deletion
     DatabaseCleaner.clean_with(:deletion, except: %w[ar_internal_metadata])
   end

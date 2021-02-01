@@ -133,5 +133,4 @@ group :test do
   # Strategies for cleaning databases between tests.
   # https://github.com/DatabaseCleaner/database_cleaner
   gem 'database_cleaner-active_record', '~> 2.0.0'
-  gem 'database_cleaner-redis', '~> 2.0.0'
 end

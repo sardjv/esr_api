@@ -109,9 +109,6 @@ GEM
       activerecord (>= 5.a)
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.0)
-    database_cleaner-redis (2.0.0)
-      database_cleaner-core (~> 2.0.0)
-      redis
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
     devise (4.7.3)
@@ -378,7 +375,6 @@ DEPENDENCIES
   administrate_exportable (~> 0.2.0)
   blind_index
   database_cleaner-active_record (~> 2.0.0)
-  database_cleaner-redis (~> 2.0.0)
   devise (~> 4.7.3)
   factory_bot (~> 6.1.0)
   faker (~> 2.15.1)
