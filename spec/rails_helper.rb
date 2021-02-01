@@ -41,8 +41,9 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 RSpec.configure do |config|
   config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation, except: %w[ar_internal_metadata])
+    DatabaseCleaner[:redis].db = "redis://:#{ENV['REDIS_PASSWORD']}@redis:#{ENV['REDIS_PORT']}/0"
+    DatabaseCleaner.strategy = :deletion
+    DatabaseCleaner.clean_with(:deletion, except: %w[ar_internal_metadata])
   end
 
   config.around(:each) do |example|
