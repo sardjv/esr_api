@@ -31,7 +31,7 @@ gem 'kiba-common', '~> 1.1.0'
 
 # Serve Swagger documentation generated from RSpec tests.
 # https://github.com/rswag/rswag
-gem 'rswag-api', '~> 2.3.2'
+gem 'rswag-api', '~> 2.3.3'
 gem 'rswag-ui', '~> 2.3.2'
 
 # Use Webpack to manage app-like JavaScript modules in Rails.
