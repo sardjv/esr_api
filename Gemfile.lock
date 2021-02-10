@@ -166,7 +166,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.1)
     kaminari-core (1.2.1)
-    kiba (3.5.0)
+    kiba (3.6.0)
     kiba-common (1.1.0)
       kiba (>= 1.0.0, < 4)
     license_finder (6.10.1)
@@ -381,7 +381,7 @@ DEPENDENCIES
   guard-rspec (~> 4.7.3)
   guard-rubocop (~> 1.4.0)
   jsonapi-resources!
-  kiba (~> 3.5.0)
+  kiba (~> 3.6.0)
   kiba-common (~> 1.1.0)
   license_finder (~> 6.10.1)
   lockbox (~> 0.6.2)
