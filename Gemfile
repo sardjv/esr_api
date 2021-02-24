@@ -92,7 +92,7 @@ gem 'public_activity', '~> 1.6.4'
 group :development, :test do
   # Call 'binding.pry' anywhere in your code to drop into a debugger console.
   # https://github.com/pry/pry
-  gem 'pry', '~> 0.13.1'
+  gem 'pry', '~> 0.14.0'
 
   # Generate Swagger docs from RSpec tests.
   # https://github.com/rswag/rswag
