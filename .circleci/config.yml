@@ -39,7 +39,7 @@ jobs:
           pkg-manager: yarn
       - run:
           name: Wait for DB
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+          command: dockerize -wait tcp://localhost:3306 -timeout 1m
       - run:
           name: Database setup
           command: bundle exec rails db:create db:schema:load --trace
