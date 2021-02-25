@@ -22,7 +22,7 @@ module Expectations
         'Welsh Address Line 2' => nil,
         'Welsh Address Line 3' => nil,
         'Welsh Town Translation' => nil,
-        'Last Update Date' => Time.new(2011, 8, 3, 16, 13, 10)
+        'Last Update Date' => Time.zone.local(2011, 8, 3, 16, 13, 10)
       }
     end
 

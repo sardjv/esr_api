@@ -57,7 +57,7 @@ module Expectations
         'POEI_ATTRIBUTE18' => nil,
         'POEI_ATTRIBUTE19' => nil,
         'POEI_ATTRIBUTE20' => nil,
-        'Last Update Date' => Time.new(2013, 5, 14, 10, 7, 11)
+        'Last Update Date' => Time.zone.local(2013, 5, 14, 10, 7, 11)
       }
     end
 

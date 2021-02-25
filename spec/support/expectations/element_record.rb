@@ -26,7 +26,7 @@ module Expectations
         'Entry Value 13' => '248',
         'Entry Value 14' => '248',
         'Entry Value 15' => '248',
-        'Last Update Date' => Time.new(2005, 10, 22, 6, 34, 28)
+        'Last Update Date' => Time.zone.local(2005, 10, 22, 6, 34, 28)
       }
     end
 

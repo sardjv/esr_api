@@ -13,7 +13,7 @@ module Expectations
         'End Date' => nil,
         'Establishment' => 'City University',
         'Country' => 'UK',
-        'Last Update Date' => Time.new(2010, 10, 18, 14, 24, 15)
+        'Last Update Date' => Time.zone.local(2010, 10, 18, 14, 24, 15)
       }
     end
 
