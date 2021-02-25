@@ -11,6 +11,8 @@ AllCops:
     - 'node_modules/**/*'
     - 'bin/*'
     - 'app/definitions/**/*'
+    - 'spec/support/expectations/*'
+    - 'app/services/etl/headers/*'
 
   NewCops: enable
 
@@ -52,3 +54,7 @@ Metrics/BlockLength:
     - 'Rakefile'
     - '**/*.rake'
     - 'spec/**/*.rb'
+
+Rails/SkipsModelValidations:
+  AllowedMethods:
+    - update_all
