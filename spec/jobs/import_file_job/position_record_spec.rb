@@ -1,8 +1,12 @@
 describe ImportFileJob, type: :job do
   let!(:admin) { create(:confirmed_user) }
-  let(:add_filename) { file_fixture('good_imports/add_position_record_20201015_00001157.DAT').to_path }
+  let(:add_filename) do
+    file_fixture('good_imports/add_position_record_20201015_00001157.DAT').to_path
+  end
   subject(:add_job) { ImportFileJob.perform_later(filename: add_filename) }
-  let(:update_filename) { file_fixture('good_imports/update_position_record_20201015_00001157.DAT').to_path }
+  let(:update_filename) do
+    file_fixture('good_imports/update_position_record_20201015_00001157.DAT').to_path
+  end
   subject(:update_job) { ImportFileJob.perform_later(filename: update_filename) }
 
   it 'queues the job' do

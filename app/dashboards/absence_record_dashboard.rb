@@ -14,17 +14,31 @@ class AbsenceRecordDashboard < Administrate::BaseDashboard
     'Absence Type': Field::String,
     'Absence Reason': Field::String,
     'Status': Field::String,
-    'Notification Date': Field::Date.with_options(transform_on_export: ->(field) { field.data&.strftime('%d/%m/%Y') }),
-    'Projected Start Date': Field::Date.with_options(transform_on_export: ->(field) { field.data&.strftime('%d/%m/%Y') }),
+    'Notification Date': Field::Date.with_options(transform_on_export: lambda { |field|
+                                                                         field.data&.strftime('%d/%m/%Y')
+                                                                       }),
+    'Projected Start Date': Field::Date.with_options(transform_on_export: lambda { |field|
+                                                                            field.data&.strftime('%d/%m/%Y')
+                                                                          }),
     'Projected Start Time': Field::String,
-    'Projected End Date': Field::Date.with_options(transform_on_export: ->(field) { field.data&.strftime('%d/%m/%Y') }),
+    'Projected End Date': Field::Date.with_options(transform_on_export: lambda { |field|
+                                                                          field.data&.strftime('%d/%m/%Y')
+                                                                        }),
     'Projected End Time': Field::String,
-    'Actual Start Date': Field::Date.with_options(transform_on_export: ->(field) { field.data&.strftime('%d/%m/%Y') }),
+    'Actual Start Date': Field::Date.with_options(transform_on_export: lambda { |field|
+                                                                         field.data&.strftime('%d/%m/%Y')
+                                                                       }),
     'Actual Start Time': Field::String,
-    'Actual End Date': Field::Date.with_options(transform_on_export: ->(field) { field.data&.strftime('%d/%m/%Y') }),
+    'Actual End Date': Field::Date.with_options(transform_on_export: lambda { |field|
+                                                                       field.data&.strftime('%d/%m/%Y')
+                                                                     }),
     'Actual End Time': Field::String,
-    'Sickness Start Date': Field::Date.with_options(transform_on_export: ->(field) { field.data&.strftime('%d/%m/%Y') }),
-    'Sickness Date End': Field::Date.with_options(transform_on_export: ->(field) { field.data&.strftime('%d/%m/%Y') }),
+    'Sickness Start Date': Field::Date.with_options(transform_on_export: lambda { |field|
+                                                                           field.data&.strftime('%d/%m/%Y')
+                                                                         }),
+    'Sickness Date End': Field::Date.with_options(transform_on_export: lambda { |field|
+                                                                         field.data&.strftime('%d/%m/%Y')
+                                                                       }),
     'Absence Duration Days': Field::String,
     'Absence Duration Hours': Field::String,
     'Absence Units': Field::String,
@@ -35,8 +49,12 @@ class AbsenceRecordDashboard < Administrate::BaseDashboard
     'Disability Related': Field::String,
     'Violence Aggression Related': Field::String,
     'Notifiable Disease': Field::String,
-    'Return To Work Discussion Date': Field::Date.with_options(transform_on_export: ->(field) { field.data&.strftime('%d/%m/%Y') }),
-    'Occupational Health Referral Date': Field::Date.with_options(transform_on_export: ->(field) { field.data&.strftime('%d/%m/%Y') }),
+    'Return To Work Discussion Date': Field::Date.with_options(transform_on_export: lambda { |field|
+                                                                                      field.data&.strftime('%d/%m/%Y')
+                                                                                    }),
+    'Occupational Health Referral Date': Field::Date.with_options(transform_on_export: lambda { |field|
+                                                                                         field.data&.strftime('%d/%m/%Y')
+                                                                                       }),
     'Last Update Date': Field::DateTime,
     'Surgery Related': Field::String,
     'DH Monitoring': Field::String,

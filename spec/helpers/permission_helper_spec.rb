@@ -39,7 +39,11 @@ describe PermissionHelper do
     context 'without a resource' do
       let(:resource) { nil }
 
-      it { expect { PermissionHelper.column_options_for_select2(resource: resource) }.not_to raise_error }
+      it {
+        expect do
+          PermissionHelper.column_options_for_select2(resource: resource)
+        end.not_to raise_error
+      }
     end
   end
 end

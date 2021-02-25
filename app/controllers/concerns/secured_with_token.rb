@@ -54,7 +54,9 @@ module SecuredWithToken
   end
 
   def first_item_on_page_id
-    requested_resource.constantize.all.page(params.dig('page', 'number')).per(params.dig('page', 'size')).first.id
+    requested_resource.constantize.all.page(params.dig('page',
+                                                       'number')).per(params.dig('page',
+                                                                                 'size')).first.id
   end
 
   def http_token

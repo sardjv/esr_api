@@ -8,7 +8,8 @@ class PermissionDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    'resource': Field::Select.with_options(collection: Permission::RESOURCES, classes: 'resource-select'),
+    'resource': Field::Select.with_options(collection: Permission::RESOURCES,
+                                           classes: 'resource-select'),
     'action': Field::Select.with_options(collection: Permission::ACTIONS),
     'columns': Field::MultiSelect.with_options(collection: PermissionHelper.column_options(resource: 'AbsenceRecord'))
   }.freeze
@@ -18,19 +19,19 @@ class PermissionDashboard < Administrate::BaseDashboard
   #
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
-  COLLECTION_ATTRIBUTES = [
-    :resource,
-    :action,
-    :columns
+  COLLECTION_ATTRIBUTES = %i[
+    resource
+    action
+    columns
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = [
-    :resource,
-    :action,
-    :columns
+  FORM_ATTRIBUTES = %i[
+    resource
+    action
+    columns
   ].freeze
 
   # COLLECTION_FILTERS

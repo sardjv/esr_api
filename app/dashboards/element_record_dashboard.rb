@@ -11,13 +11,19 @@ class ElementRecordDashboard < Administrate::BaseDashboard
     'id': Field::Number,
     'Person ID': Field::String,
     'Element Entry ID': Field::String,
-    'Effective Start Date': Field::Date.with_options(transform_on_export: ->(field) { field.data&.strftime('%d/%m/%Y') }),
-    'Effective End Date': Field::Date.with_options(transform_on_export: ->(field) { field.data&.strftime('%d/%m/%Y') }),
+    'Effective Start Date': Field::Date.with_options(transform_on_export: lambda { |field|
+                                                                            field.data&.strftime('%d/%m/%Y')
+                                                                          }),
+    'Effective End Date': Field::Date.with_options(transform_on_export: lambda { |field|
+                                                                          field.data&.strftime('%d/%m/%Y')
+                                                                        }),
     'Element Entry Type': Field::String,
     'Assignment ID': Field::String,
     'Element Type ID': Field::String,
     'Element Type Name': Field::String,
-    'Earned Date': Field::Date.with_options(transform_on_export: ->(field) { field.data&.strftime('%d/%m/%Y') }),
+    'Earned Date': Field::Date.with_options(transform_on_export: lambda { |field|
+                                                                   field.data&.strftime('%d/%m/%Y')
+                                                                 }),
     'Entry Value 1': Field::String,
     'Entry Value 2': Field::String,
     'Entry Value 3': Field::String,

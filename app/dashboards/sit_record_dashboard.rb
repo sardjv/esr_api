@@ -11,8 +11,12 @@ class SitRecordDashboard < Administrate::BaseDashboard
     'id': Field::Number,
     'Person ID': Field::String,
     'Special Information ID': Field::String,
-    'Effective Start Date': Field::Date.with_options(transform_on_export: ->(field) { field.data&.strftime('%d/%m/%Y') }),
-    'Effective End Date': Field::Date.with_options(transform_on_export: ->(field) { field.data&.strftime('%d/%m/%Y') }),
+    'Effective Start Date': Field::Date.with_options(transform_on_export: lambda { |field|
+                                                                            field.data&.strftime('%d/%m/%Y')
+                                                                          }),
+    'Effective End Date': Field::Date.with_options(transform_on_export: lambda { |field|
+                                                                          field.data&.strftime('%d/%m/%Y')
+                                                                        }),
     'Information Type': Field::String,
     'SEGMENT1': Field::String,
     'SEGMENT2': Field::String,

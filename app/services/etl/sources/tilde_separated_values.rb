@@ -7,7 +7,7 @@ class ETL::Sources::TildeSeparatedValues
     @filename = filename
   end
 
-  def each
+  def each(&block)
     Kiba::Common::Sources::CSV.new(
       filename: filename,
       csv_options: {
@@ -16,8 +16,6 @@ class ETL::Sources::TildeSeparatedValues
         encoding: 'ISO-8859-1',
         liberal_parsing: true
       }
-    ).each do |row|
-      yield row
-    end
+    ).each(&block)
   end
 end

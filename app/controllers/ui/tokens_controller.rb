@@ -8,17 +8,17 @@ class Ui::TokensController < Ui::ApplicationController
     authorize_resource(resource)
 
     respond_to do |format|
-      format.html {
+      format.html do
         render locals: {
           page: Administrate::Page::Form.new(dashboard, resource)
         }
-      }
-      format.json {
+      end
+      format.json do
         # Used for updating permissions form column dropdown options if the resource changes.
         render json: {
           column_options: PermissionHelper.column_options_for_select2(resource: params['resource'])
         }
-      }
+      end
     end
   end
 
@@ -36,9 +36,9 @@ class Ui::TokensController < Ui::ApplicationController
         notice: translate_with_resource('create.success')
       )
     else
-      @options = resource.permissions.map { |p|
+      @options = resource.permissions.map do |p|
         PermissionHelper.column_options(resource: p.resource)
-      }
+      end
       render :new, locals: {
         page: Administrate::Page::Form.new(dashboard, resource)
       }
@@ -65,7 +65,7 @@ class Ui::TokensController < Ui::ApplicationController
   def order
     @order ||= Administrate::Order.new(
       params.fetch(resource_name, {}).fetch(:order, :updated_at),
-      params.fetch(resource_name, {}).fetch(:direction, :desc),
+      params.fetch(resource_name, {}).fetch(:direction, :desc)
     )
   end
 end

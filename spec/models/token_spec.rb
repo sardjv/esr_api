@@ -47,61 +47,61 @@ describe Token, type: :model do
 
     context 'with nonexistent token' do
       it {
-        expect {
+        expect do
           Token.verify(
             inbound_token: '1234',
             resource: resource,
             action: action
           )
-        }.to raise_error(AuthenticationError)
+        end.to raise_error(AuthenticationError)
       }
     end
 
     context 'with a permission with the wrong resource and action' do
       it {
-        expect {
+        expect do
           Token.verify(
             inbound_token: token.token,
             resource: Permission::RESOURCES.last,
             action: Permission::ACTIONS.last
           )
-        }.to raise_error(PermissionError)
+        end.to raise_error(PermissionError)
       }
     end
 
     context 'with a permission with the wrong resource' do
       it {
-        expect {
+        expect do
           Token.verify(
             inbound_token: token.token,
             resource: Permission::RESOURCES.last,
             action: action
           )
-        }.to raise_error(PermissionError)
+        end.to raise_error(PermissionError)
       }
     end
 
     context 'with a permission with the wrong action' do
       it {
-        expect {
+        expect do
           Token.verify(
             inbound_token: token.token,
             resource: resource,
             action: Permission::ACTIONS.last
           )
-        }.to raise_error(PermissionError)
+        end.to raise_error(PermissionError)
       }
     end
 
     context 'with a permission with the right resource and action' do
       it {
-        expect {
+        expect do
           Token.verify(
             inbound_token: token.token,
             resource: permission.resource,
             action: permission.action
           )
-        }.not_to raise_error
+        end.not_to raise_error
       }
     end
   end
