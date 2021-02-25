@@ -13,6 +13,7 @@ AllCops:
     - 'app/definitions/**/*'
     - 'spec/support/expectations/*'
     - 'app/services/etl/headers/*'
+    - 'app/dashboards/*'
 
   NewCops: enable
 
