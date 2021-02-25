@@ -14,6 +14,8 @@ AllCops:
 
   NewCops: enable
 
+  SuggestExtensions: false
+
 Style/Documentation:
   # Skips checking to make sure top level modules / classes have a comment.
   Enabled: false
