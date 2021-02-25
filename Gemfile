@@ -3,11 +3,11 @@ ruby '3.0.0'
 
 # Create database-backed web applications using the MVC pattern.
 # https://github.com/rails/rails
-gem 'rails', '~> 6.1.2', '>= 6.1.2.1'
+gem 'rails', '~> 6.1.3'
 
 # A Ruby/Rack web server built for concurrency.
 # https://github.com/puma/puma
-gem 'puma', '~> 5.2.0'
+gem 'puma', '~> 5.2.1'
 
 # Use MySQL as the database for Active Record.
 # https://github.com/brianmario/mysql2
@@ -23,7 +23,7 @@ gem 'sidekiq', '~> 6.1.3'
 
 # Data processing & ETL framework for Ruby.
 # https://github.com/thbar/kiba
-gem 'kiba', '~> 3.5.0'
+gem 'kiba', '~> 3.6.0'
 
 # Kiba companion gem for commonly-used helpers.
 # https://github.com/thbar/kiba-common
@@ -31,7 +31,7 @@ gem 'kiba-common', '~> 1.1.0'
 
 # Serve Swagger documentation generated from RSpec tests.
 # https://github.com/rswag/rswag
-gem 'rswag-api', '~> 2.3.2'
+gem 'rswag-api', '~> 2.4.0'
 gem 'rswag-ui', '~> 2.4.0'
 
 # Use Webpack to manage app-like JavaScript modules in Rails.
@@ -92,7 +92,7 @@ gem 'public_activity', '~> 1.6.4'
 group :development, :test do
   # Call 'binding.pry' anywhere in your code to drop into a debugger console.
   # https://github.com/pry/pry
-  gem 'pry', '~> 0.13.1'
+  gem 'pry', '~> 0.14.0'
 
   # Generate Swagger docs from RSpec tests.
   # https://github.com/rswag/rswag
