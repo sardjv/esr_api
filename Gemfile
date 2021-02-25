@@ -119,6 +119,10 @@ group :development do
 end
 
 group :test do
+  # RSpec results that your CI can read.
+  # https://github.com/sj26/rspec_junit_formatter
+  gem 'rspec_junit_formatter', '~> 0.4.1'
+
   # RSpec is a specification library for behaviour driven development.
   # https://github.com/rspec/rspec
   gem 'rspec-rails', '~> 4.0.2'
