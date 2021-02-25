@@ -15,6 +15,7 @@ AllCops:
     - 'app/services/etl/**/*'
     - 'app/dashboards/*'
     - 'config/routes.rb'
+    - 'vendor/**/*' # For CircleCI.
   SuggestExtensions: false
 
 Style/Documentation:
