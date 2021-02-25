@@ -12,8 +12,9 @@ AllCops:
     - 'bin/*'
     - 'app/definitions/**/*'
     - 'spec/support/expectations/*'
-    - 'app/services/etl/headers/*'
+    - 'app/services/etl/**/*'
     - 'app/dashboards/*'
+    - 'config/routes.rb'
 
   NewCops: enable
 

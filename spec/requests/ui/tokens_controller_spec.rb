@@ -72,9 +72,7 @@ describe Ui::TokensController, type: :request do
       it { expect(response).to redirect_to(pages_home_path) }
 
       it 'does not create a new token' do
-        expect { post ui_tokens_path, params: { token: { name: 'test' } } }.not_to change {
-                                                                                     Token.count
-                                                                                   }
+        expect { post ui_tokens_path, params: { token: { name: 'test' } } }.not_to change(Token, :count)
       end
     end
   end
@@ -179,7 +177,7 @@ describe Ui::TokensController, type: :request do
       it { expect(response).to redirect_to(pages_home_path) }
 
       it 'does not delete the token' do
-        expect { delete ui_token_path(token) }.not_to change { Token.count }
+        expect { delete ui_token_path(token) }.not_to change(Token, :count)
       end
     end
   end
