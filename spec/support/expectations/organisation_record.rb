@@ -14,7 +14,7 @@ module Expectations
         'Parent Organisation ID' => '548444',
         'NACS Code' => nil,
         'Location ID' => '96804',
-        'Last Update Date' => Time.new(2006, 10, 19, 23, 36, 1),
+        'Last Update Date' => Time.zone.local(2006, 10, 19, 23, 36, 1),
         'Cost Centre Description' => '070E642'
       }
     end

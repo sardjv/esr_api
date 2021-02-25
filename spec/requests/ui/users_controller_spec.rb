@@ -86,7 +86,7 @@ describe Ui::UsersController, type: :request do
       it { expect(response).to redirect_to(pages_home_path) }
 
       it 'does not delete the token' do
-        expect { delete ui_user_path(user) }.not_to change { User.count }
+        expect { delete ui_user_path(user) }.not_to change(User, :count)
       end
     end
   end

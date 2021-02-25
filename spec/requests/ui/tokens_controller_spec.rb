@@ -72,7 +72,7 @@ describe Ui::TokensController, type: :request do
       it { expect(response).to redirect_to(pages_home_path) }
 
       it 'does not create a new token' do
-        expect { post ui_tokens_path, params: { token: { name: 'test' } } }.not_to change { Token.count }
+        expect { post ui_tokens_path, params: { token: { name: 'test' } } }.not_to change(Token, :count)
       end
     end
   end
@@ -81,36 +81,36 @@ describe Ui::TokensController, type: :request do
     let(:name) { 'Test Token' }
     let(:permission_resource) { 'AbsenceRecord' }
     let(:permission_action) { 'index' }
-    let(:permission_columns) {
+    let(:permission_columns) do
       [
         '',
         'Absence Attendance ID',
         'Absence Type'
       ]
-    }
-    let(:permission_attributes) {
+    end
+    let(:permission_attributes) do
       {
         resource: permission_resource,
         action: permission_action,
         columns: permission_columns
       }
-    }
+    end
 
     before { sign_in create(:confirmed_user) }
 
     describe 'POST create' do
       it 'creates a new token' do
-        expect {
+        expect do
           post ui_tokens_path,
-          params: {
-            token: {
-              name: name,
-              permissions_attributes: [
-                permission_attributes
-              ]
-            }
-          }
-        }.to change { Token.count }.by(1)
+               params: {
+                 token: {
+                   name: name,
+                   permissions_attributes: [
+                     permission_attributes
+                   ]
+                 }
+               }
+        end.to change { Token.count }.by(1)
         expect(Token.last.name).to eq(name)
         expect(Token.last.permissions.first.resource).to eq(permission_resource)
         expect(Token.last.permissions.first.action).to eq(permission_action)
@@ -177,7 +177,7 @@ describe Ui::TokensController, type: :request do
       it { expect(response).to redirect_to(pages_home_path) }
 
       it 'does not delete the token' do
-        expect { delete ui_token_path(token) }.not_to change { Token.count }
+        expect { delete ui_token_path(token) }.not_to change(Token, :count)
       end
     end
   end

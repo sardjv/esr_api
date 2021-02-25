@@ -5,7 +5,7 @@ class Ui::EventsController < Ui::ApplicationController
   def order
     @order ||= Administrate::Order.new(
       params.fetch(resource_name, {}).fetch(:order, :updated_at),
-      params.fetch(resource_name, {}).fetch(:direction, :desc),
+      params.fetch(resource_name, {}).fetch(:direction, :desc)
     )
   end
 end

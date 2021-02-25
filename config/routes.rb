@@ -52,14 +52,14 @@ Rails.application.routes.draw do
     end
     resources :events, only: %i[index]
     resources :tokens, only: %i[index new create show destroy]
-    get '/permissions/:id', to: redirect { |path_params, req|
+    get '/permissions/:id', to: redirect { |path_params, _req|
       p = Permission.find(path_params[:id])
       # Permissions can be viewed on parent subject.
       "ui/#{p.subject_type.downcase.pluralize}/#{p.subject_id}"
     }, as: 'permission'
 
     resources :users, only: %i[index edit update destroy]
-    get '/users/:id', to: redirect { |path_params, req|
+    get '/users/:id', to: redirect { |path_params, _req|
       # Redirect user_path to edit_user_path.
       "ui/users/#{path_params[:id]}/edit"
     }

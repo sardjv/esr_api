@@ -1,39 +1,30 @@
-version: 2.1 # Use 2.1 to enable using orbs and other features.
+version: 2.1
 
-# Declare the orbs that we'll use in our config.
-# read more about orbs: https://circleci.com/docs/2.0/using-orbs/
 orbs:
-  ruby: circleci/ruby@1.0
-  node: circleci/node@2
+  ruby: circleci/ruby@1.1.2
+  node: circleci/node@4.1.0
   heroku: circleci/heroku@1.0.1
 
 jobs:
-  build: # our first job, named "build"
-    docker:
-      - image: cimg/ruby:3.0.0-node # use a tailored CircleCI docker image.
-    steps:
-      - checkout # pull down our git code.
-      - ruby/install-deps # use the ruby orb to install dependencies
-      # use the node orb to install our packages
-      # specifying that we use `yarn` and to cache dependencies with `yarn.lock`
-      # learn more: https://circleci.com/docs/2.0/caching/
-      - node/install-packages:
-          pkg-manager: yarn
-          cache-key: "yarn.lock"
-
-  test:  # our next job, called "test"
-    # we run "parallel job containers" to enable speeding up our tests;
-    # this splits our tests across multiple containers.
+  rubocop:
     parallelism: 1
-    # here we set TWO docker images.
     docker:
-      - image: cimg/ruby:3.0.0-node # this is our primary docker image, where step commands run.
+      - image: cimg/ruby:3.0.0-node
+    steps:
+      - checkout
+      - ruby/install-deps
+      - run:
+          name: Run Rubocop
+          command: bundle exec rubocop
+  test:
+    parallelism: 3
+    docker:
+      - image: cimg/ruby:3.0.0-node
       - image: circleci/mysql:8.0.19
         command: [--default-authentication-plugin=mysql_native_password]
         environment:
           MYSQL_ROOT_HOST: '%'
           MYSQL_DATABASE: circle_ci
-    # environment variables specific to Ruby/Rails, applied to the primary container.
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
@@ -41,15 +32,11 @@ jobs:
       DB_DATABASE: circle_ci
       DB_USERNAME: root
       DB_HOST: "127.0.0.1"
-    # A series of steps to run, some are similar to those in "build".
     steps:
       - checkout
       - ruby/install-deps
       - node/install-packages:
           pkg-manager: yarn
-          cache-key: "yarn.lock"
-      # Here we make sure that the secondary container boots
-      # up before we run operations on the database.
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:3306 -timeout 1m
@@ -58,19 +45,26 @@ jobs:
           command: bundle exec rails db:create db:schema:load --trace
       - run:
           name: Run tests
-          command: bundle exec rspec -fd
-
-# We use workflows to orchestrate the jobs that we declared above.
+          command: |
+            mkdir -p /tmp/test-results/rspec
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
+            bundle exec rspec --profile 10 \
+                              --format RspecJunitFormatter \
+                              --out /tmp/test-results/rspec/rspec.xml \
+                              --format progress \
+                              -- \
+                              $TEST_FILES
+      - store_test_results:
+          path: /tmp/test-results/rspec
 workflows:
   version: 2
-  test_and_deploy:     # The name of our workflow is "build_and_test"
-    jobs:             # The list of jobs we run as part of this workflow.
-      - build         # Run build first.
-      - test:         # Then run test,
-          requires:   # Test requires that build passes for it to run.
-            - build   # Finally, run the build job.
+  checks:
+    jobs:
+      - rubocop
+      - test
       - heroku/deploy-via-git:
           requires:
+            - rubocop
             - test
           filters:
             branches:

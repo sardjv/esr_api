@@ -58,7 +58,7 @@ module Expectations
         'ATTRIBUTE18' => nil,
         'ATTRIBUTE19' => nil,
         'ATTRIBUTE20' => nil,
-        'Last Update Date' => Time.new(2009, 4, 27, 11, 55, 2)
+        'Last Update Date' => Time.zone.local(2009, 4, 27, 11, 55, 2)
       }
     end
 

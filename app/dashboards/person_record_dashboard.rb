@@ -12,8 +12,12 @@ class PersonRecordDashboard < Administrate::BaseDashboard
     'Person ID': Field::String,
     'created_at': Field::DateTime,
     'updated_at': Field::DateTime,
-    'Effective Start Date': Field::Date.with_options(transform_on_export: ->(field) { field.data&.strftime('%d/%m/%Y') }),
-    'Effective End Date': Field::Date.with_options(transform_on_export: ->(field) { field.data&.strftime('%d/%m/%Y') }),
+    'Effective Start Date': Field::Date.with_options(transform_on_export: lambda { |field|
+                                                                            field.data&.strftime('%d/%m/%Y')
+                                                                          }),
+    'Effective End Date': Field::Date.with_options(transform_on_export: lambda { |field|
+                                                                          field.data&.strftime('%d/%m/%Y')
+                                                                        }),
     'Employee Number': Field::String,
     'Title': Field::String,
     'Last Name': Field::String,
@@ -23,27 +27,43 @@ class PersonRecordDashboard < Administrate::BaseDashboard
     'Preferred Name': Field::String,
     'Previous Last Name': Field::String,
     'Gender': Field::String,
-    'Date of Birth': Field::Date.with_options(transform_on_export: ->(field) { field.data&.strftime('%d/%m/%Y') }),
+    'Date of Birth': Field::Date.with_options(transform_on_export: lambda { |field|
+                                                                     field.data&.strftime('%d/%m/%Y')
+                                                                   }),
     'National Insurance Number': Field::String,
     'NHS Unique ID': Field::String,
-    'Hire Date': Field::Date.with_options(transform_on_export: ->(field) { field.data&.strftime('%d/%m/%Y') }),
-    'Actual Termination Date': Field::Date.with_options(transform_on_export: ->(field) { field.data&.strftime('%d/%m/%Y') }),
+    'Hire Date': Field::Date.with_options(transform_on_export: lambda { |field|
+                                                                 field.data&.strftime('%d/%m/%Y')
+                                                               }),
+    'Actual Termination Date': Field::Date.with_options(transform_on_export: lambda { |field|
+                                                                               field.data&.strftime('%d/%m/%Y')
+                                                                             }),
     'Termination Reason': Field::String,
     'Employee Status Flag': Field::String,
     'WTR Opt Out': Field::String,
-    'WTR Opt Out Date': Field::Date.with_options(transform_on_export: ->(field) { field.data&.strftime('%d/%m/%Y') }),
+    'WTR Opt Out Date': Field::Date.with_options(transform_on_export: lambda { |field|
+                                                                        field.data&.strftime('%d/%m/%Y')
+                                                                      }),
     'Ethnic Origin': Field::String,
     'Country of Birth': Field::String,
     'Previous Employer': Field::String,
     'Previous Employer Type': Field::String,
-    'CSD 3 Months': Field::Date.with_options(transform_on_export: ->(field) { field.data&.strftime('%d/%m/%Y') }),
-    'CSD 12 Months': Field::Date.with_options(transform_on_export: ->(field) { field.data&.strftime('%d/%m/%Y') }),
+    'CSD 3 Months': Field::Date.with_options(transform_on_export: lambda { |field|
+                                                                    field.data&.strftime('%d/%m/%Y')
+                                                                  }),
+    'CSD 12 Months': Field::Date.with_options(transform_on_export: lambda { |field|
+                                                                     field.data&.strftime('%d/%m/%Y')
+                                                                   }),
     'NHS CRS UUID': Field::String,
     'System Person Type': Field::String,
     'User Person Type': Field::String,
     'Office E-mail Address': Field::String,
-    'NHS Start Date': Field::Date.with_options(transform_on_export: ->(field) { field.data&.strftime('%d/%m/%Y') }),
-    'Last Update Date': Field::Date.with_options(transform_on_export: ->(field) { field.data&.strftime('%d/%m/%Y') }),
+    'NHS Start Date': Field::Date.with_options(transform_on_export: lambda { |field|
+                                                                      field.data&.strftime('%d/%m/%Y')
+                                                                    }),
+    'Last Update Date': Field::Date.with_options(transform_on_export: lambda { |field|
+                                                                        field.data&.strftime('%d/%m/%Y')
+                                                                      }),
     'Disability Flag': Field::String
   }.freeze
 

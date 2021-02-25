@@ -23,7 +23,7 @@ module Expectations
         'Proficiency High Level ID' => nil,
         'Essential Flag' => nil,
         'Records Type' => nil,
-        'Last Update Date' => Time.new(2009, 11, 1, 7, 3, 36)
+        'Last Update Date' => Time.zone.local(2009, 11, 1, 7, 3, 36)
       }
     end
 

@@ -33,24 +33,24 @@ class UserDashboard < Administrate::BaseDashboard
   #
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
-  COLLECTION_ATTRIBUTES = [
-    :email,
-    :first_name,
-    :last_name,
-    :activated,
-    :point_of_contact
+  COLLECTION_ATTRIBUTES = %i[
+    email
+    first_name
+    last_name
+    activated
+    point_of_contact
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = [
-    :email,
-    :first_name,
-    :last_name,
-    :time_zone,
-    :activated,
-    :point_of_contact
+  FORM_ATTRIBUTES = %i[
+    email
+    first_name
+    last_name
+    time_zone
+    activated
+    point_of_contact
   ].freeze
 
   # COLLECTION_FILTERS

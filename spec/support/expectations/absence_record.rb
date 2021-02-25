@@ -30,7 +30,7 @@ module Expectations
         'Notifiable Disease' => nil,
         'Return To Work Discussion Date' => Date.new(2018, 12, 6),
         'Occupational Health Referral Date' => Date.new(2018, 12, 6),
-        'Last Update Date' => Time.new(2020, 4, 7, 14, 53, 54),
+        'Last Update Date' => Time.zone.local(2020, 4, 7, 14, 53, 54),
         'Surgery Related' => nil,
         'DH Monitoring' => nil,
         'Sickness Reason' => nil,

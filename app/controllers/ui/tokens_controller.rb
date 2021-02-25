@@ -8,17 +8,13 @@ class Ui::TokensController < Ui::ApplicationController
     authorize_resource(resource)
 
     respond_to do |format|
-      format.html {
-        render locals: {
-          page: Administrate::Page::Form.new(dashboard, resource)
-        }
-      }
-      format.json {
+      format.html do
+        render locals: { page: Administrate::Page::Form.new(dashboard, resource) }
+      end
+      format.json do
         # Used for updating permissions form column dropdown options if the resource changes.
-        render json: {
-          column_options: PermissionHelper.column_options_for_select2(resource: params['resource'])
-        }
-      }
+        render json: { column_options: PermissionHelper.column_options_for_select2(resource: params['resource']) }
+      end
     end
   end
 
@@ -27,21 +23,13 @@ class Ui::TokensController < Ui::ApplicationController
     resource = resource_class.new(resource_params)
     authorize_resource(resource)
 
-    resource.created_by = current_user
-    resource.token = Lockbox.generate_key
+    resource.assign_attributes(created_by: current_user, token: Lockbox.generate_key)
 
     if resource.save
-      redirect_to(
-        [namespace, resource],
-        notice: translate_with_resource('create.success')
-      )
+      redirect_to([namespace, resource], notice: translate_with_resource('create.success'))
     else
-      @options = resource.permissions.map { |p|
-        PermissionHelper.column_options(resource: p.resource)
-      }
-      render :new, locals: {
-        page: Administrate::Page::Form.new(dashboard, resource)
-      }
+      build_column_options(resource)
+      render :new, locals: { page: Administrate::Page::Form.new(dashboard, resource) }
     end
   end
 
@@ -55,6 +43,8 @@ class Ui::TokensController < Ui::ApplicationController
     redirect_to action: :index
   end
 
+  private
+
   def valid_action?(name, resource = resource_class)
     case resource.to_s.downcase
     when 'token' then %w[index new create show destroy].include?(name.to_s)
@@ -65,7 +55,13 @@ class Ui::TokensController < Ui::ApplicationController
   def order
     @order ||= Administrate::Order.new(
       params.fetch(resource_name, {}).fetch(:order, :updated_at),
-      params.fetch(resource_name, {}).fetch(:direction, :desc),
+      params.fetch(resource_name, {}).fetch(:direction, :desc)
     )
+  end
+
+  def build_column_options(resource)
+    @options = resource.permissions.map do |p|
+      PermissionHelper.column_options(resource: p.resource)
+    end
   end
 end

@@ -16,7 +16,7 @@ module Expectations
         'Element Number' => nil,
         'Spare Segment' => nil,
         'Percentage Split' => '1',
-        'Last Update Date' => Time.new(2011, 3, 8, 10, 35, 38)
+        'Last Update Date' => Time.zone.local(2011, 3, 8, 10, 35, 38)
       }
     end
 

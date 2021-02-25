@@ -19,7 +19,7 @@ module Expectations
         'Hiring Status' => 'Active',
         'Position Type' => 'NONE',
         'Workplace Org Code' => nil,
-        'Last Update Date' => Time.new(2019, 10, 3, 12, 17, 1),
+        'Last Update Date' => Time.zone.local(2019, 10, 3, 12, 17, 1),
         'Subjective Code Description' => 'RT Doctor'
       }
     end

@@ -1,2 +1,1 @@
-
 class NoActiveUsersError < StandardError; end

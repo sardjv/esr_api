@@ -1,7 +1,7 @@
 class Ui::ApplicationController < Administrate::ApplicationController
   include AdministrateExportable::Exporter
   include PublicActivity::StoreController
-  around_action :set_time_zone
+  around_action :use_time_zone
   prepend_before_action :check_signed_in!
   before_action :set_paper_trail_whodunnit
 
@@ -25,7 +25,7 @@ class Ui::ApplicationController < Administrate::ApplicationController
 
   private
 
-  def set_time_zone(&block)
+  def use_time_zone(&block)
     Time.use_zone(current_user.time_zone, &block)
   end
 end

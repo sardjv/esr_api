@@ -4,7 +4,7 @@ describe ImportFileJob, type: :job do
   context 'with no admins' do
     it 'does not run the job' do
       ActiveJob.quiet do
-        expect{ ImportFileJob.perform_now(filename: filename) }.to raise_error(NoActiveUsersError)
+        expect { ImportFileJob.perform_now(filename: filename) }.to raise_error(NoActiveUsersError)
       end
     end
   end

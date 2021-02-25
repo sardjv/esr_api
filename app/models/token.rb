@@ -27,16 +27,14 @@ class Token < ApplicationRecord
   # When creating multiple new permissions at once, only allow
   # one new permission per resource + action.
   def permissions_all_unique
-    keys = permissions.map { |p| { resource: p.resource, action: p.action } }
-    non_unique = keys.select { |key| keys.count(key) > 1 }.uniq
-    return unless non_unique.count.positive?
+    return unless (non_unique = find_non_unique(permissions))
 
     errors.add(
       :permissions,
       I18n.t(
         'models.permission.errors.uniqueness',
-        resource: non_unique.first[:resource],
-        action: non_unique.first[:action]
+        resource: non_unique[:resource],
+        action: non_unique[:action]
       )
     )
   end
@@ -56,5 +54,12 @@ class Token < ApplicationRecord
 
   def readonly?
     persisted? && changes.keys != ['token_viewed_at']
+  end
+
+  private
+
+  def find_non_unique(permissions)
+    keys = permissions.map { |p| { resource: p.resource, action: p.action } }
+    keys.find { |key| keys.count(key) > 1 }
   end
 end

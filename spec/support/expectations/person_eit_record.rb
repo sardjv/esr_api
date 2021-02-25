@@ -57,7 +57,7 @@ module Expectations
         'PEI_ATTRIBUTE18' => nil,
         'PEI_ATTRIBUTE19' => nil,
         'PEI_ATTRIBUTE20' => nil,
-        'Last Update Date' => Time.new(2011, 7, 19, 23, 20, 41)
+        'Last Update Date' => Time.zone.local(2011, 7, 19, 23, 20, 41)
       }
     end
 

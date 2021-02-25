@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module EsrApi
+module EsrApi # rubocop:disable Style/ClassAndModuleChildren
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
@@ -21,7 +21,7 @@ module EsrApi
     # Log to STDOUT because Docker expects all processes to log here. You could
     # then redirect logs to a third party service on your own such as systemd,
     # or a third party host such as Loggly, etc..
-    logger           = ActiveSupport::Logger.new(STDOUT)
+    logger           = ActiveSupport::Logger.new($stdout)
     logger.formatter = config.log_formatter
     config.log_tags  = %i[subdomain uuid]
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
