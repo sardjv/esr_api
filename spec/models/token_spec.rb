@@ -9,7 +9,6 @@ describe Token, type: :model do
   it { should have_db_index(:name).unique }
   it { should belong_to(:created_by) }
   it { should have_many(:permissions).dependent(:destroy) }
-  it { should validate_presence_of(:token) }
   it { should accept_nested_attributes_for(:permissions).allow_destroy(true) }
 
   context 'with a persisted token' do

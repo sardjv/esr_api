@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_26_144700) do
+ActiveRecord::Schema.define(version: 202102261450900) do
 
   create_table "absence_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "Person ID"
@@ -548,6 +548,19 @@ ActiveRecord::Schema.define(version: 2021_02_26_144700) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["Special Information ID"], name: "index_sit_records_on_Special Information ID", unique: true
+  end
+
+  create_table "sources", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "source_ciphertext", null: false
+    t.bigint "created_by_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "source_bidx"
+    t.index ["created_by_id"], name: "index_sources_on_created_by_id"
+    t.index ["name"], name: "index_sources_on_name", unique: true
+    t.index ["source_bidx"], name: "index_sources_on_source_bidx", unique: true
+    t.index ["source_ciphertext"], name: "index_sources_on_source_ciphertext", unique: true
   end
 
   create_table "tokens", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
