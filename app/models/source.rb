@@ -9,7 +9,7 @@ class Source < ApplicationRecord
 
   # Currently we only support 1 source.
   def self.singleton
-    @source ||= Source.first
+    @singleton ||= Source.first
   end
 
   def readonly?
