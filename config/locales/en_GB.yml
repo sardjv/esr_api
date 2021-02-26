@@ -46,6 +46,10 @@ en:
       name:
         one: Import
         other: Imports
+    source:
+      name:
+        one: Source
+        other: Sources
     token:
       already_viewed: Token already viewed %{when} ago. If the token has been lost, please create a new one.
       confirm:

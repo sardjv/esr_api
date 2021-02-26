@@ -1,6 +1,16 @@
 require 'administrate/base_dashboard'
 
-class PermissionDashboard < Administrate::BaseDashboard
+class SourceDashboard < Administrate::BaseDashboard
+  class << self
+    def model
+      I18n.t('models.source.name', count: 1)
+    end
+
+    def resource_name(_opts = nil)
+      I18n.t('models.source.name', count: 1)
+    end
+  end
+
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,30 +18,28 @@ class PermissionDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    'resource': Field::Select.with_options(collection: Permission::RESOURCES,
-                                           classes: 'resource-select'),
-    'action': Field::Select.with_options(collection: Permission::ACTIONS),
-    'columns': Field::MultiSelect.with_options(collection: PermissionHelper.column_options(resource: 'AbsenceRecord'))
+    'name': Field::String,
+    'created_by': Field::BelongsTo.with_options(
+      class_name: 'User',
+      searchable: true,
+      searchable_fields: %w[first_name last_name]
+    ),
+    'created_at': Field::DateTime,
+    'source': Field::String
   }.freeze
 
-  # COLLECTION_ATTRIBUTES
-  # an array of attributes that will be displayed on the model's index page.
-  #
-  # By default, it's limited to four items to reduce clutter on index pages.
-  # Feel free to add, remove, or rearrange items.
-  COLLECTION_ATTRIBUTES = %i[
-    resource
-    action
-    columns
+  # SHOW_PAGE_ATTRIBUTES
+  # an array of attributes that will be displayed on the model's show page.
+  SHOW_PAGE_ATTRIBUTES = %i[
+    name
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    resource
-    action
-    columns
+    name
+    source
   ].freeze
 
   # COLLECTION_FILTERS
@@ -48,7 +56,7 @@ class PermissionDashboard < Administrate::BaseDashboard
 
   # Overwrite this method to customize how records are displayed
   # across all pages of the admin dashboard.
-  def display_resource(permission)
-    permission.name
+  def display_resource(source)
+    source.name
   end
 end

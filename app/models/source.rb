@@ -7,6 +7,11 @@ class Source < ApplicationRecord
   encrypts :source
   blind_index :source
 
+  # Currently we only support 1 source.
+  def self.singleton
+    @source ||= Source.first
+  end
+
   def readonly?
     persisted?
   end
