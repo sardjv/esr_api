@@ -47,6 +47,8 @@ en:
         one: Import
         other: Imports
     source:
+      errors:
+        must_be_singleton: already exists, please delete it before adding a new one
       name:
         one: Source
         other: Sources

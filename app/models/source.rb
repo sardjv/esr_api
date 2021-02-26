@@ -3,6 +3,7 @@ class Source < ApplicationRecord
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates :source, presence: true
+  validate :is_singleton
 
   encrypts :source
   blind_index :source
@@ -14,5 +15,11 @@ class Source < ApplicationRecord
 
   def readonly?
     persisted?
+  end
+
+  def is_singleton
+    return if !Source.exists? || Source.first == self
+
+    errors.add(:source, I18n.t('models.source.errors.must_be_singleton'))
   end
 end
