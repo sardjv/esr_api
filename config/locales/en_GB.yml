@@ -42,6 +42,10 @@ en:
       token:
         token_one_time: Token (can only be viewed once)
   models:
+    import:
+      name:
+        one: Import
+        other: Imports
     token:
       already_viewed: Token already viewed %{when} ago. If the token has been lost, please create a new one.
       confirm:

@@ -51,6 +51,7 @@ Rails.application.routes.draw do
       get :export, on: :collection
     end
     resources :events, only: %i[index]
+    resources :imports, only: %i[index]
     resources :tokens, only: %i[index new create show destroy]
     get '/permissions/:id', to: redirect { |path_params, _req|
       p = Permission.find(path_params[:id])
