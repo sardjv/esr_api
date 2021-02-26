@@ -76,7 +76,7 @@ en:
     api:
       documentation: Help
       events: Events
-      test: Test the API
+      test: Try the API
     data: Data
     flash:
       alert: Alert
