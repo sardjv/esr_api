@@ -13,9 +13,13 @@ class Source < ApplicationRecord
     @singleton ||= Source.first
   end
 
+  # Readonly to ensure created_by is always correct. If it needs to change,
+  # create a new one instead.
   def readonly?
     persisted?
   end
+
+  private
 
   def validate_singleton
     return unless Source.exists?
