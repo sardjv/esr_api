@@ -3,7 +3,7 @@ class Source < ApplicationRecord
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates :source, presence: true
-  validate :is_singleton, on: :create
+  validate :validate_singleton, on: :create
 
   encrypts :source
   blind_index :source
@@ -17,8 +17,8 @@ class Source < ApplicationRecord
     persisted?
   end
 
-  def is_singleton
-    return if !Source.exists?
+  def validate_singleton
+    return unless Source.exists?
 
     errors.add(:source, I18n.t('models.source.errors.must_be_singleton'))
   end
