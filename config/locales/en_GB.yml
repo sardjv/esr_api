@@ -50,6 +50,9 @@ en:
       errors:
         must_be_singleton: already exists, please delete it before adding a new one
         source_must_be_secret: cannot be the same as name, name must be a description of the source so that the source URL can be kept secret
+      hints:
+        name: Description of the source - do not include the FTP URL here!
+        source: Secret FTP URL. Not visible once saved.
       name:
         one: Source
         other: Sources
