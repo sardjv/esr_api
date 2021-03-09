@@ -26,6 +26,7 @@ jobs:
           MYSQL_ROOT_HOST: '%'
           MYSQL_DATABASE: circle_ci
           MYSQL_ROOT_PASSWORD: dmh5DdT53vm2opvHX58S
+          MYSQL_ALLOW_EMPTY_PASSWORD: false
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
