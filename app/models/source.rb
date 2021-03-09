@@ -29,6 +29,7 @@ class Source < ApplicationRecord
   end
 
   def validate_name_is_different_to_source
+    return if name.nil? || source.nil?
     return unless name.downcase.gsub(/\s/, '') == source.downcase.gsub(/\s/, '')
 
     errors.add(:source, I18n.t('models.source.errors.source_must_be_secret'))
