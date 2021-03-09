@@ -49,6 +49,7 @@ en:
     source:
       errors:
         must_be_singleton: already exists, please delete it before adding a new one
+        source_must_be_secret: cannot be the same as name, name must be a description of the source so that the source URL can be kept secret
       name:
         one: Source
         other: Sources

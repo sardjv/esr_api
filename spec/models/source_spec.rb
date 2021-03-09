@@ -9,6 +9,14 @@ describe Source, type: :model do
   it { should have_db_index(:name).unique }
   it { should belong_to(:created_by) }
 
+  context 'with the source the same as the name (ignoring capitalisation and whitespace)' do
+    before { subject.assign_attributes(name: 'WWW.exam ple.com', source: 'www.example.com') }
+
+    it 'fails; sources should be secret' do
+      expect(subject).not_to be_valid
+    end
+  end
+
   context 'with a persisted source' do
     subject! { create(:source) }
 
