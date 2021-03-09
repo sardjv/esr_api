@@ -24,17 +24,16 @@ jobs:
         command: [--default-authentication-plugin=mysql_native_password]
         environment:
           MYSQL_DATABASE: circle_ci
+          MYSQL_USER: root
           MYSQL_ROOT_PASSWORD: dmh5DdT53vm2opvHX58S
           MYSQL_ALLOW_EMPTY_PASSWORD: false
-          MYSQL_USER: user
-          MYSQL_PASSWORD: hh2VCWjSGkGGaGA2pSr9
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
       RAILS_ENV: test
       DB_DATABASE: circle_ci
-      DB_USERNAME: user
-      DB_PASSWORD: hh2VCWjSGkGGaGA2pSr9
+      DB_USERNAME: root
+      DB_PASSWORD: dmh5DdT53vm2opvHX58S
       DB_HOST: "127.0.0.1"
     steps:
       - checkout
