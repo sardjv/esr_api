@@ -52,7 +52,7 @@ Rails.application.routes.draw do
     end
     resources :events, only: %i[index]
     resources :imports, only: %i[index]
-    resources :sources, only: %i[new create show destroy]
+    resources :sources, only: %i[index new create show destroy]
     resources :tokens, only: %i[index new create show destroy]
     get '/permissions/:id', to: redirect { |path_params, _req|
       p = Permission.find(path_params[:id])

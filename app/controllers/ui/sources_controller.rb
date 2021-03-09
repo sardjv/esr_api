@@ -38,6 +38,10 @@ class Ui::SourcesController < Ui::ApplicationController
     redirect_to action: :new
   end
 
+  def valid_action?(name, _resource = resource_class)
+    %w[index new create destroy].include?(name.to_s)
+  end
+
   private
 
   def order

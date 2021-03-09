@@ -56,7 +56,7 @@ as defined by the routes in the `admin/` namespace
         <% end%>
       </li>
       <li class="nhsuk-header__navigation-item">
-        <%= link_to(NavHelper.singleton_source_path,
+        <%= link_to(ui_sources_path,
             class: "nhsuk-header__navigation-link"
             ) do %>
           <%= SourceDashboard.resource_name %>
