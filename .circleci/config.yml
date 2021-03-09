@@ -25,6 +25,7 @@ jobs:
         environment:
           MYSQL_ROOT_HOST: '%'
           MYSQL_DATABASE: circle_ci
+          MYSQL_ROOT_PASSWORD: dmh5DdT53vm2opvHX58S
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
@@ -32,6 +33,7 @@ jobs:
       DB_DATABASE: circle_ci
       DB_USERNAME: root
       DB_HOST: "127.0.0.1"
+      MYSQL_ROOT_PASSWORD: dmh5DdT53vm2opvHX58S
     steps:
       - checkout
       - ruby/install-deps
