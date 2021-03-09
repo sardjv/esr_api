@@ -23,7 +23,6 @@ jobs:
       - image: mysql:8.0.22
         command: [--default-authentication-plugin=mysql_native_password]
         environment:
-          MYSQL_ROOT_HOST: '%'
           MYSQL_DATABASE: circle_ci
           MYSQL_ROOT_PASSWORD: dmh5DdT53vm2opvHX58S
           MYSQL_ALLOW_EMPTY_PASSWORD: false
