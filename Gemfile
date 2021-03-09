@@ -7,7 +7,7 @@ gem 'rails', '~> 6.1.3'
 
 # A Ruby/Rack web server built for concurrency.
 # https://github.com/puma/puma
-gem 'puma', '~> 5.2.1'
+gem 'puma', '~> 5.2.2'
 
 # Use MySQL as the database for Active Record.
 # https://github.com/brianmario/mysql2
@@ -48,7 +48,7 @@ gem 'tzinfo-data', '~> 1.2021.1'
 
 # A Rails engine that helps you put together a super-flexible admin dashboard.
 # https://github.com/thoughtbot/administrate
-gem 'administrate', '~> 0.14.0'
+gem 'administrate', '~> 0.15.0'
 
 # A plugin for nested has_many forms in Administrate
 # https://github.com/nickcharlton/administrate-field-nested_has_many
@@ -111,7 +111,7 @@ group :development do
 
   # Tool to check dependency licenses.
   # https://github.com/pivotal/LicenseFinder
-  gem 'license_finder', '~> 6.10.1'
+  gem 'license_finder', '~> 6.12.0'
 end
 
 group :test do
@@ -121,7 +121,7 @@ group :test do
 
   # RSpec is a specification library for behaviour driven development.
   # https://github.com/rspec/rspec
-  gem 'rspec-rails', '~> 4.0.2'
+  gem 'rspec-rails', '~> 4.1.0'
 
   # Generate code coverage documentation.
   # https://github.com/colszowka/simplecov
