@@ -21,10 +21,11 @@ class ImportFromFtpJob < ApplicationJob
       end
       connection.close
 
-      # For each file:
-
-      # Parse the data from tilde separated values to an array.
-      source ETL::Sources::TildeSeparatedValues, filename: File.join(path, Dir.children(path).first)
+      # For each file,
+      Dir.children(path).each do |filename|
+        # parse the data from tilde separated values to an array.
+        source ETL::Sources::TildeSeparatedValues, filename: File.join(path, filename)
+      end
 
       # Skip unhandled rows.
       transform ETL::Transformations::SkipUnwantedRows
