@@ -19,7 +19,7 @@ and renders all form fields for a resource's editable attributes.
 
     <% page.attributes.each do |attribute| -%>
       <% hint = I18n.t(
-        "models.#{attribute.resource.class.name.downcase}.hints.#{attribute.name}",
+        "models.#{attribute.resource.class.name.underscore}.hints.#{attribute.name}",
         default: nil
       ) %>
       <% errors = page.resource.errors %>

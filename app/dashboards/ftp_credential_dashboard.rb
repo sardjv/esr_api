@@ -7,7 +7,7 @@ class FtpCredentialDashboard < Administrate::BaseDashboard
     end
 
     def resource_name(_opts = nil)
-      I18n.t('models.ftp_credential.name', count: 1)
+      I18n.t('models.ftp_credential.name', count: 2)
     end
   end
 
