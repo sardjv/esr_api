@@ -42,20 +42,22 @@ en:
       token:
         token_one_time: Token (can only be viewed once)
   models:
+    ftp_credential:
+      errors:
+        must_be_singleton: already exists, please delete it before adding a new one
+        password_must_be_secret: cannot be included in name
+      hints:
+        name: Description of the source.
+        host: e.g. private.ftp-servers.example.com.
+        port: e.g. 1234.
+        path: e.g. 'myorganisation/mydirectory/'
+      name:
+        one: FTP Credential
+        other: FTP Credentials
     import:
       name:
         one: Import
         other: Imports
-    source:
-      errors:
-        must_be_singleton: already exists, please delete it before adding a new one
-        source_must_be_secret: cannot be the same as name, name must be a description of the source so that the source URL can be kept secret
-      hints:
-        name: Description of the source - do not include the FTP URL here!
-        source: Secret FTP URL. Not visible once saved.
-      name:
-        one: Source
-        other: Sources
     token:
       already_viewed: Token already viewed %{when} ago. If the token has been lost, please create a new one.
       confirm:

@@ -1,8 +1,8 @@
-class Ui::SourcesController < Ui::ApplicationController
+class Ui::FtpCredentialsController < Ui::ApplicationController
   # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
   # for more information
 
-  # GET /ui/sources
+  # GET /ui/ftp_credentials
   def new
     resource = new_resource
     authorize_resource(resource)
@@ -14,7 +14,7 @@ class Ui::SourcesController < Ui::ApplicationController
     end
   end
 
-  # POST /ui/sources
+  # POST /ui/ftp_credentials
   def create
     resource = resource_class.new(resource_params)
     authorize_resource(resource)
@@ -29,7 +29,7 @@ class Ui::SourcesController < Ui::ApplicationController
   end
 
   def destroy
-    # delete rather than destroy to bypass the readonly? check on Source.
+    # delete rather than destroy to bypass the readonly? check on FtpCredential.
     if requested_resource.delete
       flash[:notice] = translate_with_resource('destroy.success')
     else

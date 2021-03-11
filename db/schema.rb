@@ -214,6 +214,25 @@ ActiveRecord::Schema.define(version: 202102261450900) do
     t.index ["Element Entry ID"], name: "index_element_records_on_Element Entry ID", unique: true
   end
 
+  create_table "ftp_credentials", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "host_ciphertext", null: false
+    t.string "port_ciphertext", null: false
+    t.string "user_ciphertext", null: false
+    t.string "password_ciphertext", null: false
+    t.string "path_ciphertext", null: false
+    t.bigint "created_by_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["created_by_id"], name: "index_ftp_credentials_on_created_by_id"
+    t.index ["host_ciphertext"], name: "index_ftp_credentials_on_host_ciphertext", unique: true
+    t.index ["name"], name: "index_ftp_credentials_on_name", unique: true
+    t.index ["password_ciphertext"], name: "index_ftp_credentials_on_password_ciphertext", unique: true
+    t.index ["path_ciphertext"], name: "index_ftp_credentials_on_path_ciphertext", unique: true
+    t.index ["port_ciphertext"], name: "index_ftp_credentials_on_port_ciphertext", unique: true
+    t.index ["user_ciphertext"], name: "index_ftp_credentials_on_user_ciphertext", unique: true
+  end
+
   create_table "imports", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -552,15 +571,15 @@ ActiveRecord::Schema.define(version: 202102261450900) do
 
   create_table "sources", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
-    t.string "source_ciphertext", null: false
+    t.string "host_ciphertext", null: false
+    t.string "port_ciphertext", null: false
+    t.string "user_ciphertext", null: false
+    t.string "password_ciphertext", null: false
+    t.string "path_ciphertext", null: false
     t.bigint "created_by_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "source_bidx"
     t.index ["created_by_id"], name: "index_sources_on_created_by_id"
-    t.index ["name"], name: "index_sources_on_name", unique: true
-    t.index ["source_bidx"], name: "index_sources_on_source_bidx", unique: true
-    t.index ["source_ciphertext"], name: "index_sources_on_source_ciphertext", unique: true
   end
 
   create_table "tokens", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

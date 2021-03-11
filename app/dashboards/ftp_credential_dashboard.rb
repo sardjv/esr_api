@@ -1,13 +1,13 @@
 require 'administrate/base_dashboard'
 
-class SourceDashboard < Administrate::BaseDashboard
+class FtpCredentialDashboard < Administrate::BaseDashboard
   class << self
     def model
-      I18n.t('models.source.name', count: 1)
+      I18n.t('models.ftp_credential.name', count: 1)
     end
 
     def resource_name(_opts = nil)
-      I18n.t('models.source.name', count: 1)
+      I18n.t('models.ftp_credential.name', count: 1)
     end
   end
 
@@ -25,7 +25,11 @@ class SourceDashboard < Administrate::BaseDashboard
       searchable_fields: %w[first_name last_name]
     ),
     'created_at': Field::DateTime,
-    'source': Field::String
+    'host': Field::String,
+    'port': Field::String,
+    'user': Field::String,
+    'password': Field::String,
+    'path': Field::String,
   }.freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -48,7 +52,11 @@ class SourceDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     name
-    source
+    host
+    port
+    user
+    password
+    path
   ].freeze
 
   # COLLECTION_FILTERS
@@ -65,7 +73,7 @@ class SourceDashboard < Administrate::BaseDashboard
 
   # Overwrite this method to customize how records are displayed
   # across all pages of the admin dashboard.
-  def display_resource(source)
-    source.name
+  def display_resource(ftp_credential)
+    ftp_credential.name
   end
 end

@@ -12,7 +12,7 @@ class User < ApplicationRecord
   validate :at_least_one_point_of_contact_user
 
   has_many :tokens, inverse_of: :created_by, foreign_key: 'created_by_id', dependent: :restrict_with_error
-  has_many :sources, inverse_of: :created_by, foreign_key: 'created_by_id', dependent: :restrict_with_error
+  has_many :ftp_credentials, inverse_of: :created_by, foreign_key: 'created_by_id', dependent: :restrict_with_error
 
   before_create :activate_first_user
 

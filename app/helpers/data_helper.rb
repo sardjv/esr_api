@@ -14,7 +14,7 @@ module DataHelper
 
   private_class_method def self.data_routes
     ui_routes.reject do |r|
-      %w[ui/activities ui/data ui/events ui/imports ui/permissions ui/sources ui/tokens ui/users].include?(r)
+      %w[ui/activities ui/data ui/events ui/imports ui/permissions ui/ftp_credentials ui/tokens ui/users].include?(r)
     end
   end
 
