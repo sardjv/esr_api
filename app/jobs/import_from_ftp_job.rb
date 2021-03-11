@@ -21,9 +21,10 @@ class ImportFromFtpJob < ApplicationJob
       end
       connection.close
 
-      # For each file,
       Dir.children(path).each do |filename|
-        # parse the data from tilde separated values to an array.
+        # For each file, parse the data from tilde separated values to an array.
+        # Each file will be read sequentially.
+        # https://github.com/thbar/kiba/wiki/Can-Kiba-handle-multiple-sources-and-destinations%3F#multiple-sources-behaviour
         source ETL::Sources::TildeSeparatedValues, filename: File.join(path, filename)
       end
 
