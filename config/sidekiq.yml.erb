@@ -16,6 +16,7 @@
   - <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_qualification_records
   - <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_sit_records
   - <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_training_absence_records
+  - <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_synchronous
   - <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_asynchronous
 :limits:
   <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_absence_records: 1
@@ -33,4 +34,5 @@
   <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_qualification_records: 1
   <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_sit_records: 1
   <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_import_training_absence_records: 1
+  <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_synchronous: 1
   <%= ENV['ACTIVE_JOB_QUEUE_PREFIX'] %>_<%= ENV['RAILS_ENV'] %>_asynchronous: 10

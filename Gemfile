@@ -115,6 +115,10 @@ group :development do
 end
 
 group :test do
+  # A fake FTP server for use with ruby tests
+  # https://github.com/livinginthepast/fake_ftp
+  gem 'fake_ftp', '~> 0.3.0'
+
   # RSpec results that your CI can read.
   # https://github.com/sj26/rspec_junit_formatter
   gem 'rspec_junit_formatter', '~> 0.4.1'
