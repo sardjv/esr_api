@@ -1,7 +1,9 @@
 describe ImportFromFtpJob, type: :job do
   let!(:admin) { create(:confirmed_user) }
-  let(:filename) { 'liberal_parsing_20201015_00001157.DAT' }
-  let(:filepath) { file_fixture("good_imports/#{filename}").to_path }
+  let(:filename1) { 'add_absence_record_20201015_00001157.DAT' }
+  let(:filename2) { 'add_assignment_record_20201015_00001157.DAT' }
+  let(:filepath1) { file_fixture("good_imports/#{filename1}").to_path }
+  let(:filepath2) { file_fixture("good_imports/#{filename2}").to_path }
   let(:ftp_credential) { create(
     :ftp_credential,
     host: '127.0.0.1',
@@ -23,7 +25,8 @@ describe ImportFromFtpJob, type: :job do
     connection.connect(ftp_credential.host, ftp_credential.port.to_i)
     connection.login(ftp_credential.user, ftp_credential.password)
     connection.passive = true
-    connection.put(filepath)
+    connection.put(filepath1)
+    connection.put(filepath2)
     connection.close
   end
 
@@ -32,15 +35,18 @@ describe ImportFromFtpJob, type: :job do
   end
 
   context 'with a row with quotes inside a column' do
+
     it 'parses liberally and creates a new LocationRecord' do
       perform_enqueued_jobs { add_job }
 
-      expect(LocationRecord.count).to eq(1)
-      pr = LocationRecord.first
-
-      # Expect values in the database to match input from liberal_parsing_20201015_00001157.DAT.
-      Expectations::LiberalParsing.added.each do |key, value|
-        expect(pr.send(key)).to eq(value)
+      # Expect values in the database to match inputs.
+      absence_record = AbsenceRecord.first
+      Expectations::AbsenceRecord.added.each do |key, value|
+        expect(absence_record.send(key)).to eq(value)
+      end
+      assignment_record = AssignmentRecord.first
+      Expectations::AssignmentRecord.added.each do |key, value|
+        expect(assignment_record.send(key)).to eq(value)
       end
     end
   end
