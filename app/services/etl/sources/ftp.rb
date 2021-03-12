@@ -1,15 +1,16 @@
 require 'kiba-common/sources/csv'
 
 class ETL::Sources::Ftp
-  attr_reader :download_directory
+  attr_reader :ftp_credential_id, :download_directory
 
-  def initialize(ftp_credential_id:, download_directory:)
-    @download_directory = download_directory
-    ensure_destination(download_directory: download_directory)
-    download_files(ftp_credential_id: ftp_credential_id, download_directory: download_directory)
+  def initialize(ftp_credential_id:)
+    @ftp_credential_id = ftp_credential_id
+    @download_directory = "imports/#{Rails.env}/#{Time.current.iso8601}"
+    ensure_destination
+    download_files
   end
 
-  def download_files(ftp_credential_id: ftp_credential_id, download_directory: download_directory)
+  def download_files
     # Download files from FTP source into the new directory.
     ftp_credential = FtpCredential.find(ftp_credential_id)
     connection = Net::FTP.new
@@ -22,7 +23,7 @@ class ETL::Sources::Ftp
     connection.close
   end
 
-  def ensure_destination(download_directory:)
+  def ensure_destination
     Dir.mkdir('imports') unless Dir.exist?('imports')
     Dir.mkdir("imports/#{Rails.env}") unless Dir.exist?("imports/#{Rails.env}")
     Dir.mkdir(download_directory)
@@ -33,18 +34,16 @@ class ETL::Sources::Ftp
     # Each file will be read sequentially.
     # https://github.com/thbar/kiba/wiki/Can-Kiba-handle-multiple-sources-and-destinations%3F#multiple-sources-behaviour
     Dir.children(download_directory).each do |filename|
-      filename = File.join(download_directory, filename)
-
       # Return each row from this file to the pipeline.
       Kiba::Common::Sources::CSV.new(
-        filename: filename,
+        filename: File.join(download_directory, filename),
         csv_options: {
           headers: false,
           col_sep: '~',
           encoding: 'ISO-8859-1',
           liberal_parsing: true
         }
-      ).each(&block)
+      ).each { |row| yield(row: row, filename: filename) }
     end
   end
 end
