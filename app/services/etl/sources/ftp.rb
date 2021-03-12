@@ -11,15 +11,19 @@ class ETL::Sources::Ftp
   end
 
   def download_files
-    # Download files from FTP source into the new directory.
+    # Establish FTP conneection.
     ftp_credential = FtpCredential.find(ftp_credential_id)
     connection = Net::FTP.new
     connection.connect(ftp_credential.host, ftp_credential.port.to_i)
     connection.login(ftp_credential.user, ftp_credential.password)
     connection.passive = true
+
+    # Loop through all files on the FTP, downloading each one into the download_directory.
     connection.nlst('*.DAT').map do |filename|
       connection.get(filename, "#{download_directory}/#{filename}")
     end
+
+    # Close FTP connection.
     connection.close
   end
 
