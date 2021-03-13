@@ -8,6 +8,13 @@ class ETL::Sources::Ftp
     @download_directory = "imports/#{Rails.env}/#{Time.current.iso8601}"
     ensure_destination
     download_files
+    validate_filenames
+  end
+
+  def ensure_destination
+    Dir.mkdir('imports') unless Dir.exist?('imports')
+    Dir.mkdir("imports/#{Rails.env}") unless Dir.exist?("imports/#{Rails.env}")
+    Dir.mkdir(download_directory)
   end
 
   def download_files
@@ -27,17 +34,25 @@ class ETL::Sources::Ftp
     connection.close
   end
 
-  def ensure_destination
-    Dir.mkdir('imports') unless Dir.exist?('imports')
-    Dir.mkdir("imports/#{Rails.env}") unless Dir.exist?("imports/#{Rails.env}")
-    Dir.mkdir(download_directory)
+  def validate_filenames
+    raise InvalidFilenameError unless Dir.children(download_directory).all? do |f|
+      valid_filename_regex.match?(f)
+    end
+  end
+
+  def valid_filename_regex
+    # Check that filename ends in the format YYYYMMDD_IIIIIIII.DAT.
+    # IIIIIII is an ordered index.
+    # Example valid seed file: GO_277_GDW_GOF_20200602_00001632.DAT
+    # Example valid delta file: GO_277_GDW_GOC_20200603_00001633.DAT
+    Regexp.new('.*([0-9]{4})(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])_([0-9]{8}).DAT')
   end
 
   def each(&block)
     # For each file, parse the data from tilde separated values to an array.
     # Each file will be read sequentially.
     # https://github.com/thbar/kiba/wiki/Can-Kiba-handle-multiple-sources-and-destinations%3F#multiple-sources-behaviour
-    Dir.children(download_directory).each do |filename|
+    Dir.children(download_directory).sort_by { |f| f.scan(valid_filename_regex) }.each do |filename|
       # Return each row from this file to the pipeline.
       Kiba::Common::Sources::CSV.new(
         filename: File.join(download_directory, filename),
