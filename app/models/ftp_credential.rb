@@ -16,9 +16,31 @@ class FtpCredential < ApplicationRecord
   encrypts :password
   encrypts :path
 
-  # Currently we only support 1 FTP Credential at a time.
-  def self.singleton
-    @singleton ||= FtpCredential.first
+  def connect
+    connection = Net::FTP.new
+    connection.connect(host, port.to_i)
+    connection.login(user, password)
+    connection.passive = true
+    connection
+  end
+
+  def download_files(path:)
+    # Ensure destination path exists.
+    FtpCredential.ensure_path(path: path)
+
+    # Establish FTP connection.
+    connection = connect
+
+    # Loop through all files on the FTP, downloading each one into the path.
+    connection.nlst('*.DAT').map do |filename|
+      connection.get(filename, "#{path}/#{filename}")
+    end
+
+    # Close FTP connection.
+    connection.close
+
+    # Check filenames match what is expected.
+    FtpCredential.validate_filenames(path: path)
   end
 
   # Readonly to ensure created_by is always correct. If it needs to change,
@@ -27,7 +49,32 @@ class FtpCredential < ApplicationRecord
     persisted?
   end
 
+  # Currently we only support 1 FTP Credential at a time.
+  def self.singleton
+    @singleton ||= FtpCredential.first
+  end
+
+  def self.valid_filename_regex
+    # Check that filename ends in the format YYYYMMDD_IIIIIIII.DAT.
+    # IIIIIII is an ordered index.
+    # Example valid seed file: GO_277_GDW_GOF_20200602_00001632.DAT
+    # Example valid delta file: GO_277_GDW_GOC_20200603_00001633.DAT
+    Regexp.new('.*([0-9]{4})(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])_([0-9]{8}).DAT')
+  end
+
   private
+
+  def self.ensure_path(path:)
+    Dir.mkdir('imports') unless Dir.exist?('imports')
+    Dir.mkdir("imports/#{Rails.env}") unless Dir.exist?("imports/#{Rails.env}")
+    Dir.mkdir(path)
+  end
+
+  def self.validate_filenames(path:)
+    raise InvalidFilenameError unless Dir.children(path).all? do |f|
+      valid_filename_regex.match?(f)
+    end
+  end
 
   def validate_singleton
     return unless FtpCredential.exists?

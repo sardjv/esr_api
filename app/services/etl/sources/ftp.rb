@@ -1,61 +1,22 @@
 require 'kiba-common/sources/csv'
 
 class ETL::Sources::Ftp
-  attr_reader :ftp_credential_id, :download_directory
+  attr_reader :ftp_credential_id, :path
 
   def initialize(ftp_credential_id:)
-    @ftp_credential_id = ftp_credential_id
-    @download_directory = "imports/#{Rails.env}/#{Time.current.iso8601}"
-    ensure_destination
-    download_files
-    validate_filenames
-  end
-
-  def ensure_destination
-    Dir.mkdir('imports') unless Dir.exist?('imports')
-    Dir.mkdir("imports/#{Rails.env}") unless Dir.exist?("imports/#{Rails.env}")
-    Dir.mkdir(download_directory)
-  end
-
-  def download_files
-    # Establish FTP conneection.
     ftp_credential = FtpCredential.find(ftp_credential_id)
-    connection = Net::FTP.new
-    connection.connect(ftp_credential.host, ftp_credential.port.to_i)
-    connection.login(ftp_credential.user, ftp_credential.password)
-    connection.passive = true
-
-    # Loop through all files on the FTP, downloading each one into the download_directory.
-    connection.nlst('*.DAT').map do |filename|
-      connection.get(filename, "#{download_directory}/#{filename}")
-    end
-
-    # Close FTP connection.
-    connection.close
-  end
-
-  def validate_filenames
-    raise InvalidFilenameError unless Dir.children(download_directory).all? do |f|
-      valid_filename_regex.match?(f)
-    end
-  end
-
-  def valid_filename_regex
-    # Check that filename ends in the format YYYYMMDD_IIIIIIII.DAT.
-    # IIIIIII is an ordered index.
-    # Example valid seed file: GO_277_GDW_GOF_20200602_00001632.DAT
-    # Example valid delta file: GO_277_GDW_GOC_20200603_00001633.DAT
-    Regexp.new('.*([0-9]{4})(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])_([0-9]{8}).DAT')
+    @path = "imports/#{Rails.env}/#{Time.current.iso8601}"
+    ftp_credential.download_files(path: path)
   end
 
   def each(&block)
     # For each file, parse the data from tilde separated values to an array.
     # Each file will be read sequentially.
     # https://github.com/thbar/kiba/wiki/Can-Kiba-handle-multiple-sources-and-destinations%3F#multiple-sources-behaviour
-    Dir.children(download_directory).sort_by { |f| f.scan(valid_filename_regex) }.each do |filename|
+    Dir.children(path).sort_by { |f| f.scan(FtpCredential.valid_filename_regex) }.each do |filename|
       # Return each row from this file to the pipeline.
       Kiba::Common::Sources::CSV.new(
-        filename: File.join(download_directory, filename),
+        filename: File.join(path, filename),
         csv_options: {
           headers: false,
           col_sep: '~',
