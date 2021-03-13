@@ -24,23 +24,23 @@ class FtpCredential < ApplicationRecord
     connection
   end
 
-  def download_files(path:)
+  def download_files(destination_path:)
     # Ensure destination path exists.
-    FtpCredential.ensure_path(path: path)
+    FtpCredential.ensure_destination_path(destination_path: destination_path)
 
     # Establish FTP connection.
     connection = connect
 
-    # Loop through all files on the FTP, downloading each one into the path.
+    # Loop through all files on the FTP, downloading each one into the destination_path.
     connection.nlst('*.DAT').map do |filename|
-      connection.get(filename, "#{path}/#{filename}")
+      connection.get(filename, "#{destination_path}/#{filename}")
     end
 
     # Close FTP connection.
     connection.close
 
     # Check filenames match what is expected.
-    FtpCredential.validate_filenames(path: path)
+    FtpCredential.validate_filenames(destination_path: destination_path)
   end
 
   # Readonly to ensure created_by is always correct. If it needs to change,
@@ -64,14 +64,14 @@ class FtpCredential < ApplicationRecord
 
   private
 
-  def self.ensure_path(path:)
+  def self.ensure_destination_path(destination_path:)
     Dir.mkdir('imports') unless Dir.exist?('imports')
     Dir.mkdir("imports/#{Rails.env}") unless Dir.exist?("imports/#{Rails.env}")
-    Dir.mkdir(path)
+    Dir.mkdir(destination_path)
   end
 
-  def self.validate_filenames(path:)
-    raise InvalidFilenameError unless Dir.children(path).all? do |f|
+  def self.validate_filenames(destination_path:)
+    raise InvalidFilenameError unless Dir.children(destination_path).all? do |f|
       valid_filename_regex.match?(f)
     end
   end
