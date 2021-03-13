@@ -64,18 +64,6 @@ class FtpCredential < ApplicationRecord
 
   private
 
-  def self.ensure_destination_path(destination_path:)
-    Dir.mkdir('imports') unless Dir.exist?('imports')
-    Dir.mkdir("imports/#{Rails.env}") unless Dir.exist?("imports/#{Rails.env}")
-    Dir.mkdir(destination_path)
-  end
-
-  def self.validate_filenames(destination_path:)
-    raise InvalidFilenameError unless Dir.children(destination_path).all? do |f|
-      valid_filename_regex.match?(f)
-    end
-  end
-
   def validate_singleton
     return unless FtpCredential.exists?
 
@@ -87,5 +75,17 @@ class FtpCredential < ApplicationRecord
     return unless name.downcase.gsub(/\s/, '').include?(password.downcase.gsub(/\s/, ''))
 
     errors.add(:password, I18n.t('models.ftp_credential.errors.password_must_be_secret'))
+  end
+
+  private_class_method def self.ensure_destination_path(destination_path:)
+    Dir.mkdir('imports') unless Dir.exist?('imports')
+    Dir.mkdir("imports/#{Rails.env}") unless Dir.exist?("imports/#{Rails.env}")
+    Dir.mkdir(destination_path)
+  end
+
+  private_class_method def self.validate_filenames(destination_path:)
+    raise InvalidFilenameError unless Dir.children(destination_path).all? do |f|
+      valid_filename_regex.match?(f)
+    end
   end
 end
