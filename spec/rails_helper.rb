@@ -13,7 +13,6 @@ require 'database_cleaner/active_record'
 Dir[File.join(__dir__, 'support/', '*.rb')].each { |file| require file }
 Dir[File.join(__dir__, 'support/expectations/', '*.rb')].each { |file| require file }
 
-require 'fake_ftp'
 require 'net/ftp'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

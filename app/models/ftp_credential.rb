@@ -25,12 +25,12 @@ class FtpCredential < ApplicationRecord
   end
 
   def download_files(destination_path:)
-    # Ensure destination path exists.
+    # Ensure destination path exists and is empty.
     FtpCredential.ensure_destination_path(destination_path: destination_path)
 
     # Establish FTP connection.
     connection = connect
-
+    connection.chdir(path)
     # Loop through all files on the FTP, downloading each one into the destination_path.
     connection.nlst('*.DAT').map do |filename|
       connection.get(filename, "#{destination_path}/#{filename}")
