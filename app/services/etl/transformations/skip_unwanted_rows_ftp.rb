@@ -1,6 +1,7 @@
-class ETL::Transformations::SkipUnwantedRows
-  def process(row)
-    row unless unwanted.include?(row[0])
+class ETL::Transformations::SkipUnwantedRowsFtp
+  # args are { row: [], filename: "" }
+  def process(args)
+    args unless unwanted.include?(args[:row][0])
   end
 
   private
