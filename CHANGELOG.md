@@ -9,7 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Add Import and Sources for automating data import.
+- Add Import and FtpCredential to store Ftp access data.
+- Add dummy FTP server container for testing.
+- Update ETL pipeline to download files directly from Ftp.
 
 ## [0.6.8] - 2021-02-25
 
