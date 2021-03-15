@@ -28,9 +28,6 @@ jobs:
           MYSQL_ROOT_PASSWORD: dmh5DdT53vm2opvHX58S
           MYSQL_ALLOW_EMPTY_PASSWORD: false
       - image: stilliard/pure-ftpd:latest
-        ports:
-          - '21:21'
-          - '30000-30009:30000-30009'
         environment:
           PUBLICHOST: test_ftp
           FTP_USER_NAME: user
