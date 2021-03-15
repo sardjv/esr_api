@@ -1,4 +1,4 @@
-describe ImportFileJob, type: :job do
+describe ImportFromFtpJob, type: :job do
   let!(:admin) { create(:confirmed_user) }
   let(:ftp_credential) { create(:ftp_credential, path: path) }
   let(:import_job) { ImportFromFtpJob.perform_later(ftp_credential_id: ftp_credential.id) }

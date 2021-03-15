@@ -1,13 +1,8 @@
 class ETL::Destinations::ImportQueues
-  attr_reader :filename
-
-  def initialize(filename:)
-    @filename = filename
-  end
-
-  def write(row)
+  # args are { row: [], filename: "" }
+  def write(args)
     # Get the appropriate queue for this row, and send it the job.
-    queue_name(row.first).send(:perform_later, row: row, filename: filename)
+    queue_name(args[:row].first).send(:perform_later, row: args[:row], filename: args[:filename])
   end
 
   private

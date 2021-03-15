@@ -1,4 +1,4 @@
-describe ImportFileJob, type: :job do
+describe ImportFromFtpJob, type: :job do
   let!(:admin) { create(:confirmed_user) }
 
   let(:classes) { ['AbsenceRecord'] }
