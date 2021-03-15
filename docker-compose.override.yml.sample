@@ -87,18 +87,14 @@ services:
       - '.env'
 
   test_ftp:
-    image: stilliard/pure-ftpd:latest
-    container_name: pure-ftpd
+    image: kibatic/proftpd
     ports:
       - '21:21'
       - '30000-30009:30000-30009'
     volumes:
-      - ./spec/fixtures/files:/files
+      - ./spec/fixtures/files:/home/user
     environment:
-      PUBLICHOST: test_ftp
-      FTP_USER_NAME: user
-      FTP_USER_PASS: password
-      FTP_USER_HOME: /files
+      FTP_LIST: "user:password"
     restart: always
 
 volumes:
