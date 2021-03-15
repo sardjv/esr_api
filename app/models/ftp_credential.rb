@@ -62,6 +62,18 @@ class FtpCredential < ApplicationRecord
     Regexp.new('.*([0-9]{4})(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])_([0-9]{8}).DAT')
   end
 
+  def self.ensure_destination_path(destination_path:)
+    Dir.mkdir('imports') unless Dir.exist?('imports')
+    Dir.mkdir("imports/#{Rails.env}") unless Dir.exist?("imports/#{Rails.env}")
+    Dir.mkdir(destination_path)
+  end
+
+  def self.validate_filenames(destination_path:)
+    raise InvalidFilenameError unless Dir.children(destination_path).all? do |f|
+      valid_filename_regex.match?(f)
+    end
+  end
+
   private
 
   def validate_singleton
@@ -75,17 +87,5 @@ class FtpCredential < ApplicationRecord
     return unless name.downcase.gsub(/\s/, '').include?(password.downcase.gsub(/\s/, ''))
 
     errors.add(:password, I18n.t('models.ftp_credential.errors.password_must_be_secret'))
-  end
-
-  private_class_method def self.ensure_destination_path(destination_path:)
-    Dir.mkdir('imports') unless Dir.exist?('imports')
-    Dir.mkdir("imports/#{Rails.env}") unless Dir.exist?("imports/#{Rails.env}")
-    Dir.mkdir(destination_path)
-  end
-
-  private_class_method def self.validate_filenames(destination_path:)
-    raise InvalidFilenameError unless Dir.children(destination_path).all? do |f|
-      valid_filename_regex.match?(f)
-    end
   end
 end

@@ -4,7 +4,7 @@ describe ImportFromFtpJob, type: :job do
   let(:import_job) { ImportFromFtpJob.perform_later(ftp_credential_id: ftp_credential.id) }
 
   context 'with multiple files' do
-    let(:path) { '/multiple_files' }
+    let(:path) { 'good_imports/multiple_files' }
 
     it 'parses and creates records from all' do
       perform_enqueued_jobs { import_job }

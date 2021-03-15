@@ -1,6 +1,6 @@
 describe ImportFromFtpJob, type: :job do
   let!(:admin) { create(:confirmed_user) }
-  let(:ftp_credential) { create(:ftp_credential, path: '/liberal_parsing') }
+  let(:ftp_credential) { create(:ftp_credential, path: 'good_imports/liberal_parsing') }
   let(:import_job) { ImportFromFtpJob.perform_later(ftp_credential_id: ftp_credential.id) }
 
   context 'with a row with quotes inside a column' do

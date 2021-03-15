@@ -4,7 +4,7 @@ describe 'rake import_files' do
   before { EsrApi::Application.load_tasks }
 
   context 'with disordered filenames' do
-    let(:imports_path) { 'spec/fixtures/files/disordered_imports' }
+    let(:imports_path) { 'spec/fixtures/files/good_imports/disordered_imports' }
     let(:first) { Rails.root.join(imports_path, '4_20190101_00000001.DAT').to_s }
     let(:second) { Rails.root.join(imports_path, '2_20200602_00001631.DAT').to_s }
     let(:third) { Rails.root.join(imports_path, '1_20200602_00001632.DAT').to_s }
@@ -21,7 +21,7 @@ describe 'rake import_files' do
   end
 
   context 'with a filename without a timestamp' do
-    let(:imports_path) { 'spec/fixtures/files/imports_missing_a_timestamp' }
+    let(:imports_path) { 'spec/fixtures/files/bad_imports/imports_missing_a_timestamp' }
 
     it 'raises InvalidFilenameError' do
       expect(ImportFileJob).not_to receive(:perform_later)

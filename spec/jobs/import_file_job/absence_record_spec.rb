@@ -1,5 +1,8 @@
 describe ImportFileJob, type: :job do
   let!(:admin) { create(:confirmed_user) }
+  let(:ftp_credential) { create(:ftp_credential, path: path) }
+  let(:import_job) { ImportFromFtpJob.perform_later(ftp_credential_id: ftp_credential.id) }
+
   let(:add_filename) do
     file_fixture('good_imports/add_absence_record_20201015_00001157.DAT').to_path
   end
