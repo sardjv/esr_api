@@ -27,6 +27,15 @@ jobs:
           MYSQL_USER: root
           MYSQL_ROOT_PASSWORD: dmh5DdT53vm2opvHX58S
           MYSQL_ALLOW_EMPTY_PASSWORD: false
+      - image: stilliard/pure-ftpd:latest
+        ports:
+          - '21:21'
+          - '30000-30009:30000-30009'
+        environment:
+          PUBLICHOST: test_ftp
+          FTP_USER_NAME: user
+          FTP_USER_PASS: password
+          FTP_USER_HOME: /files
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
