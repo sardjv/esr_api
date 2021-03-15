@@ -9,6 +9,8 @@ end
 
 def empty_imports_directory
   imports_directory = 'imports/test'
+  return unless Dir.exist?(imports_directory)
+
   Dir.children(imports_directory).each do |dir|
     Dir.children(File.join(imports_directory, dir)).each do |file|
       File.delete(File.join(imports_directory, dir, file))
