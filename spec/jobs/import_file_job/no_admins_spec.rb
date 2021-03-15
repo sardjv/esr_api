@@ -1,6 +1,6 @@
 describe ImportFileJob, type: :job do
-  let!(:unconfirmed_user) { create(:user) { |u| u.update_column(:confirmed_at, nil) } }
-  let(:ftp_credential) { create(:ftp_credential, path: path) }
+  let(:unconfirmed_user) { create(:user) { |u| u.update_column(:confirmed_at, nil) } }
+  let(:ftp_credential) { create(:ftp_credential, path: path, created_by_id: unconfirmed_user.id) }
   let(:path) { 'good_imports/mixed_import' }
 
   context 'with no admins' do
