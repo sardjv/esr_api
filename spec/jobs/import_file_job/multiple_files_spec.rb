@@ -38,9 +38,9 @@ describe ImportFromFtpJob, type: :job do
     let(:path) { 'bad_imports/imports_missing_a_timestamp' }
 
     it 'raises InvalidFilenameError' do
-      expect do
-        ImportFromFtpJob.new.perform(ftp_credential_id: ftp_credential.id)
-      end.to raise_error(InvalidFilenameError)
+      ActiveJob.quiet do
+        expect { ImportFromFtpJob.perform_now(ftp_credential_id: ftp_credential.id) }.to raise_error(InvalidFilenameError)
+      end
     end
   end
 end
