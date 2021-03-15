@@ -22,7 +22,7 @@ describe ImportFromFtpJob, type: :job do
   end
 
   context 'with disordered filenames' do
-    let(:path) { '/disordered_imports' }
+    let(:path) { 'good_imports/disordered_imports' }
 
     it 'creates jobs in date and time order, not alphabetically' do
       expect(ImportAbsenceRecordJob).to receive(:perform_later).with(filename: '4_20190101_00000001.DAT', row: anything).ordered
@@ -35,7 +35,7 @@ describe ImportFromFtpJob, type: :job do
   end
 
   context 'with a filename without a timestamp' do
-    let(:path) { '/imports_missing_a_timestamp' }
+    let(:path) { 'bad_imports/imports_missing_a_timestamp' }
 
     it 'raises InvalidFilenameError' do
       expect do

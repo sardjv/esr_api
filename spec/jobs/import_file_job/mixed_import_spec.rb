@@ -1,10 +1,10 @@
-describe ImportFileJob, type: :job do
+describe ImportFromFtpJob, type: :job do
   let!(:admin) { create(:confirmed_user) }
-  let(:filename) { file_fixture('good_imports/mixed_import_20201015_00001157.DAT').to_path }
-  subject(:job) { ImportFileJob.perform_later(filename: filename) }
+  let(:ftp_credential) { create(:ftp_credential, path: 'good_imports/mixed_import') }
+  let(:import_job) { ImportFromFtpJob.perform_later(ftp_credential_id: ftp_credential.id) }
 
   context 'with records created' do
-    before { perform_enqueued_jobs { job } }
+    before { perform_enqueued_jobs { import_job } }
 
     it 'sets attributes correctly' do
       [

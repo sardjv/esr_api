@@ -3,71 +3,77 @@ describe ImportFileJob, type: :job do
   let(:ftp_credential) { create(:ftp_credential, path: path) }
   let(:import_job) { ImportFromFtpJob.perform_later(ftp_credential_id: ftp_credential.id) }
 
-  let(:add_filename) do
-    file_fixture('good_imports/add_absence_record_20201015_00001157.DAT').to_path
-  end
-  subject(:add_job) { ImportFileJob.perform_later(filename: add_filename) }
-  let(:update_filename) do
-    file_fixture('good_imports/update_absence_record_20201015_00001157.DAT').to_path
-  end
-  subject(:update_job) { ImportFileJob.perform_later(filename: update_filename) }
-  let(:delete_filename) do
-    file_fixture('good_imports/delete_absence_record_20201015_00001157.DAT').to_path
-  end
-  subject(:delete_job) { ImportFileJob.perform_later(filename: delete_filename) }
+  describe 'add' do
+    let(:path) { 'good_imports/absence_record/add' }
 
-  it 'queues the job' do
-    expect { add_job }
-      .to change(ActiveJob::Base.queue_adapter.enqueued_jobs, :size).by(1)
-    expect { update_job }
-      .to change(ActiveJob::Base.queue_adapter.enqueued_jobs, :size).by(1)
-  end
-
-  it 'creates a new AbsenceRecord' do
-    perform_enqueued_jobs { add_job }
-
-    expect(AbsenceRecord.count).to eq(1)
-    pr = AbsenceRecord.first
-
-    # Expect values in the database to match input from add_absence_record_20201015_00001157.DAT.
-    Expectations::AbsenceRecord.added.each do |key, value|
-      expect(pr.send(key)).to eq(value)
-    end
-  end
-
-  context 'with an existing AbsenceRecord' do
-    before do
-      perform_enqueued_jobs { add_job }
-      AbsenceRecord.first.update(
-        'created_at' => Time.current - 1.week,
-        'updated_at' => Time.current - 1.week
-      )
+    it 'queues the job' do
+      expect { import_job }
+        .to change(ActiveJob::Base.queue_adapter.enqueued_jobs, :size).by(1)
     end
 
-    it 'updates it' do
-      perform_enqueued_jobs { update_job }
+    it 'creates a new AbsenceRecord' do
+      perform_enqueued_jobs { import_job }
 
       expect(AbsenceRecord.count).to eq(1)
       pr = AbsenceRecord.first
 
-      expect(pr.created_at).to be_within(2.seconds).of(Time.current - 1.week)
-      expect(pr.updated_at).to be_within(2.seconds).of(Time.current)
-
-      # Expect values in the database to match input from update_absence_record_20201015_00001157.DAT.
-      Expectations::AbsenceRecord.updated.each do |key, value|
+      # Expect values in the database to match input from add_absence_record_20201015_00001157.DAT.
+      Expectations::AbsenceRecord.added.each do |key, value|
         expect(pr.send(key)).to eq(value)
       end
     end
+  end
 
-    it 'versions it' do
-      perform_enqueued_jobs { update_job }
+  describe 'update' do
+    let(:path) { 'good_imports/absence_record/update' }
 
-      expect(AbsenceRecord.first.versions.last.whodunnit_type).to eq('Import')
-      expect(AbsenceRecord.first.versions.last.whodunnit).to eq(update_filename.split('/').last)
+    it 'queues the job' do
+      expect { import_job }
+        .to change(ActiveJob::Base.queue_adapter.enqueued_jobs, :size).by(1)
     end
 
+    context 'with an existing AbsenceRecord' do
+      before do
+        build(:absence_record) do |r|
+          r.assign_attributes(
+            Expectations::AbsenceRecord.added.merge(
+              'created_at' => Time.current - 1.week,
+              'updated_at' => Time.current - 1.week
+            )
+          )
+          r.save
+        end
+      end
+
+      it 'updates it' do
+        perform_enqueued_jobs { import_job }
+
+        expect(AbsenceRecord.count).to eq(1)
+        pr = AbsenceRecord.first
+
+        expect(pr.created_at).to be_within(2.seconds).of(Time.current - 1.week)
+        expect(pr.updated_at).to be_within(2.seconds).of(Time.current)
+
+        # Expect values in the database to match input from update_absence_record_20201015_00001157.DAT.
+        Expectations::AbsenceRecord.updated.each do |key, value|
+          expect(pr.send(key)).to eq(value)
+        end
+      end
+
+      it 'versions it' do
+        perform_enqueued_jobs { import_job }
+
+        expect(AbsenceRecord.first.versions.last.whodunnit_type).to eq('Import')
+        expect(AbsenceRecord.first.versions.last.whodunnit).to include('update')
+      end
+    end
+  end
+
+  describe 'delete' do
+    let(:path) { 'good_imports/absence_record/delete' }
+
     it 'deletes it' do
-      perform_enqueued_jobs { delete_job }
+      perform_enqueued_jobs { import_job }
 
       expect(AbsenceRecord.count).to eq(0)
     end
