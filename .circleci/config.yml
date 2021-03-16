@@ -28,6 +28,7 @@ jobs:
           MYSQL_ROOT_PASSWORD: dmh5DdT53vm2opvHX58S
           MYSQL_ALLOW_EMPTY_PASSWORD: false
       - image: kibatic/proftpd
+        hostname: test_ftp
         environment:
           FTP_LIST: "user:password"
     environment:
