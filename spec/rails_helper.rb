@@ -14,6 +14,7 @@ Dir[File.join(__dir__, 'support/', '*.rb')].each { |file| require file }
 Dir[File.join(__dir__, 'support/expectations/', '*.rb')].each { |file| require file }
 
 require 'net/ftp'
+require 'ftpmock'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -84,4 +85,10 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include ActiveJob::TestHelper, type: :job
+
+  config.around(:example) do |example|
+    Ftpmock.on! do
+      example.run
+    end
+  end
 end

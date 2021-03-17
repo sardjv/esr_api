@@ -115,6 +115,10 @@ group :development do
 end
 
 group :test do
+  # Test your FTP calls offline.
+  # https://github.com/thejamespinto/ftpmock
+  gem 'ftpmock', '~> 0.1.1'
+
   # RSpec results that your CI can read.
   # https://github.com/sj26/rspec_junit_formatter
   gem 'rspec_junit_formatter', '~> 0.4.1'

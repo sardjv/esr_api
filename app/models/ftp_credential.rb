@@ -30,10 +30,10 @@ class FtpCredential < ApplicationRecord
 
     # Establish FTP connection.
     connection = connect
-    connection.chdir(path)
+
     # Loop through all files on the FTP, downloading each one into the destination_path.
-    connection.nlst('*.DAT').map do |filename|
-      connection.get(filename, "#{destination_path}/#{filename}")
+    connection.list('-1', path).map do |filename|
+      connection.get("#{path}/#{filename}", "#{destination_path}/#{filename}")
     end
 
     # Close FTP connection.
