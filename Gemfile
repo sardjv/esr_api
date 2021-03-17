@@ -19,7 +19,7 @@ gem 'redis', '~> 4.2.5'
 
 # Simple, efficient background processing for Ruby.
 # https://github.com/mperham/sidekiq
-gem 'sidekiq', '~> 6.1.3'
+gem 'sidekiq', '~> 6.2.0'
 
 # Data processing & ETL framework for Ruby.
 # https://github.com/thbar/kiba
@@ -60,11 +60,11 @@ gem 'factory_bot', '~> 6.1.0'
 
 # Generate fake data such as names, addresses, and phone numbers.
 # https://github.com/faker-ruby/faker
-gem 'faker', '~> 2.16.0'
+gem 'faker', '~> 2.17.0'
 
 # Simple plugin to add CSV export feature to Administrate.
 # https://github.com/SourceLabsLLC/administrate_exportable
-gem 'administrate_exportable', '~> 0.2.0'
+gem 'administrate_exportable', '~> 0.3.1'
 
 # Flexible authentication solution for Rails with Warden.
 # https://github.com/heartcombo/devise
