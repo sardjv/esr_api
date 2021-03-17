@@ -1,3 +1,5 @@
+require 'net/ftp'
+
 class FtpCredential < ApplicationRecord
   belongs_to :created_by, class_name: 'User', inverse_of: :ftp_credentials
 
