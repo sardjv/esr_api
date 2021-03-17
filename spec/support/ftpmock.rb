@@ -1,5 +1,5 @@
 Ftpmock.configure do |c|
-  c.path = 'fixtures/requests/ftp'
+  c.path = 'spec/fixtures/cassetes'
 end
 
 module Ftpmock
