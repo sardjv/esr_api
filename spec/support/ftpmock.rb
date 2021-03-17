@@ -1,11 +1,10 @@
 Ftpmock.configure do |c|
-  c.path = 'spec/fixtures/cassetes'
+  c.path = 'spec/fixtures/cassettes'
 end
 
-module Ftpmock
-  class NetFtpProxy
-    def close
-      real.close
-    end
-  end
+class Ftpmock::NetFtpProxy
+  # Allow closing connection on initial run, which connects
+  # to the dockerised Ftp server in order to record cassettes
+  # in spec/fixtures/cassettes.
+  delegate :close, to: :real
 end
