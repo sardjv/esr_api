@@ -9,10 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Add FtpCredential to store Ftp access data.
+- Add FtpCredential to store FTP access data.
 - Add dummy FTP server container for testing.
 - Add FtpMock to cache FTP requests in tests.
-- Update ETL pipeline to download files directly from Ftp.
+- Update ETL pipeline to download files directly from FTP.
+- Add Sidekiq cronjob to request data from FTP daily at 5am.
 
 ## [0.6.8] - 2021-02-25
 
