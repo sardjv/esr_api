@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Add Import and FtpCredential to store Ftp access data.
+- Add FtpCredential to store Ftp access data.
 - Add dummy FTP server container for testing.
 - Update ETL pipeline to download files directly from Ftp.
 
