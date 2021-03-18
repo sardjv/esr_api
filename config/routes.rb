@@ -52,7 +52,6 @@ Rails.application.routes.draw do
       get :export, on: :collection
     end
     resources :events, only: %i[index]
-    resources :imports, only: %i[index]
     resources :ftp_credentials, only: %i[index new create show destroy]
     resources :tokens, only: %i[index new create show destroy]
     get '/permissions/:id', to: redirect { |path_params, _req|
