@@ -1,5 +1,5 @@
 class ImportFromFtpJob < ApplicationJob
-  def perform(ftp_credential_id:)
+  def perform(ftp_credential_id: FtpCredential.singleton.try(:id))
     System.verify_active?
 
     job = Kiba.parse do
