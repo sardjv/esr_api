@@ -569,19 +569,6 @@ ActiveRecord::Schema.define(version: 202102261450900) do
     t.index ["Special Information ID"], name: "index_sit_records_on_Special Information ID", unique: true
   end
 
-  create_table "sources", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "host_ciphertext", null: false
-    t.string "port_ciphertext", null: false
-    t.string "user_ciphertext", null: false
-    t.string "password_ciphertext", null: false
-    t.string "path_ciphertext", null: false
-    t.bigint "created_by_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["created_by_id"], name: "index_sources_on_created_by_id"
-  end
-
   create_table "tokens", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "token_ciphertext", null: false
