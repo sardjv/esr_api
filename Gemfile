@@ -121,7 +121,7 @@ group :test do
 
   # RSpec is a specification library for behaviour driven development.
   # https://github.com/rspec/rspec
-  gem 'rspec-rails', '~> 5.0.0'
+  gem 'rspec-rails', '~> 5.0.1'
 
   # Generate code coverage documentation.
   # https://github.com/colszowka/simplecov
