@@ -2,17 +2,17 @@
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# This file is the source Rails uses to define your schema when running `rails
-# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_14_132900) do
+ActiveRecord::Schema.define(version: 202102261450900) do
 
-  create_table "absence_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "absence_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "Person ID"
     t.string "Absence Attendance ID"
     t.string "Absence Type"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_132900) do
     t.index ["Absence Attendance ID"], name: "index_absence_records_on_Absence Attendance ID", unique: true
   end
 
-  create_table "activities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "activities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "trackable_type"
     t.bigint "trackable_id"
     t.string "owner_type"
@@ -63,14 +63,14 @@ ActiveRecord::Schema.define(version: 2020_10_14_132900) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["owner_id", "owner_type"], name: "index_activities_on_owner_id_and_owner_type"
-    t.index ["owner_type", "owner_id"], name: "index_activities_on_owner_type_and_owner_id"
+    t.index ["owner_type", "owner_id"], name: "index_activities_on_owner"
     t.index ["recipient_id", "recipient_type"], name: "index_activities_on_recipient_id_and_recipient_type"
-    t.index ["recipient_type", "recipient_id"], name: "index_activities_on_recipient_type_and_recipient_id"
+    t.index ["recipient_type", "recipient_id"], name: "index_activities_on_recipient"
     t.index ["trackable_id", "trackable_type"], name: "index_activities_on_trackable_id_and_trackable_type"
-    t.index ["trackable_type", "trackable_id"], name: "index_activities_on_trackable_type_and_trackable_id"
+    t.index ["trackable_type", "trackable_id"], name: "index_activities_on_trackable"
   end
 
-  create_table "assignment_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "assignment_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "Person ID"
     t.string "Assignment ID"
     t.date "Effective Start Date"
@@ -124,7 +124,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_132900) do
     t.index ["Assignment ID", "Effective Start Date", "Effective End Date"], name: "index_assignment_effective_start_and_end_date", unique: true
   end
 
-  create_table "competency_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "competency_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "Person ID"
     t.string "Competency Element ID"
     t.string "Competency Type"
@@ -152,7 +152,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_132900) do
     t.index ["Competency Element ID"], name: "index_competency_records_on_Competency Element ID", unique: true
   end
 
-  create_table "costing_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "costing_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "Person ID"
     t.string "Assignment ID"
     t.string "Costing Allocation ID"
@@ -173,7 +173,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_132900) do
     t.index ["Costing Allocation ID"], name: "index_costing_records_on_Costing Allocation ID", unique: true
   end
 
-  create_table "disability_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "disability_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "Person ID"
     t.string "Disability ID"
     t.string "Category"
@@ -183,7 +183,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_132900) do
     t.index ["Disability ID"], name: "index_disability_records_on_Disability ID", unique: true
   end
 
-  create_table "element_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "element_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "Person ID"
     t.string "Element Entry ID"
     t.date "Effective Start Date"
@@ -214,7 +214,26 @@ ActiveRecord::Schema.define(version: 2020_10_14_132900) do
     t.index ["Element Entry ID"], name: "index_element_records_on_Element Entry ID", unique: true
   end
 
-  create_table "location_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "ftp_credentials", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "host_ciphertext", null: false
+    t.string "port_ciphertext", null: false
+    t.string "user_ciphertext", null: false
+    t.string "password_ciphertext", null: false
+    t.string "path_ciphertext", null: false
+    t.bigint "created_by_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["created_by_id"], name: "index_ftp_credentials_on_created_by_id"
+    t.index ["host_ciphertext"], name: "index_ftp_credentials_on_host_ciphertext", unique: true
+    t.index ["name"], name: "index_ftp_credentials_on_name", unique: true
+    t.index ["password_ciphertext"], name: "index_ftp_credentials_on_password_ciphertext", unique: true
+    t.index ["path_ciphertext"], name: "index_ftp_credentials_on_path_ciphertext", unique: true
+    t.index ["port_ciphertext"], name: "index_ftp_credentials_on_port_ciphertext", unique: true
+    t.index ["user_ciphertext"], name: "index_ftp_credentials_on_user_ciphertext", unique: true
+  end
+
+  create_table "location_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "Record Type"
     t.string "Location ID"
     t.string "Location Code"
@@ -242,7 +261,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_132900) do
     t.index ["Location ID"], name: "index_location_records_on_Location ID", unique: true
   end
 
-  create_table "organisation_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "organisation_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "Organisation ID"
     t.string "Organisation Name"
     t.string "Organisation Type"
@@ -262,7 +281,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_132900) do
     t.index ["Organisation ID"], name: "index_organisation_records_on_Organisation ID", unique: true
   end
 
-  create_table "permissions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "permissions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "subject_type"
     t.bigint "subject_id"
     t.string "resource", null: false
@@ -274,7 +293,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_132900) do
     t.index ["subject_type", "subject_id"], name: "index_permissions_on_subject_type_and_subject_id"
   end
 
-  create_table "person_eit_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "person_eit_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "Person ID"
     t.string "Person Extra Information ID"
     t.string "Information Type"
@@ -336,7 +355,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_132900) do
     t.index ["Person Extra Information ID"], name: "index_person_eit_records_on_Person Extra Information ID", unique: true
   end
 
-  create_table "person_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "person_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "Person ID"
     t.date "Effective Start Date"
     t.date "Effective End Date"
@@ -376,7 +395,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_132900) do
     t.index ["Person ID", "Effective Start Date", "Effective End Date"], name: "index_person_records_effective_start_and_end", unique: true
   end
 
-  create_table "position_eit_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "position_eit_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "Position ID"
     t.string "Position Extra Information ID"
     t.string "Information Type"
@@ -438,7 +457,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_132900) do
     t.index ["Position Extra Information ID"], name: "index_position_eit_records_on_Position Extra Information ID", unique: true
   end
 
-  create_table "position_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "position_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "Position ID"
     t.date "Effective From Date"
     t.date "Effective To Date"
@@ -463,7 +482,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_132900) do
     t.index ["Position ID", "Effective From Date", "Effective To Date"], name: "index_position_records_effective_from_and_to", unique: true
   end
 
-  create_table "qualification_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "qualification_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "Person ID"
     t.string "Qualification ID"
     t.string "Qualification Type"
@@ -481,7 +500,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_132900) do
     t.index ["Qualification ID"], name: "index_qualification_records_on_Qualification ID", unique: true
   end
 
-  create_table "sit_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "sit_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "Person ID"
     t.string "Special Information ID"
     t.date "Effective Start Date"
@@ -544,7 +563,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_132900) do
     t.index ["Special Information ID"], name: "index_sit_records_on_Special Information ID", unique: true
   end
 
-  create_table "tokens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "tokens", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "token_ciphertext", null: false
     t.timestamp "token_viewed_at"
@@ -558,7 +577,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_132900) do
     t.index ["token_ciphertext"], name: "index_tokens_on_token_ciphertext", unique: true
   end
 
-  create_table "training_absence_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "training_absence_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "Person ID"
     t.string "Absence Attendance ID"
     t.string "Absence Type"
@@ -593,7 +612,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_132900) do
     t.index ["Absence Attendance ID"], name: "index_training_absence_records_on_Absence Attendance ID", unique: true
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", null: false
     t.string "encrypted_password", null: false
     t.string "reset_password_token"
@@ -613,7 +632,7 @@ ActiveRecord::Schema.define(version: 2020_10_14_132900) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "versions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci", force: :cascade do |t|
+  create_table "versions", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "item_type", limit: 191, null: false
     t.bigint "item_id", null: false
     t.string "event", null: false

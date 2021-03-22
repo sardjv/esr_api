@@ -7,3 +7,14 @@ end
 Sidekiq.configure_client do |config|
   config.redis = sidekiq_config
 end
+
+if Rails.env.development? || Rails.env.production?
+  # Cronjob to import data every day.
+  # Unique on name parameter; recreating will overwrite any existing job with the same name.
+  Sidekiq::Cron::Job.create(
+    name: 'ImportFromFtpJob',
+    cron: '0 5 * * *', # Every day at 05:00 AM.
+    class: 'ImportFromFtpJob',
+    queue: :asynchronous
+  )
+end
