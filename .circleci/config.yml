@@ -20,17 +20,20 @@ jobs:
     parallelism: 3
     docker:
       - image: cimg/ruby:3.0.0-node
-      - image: circleci/mysql:8.0.19
+      - image: mysql:8.0.22
         command: [--default-authentication-plugin=mysql_native_password]
         environment:
-          MYSQL_ROOT_HOST: '%'
           MYSQL_DATABASE: circle_ci
+          MYSQL_USER: root
+          MYSQL_ROOT_PASSWORD: dmh5DdT53vm2opvHX58S
+          MYSQL_ALLOW_EMPTY_PASSWORD: false
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
       RAILS_ENV: test
       DB_DATABASE: circle_ci
       DB_USERNAME: root
+      DB_PASSWORD: dmh5DdT53vm2opvHX58S
       DB_HOST: "127.0.0.1"
     steps:
       - checkout

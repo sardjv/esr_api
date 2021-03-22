@@ -68,7 +68,7 @@ class TokenDashboard < Administrate::BaseDashboard
   #   }.freeze
   COLLECTION_FILTERS = {}.freeze
 
-  # Overwrite this method to customize how training absence records are displayed
+  # Overwrite this method to customize how records are displayed
   # across all pages of the admin dashboard.
   def display_resource(token)
     token.name

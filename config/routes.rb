@@ -1,4 +1,5 @@
 require 'sidekiq/web'
+require 'sidekiq/cron/web'
 
 Rails.application.routes.draw do
   root to: 'ui/users#index'
@@ -51,6 +52,7 @@ Rails.application.routes.draw do
       get :export, on: :collection
     end
     resources :events, only: %i[index]
+    resources :ftp_credentials, only: %i[index new create show destroy]
     resources :tokens, only: %i[index new create show destroy]
     get '/permissions/:id', to: redirect { |path_params, _req|
       p = Permission.find(path_params[:id])
