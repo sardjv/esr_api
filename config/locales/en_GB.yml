@@ -84,6 +84,9 @@ en:
       name:
         one: Admin
         other: Admins
+      hints:
+        activated: Allows admins to log in.
+        point_of_contact: Displays name and email on the login page.
   navigation:
     api:
       documentation: Help
