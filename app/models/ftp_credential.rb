@@ -36,8 +36,8 @@ class FtpCredential < ApplicationRecord
     connection = connect
 
     # Loop through all files on the FTP, downloading each one into the destination_path.
-    connection.list('-1', path).map do |filename|
-      connection.get("#{path}/#{filename}", "#{destination_path}/#{filename}")
+    connection.list('-1', download_path).map do |filename|
+      connection.get("#{download_path}/#{filename}", "#{destination_path}/#{filename}")
     end
 
     # Close FTP connection.
@@ -51,6 +51,14 @@ class FtpCredential < ApplicationRecord
   # create a new one instead.
   def readonly?
     persisted?
+  end
+
+  def download_path
+    File.join(path, 'out')
+  end
+
+  def upload_path
+    File.join(path, 'in')
   end
 
   # Currently we only support 1 FTP Credential at a time.
