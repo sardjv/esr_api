@@ -15,6 +15,8 @@ describe FtpCredential, type: :model do
   it { should have_db_index(:password_ciphertext).unique }
   it { should validate_presence_of(:path) }
   it { should have_db_index(:path_ciphertext).unique }
+  it { should validate_presence_of(:virtual_private_database_number) }
+  it { should validate_length_of(:virtual_private_database_number).is_equal_to(3) }
   it { should belong_to(:created_by) }
 
   context 'with the ftp_credential containing the password (ignoring capitalisation and whitespace)' do

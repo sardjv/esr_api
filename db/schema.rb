@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_26_145900) do
+ActiveRecord::Schema.define(version: 2021_03_24_113001) do
 
   create_table "absence_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "Person ID"
@@ -224,6 +224,7 @@ ActiveRecord::Schema.define(version: 2021_02_26_145900) do
     t.bigint "created_by_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "virtual_private_database_number_ciphertext", null: false
     t.index ["created_by_id"], name: "index_ftp_credentials_on_created_by_id"
     t.index ["host_ciphertext"], name: "index_ftp_credentials_on_host_ciphertext", unique: true
     t.index ["name"], name: "index_ftp_credentials_on_name", unique: true

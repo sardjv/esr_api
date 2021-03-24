@@ -9,6 +9,7 @@ class FtpCredential < ApplicationRecord
   validates :user, presence: true
   validates :password, presence: true
   validates :path, presence: true
+  validates :virtual_private_database_number, presence: true, length: { is: 3 }
   validate :validate_singleton, on: :create
   validate :validate_password_is_secret, on: :create
 
@@ -17,6 +18,7 @@ class FtpCredential < ApplicationRecord
   encrypts :user
   encrypts :password
   encrypts :path
+  encrypts :virtual_private_database_number
 
   def connect
     connection = Net::FTP.new
