@@ -51,7 +51,7 @@ en:
         host: e.g. private.ftp-servers.example.com.
         port: e.g. 1234.
         path: e.g. 'myorganisation/mydirectory/'
-        virtual_private_database_number: Three digit NHS Organisation VPD Number.
+        virtual_private_database_number: Three digit NHS Organisation ESR payroll number - can be found on payslips eg. ESR123, where 123 is the number we need.
       name:
         one: FTP Credential
         other: FTP Credentials
