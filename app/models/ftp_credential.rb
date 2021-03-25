@@ -1,8 +1,8 @@
 require 'net/ftp'
 
 class FtpCredential < ApplicationRecord
-  LOCAL_DOWNLOADS_DIRECTORY = 'downloads'.freeze
-  LOCAL_UPLOADS_DIRECTORY = 'uploads'.freeze
+  LOCAL_DOWNLOADS_DIRECTORY = 'data/downloads'.freeze
+  LOCAL_UPLOADS_DIRECTORY = 'data/uploads'.freeze
   REMOTE_DOWNLOADS_DIRECTORY = 'out'.freeze
   REMOTE_UPLOADS_DIRECTORY = 'in'.freeze
 
