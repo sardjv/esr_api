@@ -27,7 +27,7 @@ gem 'kiba', '~> 3.6.0'
 
 # Kiba companion gem for commonly-used helpers.
 # https://github.com/thbar/kiba-common
-gem 'kiba-common', '~> 1.1.0'
+gem 'kiba-common', '~> 1.5.0'
 
 # Serve Swagger documentation generated from RSpec tests.
 # https://github.com/rswag/rswag
