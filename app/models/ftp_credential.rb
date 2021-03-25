@@ -101,9 +101,13 @@ class FtpCredential < ApplicationRecord
   end
 
   def self.ensure_destination_path(destination_path:)
-    Dir.mkdir(FtpCredential::LOCAL_DOWNLOADS_DIRECTORY) unless Dir.exist?(FtpCredential::LOCAL_DOWNLOADS_DIRECTORY)
-    Dir.mkdir(File.join(FtpCredential::LOCAL_DOWNLOADS_DIRECTORY, Rails.env)) unless Dir.exist?(File.join(FtpCredential::LOCAL_DOWNLOADS_DIRECTORY, Rails.env))
+    safe_mkdir(path: FtpCredential::LOCAL_DOWNLOADS_DIRECTORY)
+    safe_mkdir(path: File.join(FtpCredential::LOCAL_DOWNLOADS_DIRECTORY, Rails.env))
     Dir.mkdir(destination_path)
+  end
+
+  def self.safe_mkdir(path:)
+    Dir.mkdir(path) unless Dir.exist?(path)
   end
 
   def self.validate_filenames(destination_path:)
