@@ -63,7 +63,7 @@ class FtpCredential < ApplicationRecord
 
     # Create the file to be placed on the remote FTP server.
     filename = snapshot_request_filename
-    upload_file_path = create_snapshot_request_file(filename: snapshot_request_filename)
+    upload_file_path = create_snapshot_request_file(filename: filename)
 
     # Add the file to the remote directory.
     connection.put(upload_file_path, File.join(remote_upload_path, filename))
@@ -75,8 +75,12 @@ class FtpCredential < ApplicationRecord
   def create_snapshot_request_file(filename:)
     upload_file_path = File.join(local_uploads_path, filename)
     FtpCredential.ensure_path(path: local_uploads_path)
-    File.open(upload_file_path, 'w') { |f| f.write('contents') }
+    File.open(upload_file_path, 'w') { |f| f.write(snapshot_request_file_contents(filename: filename)) }
     upload_file_path
+  end
+
+  def snapshot_request_file_contents(filename:)
+    ['HDR', filename, Time.current.strftime('%Y%m%d %H%M%S')].join('~')
   end
 
   def snapshot_request_filename

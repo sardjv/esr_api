@@ -48,12 +48,16 @@ describe FtpCredential, type: :model do
     describe '#request_snapshot' do
       it 'puts a request file on the FTP server' do
         Timecop.freeze do
+          local_file = File.join(subject.local_uploads_path, subject.snapshot_request_filename)
           expect_any_instance_of(Net::FTP).to receive(:put).with(
-            File.join(subject.local_uploads_path, subject.snapshot_request_filename),
+            local_file,
             File.join(subject.remote_upload_path, subject.snapshot_request_filename)
           )
           subject.request_snapshot
-          assert(File.exist?(File.join(subject.local_uploads_path, subject.snapshot_request_filename)))
+          assert(File.exist?(local_file))
+          File.read(local_file) do |line|
+            expect(line).to eq(subject.snapshot_request_file_contents(filename: subject.snapshot_request_filename))
+          end
         end
       end
     end
