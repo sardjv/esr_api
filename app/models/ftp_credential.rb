@@ -1,6 +1,11 @@
 require 'net/ftp'
 
 class FtpCredential < ApplicationRecord
+  LOCAL_DOWNLOADS_DIRECTORY = 'downloads'.freeze
+  LOCAL_UPLOADS_DIRECTORY = 'uploads'.freeze
+  REMOTE_DOWNLOADS_DIRECTORY = 'out'.freeze
+  REMOTE_UPLOADS_DIRECTORY = 'in'.freeze
+
   belongs_to :created_by, class_name: 'User', inverse_of: :ftp_credentials
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
@@ -69,11 +74,11 @@ class FtpCredential < ApplicationRecord
   end
 
   def download_path
-    File.join(path, 'out')
+    File.join(path, REMOTE_DOWNLOADS_DIRECTORY)
   end
 
   def upload_path
-    File.join(path, 'in')
+    File.join(path, REMOTE_UPLOADS_DIRECTORY)
   end
 
   # Readonly to ensure created_by is always correct. If it needs to change,
@@ -96,9 +101,8 @@ class FtpCredential < ApplicationRecord
   end
 
   def self.ensure_destination_path(destination_path:)
-    root = 'downloads'
-    Dir.mkdir(root) unless Dir.exist?(root)
-    Dir.mkdir("#{root}/#{Rails.env}") unless Dir.exist?("#{root}/#{Rails.env}")
+    Dir.mkdir(FtpCredential::LOCAL_DOWNLOADS_DIRECTORY) unless Dir.exist?(FtpCredential::LOCAL_DOWNLOADS_DIRECTORY)
+    Dir.mkdir(File.join(FtpCredential::LOCAL_DOWNLOADS_DIRECTORY, Rails.env)) unless Dir.exist?(File.join(FtpCredential::LOCAL_DOWNLOADS_DIRECTORY, Rails.env))
     Dir.mkdir(destination_path)
   end
 

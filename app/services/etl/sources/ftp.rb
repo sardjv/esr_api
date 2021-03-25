@@ -5,7 +5,7 @@ class ETL::Sources::Ftp
 
   def initialize(ftp_credential_id:)
     ftp_credential = FtpCredential.find(ftp_credential_id)
-    @destination_path = "downloads/#{Rails.env}/#{Time.current.iso8601}"
+    @destination_path = File.join(FtpCredential::LOCAL_DOWNLOADS_DIRECTORY, Rails.env, Time.current.iso8601)
     ftp_credential.download_files(destination_path: destination_path)
   end
 

@@ -1,9 +1,9 @@
 RSpec.configure do |config|
   config.around(:example, type: :job) do |example|
     # Clear downloads_directory before tests.
-    empty_directory('downloads/test')
+    empty_directory(File.join(FtpCredential::LOCAL_DOWNLOADS_DIRECTORY, Rails.env))
     example.run
-    empty_directory('downloads/test')
+    empty_directory(File.join(FtpCredential::LOCAL_DOWNLOADS_DIRECTORY, Rails.env))
   end
 end
 
