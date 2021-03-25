@@ -119,6 +119,10 @@ group :development do
 end
 
 group :test do
+  # Strategies for cleaning databases between tests.
+  # https://github.com/DatabaseCleaner/database_cleaner
+  gem 'database_cleaner-active_record', '~> 2.0.0'
+
   # Test your FTP calls offline.
   # https://github.com/thejamespinto/ftpmock
   gem 'ftpmock', '~> 0.1.1'
@@ -139,7 +143,7 @@ group :test do
   # https://github.com/thoughtbot/shoulda-matchers
   gem 'shoulda-matchers', '~> 4.5.1'
 
-  # Strategies for cleaning databases between tests.
-  # https://github.com/DatabaseCleaner/database_cleaner
-  gem 'database_cleaner-active_record', '~> 2.0.0'
+  # Provides 'time travel' capabilities, making it simple to test time-dependent code.
+  # https://github.com/travisjeffery/timecop
+  gem 'timecop', '~> 0.9.4'
 end

@@ -57,10 +57,9 @@ class FtpCredential < ApplicationRecord
     # Establish FTP connection.
     connection = connect
 
-    # Generate the file.
     filename = snapshot_request_filename
 
-    # Add it to the remote directory.
+    # Add the file to the remote directory.
     connection.put(File.join(LOCAL_UPLOADS_DIRECTORY, filename), File.join(upload_path, filename))
 
     # Close FTP connection.
