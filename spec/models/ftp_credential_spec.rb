@@ -44,5 +44,22 @@ describe FtpCredential, type: :model do
         expect(second_ftp_credential.errors[:host]).to include(I18n.t('models.ftp_credential.errors.must_be_singleton'))
       end
     end
+
+    describe '#request_snapshot' do
+      it 'puts a request file on the FTP server' do
+        expect_any_instance_of(Net::FTP).to receive(:put)
+        subject.request_snapshot
+      end
+    end
+
+    describe '#snapshot_request_filename' do
+      it 'is in the correct format' do
+        expect(
+          subject.snapshot_request_filename
+        ).to eq(
+          "GO_#{subject.virtual_private_database_number}_GDW_GDR_#{Time.current.strftime('%Y%m%d')}_00000001.DAT"
+        )
+      end
+    end
   end
 end

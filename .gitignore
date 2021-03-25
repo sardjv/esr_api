@@ -46,4 +46,5 @@ yarn-debug.log*
 script/first_run_complete.tmp
 
 # Ignore import files.
-imports/
+downloads/
+uploads/

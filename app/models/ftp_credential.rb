@@ -47,10 +47,25 @@ class FtpCredential < ApplicationRecord
     FtpCredential.validate_filenames(destination_path: destination_path)
   end
 
-  # Readonly to ensure created_by is always correct. If it needs to change,
-  # create a new one instead.
-  def readonly?
-    persisted?
+  # Upload a file to the remote FTP server requesting a full snapshot of the current data.
+  def request_snapshot
+    # Establish FTP connection.
+    connection = connect
+
+    # Generate the file.
+    filename = snapshot_request_filename
+
+    request_path = '.'
+
+    # Add it to the remote directory.
+    connection.put(File.join(request_path, filename), File.join(upload_path, filename))
+
+    # Close FTP connection.
+    connection.close
+  end
+
+  def snapshot_request_filename
+    "GO_#{virtual_private_database_number}_GDW_GDR_#{Time.current.strftime('%Y%m%d')}_00000001.DAT"
   end
 
   def download_path
@@ -61,6 +76,12 @@ class FtpCredential < ApplicationRecord
     File.join(path, 'in')
   end
 
+  # Readonly to ensure created_by is always correct. If it needs to change,
+  # create a new one instead.
+  def readonly?
+    persisted?
+  end
+
   # Currently we only support 1 FTP Credential at a time.
   def self.singleton
     @singleton ||= FtpCredential.first
@@ -69,14 +90,15 @@ class FtpCredential < ApplicationRecord
   def self.valid_filename_regex
     # Check that filename ends in the format YYYYMMDD_IIIIIIII.DAT.
     # IIIIIII is an ordered index.
-    # Example valid seed file: GO_277_GDW_GOF_20200602_00001632.DAT
+    # Example valid seed file: GO_277_GDW_GDR_20200602_00001632.DAT
     # Example valid delta file: GO_277_GDW_GOC_20200603_00001633.DAT
     Regexp.new('.*([0-9]{4})(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])_([0-9]{8}).DAT')
   end
 
   def self.ensure_destination_path(destination_path:)
-    Dir.mkdir('imports') unless Dir.exist?('imports')
-    Dir.mkdir("imports/#{Rails.env}") unless Dir.exist?("imports/#{Rails.env}")
+    root = 'downloads'
+    Dir.mkdir(root) unless Dir.exist?(root)
+    Dir.mkdir("#{root}/#{Rails.env}") unless Dir.exist?("#{root}/#{Rails.env}")
     Dir.mkdir(destination_path)
   end
 
