@@ -49,7 +49,7 @@ describe FtpCredential, type: :model do
     describe '#request_snapshot' do
       it 'puts a request file on the FTP server' do
         # Freeze time since the snapshot_request_filename contains today's date.
-        Timecop.freeze(Time.local(2021, 3, 26)) do
+        Timecop.freeze(Time.zone.local(2021, 3, 26)) do
           # Run the method to create and upload the file.
           subject.request_snapshot
 
@@ -63,7 +63,8 @@ describe FtpCredential, type: :model do
           end
 
           # Check the file was successfully uploaded to the FTP.
-          expect(subject.connect.list('-1', File.join(path, FtpCredential::REMOTE_UPLOADS_DIRECTORY))).to match_array([subject.snapshot_request_filename])
+          expect(subject.connect.list('-1',
+                                      File.join(path, FtpCredential::REMOTE_UPLOADS_DIRECTORY))).to match_array([subject.snapshot_request_filename])
 
           # Clean up so the test still works tomorrow.
           subject.connect.delete(File.join(path, FtpCredential::REMOTE_UPLOADS_DIRECTORY, subject.snapshot_request_filename))
