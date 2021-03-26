@@ -164,7 +164,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.1)
     kaminari-core (1.2.1)
-    kiba (3.6.0)
+    kiba (4.0.0)
     kiba-common (1.5.0)
       kiba (>= 3.0.0, < 5)
     license_finder (6.12.0)
@@ -187,7 +187,9 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (1.0.0)
-    mimemagic (0.3.6)
+    mimemagic (0.3.9)
+      nokogiri (~> 1)
+      rake
     mini_mime (1.0.2)
     mini_portile2 (2.5.0)
     minitest (5.14.4)
@@ -386,7 +388,7 @@ DEPENDENCIES
   guard-rspec (~> 4.7.3)
   guard-rubocop (~> 1.4.0)
   jsonapi-resources (~> 0.10.4)
-  kiba (~> 3.6.0)
+  kiba (~> 4.0.0)
   kiba-common (~> 1.5.0)
   license_finder (~> 6.12.0)
   lockbox (~> 0.6.2)
