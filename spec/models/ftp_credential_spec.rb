@@ -28,7 +28,8 @@ describe FtpCredential, type: :model do
   end
 
   context 'with a persisted ftp_credential' do
-    subject! { create(:ftp_credential) }
+    let(:path) { 'uploads' }
+    subject! { create(:ftp_credential, path: path) }
 
     describe 'updating the ftp_credential' do
       it 'fails; ftp_credential should be immutable' do
@@ -47,17 +48,25 @@ describe FtpCredential, type: :model do
 
     describe '#request_snapshot' do
       it 'puts a request file on the FTP server' do
-        Timecop.freeze do
-          local_file = File.join(subject.local_uploads_path, subject.snapshot_request_filename)
-          expect_any_instance_of(Net::FTP).to receive(:put).with(
-            local_file,
-            File.join(subject.remote_upload_path, subject.snapshot_request_filename)
-          )
+        # Freeze time since the snapshot_request_filename contains today's date.
+        Timecop.freeze(Time.local(2021, 3, 26)) do
+          # Run the method to create and upload the file.
           subject.request_snapshot
+
+          # Check the local file was created for upload.
+          local_file = File.join(subject.local_uploads_path, subject.snapshot_request_filename)
           assert(File.exist?(local_file))
+
+          # Check the local file has a single line with the correct conteent.
           File.read(local_file) do |line|
             expect(line).to eq(subject.snapshot_request_file_contents(filename: subject.snapshot_request_filename))
           end
+
+          # Check the file was successfully uploaded to the FTP.
+          expect(subject.connect.list('-1', File.join(path, FtpCredential::REMOTE_UPLOADS_DIRECTORY))).to match_array([subject.snapshot_request_filename])
+
+          # Clean up so the test still works tomorrow.
+          subject.connect.delete(File.join(path, FtpCredential::REMOTE_UPLOADS_DIRECTORY, subject.snapshot_request_filename))
         end
       end
     end

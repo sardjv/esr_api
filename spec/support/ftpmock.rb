@@ -10,4 +10,7 @@ class Ftpmock::NetFtpProxy
 
   # Allow setting passive on initial run, just to hide warning message.
   delegate :passive=, to: :real
+
+  # Hide warning method.
+  def delete(filename); end
 end
