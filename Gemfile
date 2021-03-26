@@ -76,7 +76,7 @@ gem 'lockbox', '~> 0.6.2'
 
 # Securely search encrypted database fields.
 # https://github.com/ankane/blind_index
-gem 'blind_index'
+gem 'blind_index', '~> 2.2.0'
 
 # Track changes to your rails models.
 # https://github.com/paper-trail-gem/paper_trail
