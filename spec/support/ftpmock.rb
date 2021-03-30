@@ -7,4 +7,10 @@ class Ftpmock::NetFtpProxy
   # to the dockerised Ftp server in order to record cassettes
   # in spec/fixtures/cassettes.
   delegate :close, to: :real
+
+  # Allow setting passive on initial run, just to hide warning message.
+  delegate :passive=, to: :real
+
+  # Hide warning method.
+  def delete(filename); end
 end

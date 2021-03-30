@@ -1,108 +1,110 @@
 ---
-"-1,good_imports/absence_record/add":
+"-1,good_imports/sit_record/delete/out":
+- delete_sit_record_20201015_00001157.DAT
+"-1,good_imports/absence_record/add/out":
 - add_absence_record_20201015_00001157.DAT
-"-1,good_imports/absence_record/update":
+"-1,good_imports/absence_record/update/out":
 - update_absence_record_20201015_00001157.DAT
-"-1,good_imports/absence_record/delete":
+"-1,good_imports/absence_record/delete/out":
 - delete_absence_record_20201015_00001157.DAT
-"-1,good_imports/assignment_record/add":
+"-1,good_imports/assignment_record/add/out":
 - add_assignment_record_20201015_00001157.DAT
-"-1,good_imports/assignment_record/update":
+"-1,good_imports/assignment_record/update/out":
 - update_assignment_record_20201015_00001157.DAT
-"-1,good_imports/assignment_record/delete":
+"-1,good_imports/assignment_record/delete/out":
 - delete_assignment_record_20201015_00001157.DAT
-"-1,good_imports/competency_record/add":
+"-1,good_imports/competency_record/add/out":
 - add_competency_record_20201015_00001157.DAT
-"-1,good_imports/competency_record/update":
+"-1,good_imports/competency_record/update/out":
 - update_competency_record_20201015_00001157.DAT
-"-1,good_imports/competency_record/delete":
+"-1,good_imports/competency_record/delete/out":
 - delete_competency_record_20201015_00001157.DAT
-"-1,good_imports/costing_record/add":
+"-1,good_imports/costing_record/add/out":
 - add_costing_record_20201015_00001157.DAT
-"-1,good_imports/costing_record/update":
+"-1,good_imports/costing_record/update/out":
 - update_costing_record_20201015_00001157.DAT
-"-1,good_imports/costing_record/delete":
+"-1,good_imports/costing_record/delete/out":
 - delete_costing_record_20201015_00001157.DAT
-"-1,good_imports/disability_record/add":
+"-1,good_imports/disability_record/add/out":
 - add_disability_record_20201015_00001157.DAT
-"-1,good_imports/disability_record/update":
+"-1,good_imports/disability_record/update/out":
 - update_disability_record_20201015_00001157.DAT
-"-1,good_imports/disability_record/delete":
+"-1,good_imports/disability_record/delete/out":
 - delete_disability_record_20201015_00001157.DAT
-"-1,good_imports/element_record/add":
+"-1,good_imports/element_record/add/out":
 - add_element_record_20201015_00001157.DAT
-"-1,good_imports/element_record/update":
+"-1,good_imports/element_record/update/out":
 - update_element_record_20201015_00001157.DAT
-"-1,good_imports/element_record/delete":
+"-1,good_imports/element_record/delete/out":
 - delete_element_record_20201015_00001157.DAT
-"-1,good_imports/iso_8859_1":
+"-1,good_imports/iso_8859_1/out":
 - iso_8859_1_encoding_20201015_00001157.DAT
-"-1,good_imports/liberal_parsing":
+"-1,good_imports/liberal_parsing/out":
 - liberal_parsing_20201015_00001157.DAT
-"-1,good_imports/location_record/add":
+"-1,good_imports/location_record/add/out":
 - add_location_record_20201015_00001157.DAT
-"-1,good_imports/location_record/update":
+"-1,good_imports/location_record/update/out":
 - update_location_record_20201015_00001157.DAT
-"-1,good_imports/location_record/delete":
+"-1,good_imports/location_record/delete/out":
 - delete_location_record_20201015_00001157.DAT
-"-1,good_imports/mixed_import":
+"-1,good_imports/mixed_import/out":
 - mixed_import_20201015_00001157.DAT
-"-1,good_imports/multiple_files":
+"-1,good_imports/multiple_files/out":
 - add_absence_record_20201015_00001157.DAT
 - add_assignment_record_20201015_00001157.DAT
-"-1,good_imports/disordered_imports":
+"-1,good_imports/disordered_imports/out":
 - 1_20200602_00001632.DAT
 - 2_20200602_00001631.DAT
 - 3_20221231_00001791.DAT
 - 4_20190101_00000001.DAT
-"-1,bad_imports/imports_missing_a_timestamp":
+"-1,bad_imports/imports_missing_a_timestamp/out":
 - has_timestamp_20200602_00001632.DAT
 - missing_timestamp.DAT
-"-1,good_imports/organisation_record/add":
+"-1,good_imports/organisation_record/add/out":
 - add_organisation_record_20201015_00001157.DAT
-"-1,good_imports/organisation_record/update":
+"-1,good_imports/organisation_record/update/out":
 - update_organisation_record_20201015_00001157.DAT
-"-1,good_imports/organisation_record/delete":
+"-1,good_imports/organisation_record/delete/out":
 - delete_organisation_record_20201015_00001157.DAT
-"-1,good_imports/person_eit_record/add":
+"-1,good_imports/person_eit_record/add/out":
 - add_person_eit_record_20201015_00001157.DAT
-"-1,good_imports/person_eit_record/update":
+"-1,good_imports/person_eit_record/update/out":
 - update_person_eit_record_20201015_00001157.DAT
-"-1,good_imports/person_eit_record/delete":
+"-1,good_imports/person_eit_record/delete/out":
 - delete_person_eit_record_20201015_00001157.DAT
-"-1,good_imports/person_record/add":
+"-1,good_imports/person_record/add/out":
 - add_person_record_20201015_00001157.DAT
-"-1,good_imports/person_record/update":
+"-1,good_imports/person_record/update/out":
 - update_person_record_20201015_00001157.DAT
-"-1,good_imports/person_record/delete":
+"-1,good_imports/person_record/delete/out":
 - delete_person_record_20201015_00001157.DAT
-"-1,good_imports/position_eit_record/add":
+"-1,good_imports/position_eit_record/add/out":
 - add_position_eit_record_20201015_00001157.DAT
-"-1,good_imports/position_eit_record/update":
+"-1,good_imports/position_eit_record/update/out":
 - update_position_eit_record_20201015_00001157.DAT
-"-1,good_imports/position_eit_record/delete":
+"-1,good_imports/position_eit_record/delete/out":
 - delete_position_eit_record_20201015_00001157.DAT
-"-1,good_imports/position_record/add":
+"-1,good_imports/position_record/add/out":
 - add_position_record_20201015_00001157.DAT
-"-1,good_imports/position_record/update":
+"-1,good_imports/position_record/update/out":
 - update_position_record_20201015_00001157.DAT
-"-1,good_imports/position_record/delete":
+"-1,good_imports/position_record/delete/out":
 - delete_position_record_20201015_00001157.DAT
-"-1,good_imports/qualification_record/add":
+"-1,good_imports/qualification_record/add/out":
 - add_qualification_record_20201015_00001157.DAT
-"-1,good_imports/qualification_record/update":
+"-1,good_imports/qualification_record/update/out":
 - update_qualification_record_20201015_00001157.DAT
-"-1,good_imports/qualification_record/delete":
+"-1,good_imports/qualification_record/delete/out":
 - delete_qualification_record_20201015_00001157.DAT
-"-1,good_imports/sit_record/add":
+"-1,good_imports/sit_record/add/out":
 - add_sit_record_20201015_00001157.DAT
-"-1,good_imports/sit_record/update":
+"-1,good_imports/sit_record/update/out":
 - update_sit_record_20201015_00001157.DAT
-"-1,good_imports/sit_record/delete":
-- delete_sit_record_20201015_00001157.DAT
-"-1,good_imports/training_absence_record/add":
+"-1,good_imports/training_absence_record/add/out":
 - add_training_absence_record_20201015_00001157.DAT
-"-1,good_imports/training_absence_record/update":
+"-1,good_imports/training_absence_record/update/out":
 - update_training_absence_record_20201015_00001157.DAT
-"-1,good_imports/training_absence_record/delete":
+"-1,good_imports/training_absence_record/delete/out":
 - delete_training_absence_record_20201015_00001157.DAT
+"-1,uploads/in":
+- GO_123_GDW_GDR_20210326_00000001.DAT

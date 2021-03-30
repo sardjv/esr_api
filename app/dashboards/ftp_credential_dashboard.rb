@@ -30,6 +30,7 @@ class FtpCredentialDashboard < Administrate::BaseDashboard
     'user': Field::String,
     'password': Field::String,
     'path': Field::String,
+    'virtual_private_database_number': Field::String,
   }.freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -57,6 +58,7 @@ class FtpCredentialDashboard < Administrate::BaseDashboard
     user
     password
     path
+    virtual_private_database_number
   ].freeze
 
   # COLLECTION_FILTERS

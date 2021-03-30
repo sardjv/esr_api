@@ -5,8 +5,7 @@ class ETL::Sources::Ftp
 
   def initialize(ftp_credential_id:)
     ftp_credential = FtpCredential.find(ftp_credential_id)
-    @destination_path = "imports/#{Rails.env}/#{Time.current.iso8601}"
-    ftp_credential.download_files(destination_path: destination_path)
+    @destination_path = ftp_credential.download_files
   end
 
   def each(&block)
