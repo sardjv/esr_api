@@ -23,7 +23,7 @@ class Ui::FtpCredentialsController < Ui::ApplicationController
 
     if resource.save
       # Send the request for the initial data snapshot to the remote FTP server.
-      resource.request_snapshot
+      RequestSnapshotJob.perform_later(ftp_credential_id: resource.id)
 
       redirect_to([namespace, resource], notice: translate_with_resource('create.success'))
     else
