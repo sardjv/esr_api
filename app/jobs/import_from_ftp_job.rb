@@ -3,7 +3,7 @@ class ImportFromFtpJob < ApplicationJob
     System.verify_active?
 
     job = Kiba.parse do
-      # Download files from FTP.
+      # Download files from FTP. Delete them from the FTP server once downloaded.
       source ETL::Sources::Ftp, ftp_credential_id: ftp_credential_id
 
       # Skip unhandled rows.

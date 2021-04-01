@@ -43,8 +43,12 @@ class FtpCredential < ApplicationRecord
     connection = connect
 
     # Loop through all files on the FTP, downloading each one into the destination_path.
-    connection.list('-1', remote_download_path).map do |filename|
+    connection.list('-1', remote_download_path).each do |filename|
+      # Download the file.
       connection.get("#{remote_download_path}/#{filename}", "#{destination_path}/#{filename}")
+
+      # Delete it from the remote (required to get the next files tomorrow).
+      connection.delete("#{remote_download_path}/#{filename}")
     end
 
     # Close FTP connection.
@@ -131,9 +135,7 @@ class FtpCredential < ApplicationRecord
   end
 
   def self.validate_filenames(destination_path:)
-    raise InvalidFilenameError unless Dir.children(destination_path).all? do |f|
-      valid_filename_regex.match?(f)
-    end
+    raise InvalidFilenameError unless Dir.children(destination_path).all? { |f| valid_filename_regex.match?(f) }
   end
 
   private
