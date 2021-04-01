@@ -87,6 +87,10 @@ class FtpCredential < ApplicationRecord
     "GO_#{virtual_private_database_number}_GDW_GDR_#{Time.current.strftime('%Y%m%d')}_00000001.DAT"
   end
 
+  def delete_from_ftp
+    # TODO.
+  end
+
   def local_downloads_path
     File.join(FtpCredential::LOCAL_DOWNLOADS_DIRECTORY, Rails.env, Time.current.iso8601)
   end

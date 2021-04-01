@@ -11,6 +11,11 @@ class ImportFromFtpJob < ApplicationJob
 
       # Create a job for each row, on a queue for that type.
       destination ETL::Destinations::ImportQueues
+
+      # According to the spec we must clean up files from the remote FTP each day.
+      post_process do
+        FtpCredential.find(ftp_credential_id).delete_from_ftp
+      end
     end
 
     Kiba.run(job)
