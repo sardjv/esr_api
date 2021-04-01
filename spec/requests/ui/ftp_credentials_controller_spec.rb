@@ -49,6 +49,11 @@ describe Ui::FtpCredentialsController, type: :request do
         expect(FtpCredential.last.name).to eq(valid_attributes['name'])
         expect(FtpCredential.last.host).to eq(valid_attributes['host'])
       end
+
+      it 'triggers a request for the initial snapshot from the remote FTP' do
+        expect(RequestSnapshotJob).to receive(:perform_later).once
+        post ui_ftp_credentials_path, params: { ftp_credential: valid_attributes }
+      end
     end
   end
 
