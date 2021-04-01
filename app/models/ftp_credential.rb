@@ -135,9 +135,7 @@ class FtpCredential < ApplicationRecord
   end
 
   def self.validate_filenames(destination_path:)
-    raise InvalidFilenameError unless Dir.children(destination_path).all? do |f|
-      valid_filename_regex.match?(f)
-    end
+    raise InvalidFilenameError unless Dir.children(destination_path).all? { |f| valid_filename_regex.match?(f) }
   end
 
   private
