@@ -43,8 +43,13 @@ class FtpCredential < ApplicationRecord
     connection = connect
 
     # Loop through all files on the FTP, downloading each one into the destination_path.
-    connection.list('-1', remote_download_path).map do |filename|
+    connection.list('-1', remote_download_path).each do |filename|
       connection.get("#{remote_download_path}/#{filename}", "#{destination_path}/#{filename}")
+    end
+
+    # Once ALL files have been successfully downloaded, remove them from the remote.
+    connection.list('-1', remote_download_path).each do |filename|
+      connection.delete("#{remote_download_path}/#{filename}")
     end
 
     # Close FTP connection.
