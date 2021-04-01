@@ -22,6 +22,9 @@ class Ui::FtpCredentialsController < Ui::ApplicationController
     resource.assign_attributes(created_by: current_user)
 
     if resource.save
+      # Send the request for the initial data snapshot to the remote FTP server.
+      resource.request_snapshot
+
       redirect_to([namespace, resource], notice: translate_with_resource('create.success'))
     else
       render :new, locals: { page: Administrate::Page::Form.new(dashboard, resource) }
