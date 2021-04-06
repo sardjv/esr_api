@@ -47,7 +47,7 @@ class FtpCredential < ApplicationRecord
       connection.get("#{remote_download_path}/#{filename}", "#{destination_path}/#{filename}")
 
       # Delete it from the remote (required to get the next files tomorrow).
-      connection.delete("#{remote_download_path}/#{filename}")
+      # connection.delete("#{remote_download_path}/#{filename}")
     end
 
     # Close FTP connection.
