@@ -27,7 +27,7 @@ docker-compose build
 docker-compose up
 ```
 
-It can then be accessed at [http://localhost:3000/](http://localhost:3000/)
+It can then be accessed at [http://localhost:3001/](http://localhost:3001/)
 
 ### Stop
 
