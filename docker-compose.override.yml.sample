@@ -100,6 +100,10 @@ services:
       - ./spec/fixtures/files:/files
     environment:
       PUBLICHOST: test_ftp
+      ADDED_FLAGS: -d -d -b --tls 2 # Activate TLS encryption.
+      TLS_CN: test_ftp # Used to generate a self-signed SSL certificate for testing purposes only.
+      TLS_ORG: Test # Used to generate a self-signed SSL certificate for testing purposes only.
+      TLS_C: UK # Used to generate a self-signed SSL certificate for testing purposes only.
       FTP_USER_NAME: user
       FTP_USER_PASS: password
       FTP_USER_HOME: /files
