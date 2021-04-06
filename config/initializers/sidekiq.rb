@@ -8,7 +8,7 @@ Sidekiq.configure_client do |config|
   config.redis = sidekiq_config
 end
 
-if ENV['CRONJOBS_ACTIVE'] == 'true'
+if ENV['CRONJOBS_ACTIVE'] == 'true' && !Rails.env.test?
   # Cronjob to import data every day.
   # Unique on name parameter; recreating will overwrite any existing job with the same name.
   Sidekiq::Cron::Job.create(

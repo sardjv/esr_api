@@ -26,10 +26,9 @@ class FtpCredential < ApplicationRecord
   encrypts :virtual_private_database_number
 
   def connect
-    connection = Net::FTP.new
+    connection = Net::FTP.new(host, ssl: true)
     connection.connect(host, port.to_i)
     connection.login(user, password)
-    connection.passive = true
     connection
   end
 
