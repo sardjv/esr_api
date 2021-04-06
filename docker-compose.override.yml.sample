@@ -33,7 +33,7 @@ services:
     build: .
     command: ./script/start_rails_development.sh
     ports:
-      - '3000:3000'
+      - '3001:3000'
     volumes:
       - '.:/app'
       # We cache the bundle so that we don't re-download every gem on any change to the Gemfile.
