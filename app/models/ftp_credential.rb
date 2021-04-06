@@ -3,8 +3,8 @@ require 'net/ftp'
 class FtpCredential < ApplicationRecord
   LOCAL_DOWNLOADS_DIRECTORY = 'data/downloads'.freeze
   LOCAL_UPLOADS_DIRECTORY = 'data/uploads'.freeze
-  REMOTE_DOWNLOADS_DIRECTORY = 'out'.freeze
-  REMOTE_UPLOADS_DIRECTORY = 'in'.freeze
+  REMOTE_DOWNLOADS_DIRECTORY = 'Out'.freeze
+  REMOTE_UPLOADS_DIRECTORY = 'In'.freeze
 
   belongs_to :created_by, class_name: 'User', inverse_of: :ftp_credentials
 
