@@ -47,6 +47,7 @@ class FtpCredential < ApplicationRecord
       connection.get("#{remote_download_path}/#{filename}", "#{destination_path}/#{filename}")
 
       # Delete it from the remote (required to get the next files tomorrow).
+      # Temporarily disabled for Oxleas testing.
       # connection.delete("#{remote_download_path}/#{filename}")
     end
 
