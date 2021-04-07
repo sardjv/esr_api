@@ -13,7 +13,7 @@ if ENV['CRONJOBS_ACTIVE'] == 'true' && !Rails.env.test?
   # Unique on name parameter; recreating will overwrite any existing job with the same name.
   Sidekiq::Cron::Job.create(
     name: 'ImportFromFtpJob',
-    cron: '0 5 * * *', # Every day at 05:00 AM.
+    cron: '0 8 * * *', # Import every day at 08:00 AM. Anecdotally the FTP server appears to update at about 5:30AM.
     class: 'ImportFromFtpJob',
     queue: :asynchronous
   )
