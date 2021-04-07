@@ -85,9 +85,9 @@ RSpec.configure do |config|
 
   config.include ActiveJob::TestHelper, type: :job
 
-  config.around(:example) do |example|
-    Ftpmock.on! do
-      example.run
-    end
-  end
+  # config.around(:example) do |example|
+  #   Ftpmock.on! do
+  #     example.run
+  #   end
+  # end
 end

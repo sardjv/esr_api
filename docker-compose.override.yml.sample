@@ -30,6 +30,7 @@ services:
       - redis
       - sidekiq
       - webpacker
+      - test_ftp
     build: .
     command: ./script/start_rails_development.sh
     ports:
@@ -91,6 +92,8 @@ services:
   # container for new tests. It mounts a volume on spec/fixtures/files, which is
   # where new test imports can be added.
   test_ftp:
+    depends_on:
+      - mkcert
     image: stilliard/pure-ftpd:latest
     container_name: pure-ftpd
     ports:
@@ -98,19 +101,25 @@ services:
       - '30000-30009:30000-30009'
     volumes:
       - ./spec/fixtures/files:/files
+      - ssl_cert_for_tests:/etc/ssl/private
     environment:
       PUBLICHOST: test_ftp
-      ADDED_FLAGS: -d -d -b --tls 2 # Activate TLS encryption.
-      TLS_CN: test_ftp # Used to generate a self-signed SSL certificate for testing purposes only.
-      TLS_ORG: Test # Used to generate a self-signed SSL certificate for testing purposes only.
-      TLS_C: UK # Used to generate a self-signed SSL certificate for testing purposes only.
+      ADDED_FLAGS: -d -d -b --tls=2 # Activate TLS encryption.
       FTP_USER_NAME: user
       FTP_USER_PASS: password
       FTP_USER_HOME: /files
-    restart: always
+
+  # Generate a dummy SSL certificate for use in tests.
+  mkcert:
+    image: vishnunair/docker-mkcert
+    environment:
+      domain: pure-ftpd
+    volumes:
+      - ssl_cert_for_tests:/root/.local/share/mkcert
 
 volumes:
   bundle_cache:
   redis:
   db:
   db_test:
+  ssl_cert_for_tests:
