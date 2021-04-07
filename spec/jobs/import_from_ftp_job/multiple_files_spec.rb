@@ -25,11 +25,10 @@ describe ImportFromFtpJob, type: :job do
       before { absence_record.versions.last.update(whodunnit_type: 'Import', whodunnit: 'add_absence_record_20201015_00001157.DAT') }
 
       it 'only imports from the file which has not been imported before' do
-        perform_enqueued_jobs { import_job }
+        expect(ImportAbsenceRecordJob).not_to receive(:perform_later).with(filename: 'add_absence_record_20201015_00001157.DAT', row: anything)
+        expect(ImportAssignmentRecordJob).to receive(:perform_later).with(filename: 'add_assignment_record_20201015_00001157.DAT', row: anything)
 
-        expect(AbsenceRecord.count).to eq(1)
-        expect(AbsenceRecord.first).to eq(absence_record)
-        expect(AssignmentRecord.count).to eq(1)
+        perform_enqueued_jobs { import_job }
       end
     end
   end
