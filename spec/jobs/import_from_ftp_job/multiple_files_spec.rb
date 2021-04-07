@@ -21,12 +21,14 @@ describe ImportFromFtpJob, type: :job do
     end
 
     context 'when 1 has already been downloaded' do
-      let!(:absence_record) { create(:absence_record) }
-      before { absence_record.versions.last.update(whodunnit_type: 'Import', whodunnit: 'add_absence_record_20201015_00001157.DAT') }
-
       it 'only imports from the file which has not been imported before' do
-        expect(ImportAbsenceRecordJob).not_to receive(:perform_later).with(filename: 'add_absence_record_20201015_00001157.DAT', row: anything)
+        expect(DataHelper).to receive(:imported_filenames).and_return(['add_absence_record_20201015_00001157.DAT'])
+
+        # Yes.
         expect(ImportAssignmentRecordJob).to receive(:perform_later).with(filename: 'add_assignment_record_20201015_00001157.DAT', row: anything)
+
+        # No.
+        expect(ImportAbsenceRecordJob).not_to receive(:perform_later).with(filename: 'add_absence_record_20201015_00001157.DAT', row: anything)
 
         perform_enqueued_jobs { import_job }
       end
