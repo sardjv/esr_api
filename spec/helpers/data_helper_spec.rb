@@ -6,7 +6,7 @@ describe DataHelper do
     let!(:imported2) { create(:location_record) }
     let!(:not_imported1) { create(:location_record) }
     let!(:not_imported2) { create(:location_record) }
-    let(:filenames) { ['filename1', 'filename2'] }
+    let(:filenames) { %w[filename1 filename2] }
 
     before do
       imported1.versions.first.update(whodunnit_type: 'Import', whodunnit: filenames[0])

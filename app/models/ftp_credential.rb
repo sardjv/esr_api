@@ -33,6 +33,7 @@ class FtpCredential < ApplicationRecord
   end
 
   def download_files
+    # Cached here since it contains a timestamp.
     destination_path = local_downloads_path
 
     # Ensure destination path exists and is empty.
@@ -41,13 +42,11 @@ class FtpCredential < ApplicationRecord
     # Establish FTP connection.
     connection = connect
 
-    used_filenames = DataHelper.imported_filenames
+    already_imported = DataHelper.imported_filenames
 
     # Loop through all files on the FTP, downloading each one into the destination_path.
-    connection.list('-1', remote_download_path).each do |filename|
-      # Skip if this file has already been imported.
-      next if used_filenames.include?(filename)
-
+    # Skip files which have already been imported.
+    connection.list('-1', remote_download_path).reject { |f| already_imported.include?(f) }.each do |filename|
       # Download the file.
       connection.get("#{remote_download_path}/#{filename}", "#{destination_path}/#{filename}")
     end
@@ -58,6 +57,7 @@ class FtpCredential < ApplicationRecord
     # Check filenames match what is expected.
     FtpCredential.validate_filenames(destination_path: destination_path)
 
+    # Return the path for import jobs.
     destination_path
   end
 
