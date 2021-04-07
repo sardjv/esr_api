@@ -6,16 +6,19 @@ describe DataHelper do
     let!(:imported2) { create(:location_record) }
     let!(:not_imported1) { create(:location_record) }
     let!(:not_imported2) { create(:location_record) }
-    let(:filenames) { %w[filename1 filename2] }
+    let(:whodunnit) { %w[filename1 filename2 Anne] }
 
     before do
-      imported1.versions.first.update(whodunnit_type: 'Import', whodunnit: filenames[0])
-      imported2.versions.first.update(whodunnit_type: 'Import', whodunnit: filenames[1])
-      not_imported1.versions.first.update(whodunnit_type: 'User', whodunnit: 'Anne')
+      imported1.versions.first.update(whodunnit_type: 'Import', whodunnit: whodunnit[0])
+      imported2.versions.first.update(whodunnit_type: 'Import', whodunnit: whodunnit[1])
+      not_imported1.versions.first.update(whodunnit_type: 'User', whodunnit: whodunnit[2])
     end
 
     it 'returns filenames which have been imported' do
-      expect(DataHelper.imported_filenames).to match_array(filenames)
+      expect(DataHelper.imported_filenames).to include(whodunnit[0])
+      expect(DataHelper.imported_filenames).to include(whodunnit[1])
+      expect(DataHelper.imported_filenames).not_to include(whodunnit[2])
+      expect(DataHelper.imported_filenames).not_to include(nil)
     end
   end
 
