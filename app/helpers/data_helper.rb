@@ -12,6 +12,11 @@ module DataHelper
     data_routes.map { |r| { name: r.split('ui/').last.titleize, path: r.split('ui/').last } }
   end
 
+  # Return filenames which have been imported from at least once.
+  def self.imported_filenames
+    PaperTrail::Version.where(whodunnit_type: 'Import'.freeze).pluck(:whodunnit).uniq.compact
+  end
+
   private_class_method def self.data_routes
     ui_routes.reject do |r|
       %w[ui/activities ui/data ui/events ui/imports ui/permissions ui/ftp_credentials ui/tokens ui/users].include?(r)

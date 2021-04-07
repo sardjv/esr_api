@@ -1,6 +1,24 @@
 require 'rails_helper'
 
 describe DataHelper do
+  describe '.imported_filenames' do
+    let!(:imported1) { create(:location_record) }
+    let!(:imported2) { create(:location_record) }
+    let!(:not_imported1) { create(:location_record) }
+    let!(:not_imported2) { create(:location_record) }
+    let(:filenames) { ['filename1', 'filename2'] }
+
+    before do
+      imported1.versions.first.update(whodunnit_type: 'Import', whodunnit: filenames[0])
+      imported2.versions.first.update(whodunnit_type: 'Import', whodunnit: filenames[1])
+      not_imported1.versions.first.update(whodunnit_type: 'User', whodunnit: 'Anne')
+    end
+
+    it 'returns filenames which have been imported' do
+      expect(DataHelper.imported_filenames).to match_array(filenames)
+    end
+  end
+
   describe '.grouped_routes' do
     it 'includes all routes' do
       expect(DataHelper.grouped_routes).to eq(
