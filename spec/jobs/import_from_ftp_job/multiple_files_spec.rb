@@ -19,6 +19,22 @@ describe ImportFromFtpJob, type: :job do
         expect(assignment_record.send(key)).to eq(value)
       end
     end
+
+    context 'when 1 has already been downloaded' do
+      let(:imported_filename) { 'add_absence_record_20201015_00001157.DAT' }
+
+      it 'only imports from the file which has not been imported before' do
+        allow(DataHelper).to receive(:imported_filenames).and_return([imported_filename])
+
+        # Expect this as it's an unknown filename.
+        expect(ImportAssignmentRecordJob).to receive(:perform_later).with(filename: 'add_assignment_record_20201015_00001157.DAT', row: anything)
+
+        # Expect this not to be run as already imported.
+        expect(ImportAbsenceRecordJob).not_to receive(:perform_later).with(filename: imported_filename, row: anything)
+
+        perform_enqueued_jobs { import_job }
+      end
+    end
   end
 
   context 'with disordered filenames' do
