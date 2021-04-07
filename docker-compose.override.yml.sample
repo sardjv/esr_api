@@ -86,25 +86,6 @@ services:
     env_file:
       - '.env'
 
-  # Used by tests which need to hit an FTP server. Requests are recorded with
-  # FtpMock to spec/fixtures/cassetes on the first run, but we still need this
-  # container for new tests. It mounts a volume on spec/fixtures/files, which is
-  # where new test imports can be added.
-  test_ftp:
-    image: stilliard/pure-ftpd:latest
-    container_name: pure-ftpd
-    ports:
-      - '21:21'
-      - '30000-30009:30000-30009'
-    volumes:
-      - ./spec/fixtures/files:/files
-    environment:
-      PUBLICHOST: test_ftp
-      FTP_USER_NAME: user
-      FTP_USER_PASS: password
-      FTP_USER_HOME: /files
-    restart: always
-
 volumes:
   bundle_cache:
   redis:
