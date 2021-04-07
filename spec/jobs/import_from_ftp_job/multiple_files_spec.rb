@@ -19,6 +19,19 @@ describe ImportFromFtpJob, type: :job do
         expect(assignment_record.send(key)).to eq(value)
       end
     end
+
+    context 'when 1 has already been downloaded' do
+      let!(:absence_record) { create(:absence_record) }
+      before { absence_record.versions.last.update(whodunnit_type: 'Import', whodunnit: 'add_absence_record_20201015_00001157.DAT') }
+
+      it 'only imports from the file which has not been imported before' do
+        perform_enqueued_jobs { import_job }
+
+        expect(AbsenceRecord.count).to eq(1)
+        expect(AbsenceRecord.first).to eq(absence_record)
+        expect(AssignmentRecord.count).to eq(1)
+      end
+    end
   end
 
   context 'with disordered filenames' do

@@ -41,8 +41,13 @@ class FtpCredential < ApplicationRecord
     # Establish FTP connection.
     connection = connect
 
+    used_filenames = DataHelper.imported_filenames
+
     # Loop through all files on the FTP, downloading each one into the destination_path.
     connection.list('-1', remote_download_path).each do |filename|
+      # Skip if this file has already been imported.
+      next if used_filenames.include?(filename)
+
       # Download the file.
       connection.get("#{remote_download_path}/#{filename}", "#{destination_path}/#{filename}")
     end
