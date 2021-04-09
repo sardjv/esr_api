@@ -14,7 +14,7 @@ describe ImportFromFtpJob, type: :job do
     it 'creates a new AssignmentRecord' do
       perform_enqueued_jobs { import_job }
 
-      expect(AssignmentRecord.count).to eq(1)
+      expect(AssignmentRecord.count).to eq(2)
       pr = AssignmentRecord.first
 
       # Expect values in the database to match input from add_assignment_record_20201015_00001157.DAT.

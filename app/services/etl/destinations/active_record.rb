@@ -83,7 +83,9 @@ class ETL::Destinations::ActiveRecord
       )
     when 'ASA', 'ASD'
       ::AssignmentRecord.find_by(
-        'Assignment ID' => row['Assignment ID']
+        'Assignment ID' => row['Assignment ID'],
+        'Effective Start Date' => row['Effective Start Date'],
+        'Effective End Date' => row['Effective End Date']
       )
     when 'COA', 'COD'
       ::CostingRecord.find_by(
