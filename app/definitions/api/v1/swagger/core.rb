@@ -26,6 +26,7 @@ class Api::V1::Swagger::Core
     [
       Api::V1::Swagger::AbsenceRecord.definitions,
       Api::V1::Swagger::AssignmentRecord.definitions,
+      Api::V1::Swagger::CompetenceDefinitionRecord.definitions,
       Api::V1::Swagger::CompetencyRecord.definitions,
       Api::V1::Swagger::CostingRecord.definitions,
       Api::V1::Swagger::DisabilityRecord.definitions,

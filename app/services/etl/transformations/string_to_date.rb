@@ -15,8 +15,9 @@ class ETL::Transformations::StringToDate
     case type
     when 'ABA', 'ABD' then ETL::Headers::AbsenceRecord.date_headers
     when 'ASA', 'ASD' then ETL::Headers::AssignmentRecord.date_headers
-    when 'COA', 'COD' then ETL::Headers::CostingRecord.date_headers
+    when 'CDA', 'CDD' then ETL::Headers::CompetenceDefinitionRecord.date_headers
     when 'CMA', 'CMD' then ETL::Headers::CompetencyRecord.date_headers
+    when 'COA', 'COD' then ETL::Headers::CostingRecord.date_headers
     when 'DTA', 'DTD' then ETL::Headers::DisabilityRecord.date_headers
     when 'ELA', 'ELD' then ETL::Headers::ElementRecord.date_headers
     when 'ETA', 'ETD' then ETL::Headers::PersonEitRecord.date_headers

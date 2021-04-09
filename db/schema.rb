@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_24_113001) do
+ActiveRecord::Schema.define(version: 2021_04_09_145200) do
 
   create_table "absence_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "Person ID"
@@ -122,6 +122,27 @@ ActiveRecord::Schema.define(version: 2021_03_24_113001) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["Assignment ID", "Effective Start Date", "Effective End Date"], name: "index_assignment_effective_start_and_end_date", unique: true
+  end
+
+  create_table "competence_definition_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "Competence ID"
+    t.string "Competence Name"
+    t.string "Description"
+    t.date "Date From"
+    t.date "Date To"
+    t.string "Behavioural Indicator"
+    t.string "Certification Required"
+    t.string "Rating Scale ID"
+    t.string "Evaluation Method"
+    t.string "Renewal Period Freq"
+    t.string "Renewal Period Units"
+    t.string "Competence Cluster"
+    t.string "Competence Alias"
+    t.string "VPD Code"
+    t.timestamp "Last Update Date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["Competence ID"], name: "index_competence_definition_records_on_Competence ID", unique: true
   end
 
   create_table "competency_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

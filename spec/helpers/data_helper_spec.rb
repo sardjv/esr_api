@@ -31,6 +31,7 @@ describe DataHelper do
             { name: 'Assignment Records', path: 'assignment_records' }
           ],
           'C' => [
+            { name: 'Competence Definition Records', path: 'competence_definition_records' },
             { name: 'Competency Records', path: 'competency_records' },
             { name: 'Costing Records', path: 'costing_records' }
           ],

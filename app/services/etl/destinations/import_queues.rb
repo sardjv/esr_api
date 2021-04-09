@@ -11,8 +11,9 @@ class ETL::Destinations::ImportQueues
     case type
     when 'ABA', 'ABD' then ImportAbsenceRecordJob
     when 'ASA', 'ASD' then ImportAssignmentRecordJob
-    when 'COA', 'COD' then ImportCostingRecordJob
+    when 'CDA', 'CDD' then ImportCompetenceDefinitionRecordJob
     when 'CMA', 'CMD' then ImportCompetencyRecordJob
+    when 'COA', 'COD' then ImportCostingRecordJob
     when 'DTA', 'DTD' then ImportDisabilityRecordJob
     when 'ELA', 'ELD' then ImportElementRecordJob
     when 'ETA', 'ETD' then ImportPersonEitRecordJob

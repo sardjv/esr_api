@@ -11,6 +11,12 @@
 - update_assignment_record_20201015_00001157.DAT
 "-1,good_imports/assignment_record/delete/Out":
 - delete_assignment_record_20201015_00001157.DAT
+"-1,good_imports/competence_definition_record/add/Out":
+- add_competence_definition_record_20201015_00001157.DAT
+"-1,good_imports/competence_definition_record/update/Out":
+- update_competence_definition_record_20201015_00001157.DAT
+"-1,good_imports/competence_definition_record/delete/Out":
+- delete_competence_definition_record_20201015_00001157.DAT
 "-1,good_imports/competency_record/add/Out":
 - add_competency_record_20201015_00001157.DAT
 "-1,good_imports/competency_record/update/Out":

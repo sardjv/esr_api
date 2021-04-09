@@ -12,6 +12,8 @@ class ETL::Transformations::AddHeaders
     when 'ABD' then ETL::Headers::AbsenceRecord.delete_headers
     when 'ASA' then ETL::Headers::AssignmentRecord.all
     when 'ASD' then ETL::Headers::AssignmentRecord.delete_headers
+    when 'CDA' then ETL::Headers::CompetenceDefinitionRecord.all
+    when 'CDD' then ETL::Headers::CompetenceDefinitionRecord.delete_headers
     when 'CMA' then ETL::Headers::CompetencyRecord.all
     when 'CMD' then ETL::Headers::CompetencyRecord.delete_headers
     when 'COA' then ETL::Headers::CostingRecord.all

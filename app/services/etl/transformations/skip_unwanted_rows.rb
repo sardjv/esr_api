@@ -9,7 +9,6 @@ class ETL::Transformations::SkipUnwantedRows
   def unwanted
     [
       'HDR', # File header row.
-      'CDA', # Competence Definition Record.
       'LOV', # List Of Values. Excluded as it's not clear what the headers should be.
       'TRL' # File trailer row.
     ].freeze

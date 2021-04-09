@@ -15,8 +15,9 @@ class ETL::Transformations::StringToTimestamp
     case type
     when 'ABA', 'ABD' then ETL::Headers::AbsenceRecord.timestamp_headers
     when 'ASA', 'ASD' then ETL::Headers::AssignmentRecord.timestamp_headers
-    when 'COA', 'COD' then ETL::Headers::CostingRecord.timestamp_headers
+    when 'CDA', 'CDD' then ETL::Headers::CompetenceDefinitionRecord.timestamp_headers
     when 'CMA', 'CMD' then ETL::Headers::CompetencyRecord.timestamp_headers
+    when 'COA', 'COD' then ETL::Headers::CostingRecord.timestamp_headers
     when 'DTA', 'DTD' then ETL::Headers::DisabilityRecord.timestamp_headers
     when 'ELA', 'ELD' then ETL::Headers::ElementRecord.timestamp_headers
     when 'ETA', 'ETD' then ETL::Headers::PersonEitRecord.timestamp_headers
