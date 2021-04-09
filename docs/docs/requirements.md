@@ -13,5 +13,5 @@ If you can run [Docker](https://en.wikipedia.org/wiki/Docker_(software)), that i
 - Rails [https://github.com/rails/rails](https://github.com/rails/rails)
 - Redis [https://redis.io/](https://redis.io/)
 - Sidekiq [https://github.com/mperham/sidekiq](https://github.com/mperham/sidekiq)
-- PostgreSQL 12.2, MySQL 8.0.19 or SQL Server 2017
-- Various supporting gems
+- MySQL Community Edition
+- Various supporting open-source gems
