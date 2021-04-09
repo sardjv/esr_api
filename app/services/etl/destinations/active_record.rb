@@ -123,7 +123,9 @@ class ETL::Destinations::ActiveRecord
       )
     when 'PRA', 'PRD'
       ::PersonRecord.find_by(
-        'Person ID' => row['Person ID']
+        'Person ID' => row['Person ID'],
+        'Effective Start Date' => row['Effective Start Date'],
+        'Effective End Date' => row['Effective End Date']
       )
     when 'QLA', 'QLD'
       ::QualificationRecord.find_by(
