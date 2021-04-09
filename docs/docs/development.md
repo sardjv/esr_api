@@ -32,13 +32,7 @@ docker-compose up
 
 It can then be accessed at [http://localhost:3001/](http://localhost:3001/)
 
-## Admin Authentication
-
-Click Create an account and enter your details. Admins can access ALL user data so this must be a highly privileged account with a very strong password. You will be immediately logged in. Any subsequent admin that signs up needs to be manually approved by an existing admin, via the Admins page, clicking Edit and then Activated and Update User.
-
-## Documentation
-
-The API documentation can be viewed at [http://localhost:3000/api_docs](http://localhost:3000/api_docs).
+## API Documentation
 
 The Swagger docs are generated from the RSpec tests in `spec/controllers/api` To rebuild the swagger docs:
 

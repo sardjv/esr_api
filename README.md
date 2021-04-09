@@ -5,40 +5,29 @@
 
 ESR API is an open source project to improve the ability of NHS Trusts to interface with their ESR Data.
 
-Click [here](https://sardjv.github.io/esr_api_docs/) to check out the documentation.
+Click [here](https://sardjv.github.io/esr_api/) to check out the documentation for this project.
+It can also be viewed
 
-## .env file
+## Quickstart Guide
+
+### .env file
 
 To get started, you need a `.env` file with secrets. If you use bash, you can generate one with the command `sh ./script/generate_env_file.sh`. If not, there is an `.env.example` file included in the repo that you can use, just remove the `.example` from the filename. Make sure to change all secrets marked with YOU_MUST_CHANGE_THIS_PASSWORD before running in production!
 
-## Booting up
+### Booting up
 
-If you have Docker on your machine:
-
-### Setup
-
-```
-cp docker-compose.override.yml.sample docker-compose.override.yml
-docker-compose build
-```
-
-### Start
 ```
 docker-compose up
 ```
 
-It can then be accessed at [http://localhost:3001/](http://localhost:3001/)
+It can then be accessed at [http://localhost:3001/](http://localhost:3001/).
 
-### Stop
+### Admin Setup
 
-Stop containers but do not remove them:
+- Click "Create an account" and enter your details.
+- Admins can access ALL user data so this must be a highly privileged account with a very strong password. You will be immediately logged in.
+- Any subsequent admin that signs up must be manually approved by an existing admin, via the Admins page, clicking Edit and then Activated and Update User.
 
-```
-docker-compose stop
-```
+### API
 
-Stop containers and remove them:
-
-```
-docker-compose down --remove-orphans
-```
+The API documentation can be viewed at [http://localhost:3001/api_docs](http://localhost:3001/api_docs).
