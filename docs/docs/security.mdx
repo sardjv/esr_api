@@ -1,0 +1,18 @@
+---
+id: security
+title: Security
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+## Snyk
+
+ESR API is integrated with [Snyk](https://snyk.io/) to find and patch vulnerabilities in dependencies. Here is an example of checks on a pull request:
+
+<a href="https://github.com/sardjv/esr_api/pull/50"><img alt="Example of pull request check on Github showing build, test and security review outcomed as green ticks" src={useBaseUrl('img/github_build_success.png')}/></a>
+
+Snyk provides automated pull requests for vulnerabilities in dependencies as they arise, as well as advance patches, developed in-house by Snyk, until the maintainers patch the root vulnerability.
+
+## PEN Testing
+
+A penetration test by a reputable external agency is planned before the project goes live.

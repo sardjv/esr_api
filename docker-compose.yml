@@ -18,6 +18,15 @@ services:
       - MYSQL_DATABASE=esr_api_production
     restart: always
 
+  docs:
+    image: awesometic/docusaurus
+    ports:
+      - '3002:80'
+    volumes:
+      - './docs:/docusaurus'
+    environment:
+      - WEBSITE_NAME=docs
+
   redis:
     image: 'redis:6.0.9-alpine'
     command: redis-server --requirepass ${REDIS_PASSWORD}
@@ -75,7 +84,7 @@ services:
       - RAILS_ENV=production
     env_file:
       - '.env'
-    restart: always
+    restart: 'no' # Don't restart; any errors on imports should be investigated rather than repeated.
 
 volumes:
   redis:

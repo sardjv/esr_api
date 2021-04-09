@@ -1,0 +1,20 @@
+---
+id: overview
+title: Technical Overview
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+## Why?
+
+At present, ESR data must be accessed either through an existing frontend, or through a daily file downloaded from an FTP server. This leaves quite a high barrier to developing new applications on top of the data, since each NHS Trust must develop a way to import the latest data.
+
+The ESR Wrapper project adds a generic RESTful API that can import the generic update each day and expose it for access. RESTful APIs are the [dominant form of web API](https://www.programmableweb.com/api-research) and allow data to be queried in a secure and scalable way.
+
+The project is a work in progress but when complete should make it easier for NHS trusts to build useful applications on top of centralised ESR data. The project will be released as open source the code so that other NHS trusts can use the software as needed.
+
+## Technologies Used
+
+<img alt="Flow diagram of different technologies used in ESR API" src={useBaseUrl('img/esr_api_diagram.png')} />
+
+This flow chart represents the flow of data through the API.

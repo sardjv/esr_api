@@ -47,10 +47,10 @@ en:
         must_be_singleton: already exists, please delete it before adding a new one
         password_must_be_secret: cannot be included in name
       hints:
-        name: Description of the source.
+        name: e.g. ESR Generic Outbound FTP Server
         host: e.g. private.ftp-servers.example.com.
-        port: e.g. 1234.
-        path: e.g. 'myorganisation/mydirectory/'
+        port: e.g. 21.
+        path: e.g. '/'
         virtual_private_database_number: Three digit NHS Organisation ESR payroll number - can be found on payslips eg. ESR123, where 123 is the number we need.
       name:
         one: FTP Credential
@@ -67,7 +67,7 @@ en:
         title: API Token
         content: This token by itself grants full access to confidential, personally identifiable ESR data, according to the permissions selected below. It must be kept secret and used with great care. This token can only be viewed once.
       hints:
-        name: "Example: HR Team - Business Analytics App"
+        name: "Every client application should have a token with an appropriate name. For example: 'HR Analytics App'"
         permissions: Add permissions to grant access to resources, HTTP actions and database columns.
       name:
         one: API Token
