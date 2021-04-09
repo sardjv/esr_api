@@ -4,10 +4,6 @@ title: Quickstart
 slug: quickstart
 ---
 
-ESR API is an open source project to improve the ability of NHS Trusts to interface with their ESR Data.
-
-It's a collaboration between [SARD JV](https://sardjv.co.uk/) and [Oxleas NHS Foundation Trust](http://oxleas.nhs.uk/), funded by NHS Improvements. It's currently under active development and is not yet ready for production use.
-
 ## Quickstart
 
 ### .env file
