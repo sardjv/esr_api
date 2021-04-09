@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Add documentation site to this repo.
-- Add Quickstart Guide to docs and as main README.
+- Add Quickstart Guide to docs.
 
 ## [0.8.2] - 2021-04-09
 
