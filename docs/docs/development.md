@@ -108,7 +108,7 @@ SELECT * FROM person_records;
 
 The application does not currently send any emails.
 
-### Stop
+## Stop
 
 Stop containers but do not remove them:
 
