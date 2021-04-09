@@ -6,7 +6,7 @@ module Expectations
         'Assignment ID' => '937490',
         'Costing Allocation ID' => '5507703',
         'Effective Start Date' => Date.new(2011, 3, 8),
-        'Effective End Date' => Date.new(4712, 12, 31),
+        'Effective End Date' => Date.new(2012, 12, 31),
         'Entity Code' => 'ABC',
         'Charitable Indicator' => nil,
         'Cost Centre' => nil,
