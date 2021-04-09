@@ -7,7 +7,7 @@ class Api::V1::Swagger::AssignmentRecord
           'Person ID' => { type: 'string', example: '1234567', 'x-nullable': true },
           'Assignment ID' => { type: 'string', example: '936458', 'x-nullable': true },
           'Effective Start Date' => { type: 'date', example: '2011-06-01', 'x-nullable': true },
-          'Effective End Date' => { type: 'date', example: '4712-12-31', 'x-nullable': true },
+          'Effective End Date' => { type: 'date', example: '2012-12-31', 'x-nullable': true },
           'Earliest Assignment Start Date' => { type: 'date', example: '2006-07-27', 'x-nullable': true },
           'Assignment Type' => { type: 'string', example: 'E', 'x-nullable': true },
           'Assignment Number' => { type: 'string', example: '10602402', 'x-nullable': true },

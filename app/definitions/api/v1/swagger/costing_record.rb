@@ -8,7 +8,7 @@ class Api::V1::Swagger::CostingRecord
           'Assignment ID' => { type: 'string', example: '937490', 'x-nullable': true },
           'Costing Allocation ID' => { type: 'string', example: '5507703', 'x-nullable': true },
           'Effective Start Date' => { type: 'date', example: '2011-03-08', 'x-nullable': true },
-          'Effective End Date' => { type: 'date', example: '4712-12-31', 'x-nullable': true },
+          'Effective End Date' => { type: 'date', example: '2012-12-31', 'x-nullable': true },
           'Entity Code' => { type: 'string', example: 'ABC', 'x-nullable': true },
           'Charitable Indicator' => { type: 'string', example: nil, 'x-nullable': true },
           'Cost Centre' => { type: 'string', example: nil, 'x-nullable': true },

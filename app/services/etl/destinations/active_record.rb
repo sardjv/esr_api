@@ -83,7 +83,9 @@ class ETL::Destinations::ActiveRecord
       )
     when 'ASA', 'ASD'
       ::AssignmentRecord.find_by(
-        'Assignment ID' => row['Assignment ID']
+        'Assignment ID' => row['Assignment ID'],
+        'Effective Start Date' => row['Effective Start Date'],
+        'Effective End Date' => row['Effective End Date']
       )
     when 'COA', 'COD'
       ::CostingRecord.find_by(
@@ -119,11 +121,15 @@ class ETL::Destinations::ActiveRecord
       )
     when 'POA', 'POD'
       ::PositionRecord.find_by(
-        'Position ID' => row['Position ID']
+        'Position ID' => row['Position ID'],
+        'Effective From Date' => row['Effective From Date'],
+        'Effective To Date' => row['Effective To Date']
       )
     when 'PRA', 'PRD'
       ::PersonRecord.find_by(
-        'Person ID' => row['Person ID']
+        'Person ID' => row['Person ID'],
+        'Effective Start Date' => row['Effective Start Date'],
+        'Effective End Date' => row['Effective End Date']
       )
     when 'QLA', 'QLD'
       ::QualificationRecord.find_by(

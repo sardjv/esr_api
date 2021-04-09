@@ -1730,7 +1730,7 @@
         },
         "Effective End Date": {
           "type": "date",
-          "example": "4712-12-31",
+          "example": "2012-12-31",
           "x-nullable": true
         },
         "Earliest Assignment Start Date": {
@@ -2263,7 +2263,7 @@
         },
         "Effective End Date": {
           "type": "date",
-          "example": "4712-12-31",
+          "example": "2012-12-31",
           "x-nullable": true
         },
         "Entity Code": {

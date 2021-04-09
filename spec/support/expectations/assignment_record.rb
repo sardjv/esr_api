@@ -5,7 +5,7 @@ module Expectations
         'Person ID' => '1234567',
         'Assignment ID' => '936458',
         'Effective Start Date' => Date.new(2011, 6, 1),
-        'Effective End Date' => Date.new(4712, 12, 31),
+        'Effective End Date' => Date.new(2012, 12, 31),
         'Earliest Assignment Start Date' => Date.new(2006, 7, 27),
         'Assignment Type' => 'E',
         'Assignment Number' => '10602402',
