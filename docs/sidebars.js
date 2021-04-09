@@ -1,6 +1,6 @@
 module.exports = {
   someSidebar: {
-    Information: ['introduction', 'overview', 'authentication', 'requirements', 'development', 'licenses', 'security'],
+    Information: ['quickstart', 'overview', 'authentication', 'requirements', 'development', 'licenses', 'security'],
     Features: ['api'],
   },
 };

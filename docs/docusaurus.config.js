@@ -15,7 +15,7 @@ module.exports = {
       },
       items: [
         {
-          to: 'docs/README',
+          to: 'docs/quickstart',
           activeBasePath: 'docs',
           label: 'Docs',
           position: 'left',
@@ -34,8 +34,8 @@ module.exports = {
           title: 'Docs',
           items: [
             {
-              label: 'Introduction',
-              to: 'docs/README',
+              label: 'Quickstart',
+              to: 'docs/quickstart',
             },
             {
               label: 'Technical Overview',
