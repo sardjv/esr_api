@@ -47,7 +47,8 @@ It can then be accessed at [http://localhost:3001/](http://localhost:3001/).
 - Give the token a name to identify which client application will use the token.
 - Add permissions to give access to the data that the client application requires.
 - Click Create Token.
-- Securely add this token to the client application so that it can use the API.
+- You will be able to view the secret token only once. Be very careful with it as it grants unimpeded access to confidential user data.
+- Securely add to your client application so that it can use the API.
 
 ### Use the API
 
