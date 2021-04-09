@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: What Is This?
-slug: /
+slug: introduction
 ---
 
 ESR API is an open source project to improve the ability of NHS Trusts to interface with their ESR Data.
