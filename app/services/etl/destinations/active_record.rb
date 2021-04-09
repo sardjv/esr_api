@@ -121,7 +121,9 @@ class ETL::Destinations::ActiveRecord
       )
     when 'POA', 'POD'
       ::PositionRecord.find_by(
-        'Position ID' => row['Position ID']
+        'Position ID' => row['Position ID'],
+        'Effective From Date' => row['Effective From Date'],
+        'Effective To Date' => row['Effective To Date']
       )
     when 'PRA', 'PRD'
       ::PersonRecord.find_by(
