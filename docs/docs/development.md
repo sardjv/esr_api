@@ -13,6 +13,15 @@ sh script/generate_env_file.sh
 
 If the script succeeds, it will print ".env file generation complete."
 
+## Development mode
+
+To use development mode, activate the docker-compose override file:
+
+```
+cp docker-compose.override.yml.sample docker-compose.override.yml
+docker-compose build
+```
+
 ## Booting up
 
 If you have Docker on your machine, run:
@@ -104,3 +113,17 @@ SELECT * FROM person_records;
 ## Emails
 
 The application does not currently send any emails.
+
+### Stop
+
+Stop containers but do not remove them:
+
+```
+docker-compose stop
+```
+
+Stop containers and remove them:
+
+```
+docker-compose down --remove-orphans
+```
