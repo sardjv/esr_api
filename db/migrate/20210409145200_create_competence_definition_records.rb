@@ -1,7 +1,6 @@
 class CreateCompetenceDefinitionRecords < ActiveRecord::Migration[6.0]
   def change
     create_table :competence_definition_records do |t|
-      t.string 'Record Type'
       t.string 'Competence ID'
       t.string 'Competence Name'
       t.string 'Description'

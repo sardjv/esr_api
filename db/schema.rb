@@ -125,7 +125,6 @@ ActiveRecord::Schema.define(version: 2021_04_09_145200) do
   end
 
   create_table "competence_definition_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "Record Type"
     t.string "Competence ID"
     t.string "Competence Name"
     t.string "Description"
