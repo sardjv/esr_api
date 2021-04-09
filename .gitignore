@@ -47,3 +47,9 @@ script/first_run_complete.tmp
 
 # Ignore import files.
 data/
+
+# Docusaurus.
+docs/node_modules
+docs/website
+docs/supervisord.*
+docs/.docusaurus
