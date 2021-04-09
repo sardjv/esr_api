@@ -5,30 +5,13 @@ title: Development
 
 ## .env file
 
-To get started, you need a `.env` file with secrets. For testing there is a `.env.example` file included in the repo that you can use, just remove the `.example` from the filename. Make sure to change all these secrets before running in production!
-
-## Lockbox encryption key
-
-In order to generate tokens, you need to add a 64 hex digit key to the .env file.
+To get started, you need a `.env` file with secrets. A script is provided to generate this file with new secrets:
 
 ```
-docker-compose run api sh
-bundle exec rails console
-Lockbox.generate_key
+sh script/generate_env_file.sh
 ```
 
-Copy the key and paste it into the .env file under
-
-```
-LOCKBOX_MASTER_KEY=master_key_goes_here
-```
-
-Reboot the server to use the new key:
-
-```
-docker-compose down && docker-compose up
-```
-
+If the script succeeds, it will print ".env file generation complete."
 
 ## Booting up
 
@@ -38,18 +21,11 @@ If you have Docker on your machine, run:
 docker-compose up
 ```
 
-It can then be accessed at [http://localhost:3000/](http://localhost:3000/)
+It can then be accessed at [http://localhost:3001/](http://localhost:3001/)
 
 ## Admin Authentication
 
-You need to bootstrap the initial user via the command line. First go to [http://localhost:3000/](http://localhost:3000/), click Admin login and Admin signup and enter your details. Once that is done you need to activate your account using these commands:
-
-```
-docker-compose run api bundle exec rails console
-User.first.update(confirmed_at: Time.current)
-```
-
-You should then be able to log in. Any subsequent admin that signs up can be added via the Admins page and clicking Edit.
+Click Create an account and enter your details. Admins can access ALL user data so this must be a highly privileged account with a very strong password. You will be immediately logged in. Any subsequent admin that signs up needs to be manually approved by an existing admin, via the Admins page, clicking Edit and then Activated and Update User.
 
 ## Documentation
 
@@ -106,20 +82,11 @@ open coverage/index.html
 
 ## Debugging
 
-To access a 'byebug' debugging point, run with:
+To access a 'binding.pry' debugging point, run with:
 
 ```
 docker-compose run --service-ports api
 ```
-
-## Database
-
-To change database between MySQL, PostgreSQL and SQL Server:
-
-1) Uncomment the relevent line in Dockerfile
-2) Uncomment the relevant section in docker-compose.yml
-3) Uncomment the relevant config in database.yml
-4) Uncomment the relevant gem(s) in the Gemfile.
 
 ## Accessing the database console
 
