@@ -2,7 +2,7 @@ module.exports = {
   title: 'ESR API',
   tagline: 'Documentation',
   url: 'https://sardjv.github.io',
-  baseUrl: '/docs/',
+  baseUrl: '/',
   favicon: 'img/favicon.ico',
   organizationName: 'sardjv', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
@@ -15,7 +15,7 @@ module.exports = {
       },
       items: [
         {
-          to: 'docs/',
+          to: '/',
           activeBasePath: 'docs',
           label: 'Docs',
           position: 'left',
