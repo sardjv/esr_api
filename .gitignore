@@ -50,6 +50,6 @@ data/
 
 # Docusaurus.
 docs/node_modules
-docs/website
+docs/docs
 docs/supervisord.*
 docs/.docusaurus

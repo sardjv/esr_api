@@ -2,10 +2,10 @@ module.exports = {
   title: 'ESR API',
   tagline: 'Documentation',
   url: 'https://sardjv.github.io',
-  baseUrl: '/esr_api_docs/',
+  baseUrl: '/docs/',
   favicon: 'img/favicon.ico',
   organizationName: 'sardjv', // Usually your GitHub org/user name.
-  projectName: 'esr_api_docs', // Usually your repo name.
+  projectName: 'docs', // Usually your repo name.
   themeConfig: {
     navbar: {
       title: 'ESR API',
@@ -93,7 +93,7 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
-            'https://github.com/sardjv/esr_api_docs/edit/master/',
+            'https://github.com/sardjv/esr_api/tree/master/docs',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
