@@ -24,8 +24,9 @@ class ETL::Destinations::ActiveRecord
     case row['Record Type']
     when 'ABA' then ::AbsenceRecord.create(row.except('Record Type'))
     when 'ASA' then ::AssignmentRecord.create(row.except('Record Type'))
-    when 'COA' then ::CostingRecord.create(row.except('Record Type'))
+    when 'CDA' then ::CompetenceDefinitionRecord.create(row.except('Record Type'))
     when 'CMA' then ::CompetencyRecord.create(row.except('Record Type'))
+    when 'COA' then ::CostingRecord.create(row.except('Record Type'))
     when 'DTA' then ::DisabilityRecord.create(row.except('Record Type'))
     when 'ELA' then ::ElementRecord.create(row.except('Record Type'))
     when 'ETA' then ::PersonEitRecord.create(row.except('Record Type'))
@@ -59,8 +60,9 @@ class ETL::Destinations::ActiveRecord
     %w[
       ABD
       ASD
-      COD
+      CDD
       CMD
+      COD
       DTD
       ELD
       ETD
@@ -90,6 +92,10 @@ class ETL::Destinations::ActiveRecord
     when 'COA', 'COD'
       ::CostingRecord.find_by(
         'Costing Allocation ID' => row['Costing Allocation ID']
+      )
+    when 'CDA', 'CDD'
+      ::CompetenceDefinitionRecord.find_by(
+        'Competence ID' => row['Competence ID']
       )
     when 'CMA', 'CMD'
       ::CompetencyRecord.find_by(

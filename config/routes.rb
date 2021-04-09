@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     resources :assignment_records do
       get :export, on: :collection
     end
+    resources :competence_definition_records do
+      get :export, on: :collection
+    end
     resources :competency_records do
       get :export, on: :collection
     end
@@ -79,6 +82,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       jsonapi_resources :absence_records
       jsonapi_resources :assignment_records
+      jsonapi_resources :competence_definition_records
       jsonapi_resources :competency_records
       jsonapi_resources :costing_records
       jsonapi_resources :disability_records

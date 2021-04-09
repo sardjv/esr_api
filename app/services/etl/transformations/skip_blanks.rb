@@ -9,8 +9,9 @@ class ETL::Transformations::SkipBlanks
     case type
     when 'ABA', 'ABD' then ETL::Headers::AbsenceRecord.non_blank_headers
     when 'ASA', 'ASD' then ETL::Headers::AssignmentRecord.non_blank_headers
-    when 'COA', 'COD' then ETL::Headers::CostingRecord.non_blank_headers
+    when 'CDA', 'CDD' then ETL::Headers::CompetenceDefinitionRecord.non_blank_headers
     when 'CMA', 'CMD' then ETL::Headers::CompetencyRecord.non_blank_headers
+    when 'COA', 'COD' then ETL::Headers::CostingRecord.non_blank_headers
     when 'DTA', 'DTD' then ETL::Headers::DisabilityRecord.non_blank_headers
     when 'ELA', 'ELD' then ETL::Headers::ElementRecord.non_blank_headers
     when 'ETA', 'ETD' then ETL::Headers::PersonEitRecord.non_blank_headers

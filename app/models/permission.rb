@@ -2,6 +2,7 @@ class Permission < ApplicationRecord
   RESOURCES = %w[
     AbsenceRecord
     AssignmentRecord
+    CompetenceDefinitionRecord
     CompetencyRecord
     CostingRecord
     DisabilityRecord
