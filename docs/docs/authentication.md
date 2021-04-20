@@ -9,4 +9,4 @@ The [Devise gem](https://github.com/heartcombo/devise) is used to handle adminis
 
 ## API Tokens
 
-Administrators can generate bearer tokens which can be used to access the API. The token must be passed in request headers in the format `Authorization: Bearer <token>`. The API checks if the token exists, and then checks if the token has permission to access the requested resource. It filters the returned columns according to the permissions granted to the toke by the administrator.
+Administrators can generate bearer tokens which can be used to access the API. The token must be passed in request headers in the format `Authorization: Bearer <token>`. The API checks if the token exists, and then checks if the token has permission to access the requested resource. It filters the returned columns according to the permissions granted to the token by the administrator.
