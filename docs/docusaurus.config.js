@@ -68,7 +68,7 @@ module.exports = {
             },
             {
               label: 'Oxleas NHS Foundation Trust',
-              href: 'https://oxleas.nhs.uk/',
+              href: 'http://oxleas.nhs.uk/',
             },
             {
               label: 'Twitter',
