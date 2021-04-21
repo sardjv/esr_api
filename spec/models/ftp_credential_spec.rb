@@ -7,14 +7,10 @@ describe FtpCredential, type: :model do
   it { should have_db_index(:name).unique }
   it { should validate_presence_of(:host) }
   it { should have_db_index(:host_ciphertext).unique }
-  it { should validate_presence_of(:port) }
-  it { should have_db_index(:port_ciphertext).unique }
   it { should validate_presence_of(:user) }
   it { should have_db_index(:user_ciphertext).unique }
   it { should validate_presence_of(:password) }
   it { should have_db_index(:password_ciphertext).unique }
-  it { should validate_presence_of(:path) }
-  it { should have_db_index(:path_ciphertext).unique }
   it { should validate_presence_of(:virtual_private_database_number) }
   it { should validate_length_of(:virtual_private_database_number).is_equal_to(3) }
   it { should belong_to(:created_by) }
@@ -28,8 +24,7 @@ describe FtpCredential, type: :model do
   end
 
   context 'with a persisted ftp_credential' do
-    let(:path) { 'uploads' }
-    subject! { create(:ftp_credential, path: path) }
+    subject! { create(:ftp_credential) }
 
     describe 'updating the ftp_credential' do
       it 'fails; ftp_credential should be immutable' do
@@ -64,10 +59,10 @@ describe FtpCredential, type: :model do
 
           # Check the file was successfully uploaded to the FTP.
           expect(subject.connect.list('-1',
-                                      File.join(path, FtpCredential::REMOTE_UPLOADS_DIRECTORY))).to match_array([subject.snapshot_request_filename])
+                                      FtpCredential::REMOTE_UPLOADS_DIRECTORY)).to match_array([subject.snapshot_request_filename])
 
           # Clean up so the test still works tomorrow.
-          subject.connect.delete(File.join(path, FtpCredential::REMOTE_UPLOADS_DIRECTORY, subject.snapshot_request_filename))
+          subject.connect.delete(File.join(FtpCredential::REMOTE_UPLOADS_DIRECTORY, subject.snapshot_request_filename))
         end
       end
     end

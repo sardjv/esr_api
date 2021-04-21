@@ -49,8 +49,6 @@ en:
       hints:
         name: e.g. ESR Generic Outbound FTP Server
         host: e.g. private.ftp-servers.example.com.
-        port: e.g. 21.
-        path: e.g. '/'
         virtual_private_database_number: Three digit NHS Organisation ESR payroll number - can be found on payslips eg. ESR123, where 123 is the number we need.
       name:
         one: FTP Credential
@@ -94,6 +92,7 @@ en:
       events: Events
       test: Try the API
     data: Data
+    docs: Docs
     flash:
       alert: Alert
       notice: Notice
@@ -106,7 +105,8 @@ en:
       view_data: Access your trust's ESR data via the administrator dashboard.
       view_documentation: Click here to view the documentation.
     links:
-      docs: https://sardjv.github.io/esr_api_docs/
+      docs: https://sardjv.github.io/esr_api/
+      sourcecode: https://github.com/sardjv/esr_api
     sign_in_title: Sign in
     sign_in: Sign in
     sign_out: Sign out

@@ -5,29 +5,26 @@ class FtpCredential < ApplicationRecord
   LOCAL_UPLOADS_DIRECTORY = 'data/uploads'.freeze
   REMOTE_DOWNLOADS_DIRECTORY = 'Out'.freeze
   REMOTE_UPLOADS_DIRECTORY = 'In'.freeze
+  FTP_PORT = 21
 
   belongs_to :created_by, class_name: 'User', inverse_of: :ftp_credentials
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates :host, presence: true
-  validates :port, presence: true
   validates :user, presence: true
   validates :password, presence: true
-  validates :path, presence: true
   validates :virtual_private_database_number, presence: true, length: { is: 3 }
   validate :validate_singleton, on: :create
   validate :validate_password_is_secret, on: :create
 
   encrypts :host
-  encrypts :port
   encrypts :user
   encrypts :password
-  encrypts :path
   encrypts :virtual_private_database_number
 
   def connect
     connection = Net::FTP.new(host, ssl: true)
-    connection.connect(host, port.to_i)
+    connection.connect(host, FTP_PORT)
     connection.login(user, password)
     connection
   end
@@ -46,9 +43,9 @@ class FtpCredential < ApplicationRecord
 
     # Loop through all files on the FTP, downloading each one into the destination_path.
     # Skip files which have already been imported.
-    connection.list('-1', remote_download_path).reject { |f| already_imported.include?(f) }.each do |filename|
+    connection.list('-1', REMOTE_DOWNLOADS_DIRECTORY).reject { |f| already_imported.include?(f) }.each do |filename|
       # Download the file.
-      connection.get("#{remote_download_path}/#{filename}", "#{destination_path}/#{filename}")
+      connection.get("#{REMOTE_DOWNLOADS_DIRECTORY}/#{filename}", "#{destination_path}/#{filename}")
     end
 
     # Close FTP connection.
@@ -71,7 +68,7 @@ class FtpCredential < ApplicationRecord
     upload_file_path = create_snapshot_request_file(filename: filename)
 
     # Add the file to the remote directory.
-    connection.put(upload_file_path, File.join(remote_upload_path, filename))
+    connection.put(upload_file_path, File.join(REMOTE_UPLOADS_DIRECTORY, filename))
 
     # Close FTP connection.
     connection.close
@@ -98,14 +95,6 @@ class FtpCredential < ApplicationRecord
 
   def local_uploads_path
     File.join(LOCAL_UPLOADS_DIRECTORY, Rails.env, Time.current.iso8601)
-  end
-
-  def remote_download_path
-    File.join(path, REMOTE_DOWNLOADS_DIRECTORY)
-  end
-
-  def remote_upload_path
-    File.join(path, REMOTE_UPLOADS_DIRECTORY)
   end
 
   # Readonly to ensure created_by is always correct. If it needs to change,
