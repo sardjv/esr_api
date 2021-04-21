@@ -2,7 +2,7 @@ module.exports = {
   title: 'ESR API',
   tagline: 'Documentation',
   url: 'https://sardjv.github.io',
-  baseUrl: '/',
+  baseUrl: '/esr_api/',
   favicon: 'img/favicon.ico',
   organizationName: 'sardjv', // Usually your GitHub org/user name.
   projectName: 'esr_api', // Usually your repo name.
