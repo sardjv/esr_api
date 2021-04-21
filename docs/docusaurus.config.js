@@ -21,7 +21,7 @@ module.exports = {
           position: 'left',
         },
         {
-          href: 'https://github.com/sardjv/esr_api',
+          href: 'https://github.com/sardjv/esr_api/edit/master/docs',
           label: 'GitHub',
           position: 'right',
         },
