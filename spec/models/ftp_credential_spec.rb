@@ -7,8 +7,6 @@ describe FtpCredential, type: :model do
   it { should have_db_index(:name).unique }
   it { should validate_presence_of(:host) }
   it { should have_db_index(:host_ciphertext).unique }
-  it { should validate_presence_of(:port) }
-  it { should have_db_index(:port_ciphertext).unique }
   it { should validate_presence_of(:user) }
   it { should have_db_index(:user_ciphertext).unique }
   it { should validate_presence_of(:password) }

@@ -5,12 +5,12 @@ class FtpCredential < ApplicationRecord
   LOCAL_UPLOADS_DIRECTORY = 'data/uploads'.freeze
   REMOTE_DOWNLOADS_DIRECTORY = 'Out'.freeze
   REMOTE_UPLOADS_DIRECTORY = 'In'.freeze
+  FTP_PORT = 21
 
   belongs_to :created_by, class_name: 'User', inverse_of: :ftp_credentials
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates :host, presence: true
-  validates :port, presence: true
   validates :user, presence: true
   validates :password, presence: true
   validates :virtual_private_database_number, presence: true, length: { is: 3 }
@@ -18,14 +18,13 @@ class FtpCredential < ApplicationRecord
   validate :validate_password_is_secret, on: :create
 
   encrypts :host
-  encrypts :port
   encrypts :user
   encrypts :password
   encrypts :virtual_private_database_number
 
   def connect
     connection = Net::FTP.new(host, ssl: true)
-    connection.connect(host, port.to_i)
+    connection.connect(host, FTP_PORT)
     connection.login(user, password)
     connection
   end

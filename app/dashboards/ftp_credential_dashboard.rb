@@ -26,7 +26,6 @@ class FtpCredentialDashboard < Administrate::BaseDashboard
     ),
     'created_at': Field::DateTime,
     'host': Field::String,
-    'port': Field::String,
     'user': Field::String,
     'password': Field::String,
     'virtual_private_database_number': Field::String,
@@ -53,7 +52,6 @@ class FtpCredentialDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     name
     host
-    port
     user
     password
     virtual_private_database_number

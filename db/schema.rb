@@ -238,7 +238,6 @@ ActiveRecord::Schema.define(version: 2021_04_21_152600) do
   create_table "ftp_credentials", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.string "host_ciphertext", null: false
-    t.string "port_ciphertext", null: false
     t.string "user_ciphertext", null: false
     t.string "password_ciphertext", null: false
     t.bigint "created_by_id"
@@ -249,7 +248,6 @@ ActiveRecord::Schema.define(version: 2021_04_21_152600) do
     t.index ["host_ciphertext"], name: "index_ftp_credentials_on_host_ciphertext", unique: true
     t.index ["name"], name: "index_ftp_credentials_on_name", unique: true
     t.index ["password_ciphertext"], name: "index_ftp_credentials_on_password_ciphertext", unique: true
-    t.index ["port_ciphertext"], name: "index_ftp_credentials_on_port_ciphertext", unique: true
     t.index ["user_ciphertext"], name: "index_ftp_credentials_on_user_ciphertext", unique: true
   end
 
