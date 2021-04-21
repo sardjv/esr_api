@@ -7,4 +7,4 @@ ESR API is an open source project to improve the ability of NHS Trusts to interf
 
 It's a collaboration between [SARD JV](https://sardjv.co.uk/) and [Oxleas NHS Foundation Trust](http://oxleas.nhs.uk/), funded by NHS Improvements. It's currently under active development and is not yet ready for production use.
 
-Click [here](https://github.com/sardjv/esr_api/tree/master/docs/docs) to check out the documentation for this project.
+Click [here](https://sardjv.github.io/esr_api/) to check out the documentation for this project.
