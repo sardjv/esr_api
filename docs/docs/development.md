@@ -121,3 +121,13 @@ Stop containers and remove them:
 ```
 docker-compose down --remove-orphans
 ```
+
+## Documentation
+
+To deploy changes to the production documentation site on Github Pages:
+
+```
+cd docs # Very important! The following commands will not work at the project's root directory.
+yarn install # Only the first time.
+GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
+```

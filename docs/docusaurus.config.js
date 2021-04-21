@@ -5,7 +5,7 @@ module.exports = {
   baseUrl: '/',
   favicon: 'img/favicon.ico',
   organizationName: 'sardjv', // Usually your GitHub org/user name.
-  projectName: 'docs', // Usually your repo name.
+  projectName: 'esr_api', // Usually your repo name.
   themeConfig: {
     navbar: {
       title: 'ESR API',

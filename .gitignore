@@ -54,3 +54,4 @@ docs/docs/docs
 docs/website
 docs/supervisord.*
 docs/.docusaurus
+docs/build
