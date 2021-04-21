@@ -57,7 +57,7 @@ function Home() {
   return (
     <Layout
       title={`Documentation`}
-      description="Description will go into a meta tag in <head />">
+      description="Documentation for the ESR wrapper project.">
       <header className={classnames('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
