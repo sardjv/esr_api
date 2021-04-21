@@ -93,6 +93,7 @@ en:
       events: Events
       test: Try the API
     data: Data
+    docs: Docs
     flash:
       alert: Alert
       notice: Notice
@@ -105,7 +106,8 @@ en:
       view_data: Access your trust's ESR data via the administrator dashboard.
       view_documentation: Click here to view the documentation.
     links:
-      docs: https://sardjv.github.io/esr_api_docs/
+      docs: https://sardjv.github.io/esr_api/
+      sourcecode: https://github.com/sardjv/esr_api
     sign_in_title: Sign in
     sign_in: Sign in
     sign_out: Sign out
