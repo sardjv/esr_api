@@ -29,7 +29,6 @@ class FtpCredentialDashboard < Administrate::BaseDashboard
     'port': Field::String,
     'user': Field::String,
     'password': Field::String,
-    'path': Field::String,
     'virtual_private_database_number': Field::String,
   }.freeze
 
@@ -57,7 +56,6 @@ class FtpCredentialDashboard < Administrate::BaseDashboard
     port
     user
     password
-    path
     virtual_private_database_number
   ].freeze
 

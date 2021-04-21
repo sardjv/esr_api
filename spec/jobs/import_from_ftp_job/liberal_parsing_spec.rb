@@ -1,7 +1,9 @@
 describe ImportFromFtpJob, type: :job do
   let!(:admin) { create(:confirmed_user) }
-  let(:ftp_credential) { create(:ftp_credential, path: 'good_imports/liberal_parsing') }
+  let(:ftp_credential) { create(:ftp_credential) }
   let(:import_job) { ImportFromFtpJob.perform_later(ftp_credential_id: ftp_credential.id) }
+  let(:path) { 'good_imports/liberal_parsing' }
+  before { stub_const('FtpCredential::REMOTE_DOWNLOADS_DIRECTORY', File.join(path, FtpCredential::REMOTE_DOWNLOADS_DIRECTORY)) }
 
   context 'with a row with quotes inside a column' do
     it 'parses liberally and creates a new LocationRecord' do

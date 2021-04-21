@@ -50,7 +50,6 @@ en:
         name: e.g. ESR Generic Outbound FTP Server
         host: e.g. private.ftp-servers.example.com.
         port: e.g. 21.
-        path: e.g. '/'
         virtual_private_database_number: Three digit NHS Organisation ESR payroll number - can be found on payslips eg. ESR123, where 123 is the number we need.
       name:
         one: FTP Credential

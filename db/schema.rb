@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_09_145200) do
+ActiveRecord::Schema.define(version: 2021_04_21_152600) do
 
   create_table "absence_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "Person ID"
@@ -241,7 +241,6 @@ ActiveRecord::Schema.define(version: 2021_04_09_145200) do
     t.string "port_ciphertext", null: false
     t.string "user_ciphertext", null: false
     t.string "password_ciphertext", null: false
-    t.string "path_ciphertext", null: false
     t.bigint "created_by_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -250,7 +249,6 @@ ActiveRecord::Schema.define(version: 2021_04_09_145200) do
     t.index ["host_ciphertext"], name: "index_ftp_credentials_on_host_ciphertext", unique: true
     t.index ["name"], name: "index_ftp_credentials_on_name", unique: true
     t.index ["password_ciphertext"], name: "index_ftp_credentials_on_password_ciphertext", unique: true
-    t.index ["path_ciphertext"], name: "index_ftp_credentials_on_path_ciphertext", unique: true
     t.index ["port_ciphertext"], name: "index_ftp_credentials_on_port_ciphertext", unique: true
     t.index ["user_ciphertext"], name: "index_ftp_credentials_on_user_ciphertext", unique: true
   end

@@ -1,7 +1,9 @@
 describe ImportFromFtpJob, type: :job do
   let!(:admin) { create(:confirmed_user) }
-  let(:ftp_credential) { create(:ftp_credential, path: 'good_imports/iso_8859_1') }
+  let(:ftp_credential) { create(:ftp_credential) }
   let(:import_job) { ImportFromFtpJob.perform_later(ftp_credential_id: ftp_credential.id) }
+  let(:path) { 'good_imports/iso_8859_1' }
+  before { stub_const('FtpCredential::REMOTE_DOWNLOADS_DIRECTORY', File.join(path, FtpCredential::REMOTE_DOWNLOADS_DIRECTORY)) }
 
   context 'with iso_8859_1 encoding' do
     it 'parses and creates a new LocationRecord' do
