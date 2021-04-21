@@ -1,1 +1,0 @@
-class NotFoundError < StandardError; end

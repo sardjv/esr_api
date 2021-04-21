@@ -1,1 +1,0 @@
-class InvalidFilenameError < StandardError; end

@@ -1,2 +1,0 @@
-class OrganisationRecord < ApplicationRecord
-end

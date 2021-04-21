@@ -1,2 +1,0 @@
-class LocationRecord < ApplicationRecord
-end

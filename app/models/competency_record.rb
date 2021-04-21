@@ -1,2 +1,0 @@
-class CompetencyRecord < ApplicationRecord
-end

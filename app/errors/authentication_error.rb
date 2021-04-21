@@ -1,1 +1,0 @@
-class AuthenticationError < StandardError; end

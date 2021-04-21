@@ -1,2 +1,0 @@
-class TrainingAbsenceRecord < ApplicationRecord
-end
