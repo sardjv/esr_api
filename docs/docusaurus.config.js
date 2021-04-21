@@ -93,7 +93,7 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
-            'https://github.com/sardjv/esr_api/tree/master/docs',
+            'https://github.com/sardjv/esr_api/edit/master/docs',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
