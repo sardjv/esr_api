@@ -50,6 +50,10 @@ module.exports = {
               to: 'docs/development',
             },
             {
+              label: 'Documentation',
+              to: 'docs/documentation',
+            },
+            {
               label: 'Versioning',
               to: 'docs/versioning',
             }

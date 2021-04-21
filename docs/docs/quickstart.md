@@ -4,8 +4,6 @@ title: Quickstart
 slug: quickstart
 ---
 
-## Quickstart
-
 ### .env file
 
 - To get started, you need a `.env` file with secrets.
