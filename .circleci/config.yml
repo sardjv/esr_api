@@ -66,7 +66,7 @@ jobs:
       - checkout
       - run:
           name: Deploy docs
-          command: cd docs/ && USE_SSH=true yarn deploy
+          command: cd docs/ && yarn install && USE_SSH=true yarn deploy
 workflows:
   version: 2
   checks:
