@@ -23,7 +23,9 @@ docker volume rm esr_api_redis
 docker volume rm esr_api_bundle_cache (Dev mode only)
 docker volume rm esr_api_db_test (Dev mode only)
 
-# Remove all containers, caches and images.
+# Remove all stopped containers, caches and unused images from the entire system.
+# WARNING: This is not limited to only this project, and will affect any other Docker systems you have
+# on the same server.
 docker system prune -a
 
 # (Dev mode only)
