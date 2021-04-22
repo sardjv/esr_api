@@ -48,18 +48,6 @@ module.exports = {
             {
               label: 'Development',
               to: 'docs/development',
-            },
-            {
-              label: 'System Reset',
-              to: 'docs/reset',
-            },
-            {
-              label: 'Documentation',
-              to: 'docs/documentation',
-            },
-            {
-              label: 'Versioning',
-              to: 'docs/versioning',
             }
           ],
         },

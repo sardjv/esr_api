@@ -6,6 +6,7 @@ module.exports = {
       'authentication',
       'requirements',
       'development',
+      'deltas',
       'reset',
       'documentation',
       'licenses',

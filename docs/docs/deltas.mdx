@@ -1,0 +1,21 @@
+---
+id: deltas
+title: Existing Deltas
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+### Note for trusts already using the generic outbound FTP data
+
+Note that if you want the new seed to be able to take any existing scheduled deltas it is probably best to set the time of the seed request file to the end time of the daily deltas; otherwise there may be a gap or duplicates.
+
+Eg at Oxleas, deltas have a header like this:
+HDR~GO_277_GDW_GOC_20210409_00001945.DAT~20210409 072050~277~20210408 000000~20210409 000000~01
+
+Ie they run from midnight to midnight (20210408 000000 – previous run date, 20210409 000000 – current run date)
+
+So if requesting a seed that you want to continue to take these existing deltas, look at the header row in the delta and set the time in the seed request to this same end time for that day. So if the last delta is as above (last run date time: 20210409 000000) set your header in the seed request to
+
+HDR~GO_277_GDW_GDR_20210410_00000001.DAT~20210410 000000
+
+And FTP up this file before midnight on 10th April 2021.
