@@ -59,6 +59,12 @@ jobs:
                               $TEST_FILES
       - store_test_results:
           path: /tmp/test-results/rspec
+  deploy_docs:
+    steps:
+      - checkout
+      - run:
+        name: Deploy docs
+        command: cd docs/ && USE_SSH=true yarn deploy
 workflows:
   version: 2
   checks:
@@ -72,3 +78,4 @@ workflows:
           filters:
             branches:
               only: master
+      - deploy_docs
