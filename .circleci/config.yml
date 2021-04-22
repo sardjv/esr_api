@@ -67,8 +67,8 @@ jobs:
       - run:
           name: Install and configure dependencies
           command: |
-            git config user.email "ci-build@sardjv.co.uk"
-            git config user.name "ci-build"
+            git config --global user.email "$GIT_AUTHOR_EMAIL"
+            git config --global user.name "$GIT_AUTHOR_NAME"
       - run:
           name: Deploy docs
           command: cd docs/ && yarn install && GIT_USER=sardjv USE_SSH=true yarn deploy
