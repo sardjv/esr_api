@@ -36,6 +36,10 @@ It can then be accessed at [http://localhost:3001/](http://localhost:3001/).
 - This will immediately send a request file to the FTP server `/In` directory for the initial seed data.
 - From this point the API will attempt to fetch and import new data from the FTP server each day at 8am.
 
+:::info
+Note: if your trust is already using the FTP service, you may need to change the filename of the seed request to match the time of the last delta. [Click here for more info.](quickstart.md)
+:::
+
 ### Create an API Token
 
 - Each client application requires a Token to use the API.
