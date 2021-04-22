@@ -60,6 +60,8 @@ jobs:
       - store_test_results:
           path: /tmp/test-results/rspec
   deploy_docs:
+    docker:
+      - image: node:15.14.0
     steps:
       - checkout
       - run:
