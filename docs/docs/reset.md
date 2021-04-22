@@ -6,11 +6,9 @@ slug: reset
 
 After a testing period, or if there has been data corruption, you may need to do a total reset of the system and start again from scratch.
 
-:::danger
-
+:::warning
 This will irrevocably delete ALL local data, ALL tokens, ALL admins and any other history or data which has been built up while using the wrapper. You will need to start again completely, adding all users again and creating new tokens. You will need to re-add FTP Credentials, which will request a new seed file from the remote FTP server.
-
-:::danger
+:::
 
 ```
 # Shut down the running system.
