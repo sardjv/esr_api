@@ -50,6 +50,10 @@ module.exports = {
               to: 'docs/development',
             },
             {
+              label: 'System Reset',
+              to: 'docs/reset',
+            },
+            {
               label: 'Documentation',
               to: 'docs/documentation',
             },
