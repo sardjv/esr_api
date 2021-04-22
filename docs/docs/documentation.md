@@ -8,8 +8,7 @@ is served locally using [Docusaurus](https://docusaurus.io/) at [http://localhos
 
 We also serve the documentation online at [https://sardjv.github.io/esr_api/](https://sardjv.github.io/esr_api/).
 
-To deploy the latest changes to the online documentation site, make sure Pages is activated on Github/settings, the branch is set to `gh-pages` and `root`. 
-To deploy:
+To deploy the latest changes to the online documentation site, make sure Pages is activated on Github/settings, the branch is set to `gh-pages` and `root`. CircleCI takes care of deployment; if you need to do it manually for some reason you can do it like this:
 
 ```
 cd docs # Very important! The following commands will not work at the project's root directory.
@@ -17,4 +16,4 @@ yarn install # Only the first time.
 GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
 ```
 
-It may take a few minutes to update.
+It may take a few minutes to update on Github.

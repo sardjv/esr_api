@@ -59,6 +59,14 @@ jobs:
                               $TEST_FILES
       - store_test_results:
           path: /tmp/test-results/rspec
+  deploy_docs:
+    docker:
+      - image: node:15.14.0
+    steps:
+      - checkout
+      - run:
+          name: Deploy docs
+          command: cd docs/ && yarn install && GIT_USER=sardjv USE_SSH=true yarn deploy
 workflows:
   version: 2
   checks:
@@ -69,6 +77,10 @@ workflows:
           requires:
             - rubocop
             - test
+          filters:
+            branches:
+              only: master
+      - deploy_docs:
           filters:
             branches:
               only: master
