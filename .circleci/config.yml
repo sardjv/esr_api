@@ -80,7 +80,7 @@ workflows:
           filters:
             branches:
               only: master
-      - deploy_docs
+      - deploy_docs:
           filters:
             branches:
               only: master
