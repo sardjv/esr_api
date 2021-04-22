@@ -132,7 +132,7 @@ cd spec/fixtures/file_diffing
 bash in_left_not_right.sh
 ```
 
-This will print out any lines which are in `spec/fixtures/left_hand_file` and not in `spec/fixtures/right_hand_file`.
+This will print out any lines which appear in `spec/fixtures/left_hand_file` and not in `spec/fixtures/right_hand_file`.
 
 ## Versioning
 
