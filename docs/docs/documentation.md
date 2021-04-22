@@ -8,7 +8,8 @@ is served locally using [Docusaurus](https://docusaurus.io/) at [http://localhos
 
 We also serve the documentation online at [https://sardjv.github.io/esr_api/](https://sardjv.github.io/esr_api/).
 
-To deploy the latest changes to the online documentation site:
+To deploy the latest changes to the online documentation site, make sure Pages is activated on Github/settings, the branch is set to `gh-pages` and `root`. 
+To deploy:
 
 ```
 cd docs # Very important! The following commands will not work at the project's root directory.
