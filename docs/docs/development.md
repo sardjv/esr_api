@@ -139,3 +139,16 @@ GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
 ```
 
 It may take a few minutes to update.
+
+## Versioning
+
+After a bug is fixed (0.0.x), a new feature is added (0.x.0), or a breaking change is introduced(x.0.0), please:
+- Bump the relevant version number in `config/initializers/version.rb`
+- Add brief notes about the changes to `CHANGELOG.md`.
+- Add a git tag to the merge commit in the format `v0.1.0`:
+  ```
+    git checkout master
+    git pull
+    git tag v0.1.0 && git push --tags
+  ```
+- [Add a release on Github](https://github.com/sardjv/esr_api/releases/new) using the tag number (for example) `v0.1.0` as the title and the changelog info as the description.
