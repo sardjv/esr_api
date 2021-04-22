@@ -21,7 +21,7 @@ module.exports = {
           position: 'left',
         },
         {
-          href: 'https://github.com/sardjv/esr_api/edit/master/docs',
+          href: 'https://github.com/sardjv/esr_api/',
           label: 'GitHub',
           position: 'right',
         },
@@ -101,7 +101,7 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl:
-            'https://github.com/sardjv/esr_api/edit/master/docs',
+            'https://github.com/sardjv/esr_api/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
