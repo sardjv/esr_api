@@ -71,7 +71,7 @@ jobs:
             git config --global user.name "$GIT_AUTHOR_NAME"
       - run:
           name: Deploy docs
-          command: cd docs/ && yarn install && GIT_USER=sardjv USE_SSH=true yarn deploy
+          command: cd docs/ && yarn install && GIT_USER=$GIT_USERNAME USE_SSH=true yarn deploy
 workflows:
   version: 2
   checks:
