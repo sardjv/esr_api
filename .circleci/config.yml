@@ -64,6 +64,9 @@ jobs:
       - image: node:15.14.0
     steps:
       - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - $SSH_PUBLIC_FINGERPRINT_WITH_GITHUB_WRITE_ACCESS
       - run:
           name: Install and configure dependencies
           command: |
