@@ -61,6 +61,7 @@ This project uses the [Kiba](https://github.com/thbar/kiba) gem for scalable and
 [This talk](https://www.youtube.com/watch?v=fxVtbog7pIQ) contains a short, clear explanation of how Kiba works.
 
 ### Tips
+
 - Don't insert rows one by one - use bulk insert.
 - Skip activerecord validations because they are too slow, find other ways to validate data.
 - Fail fast; raise an exception and stop on failure rather than trying to carry on and creating bad data.
@@ -122,23 +123,16 @@ Stop containers and remove them:
 docker-compose down --remove-orphans
 ```
 
-## Documentation
+## Testing an import
 
-The documentation can be found in the `/docs` directory. When Docker is running the documentation site
-is served locally at [http://localhost:3002/esr_api](http://localhost:3002/esr_api). Any changes made
-in the `/docs` directory will be immediately visible.
-
-We also serve the documentation online at [https://sardjv.github.io/esr_api/](https://sardjv.github.io/esr_api/).
-
-To deploy changes to this site:
+If you need to compare 2 files, e.g. an export from ESR and an export form another system, you can compare the 2 files like this:
 
 ```
-cd docs # Very important! The following commands will not work at the project's root directory.
-yarn install # Only the first time.
-GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
+cd spec/fixtures/file_diffing
+bash in_left_not_right.sh
 ```
 
-It may take a few minutes to update.
+This will print out any lines which are in `spec/fixtures/left_hand_file` and not in `spec/fixtures/right_hand_file`.
 
 ## Versioning
 
