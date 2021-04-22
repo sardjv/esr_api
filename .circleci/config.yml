@@ -65,6 +65,11 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install and configure dependencies
+          command: |
+            git config user.email "ci-build@sardjv.co.uk"
+            git config user.name "ci-build"
+      - run:
           name: Deploy docs
           command: cd docs/ && yarn install && GIT_USER=sardjv USE_SSH=true yarn deploy
 workflows:
