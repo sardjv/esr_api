@@ -4,6 +4,10 @@ title: Quickstart
 slug: quickstart
 ---
 
+:::warning
+  Any server or computer running this software MUST be totally secure, accessible only to privileged users, and administered by a professional sysadmin, as it will grant total access to ALL personally identifiable ESR data that is imported into it. The Docker environment is not inherently secure, and passwords set in the .env file are available on the host, as well as downloaded .DAT files containing ALL user data.
+:::
+
 ### .env file
 
 - To get started, you need a `.env` file with secrets.
