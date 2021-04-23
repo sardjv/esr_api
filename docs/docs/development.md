@@ -61,6 +61,7 @@ This project uses the [Kiba](https://github.com/thbar/kiba) gem for scalable and
 [This talk](https://www.youtube.com/watch?v=fxVtbog7pIQ) contains a short, clear explanation of how Kiba works.
 
 ### Tips
+
 - Don't insert rows one by one - use bulk insert.
 - Skip activerecord validations because they are too slow, find other ways to validate data.
 - Fail fast; raise an exception and stop on failure rather than trying to carry on and creating bad data.
@@ -121,6 +122,17 @@ Stop containers and remove them:
 ```
 docker-compose down --remove-orphans
 ```
+
+## Testing an import
+
+If you need to compare 2 files, e.g. an export from ESR and an export form another system, you can compare the 2 files like this:
+
+```
+cd spec/fixtures/file_diffing
+bash in_left_not_right.sh
+```
+
+This will print out any lines which appear in `spec/fixtures/left_hand_file` and not in `spec/fixtures/right_hand_file`.
 
 ## Versioning
 
