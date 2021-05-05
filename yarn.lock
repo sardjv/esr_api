@@ -994,15 +994,16 @@
     js-yaml "^3.13.1"
     tslib "^1.10.0"
 
-"@snyk/code-client@3.4.1":
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/@snyk/code-client/-/code-client-3.4.1.tgz#b9d025897cd586e0aef903162ac0407d0bffc3cd"
-  integrity sha512-XJ7tUdX1iQyzN/BmHac7p+Oyw1SyTcqSkCNExwBJxyQdlnUAKK6QKIWLXS81tTpZ79FgCdT+0fdS0AjsyS99eA==
+"@snyk/code-client@3.5.1":
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/@snyk/code-client/-/code-client-3.5.1.tgz#d61684ced448de53c4c15b3d9f4b7ab83d7a0483"
+  integrity sha512-hiDIs1tAuObQr8GwebUT1OH1S27odf23HArOHlcz/ddVHaZrRxreF64sflS4urdIxKVK39AYgMpc5M/QD0cgOg==
   dependencies:
     "@deepcode/dcignore" "^1.0.2"
     "@snyk/fast-glob" "^3.2.6-patch"
     "@types/flat-cache" "^2.0.0"
     "@types/lodash.chunk" "^4.2.6"
+    "@types/lodash.difference" "^4.5.6"
     "@types/lodash.omit" "^4.5.6"
     "@types/lodash.union" "^4.6.6"
     "@types/micromatch" "^4.0.1"
@@ -1011,6 +1012,7 @@
     axios "^0.21.1"
     ignore "^5.1.8"
     lodash.chunk "^4.2.0"
+    lodash.difference "^4.5.0"
     lodash.omit "^4.5.0"
     lodash.union "^4.6.0"
     micromatch "^4.0.2"
@@ -1324,6 +1326,13 @@
   version "4.2.6"
   resolved "https://registry.yarnpkg.com/@types/lodash.chunk/-/lodash.chunk-4.2.6.tgz#9d35f05360b0298715d7f3d9efb34dd4f77e5d2a"
   integrity sha512-SPlusB7jxXyGcTXYcUdWr7WmhArO/rmTq54VN88iKMxGUhyg79I4Q8n4riGn3kjaTjOJrVlHhxgX/d7woak5BQ==
+  dependencies:
+    "@types/lodash" "*"
+
+"@types/lodash.difference@^4.5.6":
+  version "4.5.6"
+  resolved "https://registry.yarnpkg.com/@types/lodash.difference/-/lodash.difference-4.5.6.tgz#41ec5c4e684eeacf543848a9a1b2a4856ccf9853"
+  integrity sha512-wXH53r+uoUCrKhmh7S5Gf6zo3vpsx/zH2R4pvkmDlmopmMTCROAUXDpPMXATGCWkCjE6ik3VZzZUxBgMjZho9Q==
   dependencies:
     "@types/lodash" "*"
 
@@ -5552,6 +5561,11 @@ lodash.defaults@^4.2.0:
   resolved "https://registry.yarnpkg.com/lodash.defaults/-/lodash.defaults-4.2.0.tgz#d09178716ffea4dde9e5fb7b37f6f0802274580c"
   integrity sha1-0JF4cW/+pN3p5ft7N/bwgCJ0WAw=
 
+lodash.difference@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.difference/-/lodash.difference-4.5.0.tgz#9ccb4e505d486b91651345772885a2df27fd017c"
+  integrity sha1-nMtOUF1Ia5FlE0V3KIWi3yf9AXw=
+
 lodash.endswith@^4.2.1:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/lodash.endswith/-/lodash.endswith-4.2.1.tgz#fed59ac1738ed3e236edd7064ec456448b37bc09"
@@ -8526,10 +8540,10 @@ snyk-cpp-plugin@2.2.1:
     hosted-git-info "^3.0.7"
     tslib "^2.0.0"
 
-snyk-docker-plugin@4.20.1:
-  version "4.20.1"
-  resolved "https://registry.yarnpkg.com/snyk-docker-plugin/-/snyk-docker-plugin-4.20.1.tgz#1f9cc5d0cf02055abde63cdfa6e2e20556fdbb57"
-  integrity sha512-qFExaxdu9bNgvkv5TCE/AOyCCOWjjFRuX3Dhf0TWbpj+TtzgpZj2nmi4AG3XiOBn1cQUZ7pCSHoy7bNJeyUBww==
+snyk-docker-plugin@4.20.2:
+  version "4.20.2"
+  resolved "https://registry.yarnpkg.com/snyk-docker-plugin/-/snyk-docker-plugin-4.20.2.tgz#6375eb262ae85cdcbccad5088b1836c686ab6462"
+  integrity sha512-cxRU6lNybAJgOs1RPDTk3fJh7rS0BkXSAw/8/GFGTeJlQ+dNhEnCWni7PKmaZT9phFNOqLQcDd8+oOZZB5UQnw==
   dependencies:
     "@snyk/dep-graph" "^1.28.0"
     "@snyk/rpm-parser" "^2.0.0"
@@ -8569,10 +8583,10 @@ snyk-go-plugin@1.17.0:
     tmp "0.2.1"
     tslib "^1.10.0"
 
-snyk-gradle-plugin@3.14.2:
-  version "3.14.2"
-  resolved "https://registry.yarnpkg.com/snyk-gradle-plugin/-/snyk-gradle-plugin-3.14.2.tgz#898b051f679e681b6d859f0ca84a500ac028af7d"
-  integrity sha512-l/nivKDZz7e2wymrwP6g2WQD8qgaYeE22SnbZrfIpwGolif81U28A9FsRedwkxKyB/shrM0vGEoD3c3zI8NLBw==
+snyk-gradle-plugin@3.14.4:
+  version "3.14.4"
+  resolved "https://registry.yarnpkg.com/snyk-gradle-plugin/-/snyk-gradle-plugin-3.14.4.tgz#daaff12ab017014e685520703abd432600e98b56"
+  integrity sha512-EwosGFPizeg03wFl2z0X8qw5+zpTZLGwgtLyFcFTBCUxfuLjEOy71XYkgpHOOsV9PPKzOIAKjOhKof4K1nyinw==
   dependencies:
     "@snyk/cli-interface" "2.11.0"
     "@snyk/dep-graph" "^1.28.0"
@@ -8776,15 +8790,15 @@ snyk-try-require@^2.0.0:
     lodash.clonedeep "^4.3.0"
     lru-cache "^5.1.1"
 
-snyk@^1.571.0:
-  version "1.571.0"
-  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.571.0.tgz#23ba8367ac478413b93365d5e55eb920637a7420"
-  integrity sha512-bxhjgjYRG9jCfOx1m8/zAXAi/zO8ruZ6TxxYeHlxKxnTJDXy3PaiTAPpfJtCcwedk0FEe30/abCGRtmPwh282w==
+snyk@^1.582.0:
+  version "1.582.0"
+  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.582.0.tgz#eb0dcc74bf3945c5d009d3eea6c0647903c6446d"
+  integrity sha512-FHPTzUPmN52YFDuX2GlOcItS70O30n8dAu+x9brvNiumUmmqYnnKARyc3r/uG4kbXyb8DDIIHcWP5XgGvBMpRg==
   dependencies:
     "@open-policy-agent/opa-wasm" "^1.2.0"
     "@snyk/cli-interface" "2.11.0"
     "@snyk/cloud-config-parser" "^1.9.2"
-    "@snyk/code-client" "3.4.1"
+    "@snyk/code-client" "3.5.1"
     "@snyk/dep-graph" "^1.27.1"
     "@snyk/fix" "1.554.0"
     "@snyk/gemfile" "1.2.0"
@@ -8828,9 +8842,9 @@ snyk@^1.571.0:
     semver "^6.0.0"
     snyk-config "4.0.0"
     snyk-cpp-plugin "2.2.1"
-    snyk-docker-plugin "4.20.1"
+    snyk-docker-plugin "4.20.2"
     snyk-go-plugin "1.17.0"
-    snyk-gradle-plugin "3.14.2"
+    snyk-gradle-plugin "3.14.4"
     snyk-module "3.1.0"
     snyk-mvn-plugin "2.25.3"
     snyk-nodejs-lockfile-parser "1.34.0"
