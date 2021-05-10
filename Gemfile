@@ -64,7 +64,7 @@ gem 'faker', '~> 2.17.0'
 
 # Simple plugin to add CSV export feature to Administrate.
 # https://github.com/SourceLabsLLC/administrate_exportable
-gem 'administrate_exportable', '~> 0.3.1'
+gem 'administrate_exportable', '~> 0.4.0'
 
 # Flexible authentication solution for Rails with Warden.
 # https://github.com/heartcombo/devise
