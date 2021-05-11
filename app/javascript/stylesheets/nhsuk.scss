@@ -41,6 +41,6 @@
 }
 
 .select2-container--default.select2-container--focus .select2-selection--multiple {
-  @extend .nhsuk-select:focus;
+  @extend .nhsuk-select, :focus;
   border-radius: 0px;
 }
