@@ -37,7 +37,7 @@ It can then be accessed at [http://localhost:3001/](http://localhost:3001/)
 The Swagger docs are generated from the RSpec tests in `spec/controllers/api` To rebuild the swagger docs:
 
 ```
-docker-compose run api bundle exec rails rswag
+docker-compose run rails bundle exec rails rswag
 ```
 
 ## Licenses
@@ -71,7 +71,7 @@ This project uses the [Kiba](https://github.com/thbar/kiba) gem for scalable and
 To run Rubocop, and listen for file changes:
 
 ```
-docker-compose run api bundle exec guard
+docker-compose run rails bundle exec guard
 ```
 
 Just press enter to run the whole test suite straight away.
@@ -90,6 +90,13 @@ To access a 'binding.pry' debugging point, run with:
 
 ```
 docker-compose run --service-ports api
+```
+## Model Annotation
+
+To annotate rails models with schema run
+
+```
+docker-compose run rails bundle exec annotate --models
 ```
 
 ## Accessing the database console
