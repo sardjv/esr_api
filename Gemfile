@@ -123,6 +123,10 @@ group :development do
 end
 
 group :test do
+  # Acceptance test framework for web applications.
+  # https://github.com/teamcapybara/capybara
+  gem 'capybara', '~> 3.35.3'
+
   # Strategies for cleaning databases between tests.
   # https://github.com/DatabaseCleaner/database_cleaner
   gem 'database_cleaner-active_record', '~> 2.0.1'
