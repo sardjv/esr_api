@@ -48,7 +48,7 @@ gem 'tzinfo-data', '~> 1.2021.1'
 
 # A Rails engine that helps you put together a super-flexible admin dashboard.
 # https://github.com/thoughtbot/administrate
-gem 'administrate', '~> 0.15.0'
+gem 'administrate', '~> 0.16.0'
 
 # A plugin for nested has_many forms in Administrate
 # https://github.com/nickcharlton/administrate-field-nested_has_many
