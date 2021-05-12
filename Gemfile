@@ -121,7 +121,7 @@ end
 group :test do
   # Strategies for cleaning databases between tests.
   # https://github.com/DatabaseCleaner/database_cleaner
-  gem 'database_cleaner-active_record', '~> 2.0.0'
+  gem 'database_cleaner-active_record', '~> 2.0.1'
 
   # Test your FTP calls offline.
   # https://github.com/thejamespinto/ftpmock
