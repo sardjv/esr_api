@@ -79,8 +79,14 @@ workflows:
   version: 2
   checks:
     jobs:
-      - rubocop
-      - test
+      - rubocop:
+          filters:
+            branches:
+              ignore: gh-pages
+      - test:
+          filters:
+            branches:
+              ignore: gh-pages
       - heroku/deploy-via-git:
           requires:
             - rubocop
