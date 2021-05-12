@@ -68,7 +68,7 @@ gem 'administrate_exportable', '~> 0.3.1'
 
 # Flexible authentication solution for Rails with Warden.
 # https://github.com/heartcombo/devise
-gem 'devise', '~> 4.7.3'
+gem 'devise', '~> 4.8.0'
 
 # Modern encryption for Rails. Works with database fields, files, and strings.
 # https://github.com/ankane/lockbox#active-record
