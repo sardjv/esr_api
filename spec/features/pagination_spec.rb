@@ -6,7 +6,7 @@ RSpec.feature 'Pagination', type: :feature do
   context 'with resources of type DisabilityRecord' do
     before do
       5.times do |n|
-        FactoryBot.create(:disability_record, id: n, Category: "Category #{n}")
+        create(:disability_record, id: n, Category: "Category #{n}")
       end
     end
     it 'can paginate' do
