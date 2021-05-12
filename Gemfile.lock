@@ -121,7 +121,7 @@ GEM
     erubi (1.10.0)
     et-orbi (1.2.4)
       tzinfo
-    factory_bot (6.1.0)
+    factory_bot (6.2.0)
       activesupport (>= 5.0.0)
     faker (2.17.0)
       i18n (>= 1.6, < 2)
@@ -394,7 +394,7 @@ DEPENDENCIES
   capybara (~> 3.35.3)
   database_cleaner-active_record (~> 2.0.1)
   devise (~> 4.8.0)
-  factory_bot (~> 6.1.0)
+  factory_bot (~> 6.2.0)
   faker (~> 2.17.0)
   ftpmock (~> 0.1.1)
   guard-rspec (~> 4.7.3)

@@ -56,7 +56,7 @@ gem 'administrate-field-nested_has_many', '~> 1.3.0'
 
 # Fixtures replacement with a straightforward definition syntax.
 # https://github.com/thoughtbot/factory_bot
-gem 'factory_bot', '~> 6.1.0'
+gem 'factory_bot', '~> 6.2.0'
 
 # Generate fake data such as names, addresses, and phone numbers.
 # https://github.com/faker-ruby/faker
