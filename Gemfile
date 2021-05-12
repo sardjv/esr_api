@@ -48,7 +48,7 @@ gem 'tzinfo-data', '~> 1.2021.1'
 
 # A Rails engine that helps you put together a super-flexible admin dashboard.
 # https://github.com/thoughtbot/administrate
-gem 'administrate', '~> 0.15.0'
+gem 'administrate', '~> 0.16.0'
 
 # A plugin for nested has_many forms in Administrate
 # https://github.com/nickcharlton/administrate-field-nested_has_many
@@ -101,6 +101,10 @@ group :development, :test do
 end
 
 group :development do
+  # Annotate Rails classes with schema and routes info.
+  # https://github.com/ctran/annotate_models
+  gem 'annotate', '~> 3.1.1'
+
   # Automates various tasks by running custom rules when files are changed.
   # https://github.com/guard/guard-rspec
   gem 'guard-rspec', '~> 4.7.3'
@@ -125,7 +129,7 @@ group :test do
 
   # Strategies for cleaning databases between tests.
   # https://github.com/DatabaseCleaner/database_cleaner
-  gem 'database_cleaner-active_record', '~> 2.0.0'
+  gem 'database_cleaner-active_record', '~> 2.0.1'
 
   # Test your FTP calls offline.
   # https://github.com/thejamespinto/ftpmock

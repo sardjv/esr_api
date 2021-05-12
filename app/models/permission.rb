@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: permissions
+#
+#  id           :bigint           not null, primary key
+#  subject_type :string(255)
+#  subject_id   :bigint
+#  resource     :string(255)      not null
+#  action       :string(255)      not null
+#  columns      :text(65535)      not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
 class Permission < ApplicationRecord
   RESOURCES = %w[
     AbsenceRecord
