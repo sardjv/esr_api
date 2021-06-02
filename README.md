@@ -2,6 +2,7 @@
 
 [![CircleCI Build Status](https://circleci.com/gh/sardjv/esr_api.svg?style=shield)](https://circleci.com/gh/sardjv/esr_api)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/sardjv/esr_api/blob/master/LICENSE)
+[![Public Money Public Code - Community](https://img.shields.io/badge/Public_Money_Public_Code-Community-2ea44f)](https://publicmoneypubliccode.org.uk/)
 
 ESR API is an open source project to improve the ability of NHS Trusts to interface with their ESR Data.
 
