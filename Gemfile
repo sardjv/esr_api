@@ -7,7 +7,7 @@ gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
 
 # A Ruby/Rack web server built for concurrency.
 # https://github.com/puma/puma
-gem 'puma', '~> 5.3.1'
+gem 'puma', '~> 5.3.2'
 
 # Use MySQL as the database for Active Record.
 # https://github.com/brianmario/mysql2
@@ -36,7 +36,7 @@ gem 'rswag-ui', '~> 2.4.0'
 
 # Use Webpack to manage app-like JavaScript modules in Rails.
 # https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.3.0'
+gem 'webpacker', '~> 5.4.0'
 
 # A resource-focused Rails library for developing JSON:API compliant servers.
 # https://github.com/cerebris/jsonapi-resources
@@ -60,7 +60,7 @@ gem 'factory_bot', '~> 6.2.0'
 
 # Generate fake data such as names, addresses, and phone numbers.
 # https://github.com/faker-ruby/faker
-gem 'faker', '~> 2.17.0'
+gem 'faker', '~> 2.18.0'
 
 # Simple plugin to add CSV export feature to Administrate.
 # https://github.com/SourceLabsLLC/administrate_exportable
