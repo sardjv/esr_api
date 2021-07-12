@@ -72,7 +72,7 @@ gem 'devise', '~> 4.8.0'
 
 # Modern encryption for Rails. Works with database fields, files, and strings.
 # https://github.com/ankane/lockbox#active-record
-gem 'lockbox', '~> 0.6.4'
+gem 'lockbox', '~> 0.6.5'
 
 # Securely search encrypted database fields.
 # https://github.com/ankane/blind_index
