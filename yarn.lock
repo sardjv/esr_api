@@ -6567,6 +6567,11 @@ peek-stream@^1.1.0:
     duplexify "^3.5.0"
     through2 "^2.0.3"
 
+pegjs@^0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/pegjs/-/pegjs-0.10.0.tgz#cf8bafae6eddff4b5a7efb185269eaaf4610ddbd"
+  integrity sha1-z4uvrm7d/0tafvsYUmnqr0YQ3b0=
+
 picomatch@^2.0.4, picomatch@^2.0.5, picomatch@^2.2.1:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.2.2.tgz#21f333e9b6b8eaff02468f5146ea406d345f4dad"
@@ -8392,10 +8397,10 @@ snyk-try-require@^2.0.0:
     lodash.clonedeep "^4.3.0"
     lru-cache "^5.1.1"
 
-snyk@^1.669.0:
-  version "1.669.0"
-  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.669.0.tgz#30a31db5bbd7db08765334608e8b28ae12480144"
-  integrity sha512-VHdw0R5L1ujCeILNr3bAvRE64inwCfUbZizvv1smJ+K0dtlWyJuvAWZW/Py9DhdLx4kbhUcTXQmMmGiUxJnkPg==
+snyk@^1.671.0:
+  version "1.671.0"
+  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.671.0.tgz#fe9906a74eba2044b5fd9bb5726122cdb59b1e49"
+  integrity sha512-VxTqViyluEo7ggIecTNkH+OjD/JtF6cHmxHrmMwRZ+FCRCUBmtDtdtT82lMLxTdp+cmx1jwBch7SyVGg3VIDZg==
   dependencies:
     "@open-policy-agent/opa-wasm" "^1.2.0"
     "@snyk/cli-interface" "2.11.0"
@@ -8439,6 +8444,7 @@ snyk@^1.669.0:
     open "^7.0.3"
     ora "5.4.0"
     os-name "^3.0.0"
+    pegjs "^0.10.0"
     promise-queue "^2.2.5"
     proxy-from-env "^1.0.0"
     rimraf "^2.6.3"
