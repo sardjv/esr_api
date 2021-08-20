@@ -2,7 +2,7 @@
   "dependencies": {
     "@nathanvda/cocoon": "^1.2.14",
     "@rails/ujs": "6.1.4",
-    "@rails/webpacker": "5.4.0",
+    "@rails/webpacker": "5.4.2",
     "chokidar": "^3.5.2",
     "nhsuk-frontend": "^5.1.0",
     "select2": "4.0.13",
