@@ -36,7 +36,7 @@ gem 'rswag-ui', '~> 2.4.0'
 
 # Use Webpack to manage app-like JavaScript modules in Rails.
 # https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.4.0'
+gem 'webpacker', '~> 5.4.2'
 
 # A resource-focused Rails library for developing JSON:API compliant servers.
 # https://github.com/cerebris/jsonapi-resources
