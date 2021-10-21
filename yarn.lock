@@ -6339,10 +6339,10 @@ snapdragon@^0.8.1:
     source-map-resolve "^0.5.0"
     use "^3.1.0"
 
-snyk@^1.733.0:
-  version "1.733.0"
-  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.733.0.tgz#e3982dfa0fba0ab1d0b2b84c07b6f109b2b4e0f2"
-  integrity sha512-Mi/wk9tw8ma4P2+2QwgzGDHcIG0Tfj0Wn7cliuUqd7CM8bg+Oryq3g4NcNK6mJZz0VaISF8MCIcIzbqV8v0JYg==
+snyk@^1.743.0:
+  version "1.743.0"
+  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.743.0.tgz#aa7043977c6876e42a32ee9e53f61251b8a93ba5"
+  integrity sha512-hVXpVn3cr1pts/YODOq2gLVWgCVLy2f0jFVrCYJiiFnAmyuA/ZRnfDyQT7yeddnAESQEJWzY2L9LX+siHbP2lQ==
 
 sockjs@^0.3.21:
   version "0.3.21"
