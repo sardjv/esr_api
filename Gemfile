@@ -3,11 +3,11 @@ ruby '3.0.0'
 
 # Create database-backed web applications using the MVC pattern.
 # https://github.com/rails/rails
-gem 'rails', '~> 6.1.3'
+gem 'rails', '~> 6.1.4', '>= 6.1.4.6'
 
 # A Ruby/Rack web server built for concurrency.
 # https://github.com/puma/puma
-gem 'puma', '~> 5.5.0'
+gem 'puma', '~> 5.6.2'
 
 # Use MySQL as the database for Active Record.
 # https://github.com/brianmario/mysql2
