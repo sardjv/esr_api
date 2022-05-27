@@ -55,4 +55,5 @@
 #  updated_at                        :datetime         not null
 #
 class AssignmentRecord < ApplicationRecord
+    belongs_to :person, class_name: 'PersonRecord', foreign_key: 'Person ID', primary_key: 'Person ID'
 end

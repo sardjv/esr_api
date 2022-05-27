@@ -55,3 +55,6 @@ docs/website
 docs/supervisord.*
 docs/.docusaurus
 docs/build
+
+# TAGS file created by ripper-tags gem for bust-a-gem plugin for VS Code
+TAGS

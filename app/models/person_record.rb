@@ -41,4 +41,5 @@
 #  updated_at                :datetime         not null
 #
 class PersonRecord < ApplicationRecord
+    has_many :assignment_records, foreign_key: 'Person ID', primary_key: 'Person ID'
 end
