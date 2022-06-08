@@ -42,4 +42,11 @@
 #
 class PersonRecord < ApplicationRecord
     has_many :assignment_records, foreign_key: 'Person ID', primary_key: 'Person ID'
+
+    def age
+        return nil unless self.send('Date of Birth').present?
+        dob = self.send('Date of Birth')
+        now = Time.now.utc.to_date
+        now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+    end
 end
