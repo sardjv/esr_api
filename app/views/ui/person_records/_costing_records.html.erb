@@ -1,0 +1,29 @@
+<h2>Costing Records</h2>
+
+<table class="nhsuk-table">
+    <thead class="nhsuk-table__head">
+    <tr class="nhsuk-table__row">
+        <th class="nhsuk-table__header" scope="col">Subjective</th>
+        <th class="nhsuk-table__header" scope="col">Start</th>
+        <th class="nhsuk-table__header" scope="col">End</th>
+        <th class="nhsuk-table__header" scope="col">Assignment</th>
+    </tr>
+    </thead>
+    <tbody class="nhsuk-table__body">
+    <% costing_records.each do |costing_record| %>
+    <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">
+        <%= costing_record.id %>
+        <%= link_to costing_record.send('Subjective'), [:ui, costing_record] %>
+        </td>
+        <td><%= costing_record.send('Effective Start Date').strftime('%b %y') %></td>
+        <td><%= costing_record.send('Effective End Date').try(:strftime, '%b %y') %></td>
+
+        <td class="nhsuk-table__cell ">
+        <%= costing_record.assignment.id %>
+        <%= link_to costing_record.assignment.send('Job Name'), [:ui, costing_record.assignment] %>
+        </td>
+    </tr>
+    <% end %>
+    </tbody>
+</table>

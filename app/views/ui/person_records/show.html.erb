@@ -24,8 +24,11 @@ as well as a link to its edit page.
     ) if valid_action?(:edit) && show_action?(:edit, page.resource) %>
   </div>
 </header>
+
 <%= render 'summary', person_record: page.resource %>
-<%= render 'assignments', assignment_records: page.resource.assignment_records%>
+<%= render 'assignments', assignment_records: page.resource.assignment_records %>
+<%= render 'costing_records', costing_records: page.resource.costing_records%>
+
 <div class="nhsuk-table__panel-with-heading-tab">
   <div class="nhsuk-table-container">
     <table class="nhsuk-table">

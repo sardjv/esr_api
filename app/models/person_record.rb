@@ -42,6 +42,7 @@
 #
 class PersonRecord < ApplicationRecord
     has_many :assignment_records, foreign_key: 'Person ID', primary_key: 'Person ID'
+    has_many :costing_records, foreign_key: 'Person ID', primary_key: 'Person ID'
 
     def age
         return nil unless self.send('Date of Birth').present?
