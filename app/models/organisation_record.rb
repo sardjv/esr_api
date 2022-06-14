@@ -21,4 +21,5 @@
 #  updated_at                  :datetime         not null
 #
 class OrganisationRecord < ApplicationRecord
+    belongs_to :location, class_name: 'LocationRecord', foreign_key: 'Location ID', primary_key: 'Location ID'
 end
