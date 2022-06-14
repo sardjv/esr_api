@@ -29,4 +29,5 @@
 #  updated_at                  :datetime         not null
 #
 class LocationRecord < ApplicationRecord
+    has_many :assignment_records, foreign_key: 'Assignment Location ID', primary_key: 'Location ID'
 end

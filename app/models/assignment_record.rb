@@ -57,4 +57,5 @@
 class AssignmentRecord < ApplicationRecord
     belongs_to :person, class_name: 'PersonRecord', foreign_key: 'Person ID', primary_key: 'Person ID'
     belongs_to :position, class_name: 'PositionRecord', foreign_key: 'Position ID', primary_key: 'Position ID'
+    belongs_to :location, class_name: 'LocationRecord', foreign_key: 'Assignment Location ID', primary_key: 'Location ID'
 end
