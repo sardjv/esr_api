@@ -26,4 +26,5 @@
 #  updated_at                  :datetime         not null
 #
 class PositionRecord < ApplicationRecord
+    has_many :assignment_records, foreign_key: 'Position ID', primary_key: 'Position ID'
 end

@@ -1,0 +1,28 @@
+<h2>Summary</h2>
+<dl class="nhsuk-summary-list">
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Name
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      <%= person_record.full_name %>
+    </dd>
+  </div>
+
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Date of birth
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      <%= person_record.send('Date of Birth') %>
+    </dd>
+  </div>
+  <div class="nhsuk-summary-list__row">
+    <dt class="nhsuk-summary-list__key">
+      Contact details
+    </dt>
+    <dd class="nhsuk-summary-list__value">
+      <p><%= person_record.send('Office E-mail Address')%></p>
+    </dd>
+  </div>
+</dl>

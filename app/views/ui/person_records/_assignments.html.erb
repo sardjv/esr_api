@@ -1,0 +1,29 @@
+<h2>Assignments
+
+<table class="nhsuk-table">
+    <thead class="nhsuk-table__head">
+    <tr class="nhsuk-table__row">
+        <th class="nhsuk-table__header" scope="col">Assignment Job Name</th>
+        <th class="nhsuk-table__header" scope="col">Start</th>
+        <th class="nhsuk-table__header" scope="col">End</th>
+        <th class="nhsuk-table__header" scope="col">Position</th>
+    </tr>
+    </thead>
+    <tbody class="nhsuk-table__body">
+    <% assignment_records.each do |assignment_record| %>
+    <tr class="nhsuk-table__row">
+        <td class="nhsuk-table__cell">
+        <%= assignment_record.id %>
+        <%= link_to assignment_record.send('Job Name'), [:ui, assignment_record] %>
+        </td>
+        <td><%= assignment_record.send('Effective Start Date').strftime('%b %y') %></td>
+        <td><%= assignment_record.send('Effective End Date').try(:strftime, '%b %y') %></td>
+
+        <td class="nhsuk-table__cell ">
+        <%= assignment_record.position.id %>
+        <%= link_to assignment_record.position.send('Subjective Code Description'), [:ui, assignment_record.position] %>
+        </td>
+    </tr>
+    <% end %>
+    </tbody>
+</table>
