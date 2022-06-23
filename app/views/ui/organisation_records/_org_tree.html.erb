@@ -1,0 +1,8 @@
+<ul>
+    <% org.children.each do |org| %>
+        <li><%= link_to org.send('Organisation Name'), [:ui, org] %></li>
+        <% if org.children.present? %>
+            <%= render 'org_tree', org: org %>
+        <% end %>
+    <% end %>
+</ul>
