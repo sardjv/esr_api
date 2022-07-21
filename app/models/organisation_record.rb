@@ -25,4 +25,5 @@ class OrganisationRecord < ApplicationRecord
     belongs_to :parent, class_name: 'OrganisationRecord', foreign_key: 'Parent Organisation ID', primary_key: 'Organisation ID', optional: true
     has_many :children, class_name: 'OrganisationRecord', foreign_key: 'Parent Organisation ID', primary_key: 'Organisation ID'
     has_many :positions, class_name: 'PositionRecord', foreign_key: 'Organisation ID', primary_key: 'Organisation ID'
+    has_many :assignments, class_name: 'AssignmentRecord', foreign_key: 'Organisation ID', primary_key: 'Organisation ID'
 end
