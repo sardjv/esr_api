@@ -24,4 +24,5 @@ class OrganisationRecord < ApplicationRecord
     belongs_to :location, class_name: 'LocationRecord', foreign_key: 'Location ID', primary_key: 'Location ID', optional: true
     belongs_to :parent, class_name: 'OrganisationRecord', foreign_key: 'Parent Organisation ID', primary_key: 'Organisation ID', optional: true
     has_many :children, class_name: 'OrganisationRecord', foreign_key: 'Parent Organisation ID', primary_key: 'Organisation ID'
+    has_many :positions, class_name: 'PositionRecord', foreign_key: 'Organisation ID', primary_key: 'Organisation ID'
 end

@@ -27,4 +27,5 @@
 #
 class PositionRecord < ApplicationRecord
     has_many :assignment_records, foreign_key: 'Position ID', primary_key: 'Position ID'
+    belongs_to :organisation, class_name: 'OrganisationRecord', foreign_key: 'Organisation ID', primary_key: 'Organisation ID', optional: true
 end
