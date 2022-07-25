@@ -44,6 +44,8 @@ class PersonRecord < ApplicationRecord
     has_many :assignment_records, foreign_key: 'Person ID', primary_key: 'Person ID'
     has_many :costing_records, foreign_key: 'Person ID', primary_key: 'Person ID'
 
+    scope :no_effective_end_date, -> { where('Effective End Date': nil) }
+
     def age
         return nil unless self.send('Date of Birth').present?
         dob = self.send('Date of Birth')

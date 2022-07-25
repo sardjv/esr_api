@@ -24,6 +24,47 @@ as well as a link to its edit page.
     ) if valid_action?(:edit) && show_action?(:edit, page.resource) %>
   </div>
 </header>
+
+<h1>Active Assignments</h1>
+<div class="nhsuk-table__panel-with-heading-tab">
+  <div class="nhsuk-table-container">
+    <table class="nhsuk-table">
+      <thead class="nhsuk-table__head">
+        <tr class="nhsuk-table__row">
+          <th class="nhsuk-table__header" scope="col">Assignment ID</th>
+          <th class="nhsuk-table__header" scope="col">Name</th>
+          <th class="nhsuk-table__header" scope="col">Position</th>
+          <th class="nhsuk-table__header" scope="col">Payscale</th>
+          <th class="nhsuk-table__header" scope="col">Location</th>
+        </tr>
+      </thead>
+      <tbody class="nhsuk-table__body">
+        <% page.resource.active_assignments.includes([:actively_assigned_person, :position, :location]).each do |assignment| %>
+        <tr class="nhsuk-table__row">
+          <td class="nhsuk-table__cell">
+            <%= link_to assignment.id, [:ui, assignment] %>
+          </td>
+          <td class="nhsuk-table__cell">
+            <%= link_to assignment.actively_assigned_person.full_name, [:ui, assignment.actively_assigned_person] %>
+          </td>
+          <td class="nhsuk-table__cell ">
+            <%= link_to assignment.position.send('Position Name').split('|')[1], [:ui, assignment.position] %>
+          </td>
+          <td class="nhsuk-table__cell ">
+            <%= link_to assignment.position.send('Payscale'), [:ui, assignment.position] %>
+          </td>
+          <td class="nhsuk-table__cell ">
+            <%= assignment.location.send('Location Description') %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
 <h1>Positions</h1>
 <ul>
 <% page.resource.positions.each do |position| %>

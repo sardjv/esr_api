@@ -26,4 +26,7 @@ class OrganisationRecord < ApplicationRecord
     has_many :children, class_name: 'OrganisationRecord', foreign_key: 'Parent Organisation ID', primary_key: 'Organisation ID'
     has_many :positions, class_name: 'PositionRecord', foreign_key: 'Organisation ID', primary_key: 'Organisation ID'
     has_many :assignments, class_name: 'AssignmentRecord', foreign_key: 'Organisation ID', primary_key: 'Organisation ID'
+    has_many :active_assignments, -> { no_effective_end_date }, class_name: 'AssignmentRecord', foreign_key: 'Organisation ID', primary_key: 'Organisation ID'
+    has_many :people, through: :assignments, class_name: 'PersonRecord'
+    has_many :actively_assigned_people, through: :active_assignments, class_name: 'PersonRecord'
 end
