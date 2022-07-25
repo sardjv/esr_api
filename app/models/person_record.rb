@@ -43,8 +43,11 @@
 class PersonRecord < ApplicationRecord
     has_many :assignment_records, foreign_key: 'Person ID', primary_key: 'Person ID'
     has_many :costing_records, foreign_key: 'Person ID', primary_key: 'Person ID'
+    has_many :supervisors, through: :assignment_records
 
     scope :no_effective_end_date, -> { where('Effective End Date': nil) }
+    scope :supervisors, -> { where('Person ID': AssignmentRecord.all.map(&:'Supervisor Person ID').uniq) }
+    scope :not_supervised, -> { joins(:assignment_records).where(assignment_records: { 'Supervisor Person ID': nil }).distinct }
 
     def age
         return nil unless self.send('Date of Birth').present?
