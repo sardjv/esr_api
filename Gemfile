@@ -44,7 +44,7 @@ gem 'jsonapi-resources', '~> 0.10.4'
 
 # Bundle zoneinfo files which are not included in Windows.
 # https://github.com/tzinfo/tzinfo-data
-gem 'tzinfo-data', '~> 1.2021.3'
+gem 'tzinfo-data', '~> 1.2022.4'
 
 # A Rails engine that helps you put together a super-flexible admin dashboard.
 # https://github.com/thoughtbot/administrate
