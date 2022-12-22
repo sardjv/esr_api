@@ -100,7 +100,7 @@ describe 'Api::V1::CompetenceDefinitionRecordResource', type: :request, swagger_
                   expect(response_data['attributes'].map(&:first)).to match_array(columns)
                   response_data['attributes'].each do |key, value|
                     if competence_definition_record.send(key).is_a?(Time)
-                      expect(competence_definition_record.send(key).strftime('%Y-%m-%dT%H:%M:%S.000Z')).to eq(value.to_s)
+                      expect(competence_definition_record.send(key).iso8601(3)).to eq(value.to_s)
                     else
                       expect(competence_definition_record.send(key).to_s).to eq(value.to_s)
                     end
