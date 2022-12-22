@@ -16,7 +16,8 @@ module EsrApi # rubocop:disable Style/ClassAndModuleChildren
 
     # Set up logging to be the same in all environments but control the level
     # through an environment variable.
-    config.log_level = ENV['LOG_LEVEL']
+    config.log_level = ENV['LOG_LEVEL'] if ENV['LOG_LEVEL']
+
 
     # Log to STDOUT because Docker expects all processes to log here. You could
     # then redirect logs to a third party service on your own such as systemd,
@@ -35,6 +36,8 @@ module EsrApi # rubocop:disable Style/ClassAndModuleChildren
       url: "redis://:#{ENV['REDIS_PASSWORD']}@redis:#{ENV['REDIS_PORT']}/0",
       namespace: ENV['REDIS_CACHE_NAMESPACE']
     }
+
+    config.active_record.belongs_to_required_by_default = false
 
     # Set Sidekiq as the back-end for Active Job.
     config.active_job.queue_adapter = :sidekiq

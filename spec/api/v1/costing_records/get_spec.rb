@@ -100,7 +100,7 @@ describe 'Api::V1::CostingRecordResource', type: :request, swagger_doc: 'v1/swag
                   expect(response_data['attributes'].map(&:first)).to match_array(columns)
                   response_data['attributes'].each do |key, value|
                     if costing_record.send(key).is_a?(Time)
-                      expect(costing_record.send(key).strftime('%Y-%m-%dT%H:%M:%S.000Z')).to eq(value.to_s)
+                      expect(costing_record.send(key).iso8601(3)).to eq(value.to_s)
                     else
                       expect(costing_record.send(key).to_s).to eq(value.to_s)
                     end
