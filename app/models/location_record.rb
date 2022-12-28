@@ -29,6 +29,6 @@
 #  updated_at                  :datetime         not null
 #
 class LocationRecord < ApplicationRecord
-  has_many :assignment_records, foreign_key: 'Assignment Location ID', primary_key: 'Location ID'
-  has_many :organisation_records, foreign_key: 'Location ID', primary_key: 'Location ID'
+  has_many :assignment_records, foreign_key: 'Assignment Location ID', primary_key: 'Location ID', dependent: :nullify, inverse_of: :location
+  has_many :organisation_records, foreign_key: 'Location ID', primary_key: 'Location ID', dependent: :nullify, inverse_of: :location
 end

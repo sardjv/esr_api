@@ -41,13 +41,13 @@
 #  updated_at                :datetime         not null
 #
 class PersonRecord < ApplicationRecord
-  has_many :assignment_records, foreign_key: 'Person ID', primary_key: 'Person ID'
-  has_many :costing_records, foreign_key: 'Person ID', primary_key: 'Person ID'
+  has_many :assignment_records, foreign_key: 'Person ID', primary_key: 'Person ID', dependent: :nullify, inverse_of: :person
+  has_many :costing_records, foreign_key: 'Person ID', primary_key: 'Person ID', dependent: :nullify, inverse_of: :person
 
   def age
-    return nil if send('Date of Birth').blank?
-
     dob = send('Date of Birth')
+    return if dob.blank?
+
     now = Time.now.utc.to_date
     now.year - dob.year - (now.month > dob.month || (now.month == dob.month && now.day >= dob.day) ? 0 : 1)
   end

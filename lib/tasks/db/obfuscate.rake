@@ -35,7 +35,7 @@ namespace :db do
           print '.'
         end
       rescue StandardError
-        binding.pry
+        #   binding.pry
       end
       puts '='
       puts 'Obfuscation Person Records COMPLETE'
@@ -84,7 +84,7 @@ namespace :db do
           print '.'
         end
       rescue StandardError
-        binding.pry
+        # binding.pry
       end
       puts '='
       puts 'Obfuscation Person EIT Records COMPLETE'

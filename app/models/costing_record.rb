@@ -22,6 +22,6 @@
 #  updated_at            :datetime         not null
 #
 class CostingRecord < ApplicationRecord
-  belongs_to :person, class_name: 'PersonRecord', foreign_key: 'Person ID', primary_key: 'Person ID'
-  belongs_to :assignment, class_name: 'AssignmentRecord', foreign_key: 'Assignment ID', primary_key: 'Assignment ID'
+  belongs_to :person, class_name: 'PersonRecord', foreign_key: 'Person ID', primary_key: 'Person ID', inverse_of: :costing_records
+  belongs_to :assignment, class_name: 'AssignmentRecord', foreign_key: 'Assignment ID', primary_key: 'Assignment ID', inverse_of: :costing_records
 end
