@@ -2,7 +2,7 @@ class ETL::Transformations::StringToTimestamp
   def process(row)
     row.update(row) do |key, value|
       if value && timestamp_headers(row['Record Type']).include?(key)
-        Time.strptime(value, '%Y%m%d %H%M%S')
+        Time.zone.strptime(value, '%Y%m%d %H%M%S')
       else
         value
       end
