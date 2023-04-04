@@ -3,11 +3,11 @@ ruby '3.0.0'
 
 # Create database-backed web applications using the MVC pattern.
 # https://github.com/rails/rails
-gem 'rails', '~> 6.1.3'
+gem 'rails', '~> 6.1.7', '>= 6.1.7.3'
 
 # A Ruby/Rack web server built for concurrency.
 # https://github.com/puma/puma
-gem 'puma', '~> 5.5.0'
+gem 'puma', '~> 5.6.4'
 
 # Use MySQL as the database for Active Record.
 # https://github.com/brianmario/mysql2
@@ -19,7 +19,7 @@ gem 'redis', '~> 4.4.0'
 
 # Simple, efficient background processing for Ruby.
 # https://github.com/mperham/sidekiq
-gem 'sidekiq', '~> 6.2.2'
+gem 'sidekiq', '~> 7.0.0'
 
 # Data processing & ETL framework for Ruby.
 # https://github.com/thbar/kiba
