@@ -19,7 +19,7 @@ gem 'redis', '~> 4.4.0'
 
 # Simple, efficient background processing for Ruby.
 # https://github.com/mperham/sidekiq
-gem 'sidekiq', '~> 6.2.2'
+gem 'sidekiq', '~> 7.1.3'
 
 # Data processing & ETL framework for Ruby.
 # https://github.com/thbar/kiba
@@ -88,7 +88,7 @@ gem 'public_activity', '~> 1.6.4'
 
 # Scheduler / Cron for Sidekiq jobs.
 # https://github.com/ondrejbartas/sidekiq-cron
-gem 'sidekiq-cron', '~> 1.2.0'
+gem 'sidekiq-cron', '~> 1.3.0'
 
 group :development, :test do
   # Call 'binding.pry' anywhere in your code to drop into a debugger console.
