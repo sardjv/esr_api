@@ -3,7 +3,7 @@ ruby '3.0.0'
 
 # Create database-backed web applications using the MVC pattern.
 # https://github.com/rails/rails
-gem 'rails', '~> 6.1.3'
+gem 'rails', '~> 7.1.0'
 
 # A Ruby/Rack web server built for concurrency.
 # https://github.com/puma/puma
@@ -36,11 +36,11 @@ gem 'rswag-ui', '~> 2.4.0'
 
 # Use Webpack to manage app-like JavaScript modules in Rails.
 # https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.4.3'
+gem 'webpacker', '~> 5.4.4'
 
 # A resource-focused Rails library for developing JSON:API compliant servers.
 # https://github.com/cerebris/jsonapi-resources
-gem 'jsonapi-resources', '~> 0.10.4'
+gem 'jsonapi-resources', '~> 0.10.5'
 
 # Bundle zoneinfo files which are not included in Windows.
 # https://github.com/tzinfo/tzinfo-data
@@ -48,7 +48,7 @@ gem 'tzinfo-data', '~> 1.2021.3'
 
 # A Rails engine that helps you put together a super-flexible admin dashboard.
 # https://github.com/thoughtbot/administrate
-gem 'administrate', '~> 0.16.0'
+gem 'administrate', '~> 0.17.0'
 
 # A plugin for nested has_many forms in Administrate
 # https://github.com/nickcharlton/administrate-field-nested_has_many
@@ -64,11 +64,11 @@ gem 'faker', '~> 2.19.0'
 
 # Simple plugin to add CSV export feature to Administrate.
 # https://github.com/SourceLabsLLC/administrate_exportable
-gem 'administrate_exportable', '~> 0.5.0'
+gem 'administrate_exportable', '~> 0.6.0'
 
 # Flexible authentication solution for Rails with Warden.
 # https://github.com/heartcombo/devise
-gem 'devise', '~> 4.8.0'
+gem 'devise', '~> 4.8.1'
 
 # Modern encryption for Rails. Works with database fields, files, and strings.
 # https://github.com/ankane/lockbox#active-record
@@ -84,7 +84,7 @@ gem 'paper_trail', '~> 12.1.0'
 
 # Easy activity tracking for models - similar to Github's Public Activity.
 # https://github.com/chaps-io/public_activity
-gem 'public_activity', '~> 1.6.4'
+gem 'public_activity', '~> 2.0.0'
 
 # Scheduler / Cron for Sidekiq jobs.
 # https://github.com/ondrejbartas/sidekiq-cron
@@ -141,7 +141,7 @@ group :test do
 
   # RSpec is a specification library for behaviour driven development.
   # https://github.com/rspec/rspec
-  gem 'rspec-rails', '~> 5.0.2'
+  gem 'rspec-rails', '~> 5.0.3'
 
   # Generate code coverage documentation.
   # https://github.com/colszowka/simplecov
