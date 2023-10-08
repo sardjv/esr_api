@@ -3,7 +3,7 @@ ruby '3.0.0'
 
 # Create database-backed web applications using the MVC pattern.
 # https://github.com/rails/rails
-gem 'rails', '~> 6.1.3'
+gem 'rails', '~> 7.1.0'
 
 # A Ruby/Rack web server built for concurrency.
 # https://github.com/puma/puma
@@ -64,7 +64,7 @@ gem 'faker', '~> 2.19.0'
 
 # Simple plugin to add CSV export feature to Administrate.
 # https://github.com/SourceLabsLLC/administrate_exportable
-gem 'administrate_exportable', '~> 0.5.0'
+gem 'administrate_exportable', '~> 0.6.0'
 
 # Flexible authentication solution for Rails with Warden.
 # https://github.com/heartcombo/devise
