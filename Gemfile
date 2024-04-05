@@ -3,7 +3,7 @@ ruby '3.0.0'
 
 # Create database-backed web applications using the MVC pattern.
 # https://github.com/rails/rails
-gem 'rails', '~> 6.1.3'
+gem 'rails', '~> 7.0.8', '>= 7.0.8.1'
 
 # A Ruby/Rack web server built for concurrency.
 # https://github.com/puma/puma
@@ -19,7 +19,7 @@ gem 'redis', '~> 4.4.0'
 
 # Simple, efficient background processing for Ruby.
 # https://github.com/mperham/sidekiq
-gem 'sidekiq', '~> 6.2.2'
+gem 'sidekiq', '~> 6.3.0'
 
 # Data processing & ETL framework for Ruby.
 # https://github.com/thbar/kiba
@@ -31,16 +31,16 @@ gem 'kiba-common', '~> 1.5.0'
 
 # Serve Swagger documentation generated from RSpec tests.
 # https://github.com/rswag/rswag
-gem 'rswag-api', '~> 2.4.0'
-gem 'rswag-ui', '~> 2.4.0'
+gem 'rswag-api', '~> 2.5.0'
+gem 'rswag-ui', '~> 2.5.0'
 
 # Use Webpack to manage app-like JavaScript modules in Rails.
 # https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.4.3'
+gem 'webpacker', '~> 5.4.4'
 
 # A resource-focused Rails library for developing JSON:API compliant servers.
 # https://github.com/cerebris/jsonapi-resources
-gem 'jsonapi-resources', '~> 0.10.4'
+gem 'jsonapi-resources', '~> 0.10.5'
 
 # Bundle zoneinfo files which are not included in Windows.
 # https://github.com/tzinfo/tzinfo-data
@@ -48,11 +48,11 @@ gem 'tzinfo-data', '~> 1.2021.3'
 
 # A Rails engine that helps you put together a super-flexible admin dashboard.
 # https://github.com/thoughtbot/administrate
-gem 'administrate', '~> 0.16.0'
+gem 'administrate', '~> 0.17.0'
 
 # A plugin for nested has_many forms in Administrate
 # https://github.com/nickcharlton/administrate-field-nested_has_many
-gem 'administrate-field-nested_has_many', '~> 1.3.0'
+gem 'administrate-field-nested_has_many', '~> 2.0.0'
 
 # Fixtures replacement with a straightforward definition syntax.
 # https://github.com/thoughtbot/factory_bot
@@ -64,11 +64,11 @@ gem 'faker', '~> 2.19.0'
 
 # Simple plugin to add CSV export feature to Administrate.
 # https://github.com/SourceLabsLLC/administrate_exportable
-gem 'administrate_exportable', '~> 0.5.0'
+gem 'administrate_exportable', '~> 0.6.0'
 
 # Flexible authentication solution for Rails with Warden.
 # https://github.com/heartcombo/devise
-gem 'devise', '~> 4.8.0'
+gem 'devise', '~> 4.8.1'
 
 # Modern encryption for Rails. Works with database fields, files, and strings.
 # https://github.com/ankane/lockbox#active-record
@@ -80,15 +80,15 @@ gem 'blind_index', '~> 2.2.0'
 
 # Track changes to your rails models.
 # https://github.com/paper-trail-gem/paper_trail
-gem 'paper_trail', '~> 12.1.0'
+gem 'paper_trail', '~> 12.2.0'
 
 # Easy activity tracking for models - similar to Github's Public Activity.
 # https://github.com/chaps-io/public_activity
-gem 'public_activity', '~> 1.6.4'
+gem 'public_activity', '~> 2.0.0'
 
 # Scheduler / Cron for Sidekiq jobs.
 # https://github.com/ondrejbartas/sidekiq-cron
-gem 'sidekiq-cron', '~> 1.2.0'
+gem 'sidekiq-cron', '~> 1.3.0'
 
 group :development, :test do
   # Call 'binding.pry' anywhere in your code to drop into a debugger console.
@@ -97,7 +97,7 @@ group :development, :test do
 
   # Generate Swagger docs from RSpec tests.
   # https://github.com/rswag/rswag
-  gem 'rswag-specs', '~> 2.4.0'
+  gem 'rswag-specs', '~> 2.5.0'
 end
 
 group :development do
@@ -115,7 +115,7 @@ group :development do
 
   # A static code analyzer and formatter, based on the community style guide.
   # https://github.com/rubocop-hq/rubocop-rails
-  gem 'rubocop-rails', '~> 2.9.1'
+  gem 'rubocop-rails', '~> 2.10.0'
 
   # Tool to check dependency licenses.
   # https://github.com/pivotal/LicenseFinder
@@ -125,7 +125,7 @@ end
 group :test do
   # Acceptance test framework for web applications.
   # https://github.com/teamcapybara/capybara
-  gem 'capybara', '~> 3.35.3'
+  gem 'capybara', '~> 3.36.0'
 
   # Strategies for cleaning databases between tests.
   # https://github.com/DatabaseCleaner/database_cleaner
@@ -141,7 +141,7 @@ group :test do
 
   # RSpec is a specification library for behaviour driven development.
   # https://github.com/rspec/rspec
-  gem 'rspec-rails', '~> 5.0.2'
+  gem 'rspec-rails', '~> 5.0.3'
 
   # Generate code coverage documentation.
   # https://github.com/colszowka/simplecov
