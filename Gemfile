@@ -88,7 +88,7 @@ gem 'public_activity', '~> 1.6.4'
 
 # Scheduler / Cron for Sidekiq jobs.
 # https://github.com/ondrejbartas/sidekiq-cron
-gem 'sidekiq-cron', '~> 1.2.0'
+gem 'sidekiq-cron', '~> 2.0.0'
 
 group :development, :test do
   # Call 'binding.pry' anywhere in your code to drop into a debugger console.
