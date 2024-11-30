@@ -111,7 +111,7 @@ group :development do
 
   # Automatically check Ruby code style with RuboCop when files are modified.
   # https://github.com/yujinakayama/guard-rubocop
-  gem 'guard-rubocop', '~> 1.4.0'
+  gem 'guard-rubocop', '~> 1.5.0'
 
   # A static code analyzer and formatter, based on the community style guide.
   # https://github.com/rubocop-hq/rubocop-rails
