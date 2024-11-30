@@ -3,7 +3,7 @@
     "@nathanvda/cocoon": "^1.2.14",
     "@rails/ujs": "6.1.4",
     "@rails/webpacker": "5.4.3",
-    "chokidar": "^3.5.2",
+    "chokidar": "^3.5.3",
     "nhsuk-frontend": "^6.1.0",
     "select2": "4.0.13",
     "snyk": "^1.842.0",
