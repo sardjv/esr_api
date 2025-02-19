@@ -3,7 +3,7 @@ ruby '3.0.0'
 
 # Create database-backed web applications using the MVC pattern.
 # https://github.com/rails/rails
-gem 'rails', '~> 6.1.3'
+gem 'rails', '~> 7.0.0'
 
 # A Ruby/Rack web server built for concurrency.
 # https://github.com/puma/puma
@@ -48,11 +48,11 @@ gem 'tzinfo-data', '~> 1.2021.3'
 
 # A Rails engine that helps you put together a super-flexible admin dashboard.
 # https://github.com/thoughtbot/administrate
-gem 'administrate', '~> 0.16.0'
+gem 'administrate', '~> 0.18.0'
 
 # A plugin for nested has_many forms in Administrate
 # https://github.com/nickcharlton/administrate-field-nested_has_many
-gem 'administrate-field-nested_has_many', '~> 1.3.0'
+gem 'administrate-field-nested_has_many', '~> 2.1.0'
 
 # Fixtures replacement with a straightforward definition syntax.
 # https://github.com/thoughtbot/factory_bot
@@ -115,7 +115,7 @@ group :development do
 
   # A static code analyzer and formatter, based on the community style guide.
   # https://github.com/rubocop-hq/rubocop-rails
-  gem 'rubocop-rails', '~> 2.9.1'
+  gem 'rubocop-rails', '~> 2.30.0'
 
   # Tool to check dependency licenses.
   # https://github.com/pivotal/LicenseFinder
