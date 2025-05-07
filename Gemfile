@@ -76,7 +76,7 @@ gem 'lockbox', '~> 0.6.6'
 
 # Securely search encrypted database fields.
 # https://github.com/ankane/blind_index
-gem 'blind_index', '~> 2.2.0'
+gem 'blind_index', '~> 2.7.0'
 
 # Track changes to your rails models.
 # https://github.com/paper-trail-gem/paper_trail
@@ -141,7 +141,7 @@ group :test do
 
   # RSpec is a specification library for behaviour driven development.
   # https://github.com/rspec/rspec
-  gem 'rspec-rails', '~> 5.0.2'
+  gem 'rspec-rails', '~> 8.0.0'
 
   # Generate code coverage documentation.
   # https://github.com/colszowka/simplecov
