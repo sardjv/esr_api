@@ -31,10 +31,10 @@ class FtpCredential < ApplicationRecord
   validate :validate_singleton, on: :create
   validate :validate_password_is_secret, on: :create
 
-  encrypts :host
-  encrypts :user
-  encrypts :password
-  encrypts :virtual_private_database_number
+  has_encrypted :host
+  has_encrypted :user
+  has_encrypted :password
+  has_encrypted :virtual_private_database_number
 
   def connect
     connection = Net::FTP.new(host, ssl: true)

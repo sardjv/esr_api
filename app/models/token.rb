@@ -24,7 +24,7 @@ class Token < ApplicationRecord
   validates_associated :permissions
   validate :permissions_all_unique
 
-  encrypts :token
+  has_encrypted :token
   blind_index :token
 
   # Tokens should only be viewed once.

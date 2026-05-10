@@ -58,3 +58,6 @@ docs/build
 
 # TAGS file created by ripper-tags gem for bust-a-gem plugin for VS Code
 TAGS
+
+# Ignore RSpec persisted state.
+/spec/examples.txt
