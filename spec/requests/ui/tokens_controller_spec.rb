@@ -42,7 +42,7 @@ describe Ui::TokensController, type: :request do
 
       describe 'format.json' do
         let(:params) { { resource: resource } }
-        let(:result) { JSON.parse(response.body)['column_options'] }
+        let(:result) { response.parsed_body['column_options'] }
 
         before do
           get new_ui_token_path, params: params, as: :json

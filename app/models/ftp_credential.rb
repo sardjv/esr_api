@@ -91,7 +91,7 @@ class FtpCredential < ApplicationRecord
   def create_snapshot_request_file(filename:)
     upload_file_path = File.join(local_uploads_path, filename)
     FtpCredential.ensure_path(path: local_uploads_path)
-    File.open(upload_file_path, 'w') { |f| f.write(snapshot_request_file_contents(filename: filename)) }
+    File.write(upload_file_path, snapshot_request_file_contents(filename: filename))
     upload_file_path
   end
 
@@ -133,7 +133,7 @@ class FtpCredential < ApplicationRecord
   def self.ensure_path(path:)
     path.split('/').inject('.') do |acc, directory|
       acc = File.join(acc, directory)
-      Dir.mkdir(acc) unless Dir.exist?(acc)
+      FileUtils.mkdir_p(acc)
       acc
     end
   end

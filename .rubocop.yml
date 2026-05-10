@@ -1,4 +1,4 @@
-require:
+plugins:
   - rubocop-rails
 
 AllCops:
@@ -26,8 +26,12 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 
 Style/ClassAndModuleChildren:
-  # Use compact module style for consistency and better indendation.
+  # Use compact module style for consistency and better indentation.
   EnforcedStyle: compact
+  Exclude:
+    # Faker.prepend Faker::EsrApi needs the parent module to be defined first,
+    # so the nested style is required here.
+    - 'config/initializers/faker.rb'
 
 Style/MixinUsage:
   Enabled: false
@@ -44,3 +48,9 @@ Metrics/BlockLength:
 Rails/SkipsModelValidations:
   AllowedMethods:
     - update_all
+
+# `activated` is paired with `activated=` (used as a virtual attribute) and
+# the verify_* methods are existing public API. Renaming them is out of scope
+# for a dependency update.
+Naming/PredicateMethod:
+  Enabled: false

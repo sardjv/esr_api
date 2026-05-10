@@ -4,7 +4,6 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   collation: utf8mb4_bin
-  reconnect: false
   pool: 50
   username: <%= ENV['DB_USERNAME'] || ENV['MYSQL_USER'] %>
   password: <%= ENV['DB_PASSWORD'] || ENV['MYSQL_PASSWORD'] %>

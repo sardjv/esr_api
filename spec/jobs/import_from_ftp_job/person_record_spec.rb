@@ -38,8 +38,8 @@ describe ImportFromFtpJob, type: :job do
         build(:person_record) do |r|
           r.assign_attributes(
             Expectations::PersonRecord.added.merge(
-              'created_at' => Time.current - 1.week,
-              'updated_at' => Time.current - 1.week
+              'created_at' => 1.week.ago,
+              'updated_at' => 1.week.ago
             )
           )
           r.save
@@ -52,7 +52,7 @@ describe ImportFromFtpJob, type: :job do
         expect(PersonRecord.count).to eq(1)
         pr = PersonRecord.first
 
-        expect(pr.created_at).to be_within(2.seconds).of(Time.current - 1.week)
+        expect(pr.created_at).to be_within(2.seconds).of(1.week.ago)
         expect(pr.updated_at).to be_within(2.seconds).of(Time.current)
 
         # Expect values in the database to match input from update_person_record_20201015_00001157.DAT.
