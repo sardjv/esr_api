@@ -1,20 +1,15 @@
 {
+  "private": true,
   "dependencies": {
     "@nathanvda/cocoon": "^1.2.14",
-    "@rails/ujs": "6.1.4",
-    "@rails/webpacker": "5.4.3",
-    "chokidar": "^3.5.2",
-    "nhsuk-frontend": "^6.1.0",
-    "select2": "4.0.13",
-    "snyk": "^1.842.0",
+    "@rails/ujs": "^6.1.7",
+    "@rails/webpacker": "5.4.4",
+    "chokidar": "^3.6.0",
+    "nhsuk-frontend": "^6.2.0",
+    "select2": "^4.0.13",
     "turbolinks": "^5.2.0"
   },
   "devDependencies": {
-    "webpack-dev-server": "^4.3.1"
-  },
-  "scripts": {
-    "snyk-protect": "snyk protect",
-    "prepare": "yarn run snyk-protect"
-  },
-  "snyk": true
+    "webpack-dev-server": "^4.15.2"
+  }
 }
