@@ -5,6 +5,40 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- Bump Ruby from 3.0.0 (EOL March 2024) to 3.3.6.
+- Upgrade Rails to 6.1.7.10 (final security-supported 6.1 patch). Webpacker
+  stays on 5.4 — Rails 7.x+ no longer ships webpacker support, so a move
+  past 6.1 is its own follow-up project.
+- Refresh runtime gems: lockbox 0.6 → 1.4 (`encrypts` → `has_encrypted`),
+  paper_trail 12 → 14, devise 4.8 → 4.9, sidekiq 6.2 → 6.5, administrate
+  0.16 → 0.19, faker 2.19 → 3.5, blind_index → 2.4, public_activity → 2.0,
+  sidekiq-cron → 1.10, jsonapi-resources pinned to 0.10.4 (0.10.5+ emits
+  ANSI-quoted SQL identifiers that MySQL rejects).
+- Refresh dev/test gems: rspec-rails 5 → 6, shoulda-matchers 5 → 6,
+  rubocop-rails 2.9 → 2.27, capybara 3.35 → 3.40, simplecov 0.21 → 0.22,
+  database_cleaner-active_record 2.0 → 2.2, license_finder 6 → 7.
+- Replace deprecated administrate `show_action?(action, target)` calls with
+  `accessible_action?(target, action)` and pass symbols to polymorphic
+  routes throughout the UI views.
+- Drop the Snyk `prepare` / `snyk-protect` install hook (Snyk's `protect`
+  was retired in 2022); refresh @rails/ujs, webpacker, chokidar,
+  nhsuk-frontend, and webpack-dev-server to current 6.x/3.x/4.x lines.
+- bin/webpack and bin/webpack-dev-server set
+  `NODE_OPTIONS=--openssl-legacy-provider` so Webpack 4's MD4 hashing keeps
+  working on Node 17+.
+- CircleCI and Dockerfile bumped to ruby 3.3.6; Dockerfile installs
+  mariadb-dev / tzdata to replace the removed alpine `mysql-dev` package.
+
+### Removed
+
+- `reconnect: false` from `database.yml`: mysql2 0.5.6+ removed
+  MYSQL_OPT_RECONNECT and warned on every connect.
+- `snyk` npm package and `.snyk` policy file (no longer used).
+
 ## [0.8.5] - 2021-05-12
 
 ### Fixed

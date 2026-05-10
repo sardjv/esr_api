@@ -9,3 +9,42 @@ ESR API is an open source project to improve the ability of NHS Trusts to interf
 It's a collaboration between [SARD JV](https://sardjv.co.uk/) and [Oxleas NHS Foundation Trust](http://oxleas.nhs.uk/), funded by NHS Improvements. It's currently under active development and is not yet ready for production use.
 
 Click [here](https://sardjv.github.io/esr_api/) to check out the documentation for this project.
+
+## Stack
+
+- **Ruby** 3.3.6
+- **Rails** 6.1.7.x
+- **MySQL** 8.0
+- **Redis** 6+
+- **Node** 18+ (Webpacker 5 / Webpack 4 — `NODE_OPTIONS=--openssl-legacy-provider` is wired into `bin/webpack` for Node 17+)
+- **Sidekiq** 6.5
+
+## Local development (without Docker)
+
+```bash
+# Install Ruby + bundler
+rbenv install 3.3.6 && rbenv local 3.3.6
+gem install bundler
+
+# Install gems and JS deps
+bundle install
+yarn install
+
+# Boot a local MySQL (bound to localhost only)
+docker run -d --name esr-api-mysql \
+  -p 127.0.0.1:13306:3306 \
+  -e MYSQL_ROOT_PASSWORD=esr_api_dev \
+  mysql:8.0
+
+# Copy .env.example to .env and fill it in, then:
+bundle exec rails db:create db:schema:load
+bundle exec rspec
+```
+
+## Local development (with Docker)
+
+```bash
+cp .env.example .env  # fill in passwords / secrets
+cp docker-compose.override.yml.sample docker-compose.override.yml
+docker-compose up
+```
