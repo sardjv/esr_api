@@ -84,7 +84,7 @@ gem 'administrate_exportable', '~> 0.5'
 
 # Flexible authentication solution for Rails with Warden.
 # https://github.com/heartcombo/devise
-gem 'devise', '~> 4.9'
+gem 'devise', '~> 5.0', '>= 5.0.4'
 
 # Modern encryption for Rails. Works with database fields, files, and strings.
 # https://github.com/ankane/lockbox#active-record
@@ -104,7 +104,7 @@ gem 'public_activity', '~> 2.0'
 
 # Scheduler / Cron for Sidekiq jobs.
 # https://github.com/ondrejbartas/sidekiq-cron
-gem 'sidekiq-cron', '~> 1.10'
+gem 'sidekiq-cron', '~> 2.4', '>= 2.4.0'
 
 # Bootsnap optimizes Rails app boot time.
 # https://github.com/Shopify/bootsnap
