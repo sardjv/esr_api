@@ -1,4 +1,4 @@
-sidekiq_config = { url: "redis://:#{ENV['REDIS_PASSWORD']}@redis:#{ENV['REDIS_PORT']}/0" }
+sidekiq_config = { url: "redis://:#{ENV.fetch('REDIS_PASSWORD', nil)}@redis:#{ENV.fetch('REDIS_PORT', nil)}/0" }
 
 Sidekiq.configure_server do |config|
   config.redis = sidekiq_config

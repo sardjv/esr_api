@@ -34,7 +34,7 @@ describe ImportFromFtpJob, type: :job do
         end
 
         # Expect timestamps.
-        klass.all.each do |record|
+        klass.find_each do |record|
           expect(record.created_at).not_to eq(nil)
           expect(record.updated_at).not_to eq(nil)
         end

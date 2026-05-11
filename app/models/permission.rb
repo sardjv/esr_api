@@ -51,7 +51,7 @@ class Permission < ApplicationRecord
   def columns=(value)
     value = value.reject(&:empty?).join(',') if value.is_a?(Array)
 
-    super(value)
+    super
   end
 
   def columns_match_resource

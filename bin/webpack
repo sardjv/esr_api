@@ -3,11 +3,20 @@
 ENV["RAILS_ENV"] ||= ENV["RACK_ENV"] || "development"
 ENV["NODE_ENV"]  ||= "development"
 
+# Webpack 4 (bundled with Webpacker 5) uses MD4 hashing via the OpenSSL
+# provider, which Node 17+ disables by default. Re-enable the legacy
+# provider so compilation works on modern Node releases.
+ENV["NODE_OPTIONS"] = "--openssl-legacy-provider #{ENV['NODE_OPTIONS']}".strip
+
 require "pathname"
 ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../../Gemfile",
   Pathname.new(__FILE__).realpath)
 
 require "bundler/setup"
+
+# Stdlib libraries that became bundled gems in Ruby 3.3+ but are referenced
+# unconditionally by Rails 6.1 / webpacker.
+%w[logger base64 bigdecimal mutex_m drb observer].each { |lib| require lib }
 
 require "webpacker"
 require "webpacker/webpack_runner"

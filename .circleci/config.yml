@@ -9,7 +9,7 @@ jobs:
   rubocop:
     parallelism: 1
     docker:
-      - image: cimg/ruby:3.0.0-node
+      - image: cimg/ruby:3.3.6-node
     steps:
       - checkout
       - ruby/install-deps
@@ -19,7 +19,7 @@ jobs:
   test:
     parallelism: 3
     docker:
-      - image: cimg/ruby:3.0.0-node
+      - image: cimg/ruby:3.3.6-node
       - image: mysql:8.0.22
         command: [--default-authentication-plugin=mysql_native_password]
         environment:

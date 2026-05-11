@@ -42,7 +42,7 @@ It renders the `_table` partial to display details about the resources.
 
   <%= link_to('Export to CSV', [:export, namespace, page.resource_name.to_s.pluralize, sanitized_order_params(page, :id).to_h.merge(format: :csv)], class: 'button') if valid_action?(:export) %>
 
-  <% if valid_action?(:new) && show_action?(:new, new_resource) %>
+  <% if valid_action?(:new) && accessible_action?(new_resource, :new) %>
     <div class='nhsuk-action-link'>
       <%= link_to(
         [:new, namespace, page.resource_path],

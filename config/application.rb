@@ -32,8 +32,8 @@ module EsrApi # rubocop:disable Style/ClassAndModuleChildren
 
     # Set Redis as the back-end for the cache.
     config.cache_store = :redis_cache_store, {
-      url: "redis://:#{ENV['REDIS_PASSWORD']}@redis:#{ENV['REDIS_PORT']}/0",
-      namespace: ENV['REDIS_CACHE_NAMESPACE']
+      url: "redis://:#{ENV.fetch('REDIS_PASSWORD', nil)}@redis:#{ENV.fetch('REDIS_PORT', nil)}/0",
+      namespace: ENV.fetch('REDIS_CACHE_NAMESPACE', nil)
     }
 
     config.active_record.belongs_to_required_by_default = false
@@ -41,6 +41,6 @@ module EsrApi # rubocop:disable Style/ClassAndModuleChildren
     # Set Sidekiq as the back-end for Active Job.
     config.active_job.queue_adapter = :sidekiq
     config.active_job.queue_name_prefix =
-      "#{ENV['ACTIVE_JOB_QUEUE_PREFIX']}_#{Rails.env}"
+      "#{ENV.fetch('ACTIVE_JOB_QUEUE_PREFIX', nil)}_#{Rails.env}"
   end
 end
